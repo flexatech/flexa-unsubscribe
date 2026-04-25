@@ -1,0 +1,158 @@
+<?php
+/**
+ * Public unsubscribe page template.
+ *
+ * Loaded via `include()` from `includes/frontend.php` after HMAC token
+ * verification. Available from the parent scope:
+ *   - $status ('success' | 'error')
+ *   - $email  (decoded URL param, only valid when $status === 'success')
+ *   - $token  (HMAC-verified, only valid when $status === 'success')
+ *
+ * All other variables defined here are template-scope only and prefixed
+ * `$flexa_tech_su_*` to satisfy the WP coding standards.
+ */
+
+if (!defined('ABSPATH')) exit;
+
+// Appearance settings.
+$flexa_tech_su_bg_color           = flexa_tech_su_get_setting('bg_color', '#f0f2f5');
+$flexa_tech_su_box_bg_color       = flexa_tech_su_get_setting('box_bg_color', '#ffffff');
+$flexa_tech_su_text_color         = flexa_tech_su_get_setting('text_color', '#333333');
+$flexa_tech_su_heading_color      = flexa_tech_su_get_setting('heading_color', '#495057');
+$flexa_tech_su_button_bg_color    = flexa_tech_su_get_setting('button_bg_color', '#00aad0');
+$flexa_tech_su_button_text_color  = flexa_tech_su_get_setting('button_text_color', '#ffffff');
+$flexa_tech_su_button_hover_color = flexa_tech_su_get_setting('button_hover_color', '#0099bb');
+$flexa_tech_su_font_family        = flexa_tech_su_get_setting('font_family', 'sans-serif');
+$flexa_tech_su_font_size          = flexa_tech_su_get_setting('font_size', '14px');
+
+// Text content settings.
+$flexa_tech_su_title_text        = flexa_tech_su_get_setting('title_text', 'Unsubscribed');
+$flexa_tech_su_success_message   = flexa_tech_su_get_setting('success_message', 'Email {email} is removed.');
+$flexa_tech_su_button_text       = flexa_tech_su_get_setting('button_text', 'Submit Feedback');
+$flexa_tech_su_thank_you_title   = flexa_tech_su_get_setting('thank_you_title', 'Thank you for your feedback!');
+$flexa_tech_su_thank_you_message = flexa_tech_su_get_setting('thank_you_message', 'We greatly appreciate your input and will use this information to improve our content in the future.');
+$flexa_tech_su_home_link_text    = flexa_tech_su_get_setting('home_link_text', 'Back to Home Page');
+$flexa_tech_su_error_title       = flexa_tech_su_get_setting('error_title', 'We\'re Sorry, This Link Is No Longer Valid');
+$flexa_tech_su_error_message     = flexa_tech_su_get_setting('error_message', 'The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance.');
+
+// {email} placeholder substitution. Email is escaped before being wrapped in <strong>.
+$flexa_tech_su_success_message = str_replace(
+    '{email}',
+    '<strong>' . esc_html($email) . '</strong>',
+    $flexa_tech_su_success_message
+);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unsubscribe - Flexa</title>
+    <style>
+        body {
+            font-family: <?php echo esc_attr($flexa_tech_su_font_family); ?>;
+            background: <?php echo esc_attr($flexa_tech_su_bg_color); ?>;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: <?php echo esc_attr($flexa_tech_su_text_color); ?>;
+            font-size: <?php echo esc_attr($flexa_tech_su_font_size); ?>;
+        }
+        .flexa-tech-su-box {
+            background: <?php echo esc_attr($flexa_tech_su_box_bg_color); ?>;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .flexa-tech-su-btn {
+            background: <?php echo esc_attr($flexa_tech_su_button_bg_color); ?>;
+            color: <?php echo esc_attr($flexa_tech_su_button_text_color); ?>;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .flexa-tech-su-btn:hover {
+            background: <?php echo esc_attr($flexa_tech_su_button_hover_color); ?>;
+        }
+        h2 {
+            color: <?php echo esc_attr($flexa_tech_su_heading_color); ?>;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="flexa-tech-su-box">
+        <?php if ($status === 'success'): ?>
+            <div id="s1">
+                <h2><?php echo esc_html($flexa_tech_su_title_text); ?></h2>
+                <p><?php echo wp_kses_post($flexa_tech_su_success_message); ?></p>
+                <form id="f-survey">
+                    <input type="hidden" name="email" value="<?php echo esc_attr($email); ?>">
+                    <input type="hidden" name="token" value="<?php echo esc_attr($token); ?>">
+                    <select name="reason" style="width:100%; margin-bottom:15px; padding:8px;" required>
+                        <option value="">-- Please select a reason --</option>
+                        <?php
+                        $flexa_tech_su_reasons = flexa_tech_su_get_reasons();
+                        if (!empty($flexa_tech_su_reasons)):
+                            foreach ($flexa_tech_su_reasons as $flexa_tech_su_reason):
+                        ?>
+                            <option value="<?php echo esc_attr($flexa_tech_su_reason->reason_text); ?>">
+                                <?php echo esc_html($flexa_tech_su_reason->reason_text); ?>
+                            </option>
+                        <?php
+                            endforeach;
+                        else:
+                        ?>
+                            <option value="Other">Other</option>
+                        <?php endif; ?>
+                    </select>
+                    <button type="submit" class="flexa-tech-su-btn"><?php echo esc_html($flexa_tech_su_button_text); ?></button>
+                </form>
+            </div>
+            <div id="s2" style="display:none">
+                <h2><?php echo esc_html($flexa_tech_su_thank_you_title); ?></h2>
+                <p><?php echo esc_html($flexa_tech_su_thank_you_message); ?></p>
+                <div style="margin-top: 20px;">
+                    <a href="<?php echo esc_url(flexa_generate_resubscribe_link($email)); ?>"
+                       style="color: <?php echo esc_attr($flexa_tech_su_button_bg_color); ?>; text-decoration: underline; margin-right: 15px;">
+                        Re-subscribe to emails
+                    </a>
+                    <a href="/" class="flexa-tech-su-btn"><?php echo esc_html($flexa_tech_su_home_link_text); ?></a>
+                </div>
+            </div>
+            <script>
+                (function () {
+                    var endpoint = <?php echo wp_json_encode(esc_url_raw(rest_url('flexa-unsubscribe/v1/reason'))); ?>;
+                    document.getElementById('f-survey').onsubmit = function (e) {
+                        e.preventDefault();
+                        var fd = new FormData(this);
+                        fetch(endpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify({
+                                email: fd.get('email'),
+                                token: fd.get('token'),
+                                reason: fd.get('reason')
+                            })
+                        }).then(function () {
+                            document.getElementById('s1').style.display = 'none';
+                            document.getElementById('s2').style.display = 'block';
+                        });
+                    };
+                })();
+            </script>
+        <?php else: ?>
+            <h2 style="color:#dc3545"><?php echo esc_html($flexa_tech_su_error_title); ?></h2>
+            <p><?php echo wp_kses_post($flexa_tech_su_error_message); ?></p>
+            <a href="/" class="flexa-tech-su-btn"><?php echo esc_html($flexa_tech_su_home_link_text); ?></a>
+        <?php endif; ?>
+    </div>
+</body>
+</html>

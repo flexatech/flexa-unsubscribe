@@ -1,0 +1,41 @@
+.flexa-unsubscribe-ui {
+  @apply text-foreground text-sm;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+* {
+  @apply border-border outline-ring/50 hover:ring-primary-accent ring-primary;
+}
+
+.flexa-unsubscribe-ui {
+  :where(button, code, form, h1, h2, h3, h4, h5, h6, input, ul, ol, li, nav, p, textarea) {
+    @apply m-0 p-0;
+  }
+}
+
+.flexa-unsubscribe-ui #wpcontent {
+  padding-left: 0 !important;
+}
+
+.flexa-unsubscribe-ui .notice,
+.flexa-unsubscribe-ui .notice-info,
+.flexa-unsubscribe-ui .notice-warning,
+.flexa-unsubscribe-ui .notice-error,
+.flexa-unsubscribe-ui .notice-success,
+.flexa-unsubscribe-ui .error,
+.flexa-unsubscribe-ui .success,
+.flexa-unsubscribe-ui .info,
+.flexa-unsubscribe-ui .warning,
+.flexa-unsubscribe-ui #screen-meta,
+.flexa-unsubscribe-ui #screen-meta-links {
+  display: none;
+}

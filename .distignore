@@ -1,0 +1,32 @@
+.vscode
+.DS_Store
+.git/
+.gitignore
+.distignore
+.claude
+.claude/
+node_modules/
+apps/
+phpcs.xml
+log.xml
+composer.json
+composer.lock
+package.json
+package-lock.json
+pnpm-lock.yaml
+release.sh
+flexa-unsubscribe.zip
+build/
+
+# Internal docs / planning — kept in the repo, excluded from the .zip
+CLAUDE.md
+PRO-FEATURES.md
+PHASE-2-PLAN.md
+PHASE-2-TASKS.md
+PHASE-3-PLAN.md
+PHASE-3-TASKS.md
+PHASE-4-PLAN.md
+PHASE-4-TASKS.md
+
+# Generated Plugin Check reports
+flexa-unsubscribe-flexa-unsubscribe-php-*.md
