@@ -1,4 +1,4 @@
-=== Flexa Secure Unsubscribe ===
+=== Flexa Unsubscribe ===
 Contributors: flexatech
 Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
@@ -12,7 +12,7 @@ Professional email unsubscribe management with HMAC tokens, auto-appended unsubs
 
 == Description ==
 
-**Flexa Secure Unsubscribe** adds a complete unsubscribe workflow to every email WordPress sends, with a fully-branded admin UI for managing opt-outs, analytics, and the public unsubscribe page.
+**Flexa Unsubscribe** adds a complete unsubscribe workflow to every email WordPress sends, with a fully-branded admin UI for managing opt-outs, analytics, and the public unsubscribe page.
 
 * **Auto-appends a secure unsubscribe button** to outgoing single-recipient emails. Tokens are HMAC-signed using the `AUTH_KEY` in `wp-config.php`, so no database lookup is needed to verify a link.
 * **Blocks outbound mail to unsubscribed addresses** before it reaches the mail server. Blocked attempts are logged to a dedicated audit table.
