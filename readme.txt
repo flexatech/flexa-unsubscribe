@@ -30,7 +30,16 @@ Starting with v3.0.0 the admin is a React single-page application with seven scr
 * **Settings** — enable/disable auto-append + blocking, tune the exclude-keywords list.
 * **Appearance** — 19 tokens (colors, typography, copy) across three tabs with a live preview panel.
 
+
 All screens are powered by a REST API under `/wp-json/flexa-unsubscribe/v1/`, so external integrations can plug in too.
+
+**Source code for compiled JavaScript and CSS**
+
+The plugin ships with minified/compiled JavaScript and CSS in `assets/dist/`. The human-readable source code for these assets is **publicly available** and maintained at:
+
+**https://github.com/flexatech/flexa-unsubscribe**
+
+Source lives in the `apps/admin` (admin UI) and `apps/frontend` (product page UI) directories. Build tools used: **pnpm**, **Vite**, **React**, **TypeScript**. To build from source: clone the repository, run `pnpm install` from the plugin root, then build the admin and frontend apps (see the repository README for exact commands). This allows the code to be reviewed, studied, and forked.
 
 == Installation ==
 
