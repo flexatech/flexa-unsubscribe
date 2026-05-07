@@ -24,7 +24,7 @@ define('FLEXA_TECH_SU_DB_VERSION', 2);
 // undefined, the built bundle at assets/dist/admin/ is used instead.
 // Flip to true during local work; must be false for any shipped release.
 if (!defined('FLEXA_TECH_SU_IS_DEVELOPMENT')) {
-    define('FLEXA_TECH_SU_IS_DEVELOPMENT', false);
+    define('FLEXA_TECH_SU_IS_DEVELOPMENT', true);
 }
 
 // Vite dev server origin. Must match `server.origin` (or the default) in
