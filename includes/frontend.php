@@ -25,9 +25,10 @@ function flexa_handle_unsubscribe_logic() {
     $action = sanitize_key(wp_unslash($_GET['flexa_action']));
 
     if ($action === 'unsubscribe') {
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- HMAC-verified below; sanitize_email runs in the DB layer.
-        $email = isset($_GET['email']) ? urldecode(wp_unslash($_GET['email'])) : '';
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- token is hex-only; validated by hash_equals.
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- input is unslashed and sanitized below.
+        $email_raw = isset($_GET['email']) ? wp_unslash($_GET['email']) : '';
+        $email = sanitize_email(urldecode($email_raw));
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- token is validated by hash_equals against expected HMAC.
         $token = isset($_GET['token']) ? wp_unslash($_GET['token'])             : '';
 
         if ($email !== '' && $token !== '' && hash_equals(hash_hmac('sha256', $email, AUTH_KEY), $token)) {
@@ -40,9 +41,10 @@ function flexa_handle_unsubscribe_logic() {
         include FLEXA_TECH_SU_PATH . 'templates/unsubscribe-page.php';
         exit;
     } elseif ($action === 'resubscribe') {
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- HMAC-verified below; sanitize_email runs in the DB layer.
-        $email = isset($_GET['email']) ? urldecode(wp_unslash($_GET['email'])) : '';
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- token is hex-only; validated by hash_equals.
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- input is unslashed and sanitized below.
+        $email_raw = isset($_GET['email']) ? wp_unslash($_GET['email']) : '';
+        $email = sanitize_email(urldecode($email_raw));
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- token is validated by hash_equals against expected HMAC.
         $token = isset($_GET['token']) ? wp_unslash($_GET['token'])             : '';
 
         if ($email !== '' && $token !== '' && hash_equals(hash_hmac('sha256', $email, AUTH_KEY), $token)) {
