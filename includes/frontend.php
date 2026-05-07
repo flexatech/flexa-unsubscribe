@@ -10,24 +10,21 @@ if (!defined('ABSPATH')) exit;
  */
 add_action('template_redirect', 'flexa_handle_unsubscribe_logic');
 function flexa_handle_unsubscribe_logic() {
+    // phpcs:disable WordPress.Security.NonceVerification.Recommended -- Public unsubscribe links are stateless; HMAC token validation below is the CSRF protection layer.
     // The `?flexa_action=…` URLs are unauthenticated public links protected
     // by an HMAC token — there is no cookie nonce to verify. The HMAC check
-    // below replaces the nonce semantics. `urldecode` runs on the email
-    // because the link is built with `urlencode($email)` in
-    // `flexa_generate_unsubscribe_link`. Email is normalized here with
-    // `sanitize_email` after `urldecode`; DB writes still call `sanitize_email`.
-    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+    // below replaces the nonce semantics. Email comes from `$_GET`, which PHP
+    // already URL-decodes when parsing the query string, then we normalize it
+    // with `sanitize_email`; DB writes still call `sanitize_email`.
     if (!isset($_GET['flexa_action'])) {
         return;
     }
 
-    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
     $action = sanitize_key(wp_unslash($_GET['flexa_action']));
 
     if ($action === 'unsubscribe') {
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- HMAC replaces nonce; email/token sanitized inline.
         $email = isset($_GET['email'])
-            ? sanitize_email(urldecode(wp_unslash((string) $_GET['email'])))
+            ? sanitize_email(wp_unslash($_GET['email']))
             : '';
         $token = isset($_GET['token'])
             ? sanitize_text_field(wp_unslash((string) $_GET['token']))
@@ -43,9 +40,8 @@ function flexa_handle_unsubscribe_logic() {
         include FLEXA_TECH_SU_PATH . 'templates/unsubscribe-page.php';
         exit;
     } elseif ($action === 'resubscribe') {
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- HMAC replaces nonce; email/token sanitized inline.
         $email = isset($_GET['email'])
-            ? sanitize_email(urldecode(wp_unslash((string) $_GET['email'])))
+            ? sanitize_email(wp_unslash($_GET['email']))
             : '';
         $token = isset($_GET['token'])
             ? sanitize_text_field(wp_unslash((string) $_GET['token']))
@@ -61,4 +57,5 @@ function flexa_handle_unsubscribe_logic() {
         include FLEXA_TECH_SU_PATH . 'templates/resubscribe-page.php';
         exit;
     }
+    // phpcs:enable WordPress.Security.NonceVerification.Recommended
 }
