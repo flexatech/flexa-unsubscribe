@@ -1,0 +1,739 @@
+# Flexa Unsubscribe — Features
+
+A complete feature inventory for **Flexa Unsubscribe** v3.0.0. Use this as
+both a tester's checklist and a new developer's mental map: each feature
+lists the **user-facing behaviour**, **how to test it manually**, the
+**code locations** where the behaviour lives, and any **edge cases**
+worth poking at.
+
+> **Note on the name prefix.** The codebase uses two prefixes that are
+> easy to confuse:
+>
+> - PHP functions, options, constants, and DB table names use
+>   `flexa_tech_su_*` (e.g. `flexa_tech_su_get_setting`,
+>   `flexa_tech_su_enable_blocking`, `FLEXA_TECH_SU_TABLE`).
+> - The PHP namespace, REST namespace, admin slug, and JS bundle use
+>   `flexa-unsubscribe` / `FlexaUnsubscribe\` (e.g.
+>   `/wp-json/flexa-unsubscribe/v1/`, `?page=flexa-unsubscribe`).
+>
+> When grepping, pick the right one for the layer you're touching.
+
+---
+
+## 1. Email pipeline (the two `wp_mail` filters)
+
+The plugin's core value lives here: every outgoing `wp_mail` call passes
+through two filters in `includes/core.php`.
+
+### 1.1 Block outgoing mail to unsubscribed recipients
+
+**What it does.** When `wp_mail` is called, recipients that exist in the
+unsubscribe list (and have not re-subscribed) are stripped from the `to`
+field. If every recipient was unsubscribed, `to` is emptied and WP
+short-circuits the send. Each blocked attempt is logged to the
+`{prefix}flexa_blocked_emails` audit table along with subject, from
+address, and headers.
+
+- **Toggle:** Settings → "Block unsubscribed recipients" (option
+  `flexa_tech_su_enable_blocking`, default `1`).
+- **Filter priority:** `5` — runs before auto-append.
+- **Code:** `flexa_tech_su_block_unsubscribed_emails()` in
+  `includes/core.php`.
+
+**How to test.**
+1. Add an email (e.g. `test@example.com`) to the Unsubscribes list (insert
+   directly via SQL, or trigger via the public unsubscribe URL).
+2. From a separate plugin / theme code, run
+   `wp_mail('test@example.com', 'Newsletter', 'Hello')`.
+3. Confirm the mail does **not** arrive (check your dev mail catcher /
+   `wp_mail` debug log) and that a row appears in **Unsubscribe →
+   Blocked emails**.
+4. Toggle the setting off. Repeat — the mail should now go through and
+   no row should be added.
+5. Multi-recipient test: pass an array `['unsub@x.com', 'good@y.com']`
+   — only `unsub@x.com` should be stripped, `good@y.com` still receives.
+
+### 1.2 Auto-append unsubscribe link
+
+**What it does.** Appends an HTML "Unsubscribe" button (with HMAC-signed
+URL) to single-recipient outgoing emails. Plain-text messages are
+converted to HTML (`nl2br(esc_html(...))`) and a
+`Content-Type: text/html` header is added if missing.
+
+- **Toggle:** Settings → "Auto-append unsubscribe link" (option
+  `flexa_tech_su_enable_auto_append`, default OFF).
+- **Filter priority:** `10` (default) — runs after blocking.
+- **Code:** `flexa_auto_append_unsubscribe_link()` in `includes/core.php`.
+
+**Skip conditions** (each is independently testable):
+- Multi-recipient (`to` is an array OR comma-separated string).
+- Subject contains any of the configured exclude keywords (case-
+  insensitive substring match).
+- Message already contains the marker `<!-- FLEXA_UNSUBSCRIBE_ADDED -->`.
+- Message already contains `flexa_action=unsubscribe` or any
+  `<a … unsubscribe …>` link from another source.
+- Per-request dedupe: same recipient, same request → only first call
+  gets the button (static `$processed_emails` cache).
+
+**How to test.**
+1. Enable auto-append in Settings.
+2. Send `wp_mail('a@b.com', 'Newsletter', 'Plain text body')`. Inspect
+   the captured email — should be HTML, with the unsubscribe button at
+   the bottom and the `<!-- FLEXA_UNSUBSCRIBE_ADDED -->` marker.
+3. Send the same call again in the same PHP request. The second send
+   must NOT get a second button.
+4. Send `wp_mail('a@b.com', 'Order #123', '...')`. With default exclude
+   keywords, this should NOT get a button (subject contains "Order").
+5. Send to multiple recipients. No button.
+6. Send a message that already includes an unsubscribe link of any
+   kind. No button is appended.
+
+### 1.3 Exclude-keywords list (shared)
+
+**What it does.** A single comma-separated list, applied to BOTH
+filters. If the email's subject contains any of these substrings
+(case-insensitive), the email is neither blocked nor decorated — used
+to protect transactional mail.
+
+- **Setting:** Settings → "Exclude keywords" (option
+  `flexa_tech_su_exclude_keywords`, default `Order, Password, Invoice`).
+- **Cap:** 500 characters server-side
+  (`SettingsRestController::update_general`).
+
+**How to test.**
+1. Set the list to `Order, Password, Invoice`.
+2. Mark `customer@x.com` as unsubscribed.
+3. Send `wp_mail('customer@x.com', 'Your Order has shipped', '…')` —
+   the mail must go through (NOT blocked, NOT auto-appended).
+4. Send `wp_mail('customer@x.com', 'Newsletter', '…')` — blocked.
+
+---
+
+## 2. Public unsubscribe / re-subscribe URLs
+
+### 2.1 HMAC-signed token scheme
+
+Every link is `?flexa_action=…&email=…&token=…`, where
+`token = hash_hmac('sha256', email, AUTH_KEY)`. Verification is
+stateless (no DB lookup), uses `hash_equals` to defend against timing
+attacks, and shares a key across both actions because the key is just
+the email.
+
+- **Generators:** `flexa_generate_unsubscribe_link()`,
+  `flexa_generate_resubscribe_link()` in `includes/core.php`.
+- **Verifier:** `flexa_handle_unsubscribe_logic()` in
+  `includes/frontend.php`.
+
+**Important caveat.** Because the HMAC key is the WP `AUTH_KEY`
+constant, **rotating `AUTH_KEY` invalidates every existing
+unsubscribe/re-subscribe link in the wild.** Document this before
+recommending key rotation.
+
+**How to test.**
+1. Get a valid link (use `flexa_generate_unsubscribe_link('me@x.com')`
+   in WP-CLI shell, or the auto-appended link in a test email).
+2. Visit it — should land on the success page.
+3. Tamper with the `token` query param (change a single character) —
+   should land on the error page, no DB write.
+4. Tamper with `email` while keeping the token — error page.
+5. Verify `hash_equals` is in use (visual inspection of `frontend.php`).
+
+### 2.2 Unsubscribe page (`?flexa_action=unsubscribe`)
+
+- Loads `templates/unsubscribe-page.php` with `$status`, `$email`,
+  `$token` available, then `exit`s.
+- On success: writes the email + token to `{prefix}flexa_unsubscribes`
+  via `flexa_tech_su_save_unsubscribe()` (uses `$wpdb->replace`, so
+  re-unsubscribing the same address is idempotent).
+- Renders a feedback form with the configurable reasons dropdown. On
+  submit it `POST`s to `/flexa-unsubscribe/v1/reason` (see §6.7) and
+  swaps to a "Thank you" panel that includes a re-subscribe link and a
+  "Back to Home" button.
+- On error: shows the configured error title + HTML message.
+
+**How to test.**
+1. Visit a valid unsubscribe URL → success state visible.
+2. Confirm `wp_*_flexa_unsubscribes` got a new row.
+3. Pick a reason from the dropdown, submit — Network tab should show a
+   `POST /wp-json/flexa-unsubscribe/v1/reason`, then the page swaps to
+   the thank-you panel.
+4. Refresh — page now redoes the unsubscribe (idempotent), reason field
+   resets unless you submit again.
+5. Visit the same URL again — still works (no "already unsubscribed"
+   error).
+
+### 2.3 Re-subscribe page (`?flexa_action=resubscribe`)
+
+- Loads `templates/resubscribe-page.php`.
+- On success: sets `resubscribed_at = current_time('mysql')` on the
+  matching row via `flexa_tech_su_resubscribe()`.
+- The unsubscribe-list "is unsubscribed" check treats both `NULL` and
+  `'0000-00-00 00:00:00'` as unsubscribed — so a successfully
+  re-subscribed address is no longer blocked.
+
+**How to test.**
+1. Unsubscribe an address as above.
+2. From the thank-you panel, click "Re-subscribe to emails".
+3. Confirm success page renders.
+4. Confirm `wp_mail` to that address is no longer blocked (re-test §1.1).
+5. Confirm the row appears in **Re-subscribed** in the admin.
+
+### 2.4 Public page customisation
+
+Every visible string and color on both templates is driven by an option.
+See §4.7 for the full inventory. The success and error messages support
+HTML (filtered through `wp_kses_post` on save); other text fields are
+plain-text only.
+
+The `success_message` field supports a `{email}` placeholder that is
+replaced with `<strong>{email}</strong>` (escaped via `esc_html`).
+
+---
+
+## 3. Admin UI (React SPA at `?page=flexa-unsubscribe`)
+
+The admin is a single React 18 + TypeScript + Vite application,
+mounted at `<div id="flexa-unsubscribe">` on the top-level **Unsubscribe**
+menu item (position 60). Hash-based router; URL state on every list
+screen is bookmarkable as `…#/unsubscribes?page=2&order_by=email&order=desc`.
+
+Build: `cd apps/admin && pnpm install && pnpm build`. Output goes to
+`assets/dist/admin/` (`js/main.js`, `style.css`).
+
+Dev mode: set `define('FLEXA_TECH_SU_IS_DEVELOPMENT', true)` in
+`includes/constants.php` (or `wp-config.php`), then `pnpm dev`. The
+React Refresh runtime is injected on `admin_footer` only.
+
+### 3.1 Dashboard (`#/`)
+
+`apps/admin/src/pages/Dashboard.tsx`
+
+**What it shows.**
+- Four KPI cards: Total unsubscribes, This month (with month-over-month
+  trend badge), Re-subscribed (total), Blocked emails.
+- Bar chart of unsubscribes over time. Period switcher: Last 7 days /
+  Last 30 days / Last 12 months.
+- Pie chart of the top 10 unsubscribe reasons.
+
+**How to test.**
+1. Insert a few rows across different `unsubscribed_at` dates.
+2. Confirm the cards reflect the correct totals.
+3. Switch between the 3 time periods on the bar chart — bins should
+   update.
+4. Confirm month-change badge: green ↓ when this month is fewer than
+   last month, red ↑ when more, "0%" otherwise.
+5. With a fresh DB (no unsubscribes), every chart should still render
+   without errors (empty pie / empty bars).
+
+### 3.2 Unsubscribes list (`#/unsubscribes`)
+
+`apps/admin/src/pages/unsubscribes/Unsubscribes.tsx`
+
+- Server-side paginated, server-side sortable.
+- Per-row delete (with confirm dialog).
+- "Export CSV" button → `admin-post.php?action=flexa_export_csv`
+  (nonce-protected, streamed).
+- URL state: `?page=N&order_by=email|unsubscribed_at&order=ASC|DESC`.
+
+**How to test.** With > 20 rows in the table:
+1. Paginate → URL updates → reload → table re-opens to the same page.
+2. Sort by email asc/desc, then by unsubscribed_at — order changes.
+3. Click delete on one row, confirm — row disappears, total in footer
+   decrements; pagination clamps if you were on the last page and it
+   went empty.
+4. Click Export CSV — downloads `unsubscribes-YYYY-MM-DD.csv` with a
+   UTF-8 BOM, `Email,Reason,Date` header, and one row per record.
+5. Reload the React page. State must round-trip from URL.
+
+### 3.3 Blocked emails list (`#/blocked`)
+
+`apps/admin/src/pages/blocked/Blocked.tsx`
+
+Same shape as Unsubscribes plus:
+- "Clear all" button → truncates `{prefix}flexa_blocked_emails`.
+- CSV export endpoint: `flexa_export_blocked_csv` (header columns
+  Email, Subject, From Email, From Name, Blocked At).
+
+**How to test.**
+1. Trigger several blocked sends (§1.1).
+2. List should show one row per attempt — same address can appear
+   many times.
+3. Per-row delete works.
+4. "Clear all" prompts for confirm; on confirm the table empties.
+5. CSV export downloads and includes all currently visible rows.
+
+### 3.4 Re-subscribed list (`#/resubscribed`)
+
+`apps/admin/src/pages/resubscribed/Resubscribed.tsx`
+
+Read-only (no delete, no clear). Lists rows from
+`{prefix}flexa_unsubscribes` where `resubscribed_at` is non-null. CSV
+export endpoint: `flexa_export_resubscribed_csv`.
+
+**How to test.**
+1. Re-subscribe a previously unsubscribed address (§2.3).
+2. Confirm it appears here with both `unsubscribed_at` and
+   `resubscribed_at` filled.
+3. CSV columns: Email, Unsubscribed At, Re-subscribed At, Reason
+   (`N/A` if blank).
+
+### 3.5 Reasons (`#/reasons`)
+
+`apps/admin/src/pages/reasons/Reasons.tsx`
+
+Manages the dropdown that shows up on the public unsubscribe form.
+
+- Click-to-edit inline rows.
+- ↑ / ↓ buttons reorder; calls
+  `POST /reasons/reorder` with `{ order: [id1, id2, …] }`. The arrows
+  are disabled while a reorder is pending.
+- Add-new form on the right column.
+- Per-row delete with confirm.
+
+Defaults seeded on first activation: "Too many emails", "Content not
+relevant", "Other".
+
+**How to test.**
+1. Add a new reason → it appears at the bottom of the list.
+2. Click an existing reason → row turns into an editable input → save
+   → text persists.
+3. Reorder using arrows → public unsubscribe page (§2.2) reflects the
+   new order.
+4. Delete a reason that was used by past unsubscribes — past rows are
+   unaffected (reason text stored in `flexa_unsubscribes.reason`),
+   future submitters just won't see the deleted option.
+
+### 3.6 Settings (`#/settings`)
+
+`apps/admin/src/pages/settings/Settings.tsx`
+
+Three controls:
+- **Auto-append unsubscribe link** (Switch).
+- **Block unsubscribed recipients** (Switch).
+- **Exclude keywords** (Input, max 500 chars).
+
+Sticky save footer with "Unsaved changes" indicator. RHF + Zod;
+`useDirtyNavigationGuard` blocks both router nav and native
+`beforeunload` while dirty.
+
+**How to test.**
+1. Toggle a switch → "Save changes" enables, "Unsaved changes" pill
+   shows.
+2. Try to navigate via the topnav while dirty → confirm dialog.
+3. Try to refresh the browser tab while dirty → native
+   `beforeunload` prompt.
+4. Save → form goes back to pristine; reload → values still there.
+5. Type 600 characters into Exclude keywords → server caps at 500;
+   the form re-renders with the truncated saved value.
+
+### 3.7 Appearance (`#/appearance?tab=…`)
+
+`apps/admin/src/pages/appearance/Appearance.tsx`
+
+Single form spanning three tabs (Colors / Typography / Text) plus a
+**live preview panel** (`AppearancePreview.tsx`) that re-renders a
+simplified replica of the public unsubscribe page as you type.
+
+- All tabs stay mounted (`<TabsContent forceMount hidden={…}>`) so
+  edits in one tab persist while you switch to another.
+- Active tab is URL-synced (`?tab=typography`).
+- Preview has a 4-state switcher: Success / Thank-You / Error /
+  Re-subscribe — pick the state you're styling.
+- Save behaviour mirrors Settings (dirty-state guard + sticky footer).
+
+19 tokens, all covered in §4.7 below.
+
+**How to test.**
+1. Change `button_bg_color` → preview button colour updates within a
+   keystroke.
+2. Switch the preview's "state" selector to "Error" — `error_message`
+   styling reflects.
+3. Try entering an invalid hex (`#zzz`) — Zod schema rejects on save,
+   server also normalises invalid input to `#000000`.
+4. Try entering `font_size: 14` (no unit) — rejected (must match
+   `/^\d+(\.\d+)?(px|em|rem|%)$/`).
+5. Save successfully, then visit a real unsubscribe URL — every token
+   should match the preview.
+
+---
+
+## 4. Persisted data
+
+### 4.1 Database tables
+
+Created (or migrated) by `flexa_tech_su_create_db()` in
+`includes/database.php`. Schema version is tracked in the
+`flexa_tech_su_db_version` option; a `plugins_loaded` runner re-runs
+`create_db` whenever the stored version is below
+`FLEXA_TECH_SU_DB_VERSION` (currently `2`).
+
+| Table | Purpose | Key columns |
+|---|---|---|
+| `{prefix}flexa_unsubscribes` | One row per email; serves both unsubscribes and re-subscribes | `email` UNIQUE, `unsubscribed_at`, `resubscribed_at` (NULL or `0000-00-00 00:00:00` = currently unsubscribed), `token`, `reason`. Indexes on `unsubscribed_at` and `resubscribed_at`. |
+| `{prefix}flexa_blocked_emails` | Audit log of mail attempts that were stripped by the blocking filter | `email`, `subject`, `from_email`, `from_name`, `headers`, `blocked_at`. |
+| `{prefix}flexa_unsubscribe_reasons` | Admin-managed dropdown for the public unsubscribe form | `reason_text`, `sort_order`. Seeded with three defaults on first activation. |
+
+**Migration cases worth testing.**
+- Fresh activation → all three tables exist + reasons table has 3 rows.
+- Plugin updated from a pre-resubscribe build → `resubscribed_at`
+  column is added in place; existing data is preserved (`flexa_tech_su_create_db()` uses `dbDelta` + idempotent `ALTER TABLE ... ADD COLUMN/INDEX` checks).
+- DB-version bump → `flexa_tech_su_db_version` option ends up equal to
+  `FLEXA_TECH_SU_DB_VERSION`.
+
+### 4.2 General settings (option keys)
+
+| Option key | Type | Default | Notes |
+|---|---|---|---|
+| `flexa_tech_su_enable_auto_append` | string `'1'` / `''` | `''` (off) | §1.2 |
+| `flexa_tech_su_enable_blocking` | string `'1'` / `''` | `'1'` (on) | §1.1 |
+| `flexa_tech_su_exclude_keywords` | string | `Order, Password, Invoice` | §1.3, capped 500 chars |
+
+Sanitisers are in `includes/settings.php` (legacy `register_setting`
+path) AND `Controllers\SettingsRestController` (REST path); both keep
+the same rules so updating from either surface yields the same value.
+
+### 4.3 Appearance — Colors (option keys)
+
+All 7 are sanitised to lowercase 6-char hex; bad input falls back to
+`#000000`.
+
+| Option | Default | Token name |
+|---|---|---|
+| `flexa_tech_su_bg_color` | `#f0f2f5` | Page background |
+| `flexa_tech_su_box_bg_color` | `#ffffff` | Card background |
+| `flexa_tech_su_text_color` | `#333333` | Body text |
+| `flexa_tech_su_heading_color` | `#495057` | Heading |
+| `flexa_tech_su_button_bg_color` | `#00aad0` | Button background |
+| `flexa_tech_su_button_text_color` | `#ffffff` | Button text |
+| `flexa_tech_su_button_hover_color` | `#0099bb` | Button hover background |
+
+### 4.4 Appearance — Typography
+
+| Option | Default | Allowed values |
+|---|---|---|
+| `flexa_tech_su_font_family` | `sans-serif` | enum of `sans-serif`, `Arial, sans-serif`, `Helvetica, sans-serif`, `Georgia, serif`, `'Times New Roman', serif`, `'Courier New', monospace` |
+| `flexa_tech_su_font_size` | `14px` | regex `^\d+(\.\d+)?(px\|em\|rem\|%)$` |
+
+### 4.5 Appearance — Text content (plain text)
+
+Sanitised with `sanitize_text_field`.
+
+| Option | Default |
+|---|---|
+| `flexa_tech_su_title_text` | `Unsubscribed` |
+| `flexa_tech_su_button_text` | `Submit Feedback` |
+| `flexa_tech_su_thank_you_title` | `Thank you for your feedback!` |
+| `flexa_tech_su_thank_you_message` | `We greatly appreciate your input…` |
+| `flexa_tech_su_home_link_text` | `Back to Home Page` |
+| `flexa_tech_su_error_title` | `We're Sorry, This Link Is No Longer Valid` |
+| `flexa_tech_su_resubscribe_title` | `Successfully Re-subscribed!` |
+| `flexa_tech_su_resubscribe_message` | `You have been successfully re-subscribed…` |
+
+### 4.6 Appearance — Text content (HTML allowed)
+
+Filtered through `wp_kses_post` on save (allows `<br>`, `<a>`, `<strong>`,
+`<em>`, etc.; strips `<script>`).
+
+| Option | Default | Special tokens |
+|---|---|---|
+| `flexa_tech_su_success_message` | `Email {email} is removed.` | `{email}` placeholder is replaced with `<strong>{email}</strong>` (escaped) |
+| `flexa_tech_su_error_message` | `The unsubscribe link you used appears to be invalid…` | — |
+
+### 4.7 Why some "messages" are HTML and others aren't
+
+Look at the templates: `success_message` and `error_message` are
+echoed unescaped (filtered through `wp_kses_post` on output, so they
+render the HTML). `thank_you_message` and `resubscribe_message` are
+`esc_html`'d on output, so even if the admin types HTML it renders as
+text. The Text tab's "HTML allowed" hint reflects this distinction.
+Don't treat all four as interchangeable.
+
+---
+
+## 5. CSV exports
+
+`includes/admin.php` registers three `admin-post.php` handlers, each
+streaming UTF-8 CSV with a BOM (Excel-friendly) via a generator that
+keyset-paginates the source table (no full result set buffered).
+
+Each handler:
+- Requires `manage_options`.
+- Verifies its own nonce via `check_admin_referer($action)`.
+- Sends `Content-Type: text/csv; charset=utf-8` and
+  `Content-Disposition: attachment; filename=…-YYYY-MM-DD.csv`.
+
+| Handler / action | Source | Columns |
+|---|---|---|
+| `flexa_export_csv` | `flexa_tech_su_stream_export_unsubscribes` | Email, Reason, Date |
+| `flexa_export_blocked_csv` | `flexa_tech_su_stream_export_blocked` | Email, Subject, From Email, From Name, Blocked At |
+| `flexa_export_resubscribed_csv` | `flexa_tech_su_stream_export_resubscribed` | Email, Unsubscribed At, Re-subscribed At, Reason |
+
+**Client-side wiring.** The React "Export CSV" button uses
+`buildExportUrl(action, nonceKey)` (`apps/admin/src/lib/export-url.ts`).
+Nonces are pre-generated by `Helper::get_js_config()` into
+`window.flexaUnsubscribe.admin_post_nonces` so the link is signed
+without an extra round-trip.
+
+**How to test.**
+1. From each list screen, click Export CSV → file downloads.
+2. Open in Excel / Numbers — non-ASCII data (e.g. accented names in
+   `from_name`) renders correctly thanks to the BOM.
+3. Visit the export URL with a stale nonce (e.g. copy URL, log out,
+   log back in, paste) — should `wp_die` with "This link has expired."
+4. Visit as a non-admin user (subscriber) — `wp_die('Unauthorized')`.
+
+---
+
+## 6. REST API (`/wp-json/flexa-unsubscribe/v1/`)
+
+Routes live in `includes/Controllers/`; registration is wired by
+`Engine\RestAPI`. Every admin-side route requires `manage_options`.
+
+### 6.1 List-response envelope
+
+Every paginated list endpoint returns:
+```json
+{ "items": [...], "total": 0, "page": 1, "per_page": 20 }
+```
+Produced by `Controllers\Support\TableRequestArgs::envelope`. Shared
+query args (`page`, `per_page` (max 100), `order_by` (whitelisted),
+`order` (ASC|DESC)) are also defined there.
+
+### 6.2 Analytics — read-only
+
+| Method | Path | Notes |
+|---|---|---|
+| GET | `/analytics/summary` | Returns `{ unsubscribes, resubscribes, blocked_count }` |
+| GET | `/analytics/by-date?period=7days\|30days\|12months\|all` | Time-series for the bar chart |
+| GET | `/analytics/by-reason?limit=10` | Pie-chart input |
+
+### 6.3 Unsubscribes
+
+| Method | Path |
+|---|---|
+| GET | `/unsubscribes?page=&per_page=&order_by=&order=` |
+| DELETE | `/unsubscribes/{id}` |
+
+### 6.4 Blocked
+
+| Method | Path |
+|---|---|
+| GET | `/blocked?page=&per_page=&order_by=&order=` |
+| DELETE | `/blocked/{id}` |
+| POST | `/blocked/clear` |
+
+### 6.5 Re-subscribed
+
+| Method | Path |
+|---|---|
+| GET | `/resubscribed?page=&per_page=&order_by=&order=` |
+
+(Read-only on purpose — re-subscribed rows live in the same table as
+unsubscribes; deletion happens via `/unsubscribes/{id}`.)
+
+### 6.6 Reasons (admin CRUD)
+
+| Method | Path | Notes |
+|---|---|---|
+| GET | `/reasons` | Returns list ordered by `sort_order ASC` |
+| POST | `/reasons` | `{ reason_text }`; appends with next sort order |
+| PUT | `/reasons/{id}` | `{ reason_text }` |
+| DELETE | `/reasons/{id}` | |
+| POST | `/reasons/reorder` | `{ order: number[] }` — rewrites `sort_order` 1..n |
+
+### 6.7 Save reason — public route
+
+`POST /reason` (singular). Called by the inline JS on the public
+unsubscribe page after the user picks a reason.
+
+- **Auth:** none (logged-out callers OK). The
+  `permission_callback` runs the same HMAC check the unsubscribe URL
+  uses; missing/wrong token → 403, no DB write.
+- **Body:** `{ email, token, reason }`.
+
+This is the only public REST route in the plugin.
+
+### 6.8 Settings
+
+| Method | Path | Notes |
+|---|---|---|
+| GET | `/settings/general` | `{ enable_auto_append, exclude_keywords, enable_blocking }` |
+| PUT | `/settings/general` | Booleans accepted as JSON `true`/`false`; persisted as `'1'`/`''` for legacy compatibility |
+| GET | `/settings/appearance` | All 19 tokens |
+| PUT | `/settings/appearance` | Per-field sanitisation matches the Zod schema client-side |
+
+**Boundary tests worth running.**
+1. `PUT /settings/appearance` with `bg_color = "#fff"` → server expands
+   to `#ffffff`; subsequent `GET` confirms.
+2. `PUT /settings/appearance` with `bg_color = "blue"` → falls back to
+   `#000000`.
+3. `PUT /settings/appearance` with `font_size = "20"` (no unit) →
+   server replaces with `14px`.
+4. `PUT /settings/appearance` with `success_message = '<script>alert(1)</script>Hi'`
+   → script is stripped (`wp_kses_post`); `Hi` remains.
+
+---
+
+## 7. Activation, deactivation, upgrade
+
+- **Activation hook** (`register_activation_hook`) runs
+  `flexa_tech_su_create_db()` → creates the three tables and seeds the
+  reasons table.
+- **Schema upgrade runner** on `plugins_loaded` priority 5 re-runs
+  `create_db()` and bumps `flexa_tech_su_db_version` whenever the
+  stored version is below the constant. `dbDelta` and the defensive
+  `ALTER` checks are idempotent, so this is safe on existing installs.
+- **Deactivation/uninstall:** the plugin does **not** drop tables or
+  delete options on deactivation. (No `register_uninstall_hook`
+  either.) Test installations therefore preserve their data across
+  reactivation cycles.
+
+**How to test.**
+1. Fresh install → activate → confirm 3 tables + 3 default reasons.
+2. Deactivate → reactivate → no errors, data preserved.
+3. Simulate "old install": before activating, manually drop the
+   `unsubscribed_at` index from `{prefix}flexa_unsubscribes`. Activate
+   (or just hit `wp-admin` once with the new version). Confirm the
+   index is recreated and the option `flexa_tech_su_db_version` reads
+   `2`.
+
+---
+
+## 8. WooCommerce compatibility
+
+`flexa-unsubscribe.php` declares compatibility with both HPOS
+(`custom_order_tables`) and Cart/Checkout Blocks via
+`Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility`.
+The plugin only hooks `wp_mail` and never touches the orders table, so
+the declaration is just there to silence WooCommerce's "Incompatible
+with WooCommerce features" admin notice.
+
+**How to test.** With WooCommerce active, open WooCommerce → Settings
+→ Advanced → Features. Flexa Unsubscribe should appear as compatible
+with both features; no notice on the WC plugins screen.
+
+---
+
+## 9. Internationalisation
+
+- **Text domain:** `flexa-unsubscribe`.
+- **PHP side:** plugin header declares the text domain; no `.pot` file
+  is shipped yet (open improvement).
+- **JS side:** `wp_set_script_translations()` is called in
+  `RegisterProd`; React strings use `__()` from `@wordpress/i18n`.
+
+---
+
+## 10. Developer reference
+
+### 10.1 Three-prefix layout
+
+| Prefix | Used for |
+|---|---|
+| `flexa_tech_su_` | Procedural PHP helpers, option keys, table-name constants, function names |
+| `FlexaUnsubscribe\` | PHP namespace (PSR-4, rooted at `includes/`) |
+| `flexa-unsubscribe` | REST namespace, admin slug, JS bundle handle, text domain |
+
+### 10.2 Adding a new list screen
+
+Pattern (matches every existing list page):
+1. **Backend:** new `Controllers\XxxRestController` extending the
+   shared `TableRequestArgs` for paging args + envelope.
+2. **API client:** `lib/api/xxx.ts` with a Zod schema parsed via
+   `parseListResponse`.
+3. **Query hooks:** `lib/queries/xxx.ts` with `placeholderData: prev =>
+   prev` for smooth paging.
+4. **Page:** `pages/xxx/Xxx.tsx` rendered via `<DataTable<T>>` and
+   `useTableState`.
+5. **Router entry** in `apps/admin/src/router.tsx` and a nav item in
+   `Header.tsx`.
+
+### 10.3 Adding a new appearance token
+
+1. Add `key => default` to
+   `Controllers\SettingsRestController::APPEARANCE_DEFAULTS`.
+2. If it's HTML-on-save, also add to `APPEARANCE_HTML_FIELDS`.
+3. Add a sanitiser branch in `sanitize_appearance_field` (color hex,
+   font-family enum, font-size regex, plain-text fallback already
+   exist).
+4. Mirror the rule in the Zod schema in `lib/api/appearance.ts`.
+5. Add a field to the matching tab (`ColorsTab` / `TypographyTab` /
+   `TextContentTab`).
+6. Add it to `flexa_tech_su_get_setting()` calls in
+   `templates/unsubscribe-page.php` / `templates/resubscribe-page.php`
+   if it's actually rendered on the public page.
+
+### 10.4 Build & release
+
+- **Dev:** `cd apps/admin && pnpm dev` after flipping
+  `FLEXA_TECH_SU_IS_DEVELOPMENT` to `true`.
+- **Build:** `pnpm build` → `assets/dist/admin/`.
+- **Release:** `./release.sh` rsyncs into `build/flexa-unsubscribe/`
+  honouring `.distignore`, then zips.
+- **Version-bump checklist (three places):** plugin header `Version:`,
+  `FLEXA_TECH_SU_VERSION` constant, `Stable tag:` in `readme.txt`.
+
+### 10.5 Useful manual SQL
+
+```sql
+-- Mark an address as unsubscribed
+INSERT INTO wp_flexa_unsubscribes (email, token, unsubscribed_at)
+VALUES ('test@example.com', 'manual', NOW());
+
+-- Mark as re-subscribed
+UPDATE wp_flexa_unsubscribes SET resubscribed_at = NOW() WHERE email = 'test@example.com';
+
+-- Reset for a clean re-test
+DELETE FROM wp_flexa_unsubscribes WHERE email = 'test@example.com';
+DELETE FROM wp_flexa_blocked_emails WHERE email = 'test@example.com';
+```
+
+---
+
+## 11. Known non-features (so testers don't file these as bugs)
+
+- **No drag-and-drop reorder on Reasons** — arrows only. Endpoint
+  supports bulk `{ order: [] }` so DnD can be added later.
+- **Search on list pages is current-page-only** by design (placeholder
+  reads "Filter this page"). Cross-page server-side search is on the
+  Pro backlog.
+- **Per-page selector** (10/20/50/100) exists in the underlying
+  `useTableState` hook but isn't surfaced in the DataTable UI yet.
+- **Tables are not dropped on uninstall.** Manual cleanup if you want a
+  truly fresh re-install: `DROP TABLE wp_flexa_unsubscribes,
+  wp_flexa_blocked_emails, wp_flexa_unsubscribe_reasons;` plus
+  `DELETE FROM wp_options WHERE option_name LIKE 'flexa_tech_su_%';`.
+- **No PHP test suite, no PHP linter wired in** — `release.sh` has a
+  commented-out PHPCS block; no `tools/` directory ships.
+- **Auto-append is OFF by default** — flip the switch in Settings, or
+  testing §1.2 will look like nothing is happening.
+
+---
+
+## 12. Quick smoke-test script (for CI / pre-release sanity)
+
+A 5-minute end-to-end check covering the highest-value paths:
+
+1. Activate the plugin on a fresh WP install. Confirm 3 tables + 3
+   reasons + the **Unsubscribe** menu item.
+2. Open the React admin → every page (Dashboard, Unsubscribes,
+   Blocked, Re-subscribed, Reasons, Settings, Appearance) loads
+   without console errors.
+3. Settings → enable auto-append → save. `wp_mail('a@b.com',
+   'Hello', 'Body')` from WP-CLI → captured email has the unsubscribe
+   button.
+4. Click the unsubscribe button → success page → pick a reason →
+   submit → thank-you panel shows.
+5. Admin → Unsubscribes → see the new row, with the picked reason.
+6. `wp_mail('a@b.com', 'Hello again', 'Body')` → the mail is blocked,
+   a row appears under Blocked emails.
+7. From the thank-you panel, click "Re-subscribe" → success page.
+8. Admin → Re-subscribed → see the row.
+9. `wp_mail('a@b.com', 'Hello once more', 'Body')` → mail goes through
+   again.
+10. Export CSV from each of the three list pages → download succeeds,
+    file opens in Excel without encoding issues.
+11. Appearance → change `button_bg_color` → save → revisit the
+    unsubscribe URL → button colour matches.
+
+If all 11 steps pass, the plugin is in shape.
