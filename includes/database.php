@@ -149,6 +149,12 @@ function flexa_tech_su_get_unsubscribes_count() {
  */
 function flexa_tech_su_save_unsubscribe($email, $token) {
     global $wpdb;
+
+    $email = sanitize_email($email);
+    if (empty($email)) {
+        return false;
+    }
+
     return $wpdb->replace(FLEXA_TECH_SU_TABLE, [
         'email' => $email,
         'token' => $token

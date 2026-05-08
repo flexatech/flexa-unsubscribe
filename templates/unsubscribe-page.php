@@ -41,51 +41,52 @@ $flexa_tech_su_success_message = str_replace(
     '<strong>' . esc_html($email) . '</strong>',
     $flexa_tech_su_success_message
 );
+
+$flexa_tech_su_style_handle = 'flexa-tech-su-unsubscribe-page';
+wp_register_style(
+    $flexa_tech_su_style_handle,
+    FLEXA_TECH_SU_URL . 'public/css/unsubscribe-page.css',
+    array(),
+    FLEXA_TECH_SU_VERSION
+);
+wp_enqueue_style($flexa_tech_su_style_handle);
+
+$flexa_tech_su_dynamic_css = sprintf(
+    ':root{--flexa-tech-su-font-family:%1$s;--flexa-tech-su-bg-color:%2$s;--flexa-tech-su-text-color:%3$s;--flexa-tech-su-font-size:%4$s;--flexa-tech-su-box-bg-color:%5$s;--flexa-tech-su-button-bg-color:%6$s;--flexa-tech-su-button-text-color:%7$s;--flexa-tech-su-button-hover-color:%8$s;--flexa-tech-su-heading-color:%9$s;}',
+    esc_html($flexa_tech_su_font_family),
+    esc_html($flexa_tech_su_bg_color),
+    esc_html($flexa_tech_su_text_color),
+    esc_html($flexa_tech_su_font_size),
+    esc_html($flexa_tech_su_box_bg_color),
+    esc_html($flexa_tech_su_button_bg_color),
+    esc_html($flexa_tech_su_button_text_color),
+    esc_html($flexa_tech_su_button_hover_color),
+    esc_html($flexa_tech_su_heading_color)
+);
+wp_add_inline_style($flexa_tech_su_style_handle, $flexa_tech_su_dynamic_css);
+
+$flexa_tech_su_script_handle = 'flexa-tech-su-unsubscribe-page';
+wp_register_script(
+    $flexa_tech_su_script_handle,
+    FLEXA_TECH_SU_URL . 'public/js/unsubscribe-page.js',
+    array(),
+    FLEXA_TECH_SU_VERSION,
+    false
+);
+wp_enqueue_script($flexa_tech_su_script_handle);
+wp_add_inline_script(
+    $flexa_tech_su_script_handle,
+    'window.flexaTechSuReasonEndpoint = ' . wp_json_encode(esc_url_raw(rest_url('flexa-unsubscribe/v1/reason'))) . ';',
+    'before'
+);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Unsubscribe - Flexa</title>
-    <style>
-        body {
-            font-family: <?php echo esc_attr($flexa_tech_su_font_family); ?>;
-            background: <?php echo esc_attr($flexa_tech_su_bg_color); ?>;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            color: <?php echo esc_attr($flexa_tech_su_text_color); ?>;
-            font-size: <?php echo esc_attr($flexa_tech_su_font_size); ?>;
-        }
-        .flexa-tech-su-box {
-            background: <?php echo esc_attr($flexa_tech_su_box_bg_color); ?>;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            width: 400px;
-            text-align: center;
-        }
-        .flexa-tech-su-btn {
-            background: <?php echo esc_attr($flexa_tech_su_button_bg_color); ?>;
-            color: <?php echo esc_attr($flexa_tech_su_button_text_color); ?>;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        .flexa-tech-su-btn:hover {
-            background: <?php echo esc_attr($flexa_tech_su_button_hover_color); ?>;
-        }
-        h2 {
-            color: <?php echo esc_attr($flexa_tech_su_heading_color); ?>;
-            font-weight: 600;
-        }
-    </style>
+    <?php wp_print_styles($flexa_tech_su_style_handle); ?>
+    <?php wp_print_scripts($flexa_tech_su_script_handle); ?>
 </head>
 <body>
     <div class="flexa-tech-su-box">
@@ -96,7 +97,7 @@ $flexa_tech_su_success_message = str_replace(
                 <form id="f-survey">
                     <input type="hidden" name="email" value="<?php echo esc_attr($email); ?>">
                     <input type="hidden" name="token" value="<?php echo esc_attr($token); ?>">
-                    <select name="reason" style="width:100%; margin-bottom:15px; padding:8px;" required>
+                    <select name="reason" class="flexa-tech-su-reason-select" required>
                         <option value="">-- Please select a reason --</option>
                         <?php
                         $flexa_tech_su_reasons = flexa_tech_su_get_reasons();
@@ -116,40 +117,19 @@ $flexa_tech_su_success_message = str_replace(
                     <button type="submit" class="flexa-tech-su-btn"><?php echo esc_html($flexa_tech_su_button_text); ?></button>
                 </form>
             </div>
-            <div id="s2" style="display:none">
+            <div id="s2" class="flexa-tech-su-hidden">
                 <h2><?php echo esc_html($flexa_tech_su_thank_you_title); ?></h2>
                 <p><?php echo esc_html($flexa_tech_su_thank_you_message); ?></p>
-                <div style="margin-top: 20px;">
+                <div class="flexa-tech-su-actions">
                     <a href="<?php echo esc_url(flexa_generate_resubscribe_link($email)); ?>"
-                       style="color: <?php echo esc_attr($flexa_tech_su_button_bg_color); ?>; text-decoration: underline; margin-right: 15px;">
+                       class="flexa-tech-su-resubscribe-link">
                         Re-subscribe to emails
                     </a>
                     <a href="/" class="flexa-tech-su-btn"><?php echo esc_html($flexa_tech_su_home_link_text); ?></a>
                 </div>
             </div>
-            <script>
-                (function () {
-                    var endpoint = <?php echo wp_json_encode(esc_url_raw(rest_url('flexa-unsubscribe/v1/reason'))); ?>;
-                    document.getElementById('f-survey').onsubmit = function (e) {
-                        e.preventDefault();
-                        var fd = new FormData(this);
-                        fetch(endpoint, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                            body: JSON.stringify({
-                                email: fd.get('email'),
-                                token: fd.get('token'),
-                                reason: fd.get('reason')
-                            })
-                        }).then(function () {
-                            document.getElementById('s1').style.display = 'none';
-                            document.getElementById('s2').style.display = 'block';
-                        });
-                    };
-                })();
-            </script>
         <?php else: ?>
-            <h2 style="color:#dc3545"><?php echo esc_html($flexa_tech_su_error_title); ?></h2>
+            <h2 class="flexa-tech-su-error-title"><?php echo esc_html($flexa_tech_su_error_title); ?></h2>
             <p><?php echo wp_kses_post($flexa_tech_su_error_message); ?></p>
             <a href="/" class="flexa-tech-su-btn"><?php echo esc_html($flexa_tech_su_home_link_text); ?></a>
         <?php endif; ?>

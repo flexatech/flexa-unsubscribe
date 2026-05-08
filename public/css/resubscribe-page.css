@@ -1,0 +1,52 @@
+body {
+    font-family: var(--flexa-tech-su-font-family, sans-serif);
+    background: var(--flexa-tech-su-bg-color, #f0f2f5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--flexa-tech-su-text-color, #333333);
+    font-size: var(--flexa-tech-su-font-size, 14px);
+}
+
+.flexa-tech-su-box {
+    background: var(--flexa-tech-su-box-bg-color, #ffffff);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.flexa-tech-su-btn {
+    background: var(--flexa-tech-su-button-bg-color, #00aad0);
+    color: var(--flexa-tech-su-button-text-color, #ffffff);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.flexa-tech-su-btn:hover {
+    background: var(--flexa-tech-su-button-hover-color, #0099bb);
+}
+
+h2 {
+    color: var(--flexa-tech-su-heading-color, #495057);
+    font-weight: 600;
+}
+
+.flexa-tech-su-error-title {
+    color: #dc3545;
+}
+
+.flexa-tech-su-success-icon {
+    font-size: 48px;
+    color: #00a32a;
+    margin-bottom: 15px;
+}
