@@ -4,7 +4,7 @@ Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 3.0.0
+Stable tag: 3.0.2
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,11 @@ Every in-flight unsubscribe/resubscribe link becomes invalid, because the HMAC k
 No — CSV exports contain email addresses. Treat them as PII. The download link is nonce-protected so it's not trivially shareable across sessions.
 
 == Changelog ==
+
+= 3.0.2 =
+* **Security:** Sanitize `$_GET['email']` and `$_GET['token']` at the read site in the public unsubscribe/resubscribe handler (`sanitize_email` / `sanitize_text_field` + `wp_unslash`), with a documented `phpcs:disable WordPress.Security.NonceVerification.Recommended` since the HMAC token is the CSRF protection layer for these public links.
+* **Compatibility:** Replace inline `<style>` and `<script>` blocks in `templates/unsubscribe-page.php` and `templates/resubscribe-page.php` with `wp_register_style` / `wp_enqueue_style` / `wp_add_inline_style` (and the script equivalents), so the public templates pass the WP.org Plugin Check enqueue rule.
+* **Docs:** Fix the source-code repository URL in `readme.txt`.
 
 = 3.0.0 =
 * **Complete admin rewrite.** The seven admin pages are now a React single-page app (Vite + TypeScript + shadcn/ui + Tailwind v4) instead of individual PHP-rendered screens.
