@@ -23,8 +23,12 @@ interface Props {
   control: Control<AppearanceSettings>;
 }
 
+// Typeface proper nouns are intentionally not translated; only the
+// generic "(default)" label is. Labels are resolved here at module
+// load (wp.i18n is a script dependency, available before this runs)
+// so the render site can stay a plain literal lookup.
 const FONT_LABELS: Record<(typeof FONT_FAMILIES)[number], string> = {
-  'sans-serif': 'Sans-serif (default)',
+  'sans-serif': __('Sans-serif (default)', 'flexa-unsubscribe'),
   'Arial, sans-serif': 'Arial',
   'Helvetica, sans-serif': 'Helvetica',
   'Georgia, serif': 'Georgia',
@@ -50,7 +54,7 @@ export function TypographyTab({ control }: Props) {
               <SelectContent>
                 {FONT_FAMILIES.map((family) => (
                   <SelectItem key={family} value={family}>
-                    <span style={{ fontFamily: family }}>{__(FONT_LABELS[family], 'flexa-unsubscribe')}</span>
+                    <span style={{ fontFamily: family }}>{FONT_LABELS[family]}</span>
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -73,7 +77,7 @@ export function TypographyTab({ control }: Props) {
               <Input {...field} placeholder="14px" className="font-mono" />
             </FormControl>
             <FormDescription>
-              {__('Any CSS length — e.g. 14px, 1em, 0.875rem, 100%.', 'flexa-unsubscribe')}
+              {__('Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.', 'flexa-unsubscribe')}
             </FormDescription>
             <FormMessage />
           </FormItem>

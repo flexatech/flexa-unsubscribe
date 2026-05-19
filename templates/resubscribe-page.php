@@ -23,12 +23,15 @@ $flexa_tech_su_button_hover_color = flexa_tech_su_get_setting('button_hover_colo
 $flexa_tech_su_font_family        = flexa_tech_su_get_setting('font_family', 'sans-serif');
 $flexa_tech_su_font_size          = flexa_tech_su_get_setting('font_size', '14px');
 
-// Text content settings.
-$flexa_tech_su_resubscribe_title   = flexa_tech_su_get_setting('resubscribe_title', 'Successfully Re-subscribed!');
-$flexa_tech_su_resubscribe_message = flexa_tech_su_get_setting('resubscribe_message', 'You have been successfully re-subscribed. You will start receiving emails again.');
-$flexa_tech_su_home_link_text      = flexa_tech_su_get_setting('home_link_text', 'Back to Home Page');
-$flexa_tech_su_error_title         = flexa_tech_su_get_setting('error_title', 'We\'re Sorry, This Link Is No Longer Valid');
-$flexa_tech_su_error_message       = flexa_tech_su_get_setting('error_message', 'The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance.');
+// Text content settings. Defaults wrapped in __() so an untouched
+// install renders in the active locale; source strings must stay
+// identical to Controllers\SettingsRestController::APPEARANCE_DEFAULTS.
+$flexa_tech_su_resubscribe_title   = flexa_tech_su_get_setting('resubscribe_title', __('Successfully Re-subscribed!', 'flexa-unsubscribe'));
+$flexa_tech_su_resubscribe_message = flexa_tech_su_get_setting('resubscribe_message', __('You have been successfully re-subscribed. You will start receiving emails again.', 'flexa-unsubscribe'));
+$flexa_tech_su_home_link_text      = flexa_tech_su_get_setting('home_link_text', __('Back to Home Page', 'flexa-unsubscribe'));
+$flexa_tech_su_error_title         = flexa_tech_su_get_setting('error_title', __("We're Sorry, This Link Is No Longer Valid", 'flexa-unsubscribe'));
+/* translators: <br> is an HTML line break; keep it in the translation. */
+$flexa_tech_su_error_message       = flexa_tech_su_get_setting('error_message', __('The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance.', 'flexa-unsubscribe'));
 
 $flexa_tech_su_style_handle = 'flexa-tech-su-resubscribe-page';
 wp_register_style(
@@ -54,10 +57,10 @@ $flexa_tech_su_dynamic_css = sprintf(
 wp_add_inline_style($flexa_tech_su_style_handle, $flexa_tech_su_dynamic_css);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="UTF-8">
-    <title>Re-subscribe - Flexa</title>
+    <title><?php echo esc_html__('Re-subscribe', 'flexa-unsubscribe') . ' - Flexa'; ?></title>
     <?php wp_print_styles($flexa_tech_su_style_handle); ?>
 </head>
 <body>

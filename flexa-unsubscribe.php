@@ -40,10 +40,23 @@ require_once FLEXA_TECH_SU_PATH . 'includes/settings.php';
 require_once FLEXA_TECH_SU_PATH . 'includes/frontend.php';
 require_once FLEXA_TECH_SU_PATH . 'includes/admin.php';
 
+// Load translations. Hooked on `init` (not `plugins_loaded`) so that on
+// WP 6.7+ the call doesn't trip the `_load_textdomain_just_in_time`
+// doing_it_wrong notice, while still covering WP 5.8-6.6 where the
+// just-in-time loader isn't available. Bundled .mo/.json live in
+// `languages/`; a wp-content/languages/plugins/ override still wins.
+add_action('init', function () {
+    load_plugin_textdomain(
+        'flexa-unsubscribe',
+        false,
+        dirname(plugin_basename(__FILE__)) . '/languages'
+    );
+});
+
 // Activation hook
 register_activation_hook(__FILE__, 'flexa_tech_su_create_db');
 
-// Versioned schema upgrade — runs once per request when the stored
+// Versioned schema upgrade - runs once per request when the stored
 // db_version is below FLEXA_TECH_SU_DB_VERSION, then writes the new
 // version. `flexa_tech_su_create_db()` is idempotent (`dbDelta` +
 // existence-checked ALTERs), so re-running it on existing installs
@@ -63,7 +76,7 @@ add_action('plugins_loaded', function () {
 // Declare WooCommerce feature compatibility. The plugin only hooks
 // `wp_mail` and never reads or writes the orders table, so HPOS
 // (custom_order_tables) and the Cart/Checkout Blocks are both
-// transparently compatible — the declaration just silences the
+// transparently compatible - the declaration just silences the
 // "Incompatible with WooCommerce features" admin notice.
 add_action('before_woocommerce_init', function () {
     if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {

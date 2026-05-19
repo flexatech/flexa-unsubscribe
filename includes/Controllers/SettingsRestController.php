@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit;
  * `flexa_tech_su_` key allowlist across files with no benefit.
  *
  * Defaults here must match the defaults used at read time in
- * `includes/settings.php` and `templates/unsubscribe-page.php` —
+ * `includes/settings.php` and `templates/unsubscribe-page.php` -
  * the legacy `flexa_tech_su_get_setting()` path stays the source of
  * truth on the read side.
  */
@@ -38,11 +38,11 @@ class SettingsRestController {
      * page (so wp_kses_post is applied on save). The legacy templates
      * echo these unescaped; everything else is escaped at output.
      *
-     *   templates/unsubscribe-page.php lines 76, 121 — success_message
+     *   templates/unsubscribe-page.php lines 76, 121 - success_message
      *   + error_message are echoed with `<?php echo $var; ?>` (no
      *   esc_html). thank_you_message and resubscribe_message are
      *   esc_html'd on output, so they render as plain text even if
-     *   the admin types HTML — no point letting HTML through save.
+     *   the admin types HTML - no point letting HTML through save.
      */
     private const APPEARANCE_HTML_FIELDS = [
         'success_message',
@@ -53,31 +53,45 @@ class SettingsRestController {
      * Appearance field allowlist + defaults. Map is `key => default`.
      * Keeping this as a single map means adding a new appearance option
      * is one entry here + one entry in the Zod schema on the client.
+     *
+     * A method (not a `const`) because the text-content defaults are
+     * wrapped in __() for localization, and PHP constants can't hold
+     * function calls. The text-content source strings MUST stay
+     * byte-identical to the matching __() defaults in
+     * templates/unsubscribe-page.php + templates/resubscribe-page.php
+     * so the read side and this REST surface resolve the same
+     * translation.
+     *
+     * @return array<string,string>
      */
-    private const APPEARANCE_DEFAULTS = [
-        // Colors
-        'bg_color'            => '#f0f2f5',
-        'box_bg_color'        => '#ffffff',
-        'text_color'          => '#333333',
-        'heading_color'       => '#495057',
-        'button_bg_color'     => '#00aad0',
-        'button_text_color'   => '#ffffff',
-        'button_hover_color'  => '#0099bb',
-        // Typography
-        'font_family'         => 'sans-serif',
-        'font_size'           => '14px',
-        // Text content
-        'title_text'          => 'Unsubscribed',
-        'success_message'     => 'Email {email} is removed.',
-        'button_text'         => 'Submit Feedback',
-        'thank_you_title'     => 'Thank you for your feedback!',
-        'thank_you_message'   => 'We greatly appreciate your input and will use this information to improve our content in the future.',
-        'home_link_text'      => 'Back to Home Page',
-        'error_title'         => "We're Sorry, This Link Is No Longer Valid",
-        'error_message'       => 'The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance.',
-        'resubscribe_title'   => 'Successfully Re-subscribed!',
-        'resubscribe_message' => 'You have been successfully re-subscribed. You will start receiving emails again.',
-    ];
+    private static function appearance_defaults(): array {
+        return [
+            // Colors
+            'bg_color'            => '#f0f2f5',
+            'box_bg_color'        => '#ffffff',
+            'text_color'          => '#333333',
+            'heading_color'       => '#495057',
+            'button_bg_color'     => '#00aad0',
+            'button_text_color'   => '#ffffff',
+            'button_hover_color'  => '#0099bb',
+            // Typography
+            'font_family'         => 'sans-serif',
+            'font_size'           => '14px',
+            // Text content
+            'title_text'          => __('Unsubscribed', 'flexa-unsubscribe'),
+            /* translators: {email} is a literal placeholder, replaced with the recipient's address. Keep it as-is. */
+            'success_message'     => __('Email {email} is removed.', 'flexa-unsubscribe'),
+            'button_text'         => __('Submit Feedback', 'flexa-unsubscribe'),
+            'thank_you_title'     => __('Thank you for your feedback!', 'flexa-unsubscribe'),
+            'thank_you_message'   => __('We greatly appreciate your input and will use this information to improve our content in the future.', 'flexa-unsubscribe'),
+            'home_link_text'      => __('Back to Home Page', 'flexa-unsubscribe'),
+            'error_title'         => __("We're Sorry, This Link Is No Longer Valid", 'flexa-unsubscribe'),
+            /* translators: <br> is an HTML line break; keep it in the translation. */
+            'error_message'       => __('The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance.', 'flexa-unsubscribe'),
+            'resubscribe_title'   => __('Successfully Re-subscribed!', 'flexa-unsubscribe'),
+            'resubscribe_message' => __('You have been successfully re-subscribed. You will start receiving emails again.', 'flexa-unsubscribe'),
+        ];
+    }
 
     public function register_routes() {
         $ns = RestAPI::NAMESPACE;
@@ -132,7 +146,7 @@ class SettingsRestController {
         }
         if (array_key_exists('exclude_keywords', $body)) {
             $value = sanitize_text_field((string) $body['exclude_keywords']);
-            // Cap at 500 chars — aligns with the Zod schema cap client-side.
+            // Cap at 500 chars - aligns with the Zod schema cap client-side.
             update_option('flexa_tech_su_exclude_keywords', mb_substr($value, 0, 500));
         }
         if (array_key_exists('enable_blocking', $body)) {
@@ -146,7 +160,7 @@ class SettingsRestController {
 
     public function get_appearance(): WP_REST_Response {
         $out = [];
-        foreach (self::APPEARANCE_DEFAULTS as $key => $default) {
+        foreach (self::appearance_defaults() as $key => $default) {
             $out[$key] = (string) flexa_tech_su_get_setting($key, $default);
         }
         return new WP_REST_Response($out);
@@ -155,7 +169,7 @@ class SettingsRestController {
     public function update_appearance(WP_REST_Request $request): WP_REST_Response {
         $body = $this->body($request);
 
-        foreach (self::APPEARANCE_DEFAULTS as $key => $_default) {
+        foreach (self::appearance_defaults() as $key => $_default) {
             if (!array_key_exists($key, $body)) {
                 continue;
             }
@@ -196,7 +210,7 @@ class SettingsRestController {
             return preg_match('/^\d+(\.\d+)?(px|em|rem|%)$/', $value) ? $value : '14px';
         }
 
-        // Plain text content — single-line inputs + success_message.
+        // Plain text content - single-line inputs + success_message.
         return sanitize_text_field($value);
     }
 
