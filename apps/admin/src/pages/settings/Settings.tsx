@@ -16,6 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { ColorInput } from '@/components/ui/color-input';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Switch } from '@/components/ui/switch';
@@ -178,6 +179,76 @@ function SettingsForm({ initial }: { initial: GeneralSettings }) {
                 </FormItem>
               )}
             />
+
+            <div className="space-y-6 border-t border-border pt-6">
+              <div className="space-y-1">
+                <h3 className="text-sm font-medium text-foreground">
+                  {__('Unsubscribe footer', 'flexa-unsubscribe')}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {__(
+                    'Customize the footer appended to outgoing emails when auto-append is on.',
+                    'flexa-unsubscribe',
+                  )}
+                </p>
+              </div>
+
+              <FormField
+                control={form.control}
+                name="append_heading_text"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{__('Footer heading text', 'flexa-unsubscribe')}</FormLabel>
+                    <FormControl>
+                      <Input {...field} maxLength={200} />
+                    </FormControl>
+                    <FormDescription>
+                      {__(
+                        'The line shown above the unsubscribe button in appended emails.',
+                        'flexa-unsubscribe',
+                      )}
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="append_button_text"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{__('Unsubscribe button label', 'flexa-unsubscribe')}</FormLabel>
+                    <FormControl>
+                      <Input {...field} maxLength={100} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="append_button_color"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{__('Unsubscribe button color', 'flexa-unsubscribe')}</FormLabel>
+                    <FormControl>
+                      <ColorInput
+                        value={field.value ?? ''}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        name={field.name}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      {__('Background color of the appended button.', 'flexa-unsubscribe')}
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
           </CardContent>
           <div className="flex items-center justify-end gap-3 border-t border-border px-6 py-4">
             {isDirty && (

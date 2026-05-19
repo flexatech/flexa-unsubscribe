@@ -87,6 +87,23 @@ function flexa_tech_su_register_settings() {
         'default'           => '1',
     ]);
 
+    // Auto-append email footer - customizable heading, button label,
+    // and button color. No 'default' here: the translated defaults are
+    // resolved at read time (core.php + SettingsRestController), same
+    // pattern as the appearance text fields below.
+    register_setting('flexa_tech_su_settings_group', 'flexa_tech_su_append_heading_text', [
+        'type'              => 'string',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    register_setting('flexa_tech_su_settings_group', 'flexa_tech_su_append_button_text', [
+        'type'              => 'string',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    register_setting('flexa_tech_su_settings_group', 'flexa_tech_su_append_button_color', [
+        'type'              => 'string',
+        'sanitize_callback' => 'flexa_tech_su_sanitize_color',
+    ]);
+
     // Appearance - colors.
     foreach ([
         'flexa_tech_su_bg_color',

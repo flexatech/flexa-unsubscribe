@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "translation-revision-date": "2026-05-19T13:55:17+00:00",
     "generator": "WP-CLI\/2.10.0",
     "source": "assets\/dist\/admin\/js\/main.js",
     "domain": "messages",
@@ -417,6 +417,27 @@
             ],
             "An error occurred: %s": [
                 "Si \u00e8 verificato un errore: %s"
+            ],
+            "Unsubscribe footer": [
+                "Pi\u00e8 di pagina di annullamento iscrizione"
+            ],
+            "Customize the footer appended to outgoing emails when auto-append is on.": [
+                "Personalizza il pi\u00e8 di pagina aggiunto alle e-mail in uscita quando l\u2019aggiunta automatica \u00e8 attiva."
+            ],
+            "Footer heading text": [
+                "Testo dell\u2019intestazione del pi\u00e8 di pagina"
+            ],
+            "The line shown above the unsubscribe button in appended emails.": [
+                "La riga mostrata sopra il pulsante di annullamento iscrizione nelle e-mail."
+            ],
+            "Unsubscribe button label": [
+                "Etichetta del pulsante di annullamento iscrizione"
+            ],
+            "Unsubscribe button color": [
+                "Colore del pulsante di annullamento iscrizione"
+            ],
+            "Background color of the appended button.": [
+                "Colore di sfondo del pulsante aggiunto."
             ]
         }
     }

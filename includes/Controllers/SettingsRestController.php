@@ -24,6 +24,25 @@ class SettingsRestController {
     /** Comma-separated default for `exclude_keywords`. */
     private const EXCLUDE_KEYWORDS_DEFAULT = 'Order, Password, Invoice';
 
+    /**
+     * Read-time defaults for the auto-append email footer. Same
+     * pattern + rationale as appearance_defaults() (a method, not a
+     * const, because the text defaults are wrapped in __()).
+     *
+     * The two text source strings MUST stay byte-identical to the
+     * matching __() defaults in includes/core.php so the read side
+     * and this REST surface resolve the same translation.
+     *
+     * @return array<string,string>
+     */
+    private static function append_defaults(): array {
+        return [
+            'append_heading_text' => __('No longer want to receive these emails?', 'flexa-unsubscribe'),
+            'append_button_text'  => __('Unsubscribe', 'flexa-unsubscribe'),
+            'append_button_color' => '#dc3545',
+        ];
+    }
+
     private const FONT_FAMILIES = [
         'sans-serif',
         'Arial, sans-serif',
@@ -131,10 +150,14 @@ class SettingsRestController {
     // ─── General ───────────────────────────────────────────────────
 
     public function get_general(): WP_REST_Response {
+        $append = self::append_defaults();
         return new WP_REST_Response([
-            'enable_auto_append' => flexa_tech_su_get_setting('enable_auto_append', '') === '1',
-            'exclude_keywords'   => (string) flexa_tech_su_get_setting('exclude_keywords', self::EXCLUDE_KEYWORDS_DEFAULT),
-            'enable_blocking'    => flexa_tech_su_get_setting('enable_blocking', '1') === '1',
+            'enable_auto_append'  => flexa_tech_su_get_setting('enable_auto_append', '') === '1',
+            'exclude_keywords'    => (string) flexa_tech_su_get_setting('exclude_keywords', self::EXCLUDE_KEYWORDS_DEFAULT),
+            'enable_blocking'     => flexa_tech_su_get_setting('enable_blocking', '1') === '1',
+            'append_heading_text' => (string) flexa_tech_su_get_setting('append_heading_text', $append['append_heading_text']),
+            'append_button_text'  => (string) flexa_tech_su_get_setting('append_button_text', $append['append_button_text']),
+            'append_button_color' => (string) flexa_tech_su_get_setting('append_button_color', $append['append_button_color']),
         ]);
     }
 
@@ -151,6 +174,17 @@ class SettingsRestController {
         }
         if (array_key_exists('enable_blocking', $body)) {
             update_option('flexa_tech_su_enable_blocking', $this->bool_to_checkbox($body['enable_blocking']));
+        }
+        if (array_key_exists('append_heading_text', $body)) {
+            $value = sanitize_text_field((string) $body['append_heading_text']);
+            update_option('flexa_tech_su_append_heading_text', mb_substr($value, 0, 200));
+        }
+        if (array_key_exists('append_button_text', $body)) {
+            $value = sanitize_text_field((string) $body['append_button_text']);
+            update_option('flexa_tech_su_append_button_text', mb_substr($value, 0, 100));
+        }
+        if (array_key_exists('append_button_color', $body)) {
+            update_option('flexa_tech_su_append_button_color', $this->normalize_hex((string) $body['append_button_color']));
         }
 
         return $this->get_general();
