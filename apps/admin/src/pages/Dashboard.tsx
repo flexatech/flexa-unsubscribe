@@ -95,7 +95,7 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-xl font-semibold text-foreground">{__('Dashboard')}</h1>
+        <h1 className="text-xl font-semibold text-primary">{__('Dashboard')}</h1>
         <p className="text-sm text-muted-foreground">
           {__('Overview of unsubscribes, re-subscribes, and blocked emails.')}
         </p>

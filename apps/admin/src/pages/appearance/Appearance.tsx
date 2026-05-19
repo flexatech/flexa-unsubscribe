@@ -36,7 +36,7 @@ export default function Appearance() {
   return (
     <div className="flex flex-col gap-6">
       <header>
-        <h1 className="text-xl font-semibold text-foreground">
+        <h1 className="text-xl font-semibold text-primary">
           {__('Appearance', 'flexa-unsubscribe')}
         </h1>
         <p className="text-sm text-muted-foreground">
