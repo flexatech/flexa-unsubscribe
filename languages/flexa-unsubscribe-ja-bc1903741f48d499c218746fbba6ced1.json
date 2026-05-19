@@ -1,0 +1,423 @@
+{
+    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "generator": "WP-CLI\/2.10.0",
+    "source": "assets\/dist\/admin\/js\/main.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "ja",
+                "plural-forms": "nplurals=1; plural=0;"
+            },
+            "Email": [
+                "\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9"
+            ],
+            "Reason": [
+                "\u7406\u7531"
+            ],
+            "Subject": [
+                "\u4ef6\u540d"
+            ],
+            "Unsubscribe": [
+                "\u914d\u4fe1\u505c\u6b62"
+            ],
+            "Re-subscribe": [
+                "\u518d\u767b\u9332"
+            ],
+            "-- Please select a reason --": [
+                "-- \u7406\u7531\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044 --"
+            ],
+            "Re-subscribe to emails": [
+                "\u30e1\u30fc\u30eb\u306b\u518d\u767b\u9332\u3059\u308b"
+            ],
+            "Dashboard": [
+                "\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9"
+            ],
+            "Unsubscribes": [
+                "\u914d\u4fe1\u505c\u6b62"
+            ],
+            "Blocked": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f"
+            ],
+            "Re-subscribed": [
+                "\u518d\u767b\u9332\u6e08\u307f"
+            ],
+            "Reasons": [
+                "\u7406\u7531"
+            ],
+            "Settings": [
+                "\u8a2d\u5b9a"
+            ],
+            "Appearance": [
+                "\u5916\u89b3"
+            ],
+            "Close": [
+                "\u9589\u3058\u308b"
+            ],
+            "Cancel": [
+                "\u30ad\u30e3\u30f3\u30bb\u30eb"
+            ],
+            "Confirm": [
+                "\u78ba\u8a8d"
+            ],
+            "Pagination": [
+                "\u30da\u30fc\u30b8\u30cd\u30fc\u30b7\u30e7\u30f3"
+            ],
+            "Previous page": [
+                "\u524d\u306e\u30da\u30fc\u30b8"
+            ],
+            "Next page": [
+                "\u6b21\u306e\u30da\u30fc\u30b8"
+            ],
+            "Something went wrong": [
+                "\u554f\u984c\u304c\u767a\u751f\u3057\u307e\u3057\u305f"
+            ],
+            "Failed to load data. Please try again.": [
+                "\u30c7\u30fc\u30bf\u3092\u8aad\u307f\u8fbc\u3081\u307e\u305b\u3093\u3067\u3057\u305f\u3002\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002"
+            ],
+            "Retry": [
+                "\u518d\u8a66\u884c"
+            ],
+            "Filter this page\u2026": [
+                "\u3053\u306e\u30da\u30fc\u30b8\u3092\u7d5e\u308a\u8fbc\u3080\u2026"
+            ],
+            "Clear search": [
+                "\u691c\u7d22\u3092\u30af\u30ea\u30a2"
+            ],
+            "No results": [
+                "\u7d50\u679c\u304c\u3042\u308a\u307e\u305b\u3093"
+            ],
+            "Showing %1$s\u2013%2$s of %3$s": [
+                "%3$s \u4ef6\u4e2d %1$s\u2013%2$s \u4ef6\u3092\u8868\u793a"
+            ],
+            "Actions": [
+                "\u64cd\u4f5c"
+            ],
+            "Row actions": [
+                "\u884c\u306e\u64cd\u4f5c"
+            ],
+            "Unsubscribe record deleted.": [
+                "\u914d\u4fe1\u505c\u6b62\u306e\u8a18\u9332\u3092\u524a\u9664\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "Delete unsubscribe record?": [
+                "\u914d\u4fe1\u505c\u6b62\u306e\u8a18\u9332\u3092\u524a\u9664\u3057\u307e\u3059\u304b\uff1f"
+            ],
+            "This will remove the record for %s. This cannot be undone.": [
+                "%s \u306e\u8a18\u9332\u304c\u524a\u9664\u3055\u308c\u307e\u3059\u3002\u3053\u306e\u64cd\u4f5c\u306f\u5143\u306b\u623b\u305b\u307e\u305b\u3093\u3002"
+            ],
+            "Delete": [
+                "\u524a\u9664"
+            ],
+            "Unsubscribed at": [
+                "\u914d\u4fe1\u505c\u6b62\u65e5\u6642"
+            ],
+            "Addresses that have opted out. Blocked from future sends.": [
+                "\u30aa\u30d7\u30c8\u30a2\u30a6\u30c8\u3057\u305f\u30a2\u30c9\u30ec\u30b9\u3002\u4eca\u5f8c\u306e\u9001\u4fe1\u304b\u3089\u9664\u5916\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Export CSV": [
+                "CSV\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8"
+            ],
+            "No unsubscribes yet": [
+                "\u914d\u4fe1\u505c\u6b62\u306f\u307e\u3060\u3042\u308a\u307e\u305b\u3093"
+            ],
+            "When someone clicks the unsubscribe link in an email, they will appear here.": [
+                "\u30e1\u30fc\u30eb\u5185\u306e\u914d\u4fe1\u505c\u6b62\u30ea\u30f3\u30af\u3092\u30af\u30ea\u30c3\u30af\u3059\u308b\u3068\u3001\u3053\u3053\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Blocked email deleted.": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb\u3092\u524a\u9664\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "All blocked emails cleared.": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb\u3092\u3059\u3079\u3066\u6d88\u53bb\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "Delete blocked email record?": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb\u306e\u8a18\u9332\u3092\u524a\u9664\u3057\u307e\u3059\u304b\uff1f"
+            ],
+            "This will remove the audit record for %s. This cannot be undone.": [
+                "%s \u306e\u76e3\u67fb\u8a18\u9332\u304c\u524a\u9664\u3055\u308c\u307e\u3059\u3002\u3053\u306e\u64cd\u4f5c\u306f\u5143\u306b\u623b\u305b\u307e\u305b\u3093\u3002"
+            ],
+            "From": [
+                "\u9001\u4fe1\u5143"
+            ],
+            "Blocked at": [
+                "\u30d6\u30ed\u30c3\u30af\u65e5\u6642"
+            ],
+            "Blocked emails": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb"
+            ],
+            "Audit log of outgoing emails that were blocked because the recipient had unsubscribed.": [
+                "\u53d7\u4fe1\u8005\u304c\u914d\u4fe1\u505c\u6b62\u3057\u3066\u3044\u305f\u305f\u3081\u306b\u30d6\u30ed\u30c3\u30af\u3055\u308c\u305f\u9001\u4fe1\u30e1\u30fc\u30eb\u306e\u76e3\u67fb\u30ed\u30b0\u3002"
+            ],
+            "Clear all blocked records?": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u306e\u8a18\u9332\u3092\u3059\u3079\u3066\u6d88\u53bb\u3057\u307e\u3059\u304b\uff1f"
+            ],
+            "This will delete %s blocked-email records. This cannot be undone.": [
+                "%s \u4ef6\u306e\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb\u8a18\u9332\u304c\u524a\u9664\u3055\u308c\u307e\u3059\u3002\u3053\u306e\u64cd\u4f5c\u306f\u5143\u306b\u623b\u305b\u307e\u305b\u3093\u3002"
+            ],
+            "Clear all": [
+                "\u3059\u3079\u3066\u6d88\u53bb"
+            ],
+            "No blocked emails": [
+                "\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb\u306f\u3042\u308a\u307e\u305b\u3093"
+            ],
+            "When an outgoing email targets an unsubscribed address, it will be logged here.": [
+                "\u914d\u4fe1\u505c\u6b62\u6e08\u307f\u306e\u30a2\u30c9\u30ec\u30b9\u5b9b\u306b\u9001\u4fe1\u30e1\u30fc\u30eb\u304c\u767a\u751f\u3059\u308b\u3068\u3001\u3053\u3053\u306b\u8a18\u9332\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Re-subscribed at": [
+                "\u518d\u767b\u9332\u65e5\u6642"
+            ],
+            "Originally unsubscribed": [
+                "\u5f53\u521d\u306e\u914d\u4fe1\u505c\u6b62"
+            ],
+            "Addresses that opted back in after previously unsubscribing.": [
+                "\u4ee5\u524d\u306b\u914d\u4fe1\u505c\u6b62\u3057\u305f\u5f8c\u3001\u518d\u3073\u767b\u9332\u3057\u305f\u30a2\u30c9\u30ec\u30b9\u3002"
+            ],
+            "No re-subscribes yet": [
+                "\u518d\u767b\u9332\u306f\u307e\u3060\u3042\u308a\u307e\u305b\u3093"
+            ],
+            "When someone uses the re-subscribe link, they will appear here.": [
+                "\u518d\u767b\u9332\u30ea\u30f3\u30af\u304c\u4f7f\u7528\u3055\u308c\u308b\u3068\u3001\u3053\u3053\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Something went wrong.": [
+                "\u554f\u984c\u304c\u767a\u751f\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "Reason added.": [
+                "\u7406\u7531\u3092\u8ffd\u52a0\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "New reason": [
+                "\u65b0\u3057\u3044\u7406\u7531"
+            ],
+            "e.g. Too many emails": [
+                "\u4f8b\uff1a\u30e1\u30fc\u30eb\u304c\u591a\u3059\u304e\u308b"
+            ],
+            "Appears in the unsubscribe dropdown on the public page.": [
+                "\u516c\u958b\u30da\u30fc\u30b8\u306e\u914d\u4fe1\u505c\u6b62\u30c9\u30ed\u30c3\u30d7\u30c0\u30a6\u30f3\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Adding\u2026": [
+                "\u8ffd\u52a0\u4e2d\u2026"
+            ],
+            "Add reason": [
+                "\u7406\u7531\u3092\u8ffd\u52a0"
+            ],
+            "Move up": [
+                "\u4e0a\u3078\u79fb\u52d5"
+            ],
+            "Move down": [
+                "\u4e0b\u3078\u79fb\u52d5"
+            ],
+            "Click to edit": [
+                "\u30af\u30ea\u30c3\u30af\u3057\u3066\u7de8\u96c6"
+            ],
+            "Actions for %s": [
+                "%s \u306e\u64cd\u4f5c"
+            ],
+            "Edit": [
+                "\u7de8\u96c6"
+            ],
+            "Reason updated.": [
+                "\u7406\u7531\u3092\u66f4\u65b0\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "Reason deleted.": [
+                "\u7406\u7531\u3092\u524a\u9664\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "Delete this reason?": [
+                "\u3053\u306e\u7406\u7531\u3092\u524a\u9664\u3057\u307e\u3059\u304b\uff1f"
+            ],
+            "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
+                "\u300c%s\u300d\u3092\u524a\u9664\u3057\u307e\u3059\u304b\uff1f\u3053\u306e\u7406\u7531\u3092\u4f7f\u7528\u3057\u3066\u3044\u305f\u65e2\u5b58\u306e\u914d\u4fe1\u505c\u6b62\u8a18\u9332\u306f\u30c6\u30ad\u30b9\u30c8\u3092\u4fdd\u6301\u3057\u307e\u3059\u3002\u7406\u7531\u306f\u30ec\u30b3\u30fc\u30c9\u3054\u3068\u306b\u4fdd\u5b58\u3055\u308c\u3001\u53c2\u7167\u3055\u308c\u307e\u305b\u3093\u3002"
+            ],
+            "Unsubscribe reasons": [
+                "\u914d\u4fe1\u505c\u6b62\u306e\u7406\u7531"
+            ],
+            "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
+                "\u914d\u4fe1\u505c\u6b62\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u306e\u30c9\u30ed\u30c3\u30d7\u30c0\u30a6\u30f3\u306b\u8868\u793a\u3055\u308c\u308b\u30aa\u30d7\u30b7\u30e7\u30f3\u3002\u77e2\u5370\u3067\u4e26\u3079\u66ff\u3048\u307e\u3059\u3002\u30ea\u30b9\u30c8\u306e\u5148\u982d\u304c\u6700\u521d\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Current reasons": [
+                "\u73fe\u5728\u306e\u7406\u7531"
+            ],
+            "No reasons yet": [
+                "\u7406\u7531\u306f\u307e\u3060\u3042\u308a\u307e\u305b\u3093"
+            ],
+            "Use the form on the right to add the first option shown when someone unsubscribes.": [
+                "\u53f3\u5074\u306e\u30d5\u30a9\u30fc\u30e0\u3092\u4f7f\u7528\u3057\u3066\u3001\u914d\u4fe1\u505c\u6b62\u6642\u306b\u8868\u793a\u3055\u308c\u308b\u6700\u521d\u306e\u30aa\u30d7\u30b7\u30e7\u30f3\u3092\u8ffd\u52a0\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+            ],
+            "Add a reason": [
+                "\u7406\u7531\u3092\u8ffd\u52a0"
+            ],
+            "Discard unsaved changes?": [
+                "\u4fdd\u5b58\u3057\u3066\u3044\u306a\u3044\u5909\u66f4\u3092\u7834\u68c4\u3057\u307e\u3059\u304b\uff1f"
+            ],
+            "You have unsaved changes that will be lost if you navigate away.": [
+                "\u4fdd\u5b58\u3057\u3066\u3044\u306a\u3044\u5909\u66f4\u304c\u3042\u308a\u307e\u3059\u3002\u3053\u306e\u30da\u30fc\u30b8\u3092\u96e2\u308c\u308b\u3068\u5931\u308f\u308c\u307e\u3059\u3002"
+            ],
+            "Keep editing": [
+                "\u7de8\u96c6\u3092\u7d9a\u3051\u308b"
+            ],
+            "Discard changes": [
+                "\u5909\u66f4\u3092\u7834\u68c4"
+            ],
+            "Control how outgoing emails are processed and which recipients are blocked.": [
+                "\u9001\u4fe1\u30e1\u30fc\u30eb\u306e\u51e6\u7406\u65b9\u6cd5\u3068\u30d6\u30ed\u30c3\u30af\u3059\u308b\u53d7\u4fe1\u8005\u3092\u5236\u5fa1\u3057\u307e\u3059\u3002"
+            ],
+            "Settings saved.": [
+                "\u8a2d\u5b9a\u3092\u4fdd\u5b58\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "General": [
+                "\u4e00\u822c"
+            ],
+            "Applies to all outgoing WordPress emails.": [
+                "WordPress \u306e\u3059\u3079\u3066\u306e\u9001\u4fe1\u30e1\u30fc\u30eb\u306b\u9069\u7528\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Auto-append unsubscribe link": [
+                "\u914d\u4fe1\u505c\u6b62\u30ea\u30f3\u30af\u3092\u81ea\u52d5\u4ed8\u52a0"
+            ],
+            "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically.": [
+                "\u6709\u52b9\u306b\u3059\u308b\u3068\u3001\u53d7\u4fe1\u8005\u304c1\u4eba\u306e\u9001\u4fe1\u30e1\u30fc\u30eb\u306b\u5b89\u5168\u306a\u914d\u4fe1\u505c\u6b62\u30dc\u30bf\u30f3\u304c\u81ea\u52d5\u7684\u306b\u4ed8\u52a0\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Exclude keywords": [
+                "\u9664\u5916\u30ad\u30fc\u30ef\u30fc\u30c9"
+            ],
+            "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
+                "\u30ab\u30f3\u30de\u533a\u5207\u308a\u3002\u4ef6\u540d\u306b\u3053\u308c\u3089\u306e\u3044\u305a\u308c\u304b\uff08\u5927\u6587\u5b57\u5c0f\u6587\u5b57\u3092\u533a\u5225\u3057\u306a\u3044\uff09\u3092\u542b\u3080\u30e1\u30fc\u30eb\u306f\u3001\u30d6\u30ed\u30c3\u30af\u3068\u81ea\u52d5\u4ed8\u52a0\u306e\u4e21\u65b9\u3092\u30b9\u30ad\u30c3\u30d7\u3057\u307e\u3059\u3002\u30c8\u30e9\u30f3\u30b6\u30af\u30b7\u30e7\u30f3\u30e1\u30fc\u30eb\u306b\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
+            ],
+            "Block unsubscribed recipients": [
+                "\u914d\u4fe1\u505c\u6b62\u3057\u305f\u53d7\u4fe1\u8005\u3092\u30d6\u30ed\u30c3\u30af"
+            ],
+            "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails.": [
+                "\u914d\u4fe1\u505c\u6b62\u30ea\u30b9\u30c8\u306b\u3042\u308b\u30a2\u30c9\u30ec\u30b9\u3078\u306e\u30e1\u30fc\u30eb\u9001\u4fe1\u3092\u9632\u304e\u307e\u3059\u3002\u30d6\u30ed\u30c3\u30af\u3055\u308c\u305f\u8a66\u884c\u306f\u300c\u30d6\u30ed\u30c3\u30af\u6e08\u307f\u30e1\u30fc\u30eb\u300d\u306b\u8a18\u9332\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Unsaved changes": [
+                "\u4fdd\u5b58\u3057\u3066\u3044\u306a\u3044\u5909\u66f4"
+            ],
+            "Saving\u2026": [
+                "\u4fdd\u5b58\u4e2d\u2026"
+            ],
+            "Save changes": [
+                "\u5909\u66f4\u3092\u4fdd\u5b58"
+            ],
+            "Thank you": [
+                "\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059"
+            ],
+            "Invalid link": [
+                "\u7121\u52b9\u306a\u30ea\u30f3\u30af"
+            ],
+            "Preview state": [
+                "\u30d7\u30ec\u30d3\u30e5\u30fc\u72b6\u614b"
+            ],
+            "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
+                "\u304a\u304a\u3088\u305d\u306e\u30d7\u30ec\u30d3\u30e5\u30fc\u3067\u3059\u3002\u5b9f\u969b\u306e\u30da\u30fc\u30b8\u306f\u30d3\u30e5\u30fc\u30dd\u30fc\u30c8\u4e2d\u592e\u306b\u914d\u7f6e\u3055\u308c\u3001\u30b5\u30a4\u30c8\u306e\u30c6\u30fc\u30de\u306b\u3088\u3063\u3066\u591a\u5c11\u7570\u306a\u308b\u5834\u5408\u304c\u3042\u308a\u307e\u3059\u3002"
+            ],
+            "Page background": [
+                "\u30da\u30fc\u30b8\u306e\u80cc\u666f"
+            ],
+            "Outer background colour of the unsubscribe page.": [
+                "\u914d\u4fe1\u505c\u6b62\u30da\u30fc\u30b8\u306e\u5916\u5074\u306e\u80cc\u666f\u8272\u3002"
+            ],
+            "Card background": [
+                "\u30ab\u30fc\u30c9\u306e\u80cc\u666f"
+            ],
+            "Background of the content box.": [
+                "\u30b3\u30f3\u30c6\u30f3\u30c4\u30dc\u30c3\u30af\u30b9\u306e\u80cc\u666f\u3002"
+            ],
+            "Body text": [
+                "\u672c\u6587\u30c6\u30ad\u30b9\u30c8"
+            ],
+            "Default text colour.": [
+                "\u30c7\u30d5\u30a9\u30eb\u30c8\u306e\u30c6\u30ad\u30b9\u30c8\u8272\u3002"
+            ],
+            "Headings": [
+                "\u898b\u51fa\u3057"
+            ],
+            "Colour for h2 titles.": [
+                "h2 \u898b\u51fa\u3057\u306e\u8272\u3002"
+            ],
+            "Button background": [
+                "\u30dc\u30bf\u30f3\u306e\u80cc\u666f"
+            ],
+            "Primary button colour.": [
+                "\u30e1\u30a4\u30f3\u30dc\u30bf\u30f3\u306e\u8272\u3002"
+            ],
+            "Button text": [
+                "\u30dc\u30bf\u30f3\u306e\u30c6\u30ad\u30b9\u30c8"
+            ],
+            "Text colour inside buttons.": [
+                "\u30dc\u30bf\u30f3\u5185\u306e\u30c6\u30ad\u30b9\u30c8\u8272\u3002"
+            ],
+            "Button hover": [
+                "\u30dc\u30bf\u30f3\u306e\u30db\u30d0\u30fc"
+            ],
+            "Button background when hovered.": [
+                "\u30db\u30d0\u30fc\u6642\u306e\u30dc\u30bf\u30f3\u306e\u80cc\u666f\u3002"
+            ],
+            "Unsubscribe success": [
+                "\u914d\u4fe1\u505c\u6b62\u306e\u5b8c\u4e86"
+            ],
+            "Title": [
+                "\u30bf\u30a4\u30c8\u30eb"
+            ],
+            "Message": [
+                "\u30e1\u30c3\u30bb\u30fc\u30b8"
+            ],
+            "Use {email} to insert the recipient address.": [
+                "{email} \u3092\u4f7f\u7528\u3057\u3066\u53d7\u4fe1\u8005\u306e\u30a2\u30c9\u30ec\u30b9\u3092\u633f\u5165\u3057\u307e\u3059\u3002"
+            ],
+            "Feedback submit button": [
+                "\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u9001\u4fe1\u30dc\u30bf\u30f3"
+            ],
+            "Feedback thank-you": [
+                "\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u306e\u304a\u793c"
+            ],
+            "Home link text": [
+                "\u30db\u30fc\u30e0\u30ea\u30f3\u30af\u306e\u30c6\u30ad\u30b9\u30c8"
+            ],
+            "Invalid-link error": [
+                "\u7121\u52b9\u306a\u30ea\u30f3\u30af\u306e\u30a8\u30e9\u30fc"
+            ],
+            "Re-subscribe success": [
+                "\u518d\u767b\u9332\u306e\u5b8c\u4e86"
+            ],
+            "Basic HTML (<br>, <strong>, <em>, links) is allowed.": [
+                "\u57fa\u672c\u7684\u306a HTML\uff08<br>\u3001<strong>\u3001<em>\u3001\u30ea\u30f3\u30af\uff09\u304c\u4f7f\u7528\u3067\u304d\u307e\u3059\u3002"
+            ],
+            "Sans-serif (default)": [
+                "\u30b5\u30f3\u30bb\u30ea\u30d5\uff08\u30c7\u30d5\u30a9\u30eb\u30c8\uff09"
+            ],
+            "Font family": [
+                "\u30d5\u30a9\u30f3\u30c8\u30d5\u30a1\u30df\u30ea\u30fc"
+            ],
+            "Applied to the whole unsubscribe page.": [
+                "\u914d\u4fe1\u505c\u6b62\u30da\u30fc\u30b8\u5168\u4f53\u306b\u9069\u7528\u3055\u308c\u307e\u3059\u3002"
+            ],
+            "Font size": [
+                "\u30d5\u30a9\u30f3\u30c8\u30b5\u30a4\u30ba"
+            ],
+            "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
+                "\u4efb\u610f\u306e CSS \u306e\u9577\u3055\u3002\u4f8b\uff1a14px\u30011em\u30010.875rem\u3001100%\u3002"
+            ],
+            "Customize the look and copy of the public unsubscribe page.": [
+                "\u516c\u958b\u914d\u4fe1\u505c\u6b62\u30da\u30fc\u30b8\u306e\u5916\u89b3\u3068\u6587\u8a00\u3092\u30ab\u30b9\u30bf\u30de\u30a4\u30ba\u3057\u307e\u3059\u3002"
+            ],
+            "Appearance saved.": [
+                "\u5916\u89b3\u3092\u4fdd\u5b58\u3057\u307e\u3057\u305f\u3002"
+            ],
+            "Unsubscribe page": [
+                "\u914d\u4fe1\u505c\u6b62\u30da\u30fc\u30b8"
+            ],
+            "Colors": [
+                "\u8272"
+            ],
+            "Typography": [
+                "\u30bf\u30a4\u30dd\u30b0\u30e9\u30d5\u30a3"
+            ],
+            "Text content": [
+                "\u30c6\u30ad\u30b9\u30c8\u30b3\u30f3\u30c6\u30f3\u30c4"
+            ],
+            "Live preview": [
+                "\u30e9\u30a4\u30d6\u30d7\u30ec\u30d3\u30e5\u30fc"
+            ],
+            "An error occurred: %s": [
+                "\u30a8\u30e9\u30fc\u304c\u767a\u751f\u3057\u307e\u3057\u305f\uff1a%s"
+            ]
+        }
+    }
+}

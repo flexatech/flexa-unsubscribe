@@ -1,0 +1,423 @@
+{
+    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "generator": "WP-CLI\/2.10.0",
+    "source": "assets\/dist\/admin\/js\/main.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "sv_SE",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Email": [
+                "E-post"
+            ],
+            "Reason": [
+                "Anledning"
+            ],
+            "Subject": [
+                "\u00c4mne"
+            ],
+            "Unsubscribe": [
+                "Avregistrera"
+            ],
+            "Re-subscribe": [
+                "\u00c5terregistrera"
+            ],
+            "-- Please select a reason --": [
+                "-- V\u00e4lj en anledning --"
+            ],
+            "Re-subscribe to emails": [
+                "\u00c5terregistrera f\u00f6r e-post"
+            ],
+            "Dashboard": [
+                "\u00d6versikt"
+            ],
+            "Unsubscribes": [
+                "Avregistreringar"
+            ],
+            "Blocked": [
+                "Blockerade"
+            ],
+            "Re-subscribed": [
+                "\u00c5terregistrerade"
+            ],
+            "Reasons": [
+                "Anledningar"
+            ],
+            "Settings": [
+                "Inst\u00e4llningar"
+            ],
+            "Appearance": [
+                "Utseende"
+            ],
+            "Close": [
+                "St\u00e4ng"
+            ],
+            "Cancel": [
+                "Avbryt"
+            ],
+            "Confirm": [
+                "Bekr\u00e4fta"
+            ],
+            "Pagination": [
+                "Sidnumrering"
+            ],
+            "Previous page": [
+                "F\u00f6reg\u00e5ende sida"
+            ],
+            "Next page": [
+                "N\u00e4sta sida"
+            ],
+            "Something went wrong": [
+                "N\u00e5got gick fel"
+            ],
+            "Failed to load data. Please try again.": [
+                "Det gick inte att l\u00e4sa in data. F\u00f6rs\u00f6k igen."
+            ],
+            "Retry": [
+                "F\u00f6rs\u00f6k igen"
+            ],
+            "Filter this page\u2026": [
+                "Filtrera den h\u00e4r sidan\u2026"
+            ],
+            "Clear search": [
+                "Rensa s\u00f6kning"
+            ],
+            "No results": [
+                "Inga resultat"
+            ],
+            "Showing %1$s\u2013%2$s of %3$s": [
+                "Visar %1$s\u2013%2$s av %3$s"
+            ],
+            "Actions": [
+                "\u00c5tg\u00e4rder"
+            ],
+            "Row actions": [
+                "Rad\u00e5tg\u00e4rder"
+            ],
+            "Unsubscribe record deleted.": [
+                "Avregistreringsposten har tagits bort."
+            ],
+            "Delete unsubscribe record?": [
+                "Ta bort avregistreringsposten?"
+            ],
+            "This will remove the record for %s. This cannot be undone.": [
+                "Detta tar bort posten f\u00f6r %s. Detta kan inte \u00e5ngras."
+            ],
+            "Delete": [
+                "Ta bort"
+            ],
+            "Unsubscribed at": [
+                "Avregistrerad den"
+            ],
+            "Addresses that have opted out. Blocked from future sends.": [
+                "Adresser som har avregistrerat sig. Utesluts fr\u00e5n framtida utskick."
+            ],
+            "Export CSV": [
+                "Exportera CSV"
+            ],
+            "No unsubscribes yet": [
+                "Inga avregistreringar \u00e4nnu"
+            ],
+            "When someone clicks the unsubscribe link in an email, they will appear here.": [
+                "N\u00e4r n\u00e5gon klickar p\u00e5 avregistreringsl\u00e4nken i ett e-postmeddelande visas de h\u00e4r."
+            ],
+            "Blocked email deleted.": [
+                "Blockerad e-post har tagits bort."
+            ],
+            "All blocked emails cleared.": [
+                "All blockerad e-post har rensats."
+            ],
+            "Delete blocked email record?": [
+                "Ta bort posten f\u00f6r blockerad e-post?"
+            ],
+            "This will remove the audit record for %s. This cannot be undone.": [
+                "Detta tar bort granskningsposten f\u00f6r %s. Detta kan inte \u00e5ngras."
+            ],
+            "From": [
+                "Fr\u00e5n"
+            ],
+            "Blocked at": [
+                "Blockerad den"
+            ],
+            "Blocked emails": [
+                "Blockerad e-post"
+            ],
+            "Audit log of outgoing emails that were blocked because the recipient had unsubscribed.": [
+                "Granskningslogg \u00f6ver utg\u00e5ende e-post som blockerades eftersom mottagaren hade avregistrerat sig."
+            ],
+            "Clear all blocked records?": [
+                "Rensa alla blockerade poster?"
+            ],
+            "This will delete %s blocked-email records. This cannot be undone.": [
+                "Detta tar bort %s poster f\u00f6r blockerad e-post. Detta kan inte \u00e5ngras."
+            ],
+            "Clear all": [
+                "Rensa alla"
+            ],
+            "No blocked emails": [
+                "Ingen blockerad e-post"
+            ],
+            "When an outgoing email targets an unsubscribed address, it will be logged here.": [
+                "N\u00e4r ett utg\u00e5ende e-postmeddelande riktas till en avregistrerad adress loggas det h\u00e4r."
+            ],
+            "Re-subscribed at": [
+                "\u00c5terregistrerad den"
+            ],
+            "Originally unsubscribed": [
+                "Ursprungligen avregistrerad"
+            ],
+            "Addresses that opted back in after previously unsubscribing.": [
+                "Adresser som registrerade sig igen efter att tidigare ha avregistrerat sig."
+            ],
+            "No re-subscribes yet": [
+                "Inga \u00e5terregistreringar \u00e4nnu"
+            ],
+            "When someone uses the re-subscribe link, they will appear here.": [
+                "N\u00e4r n\u00e5gon anv\u00e4nder \u00e5terregistreringsl\u00e4nken visas de h\u00e4r."
+            ],
+            "Something went wrong.": [
+                "N\u00e5got gick fel."
+            ],
+            "Reason added.": [
+                "Anledning tillagd."
+            ],
+            "New reason": [
+                "Ny anledning"
+            ],
+            "e.g. Too many emails": [
+                "t.ex. F\u00f6r m\u00e5nga e-postmeddelanden"
+            ],
+            "Appears in the unsubscribe dropdown on the public page.": [
+                "Visas i avregistreringslistan p\u00e5 den offentliga sidan."
+            ],
+            "Adding\u2026": [
+                "L\u00e4gger till\u2026"
+            ],
+            "Add reason": [
+                "L\u00e4gg till anledning"
+            ],
+            "Move up": [
+                "Flytta upp"
+            ],
+            "Move down": [
+                "Flytta ner"
+            ],
+            "Click to edit": [
+                "Klicka f\u00f6r att redigera"
+            ],
+            "Actions for %s": [
+                "\u00c5tg\u00e4rder f\u00f6r %s"
+            ],
+            "Edit": [
+                "Redigera"
+            ],
+            "Reason updated.": [
+                "Anledning uppdaterad."
+            ],
+            "Reason deleted.": [
+                "Anledning borttagen."
+            ],
+            "Delete this reason?": [
+                "Ta bort den h\u00e4r anledningen?"
+            ],
+            "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
+                "Ta bort \u201d%s\u201d? Befintliga avregistreringsposter som anv\u00e4nde denna anledning beh\u00e5ller sin text \u2013 anledningen lagras per post, inte som referens."
+            ],
+            "Unsubscribe reasons": [
+                "Avregistreringsanledningar"
+            ],
+            "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
+                "Alternativ som visas i feedback-listan vid avregistrering. \u00c4ndra ordning med pilarna \u2013 det \u00f6versta i listan visas f\u00f6rst."
+            ],
+            "Current reasons": [
+                "Aktuella anledningar"
+            ],
+            "No reasons yet": [
+                "Inga anledningar \u00e4nnu"
+            ],
+            "Use the form on the right to add the first option shown when someone unsubscribes.": [
+                "Anv\u00e4nd formul\u00e4ret till h\u00f6ger f\u00f6r att l\u00e4gga till det f\u00f6rsta alternativet som visas n\u00e4r n\u00e5gon avregistrerar sig."
+            ],
+            "Add a reason": [
+                "L\u00e4gg till en anledning"
+            ],
+            "Discard unsaved changes?": [
+                "Ignorera osparade \u00e4ndringar?"
+            ],
+            "You have unsaved changes that will be lost if you navigate away.": [
+                "Du har osparade \u00e4ndringar som g\u00e5r f\u00f6rlorade om du l\u00e4mnar sidan."
+            ],
+            "Keep editing": [
+                "Forts\u00e4tt redigera"
+            ],
+            "Discard changes": [
+                "Ignorera \u00e4ndringar"
+            ],
+            "Control how outgoing emails are processed and which recipients are blocked.": [
+                "Styr hur utg\u00e5ende e-post hanteras och vilka mottagare som blockeras."
+            ],
+            "Settings saved.": [
+                "Inst\u00e4llningarna har sparats."
+            ],
+            "General": [
+                "Allm\u00e4nt"
+            ],
+            "Applies to all outgoing WordPress emails.": [
+                "G\u00e4ller all utg\u00e5ende e-post fr\u00e5n WordPress."
+            ],
+            "Auto-append unsubscribe link": [
+                "L\u00e4gg automatiskt till avregistreringsl\u00e4nk"
+            ],
+            "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically.": [
+                "N\u00e4r detta \u00e4r aktiverat l\u00e4ggs en s\u00e4ker avregistreringsknapp automatiskt till i utg\u00e5ende e-post med en enda mottagare."
+            ],
+            "Exclude keywords": [
+                "Uteslut nyckelord"
+            ],
+            "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
+                "Kommaseparerade. E-post vars \u00e4mne inneh\u00e5ller n\u00e5got av dessa (skiftl\u00e4gesok\u00e4nsligt) hoppar \u00f6ver b\u00e5de blockering och automatisk infogning \u2013 anv\u00e4nd f\u00f6r transaktionsmeddelanden."
+            ],
+            "Block unsubscribed recipients": [
+                "Blockera avregistrerade mottagare"
+            ],
+            "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails.": [
+                "F\u00f6rhindrar att e-post skickas till adresser i avregistreringslistan. Blockerade f\u00f6rs\u00f6k loggas under Blockerad e-post."
+            ],
+            "Unsaved changes": [
+                "Osparade \u00e4ndringar"
+            ],
+            "Saving\u2026": [
+                "Sparar\u2026"
+            ],
+            "Save changes": [
+                "Spara \u00e4ndringar"
+            ],
+            "Thank you": [
+                "Tack"
+            ],
+            "Invalid link": [
+                "Ogiltig l\u00e4nk"
+            ],
+            "Preview state": [
+                "F\u00f6rhandsgranskningsl\u00e4ge"
+            ],
+            "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
+                "Ungef\u00e4rlig f\u00f6rhandsgranskning \u2013 den faktiska sidan \u00e4r centrerad i visningsomr\u00e5det och kan skilja sig n\u00e5got beroende p\u00e5 webbplatsens tema."
+            ],
+            "Page background": [
+                "Sidbakgrund"
+            ],
+            "Outer background colour of the unsubscribe page.": [
+                "Yttre bakgrundsf\u00e4rg f\u00f6r avregistreringssidan."
+            ],
+            "Card background": [
+                "Kortbakgrund"
+            ],
+            "Background of the content box.": [
+                "Bakgrund f\u00f6r inneh\u00e5llsrutan."
+            ],
+            "Body text": [
+                "Br\u00f6dtext"
+            ],
+            "Default text colour.": [
+                "Standardtextf\u00e4rg."
+            ],
+            "Headings": [
+                "Rubriker"
+            ],
+            "Colour for h2 titles.": [
+                "F\u00e4rg f\u00f6r h2-rubriker."
+            ],
+            "Button background": [
+                "Knappbakgrund"
+            ],
+            "Primary button colour.": [
+                "Prim\u00e4r knappf\u00e4rg."
+            ],
+            "Button text": [
+                "Knapptext"
+            ],
+            "Text colour inside buttons.": [
+                "Textf\u00e4rg i knappar."
+            ],
+            "Button hover": [
+                "Knapp vid hovring"
+            ],
+            "Button background when hovered.": [
+                "Knappbakgrund vid hovring."
+            ],
+            "Unsubscribe success": [
+                "Avregistrering lyckades"
+            ],
+            "Title": [
+                "Titel"
+            ],
+            "Message": [
+                "Meddelande"
+            ],
+            "Use {email} to insert the recipient address.": [
+                "Anv\u00e4nd {email} f\u00f6r att infoga mottagarens adress."
+            ],
+            "Feedback submit button": [
+                "Knapp f\u00f6r att skicka feedback"
+            ],
+            "Feedback thank-you": [
+                "Tack f\u00f6r feedback"
+            ],
+            "Home link text": [
+                "Text f\u00f6r l\u00e4nk till startsidan"
+            ],
+            "Invalid-link error": [
+                "Fel: ogiltig l\u00e4nk"
+            ],
+            "Re-subscribe success": [
+                "\u00c5terregistrering lyckades"
+            ],
+            "Basic HTML (<br>, <strong>, <em>, links) is allowed.": [
+                "Enkel HTML (<br>, <strong>, <em>, l\u00e4nkar) \u00e4r till\u00e5ten."
+            ],
+            "Sans-serif (default)": [
+                "Sans-serif (standard)"
+            ],
+            "Font family": [
+                "Teckensnitt"
+            ],
+            "Applied to the whole unsubscribe page.": [
+                "Till\u00e4mpas p\u00e5 hela avregistreringssidan."
+            ],
+            "Font size": [
+                "Teckenstorlek"
+            ],
+            "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
+                "Valfri CSS-l\u00e4ngd \u2013 t.ex. 14px, 1em, 0.875rem, 100 %."
+            ],
+            "Customize the look and copy of the public unsubscribe page.": [
+                "Anpassa utseendet och texten p\u00e5 den offentliga avregistreringssidan."
+            ],
+            "Appearance saved.": [
+                "Utseendet har sparats."
+            ],
+            "Unsubscribe page": [
+                "Avregistreringssida"
+            ],
+            "Colors": [
+                "F\u00e4rger"
+            ],
+            "Typography": [
+                "Typografi"
+            ],
+            "Text content": [
+                "Textinneh\u00e5ll"
+            ],
+            "Live preview": [
+                "Direktf\u00f6rhandsgranskning"
+            ],
+            "An error occurred: %s": [
+                "Ett fel uppstod: %s"
+            ]
+        }
+    }
+}

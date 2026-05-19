@@ -1,0 +1,728 @@
+# Copyright (C) 2026 flexatech
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexa Unsubscribe 3.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-unsubscribe\n"
+"Last-Translator: flexatech\n"
+"Language-Team: Japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-19T09:42:02+00:00\n"
+"PO-Revision-Date: 2026-05-19T09:42:02+00:00\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: flexa-unsubscribe\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Plugin Name of the plugin
+#: flexa-unsubscribe.php
+msgid "Flexa Unsubscribe"
+msgstr ""
+
+#. Description of the plugin
+#: flexa-unsubscribe.php
+msgid "Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV export."
+msgstr "HMACトークン、自動付加、CSVエクスポートに対応したプロフェッショナルなメール配信停止管理。"
+
+#. Author of the plugin
+#: flexa-unsubscribe.php
+msgid "flexatech"
+msgstr ""
+
+#: includes/admin.php:29 includes/admin.php:61 includes/admin.php:95
+msgid "Unauthorized"
+msgstr "権限がありません"
+
+#: includes/admin.php:42 includes/admin.php:74 includes/admin.php:108
+#: assets/dist/admin/js/main.js:3
+msgid "Email"
+msgstr "メールアドレス"
+
+#: includes/admin.php:43 includes/admin.php:111 assets/dist/admin/js/main.js:5
+msgid "Reason"
+msgstr "理由"
+
+#: includes/admin.php:44
+msgid "Date"
+msgstr "日付"
+
+#: includes/admin.php:75 assets/dist/admin/js/main.js:7
+msgid "Subject"
+msgstr "件名"
+
+#: includes/admin.php:76
+msgid "From Email"
+msgstr "送信元メールアドレス"
+
+#: includes/admin.php:77
+msgid "From Name"
+msgstr "送信者名"
+
+#: includes/admin.php:78
+msgid "Blocked At"
+msgstr "ブロック日時"
+
+#: includes/admin.php:109
+msgid "Unsubscribed At"
+msgstr "配信停止日時"
+
+#: includes/admin.php:110
+msgid "Re-subscribed At"
+msgstr "再登録日時"
+
+#: includes/admin.php:118
+msgid "N/A"
+msgstr "該当なし"
+
+#: includes/Controllers/BlockedRestController.php:96
+msgid "Failed to delete blocked email record."
+msgstr "ブロック済みメールの記録を削除できませんでした。"
+
+#: includes/Controllers/BlockedRestController.php:103
+msgid "Blocked email record not found."
+msgstr "ブロック済みメールの記録が見つかりません。"
+
+#: includes/Controllers/ReasonsRestController.php:135
+msgid "Failed to create reason."
+msgstr "理由を作成できませんでした。"
+
+#: includes/Controllers/ReasonsRestController.php:151
+#: includes/Controllers/ReasonsRestController.php:167
+msgid "Reason not found."
+msgstr "理由が見つかりません。"
+
+#: includes/Controllers/ReasonsRestController.php:164
+msgid "Failed to delete reason."
+msgstr "理由を削除できませんでした。"
+
+#: includes/Controllers/SaveReasonRestController.php:64
+#: includes/Controllers/SaveReasonRestController.php:73
+msgid "Missing or invalid token."
+msgstr "トークンがないか無効です。"
+
+#: includes/Controllers/SettingsRestController.php:81
+#: templates/unsubscribe-page.php:33
+msgid "Unsubscribed"
+msgstr "配信停止"
+
+#. translators: {email} is a literal placeholder, replaced with the recipient's address. Keep it as-is.
+#: includes/Controllers/SettingsRestController.php:83
+#: templates/unsubscribe-page.php:35
+msgid "Email {email} is removed."
+msgstr "メールアドレス {email} を削除しました。"
+
+#: includes/Controllers/SettingsRestController.php:84
+#: templates/unsubscribe-page.php:36
+msgid "Submit Feedback"
+msgstr "フィードバックを送信"
+
+#: includes/Controllers/SettingsRestController.php:85
+#: templates/unsubscribe-page.php:37
+msgid "Thank you for your feedback!"
+msgstr "フィードバックありがとうございます！"
+
+#: includes/Controllers/SettingsRestController.php:86
+#: templates/unsubscribe-page.php:38
+msgid "We greatly appreciate your input and will use this information to improve our content in the future."
+msgstr "貴重なご意見をいただき誠にありがとうございます。今後のコンテンツ改善に活用させていただきます。"
+
+#: includes/Controllers/SettingsRestController.php:87
+#: templates/resubscribe-page.php:31 templates/unsubscribe-page.php:39
+msgid "Back to Home Page"
+msgstr "ホームページに戻る"
+
+#: includes/Controllers/SettingsRestController.php:88
+#: templates/resubscribe-page.php:32 templates/unsubscribe-page.php:40
+msgid "We're Sorry, This Link Is No Longer Valid"
+msgstr "申し訳ございません。このリンクは無効になりました"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: includes/Controllers/SettingsRestController.php:90
+#: templates/unsubscribe-page.php:42
+msgid "The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "ご使用の配信停止リンクは無効か、有効期限が切れているようです。<br>これが誤りだと思われる場合は、もう一度お試しいただくか、サポートチームまでお問い合わせください。"
+
+#: includes/Controllers/SettingsRestController.php:91
+#: templates/resubscribe-page.php:29
+msgid "Successfully Re-subscribed!"
+msgstr "再登録が完了しました！"
+
+#: includes/Controllers/SettingsRestController.php:92
+#: templates/resubscribe-page.php:30
+msgid "You have been successfully re-subscribed. You will start receiving emails again."
+msgstr "再登録が正常に完了しました。再びメールが届くようになります。"
+
+#: includes/Controllers/UnsubscribesRestController.php:90
+msgid "Failed to delete unsubscribe record."
+msgstr "配信停止の記録を削除できませんでした。"
+
+#: includes/Controllers/UnsubscribesRestController.php:97
+msgid "Unsubscribe record not found."
+msgstr "配信停止の記録が見つかりません。"
+
+#: includes/database.php:102
+msgid "Too many emails"
+msgstr "メールが多すぎる"
+
+#: includes/database.php:103
+msgid "Content not relevant"
+msgstr "内容が関連していない"
+
+#: includes/database.php:104 templates/unsubscribe-page.php:120
+msgid "Other"
+msgstr "その他"
+
+#: includes/database.php:664
+msgid "No reason provided"
+msgstr "理由の記載なし"
+
+#: includes/Engine/Admin/Settings.php:45 includes/Engine/Admin/Settings.php:46
+#: templates/unsubscribe-page.php:93 assets/dist/admin/js/main.js:1
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe"
+msgstr "配信停止"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: templates/resubscribe-page.php:34
+msgid "The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "ご使用の再登録リンクは無効か、有効期限が切れているようです。<br>これが誤りだと思われる場合は、もう一度お試しいただくか、サポートチームまでお問い合わせください。"
+
+#: templates/resubscribe-page.php:63 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe"
+msgstr "再登録"
+
+#: templates/unsubscribe-page.php:107 assets/dist/admin/js/main.js:13
+msgid "-- Please select a reason --"
+msgstr "-- 理由を選択してください --"
+
+#: templates/unsubscribe-page.php:132 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe to emails"
+msgstr "メールに再登録する"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:5
+msgid "Unsubscribes"
+msgstr "配信停止"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Blocked"
+msgstr "ブロック済み"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:9
+msgid "Re-subscribed"
+msgstr "再登録済み"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Reasons"
+msgstr "理由"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:13
+msgid "Settings"
+msgstr "設定"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:15
+msgid "Appearance"
+msgstr "外観"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Close"
+msgstr "閉じる"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Confirm"
+msgstr "確認"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Pagination"
+msgstr "ページネーション"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Previous page"
+msgstr "前のページ"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Next page"
+msgstr "次のページ"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Something went wrong"
+msgstr "問題が発生しました"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed to load data. Please try again."
+msgstr "データを読み込めませんでした。もう一度お試しください。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Retry"
+msgstr "再試行"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Filter this page…"
+msgstr "このページを絞り込む…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Clear search"
+msgstr "検索をクリア"
+
+#: assets/dist/admin/js/main.js:1
+msgid "No results"
+msgstr "結果がありません"
+
+#. translators: 1: first row index, 2: last row index, 3: total count
+#: assets/dist/admin/js/main.js:3
+msgid "Showing %1$s–%2$s of %3$s"
+msgstr "%3$s 件中 %1$s–%2$s 件を表示"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Actions"
+msgstr "操作"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Row actions"
+msgstr "行の操作"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Unsubscribe record deleted."
+msgstr "配信停止の記録を削除しました。"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Delete unsubscribe record?"
+msgstr "配信停止の記録を削除しますか？"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:5
+msgid "This will remove the record for %s. This cannot be undone."
+msgstr "%s の記録が削除されます。この操作は元に戻せません。"
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:11 assets/dist/admin/js/main.js:13
+msgid "Delete"
+msgstr "削除"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Unsubscribed at"
+msgstr "配信停止日時"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Addresses that have opted out. Blocked from future sends."
+msgstr "オプトアウトしたアドレス。今後の送信から除外されます。"
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:9
+msgid "Export CSV"
+msgstr "CSVをエクスポート"
+
+#: assets/dist/admin/js/main.js:5
+msgid "No unsubscribes yet"
+msgstr "配信停止はまだありません"
+
+#: assets/dist/admin/js/main.js:5
+msgid "When someone clicks the unsubscribe link in an email, they will appear here."
+msgstr "メール内の配信停止リンクをクリックすると、ここに表示されます。"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Blocked email deleted."
+msgstr "ブロック済みメールを削除しました。"
+
+#: assets/dist/admin/js/main.js:5
+msgid "All blocked emails cleared."
+msgstr "ブロック済みメールをすべて消去しました。"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Delete blocked email record?"
+msgstr "ブロック済みメールの記録を削除しますか？"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:7
+msgid "This will remove the audit record for %s. This cannot be undone."
+msgstr "%s の監査記録が削除されます。この操作は元に戻せません。"
+
+#: assets/dist/admin/js/main.js:7
+msgid "From"
+msgstr "送信元"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked at"
+msgstr "ブロック日時"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked emails"
+msgstr "ブロック済みメール"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Audit log of outgoing emails that were blocked because the recipient had unsubscribed."
+msgstr "受信者が配信停止していたためにブロックされた送信メールの監査ログ。"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Clear all blocked records?"
+msgstr "ブロック済みの記録をすべて消去しますか？"
+
+#. translators: %s: number of records
+#: assets/dist/admin/js/main.js:9
+msgid "This will delete %s blocked-email records. This cannot be undone."
+msgstr "%s 件のブロック済みメール記録が削除されます。この操作は元に戻せません。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Clear all"
+msgstr "すべて消去"
+
+#: assets/dist/admin/js/main.js:9
+msgid "No blocked emails"
+msgstr "ブロック済みメールはありません"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When an outgoing email targets an unsubscribed address, it will be logged here."
+msgstr "配信停止済みのアドレス宛に送信メールが発生すると、ここに記録されます。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Re-subscribed at"
+msgstr "再登録日時"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Originally unsubscribed"
+msgstr "当初の配信停止"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Addresses that opted back in after previously unsubscribing."
+msgstr "以前に配信停止した後、再び登録したアドレス。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "No re-subscribes yet"
+msgstr "再登録はまだありません"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When someone uses the re-subscribe link, they will appear here."
+msgstr "再登録リンクが使用されると、ここに表示されます。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Something went wrong."
+msgstr "問題が発生しました。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Reason added."
+msgstr "理由を追加しました。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "New reason"
+msgstr "新しい理由"
+
+#: assets/dist/admin/js/main.js:9
+msgid "e.g. Too many emails"
+msgstr "例：メールが多すぎる"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Appears in the unsubscribe dropdown on the public page."
+msgstr "公開ページの配信停止ドロップダウンに表示されます。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Adding…"
+msgstr "追加中…"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Add reason"
+msgstr "理由を追加"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move up"
+msgstr "上へ移動"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move down"
+msgstr "下へ移動"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Click to edit"
+msgstr "クリックして編集"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:11
+msgid "Actions for %s"
+msgstr "%s の操作"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Edit"
+msgstr "編集"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason updated."
+msgstr "理由を更新しました。"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason deleted."
+msgstr "理由を削除しました。"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Delete this reason?"
+msgstr "この理由を削除しますか？"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:13
+msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
+msgstr "「%s」を削除しますか？この理由を使用していた既存の配信停止記録はテキストを保持します。理由はレコードごとに保存され、参照されません。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe reasons"
+msgstr "配信停止の理由"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
+msgstr "配信停止フィードバックのドロップダウンに表示されるオプション。矢印で並べ替えます。リストの先頭が最初に表示されます。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Current reasons"
+msgstr "現在の理由"
+
+#: assets/dist/admin/js/main.js:13
+msgid "No reasons yet"
+msgstr "理由はまだありません"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Use the form on the right to add the first option shown when someone unsubscribes."
+msgstr "右側のフォームを使用して、配信停止時に表示される最初のオプションを追加してください。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Add a reason"
+msgstr "理由を追加"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard unsaved changes?"
+msgstr "保存していない変更を破棄しますか？"
+
+#: assets/dist/admin/js/main.js:13
+msgid "You have unsaved changes that will be lost if you navigate away."
+msgstr "保存していない変更があります。このページを離れると失われます。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Keep editing"
+msgstr "編集を続ける"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard changes"
+msgstr "変更を破棄"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Control how outgoing emails are processed and which recipients are blocked."
+msgstr "送信メールの処理方法とブロックする受信者を制御します。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Settings saved."
+msgstr "設定を保存しました。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "General"
+msgstr "一般"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Applies to all outgoing WordPress emails."
+msgstr "WordPress のすべての送信メールに適用されます。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append unsubscribe link"
+msgstr "配信停止リンクを自動付加"
+
+#: assets/dist/admin/js/main.js:13
+msgid "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically."
+msgstr "有効にすると、受信者が1人の送信メールに安全な配信停止ボタンが自動的に付加されます。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Exclude keywords"
+msgstr "除外キーワード"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
+msgstr "カンマ区切り。件名にこれらのいずれか（大文字小文字を区別しない）を含むメールは、ブロックと自動付加の両方をスキップします。トランザクションメールに使用してください。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Block unsubscribed recipients"
+msgstr "配信停止した受信者をブロック"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails."
+msgstr "配信停止リストにあるアドレスへのメール送信を防ぎます。ブロックされた試行は「ブロック済みメール」に記録されます。"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Unsaved changes"
+msgstr "保存していない変更"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Saving…"
+msgstr "保存中…"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Save changes"
+msgstr "変更を保存"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Thank you"
+msgstr "ありがとうございます"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Invalid link"
+msgstr "無効なリンク"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview state"
+msgstr "プレビュー状態"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
+msgstr "おおよそのプレビューです。実際のページはビューポート中央に配置され、サイトのテーマによって多少異なる場合があります。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Page background"
+msgstr "ページの背景"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Outer background colour of the unsubscribe page."
+msgstr "配信停止ページの外側の背景色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Card background"
+msgstr "カードの背景"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Background of the content box."
+msgstr "コンテンツボックスの背景。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Body text"
+msgstr "本文テキスト"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Default text colour."
+msgstr "デフォルトのテキスト色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Headings"
+msgstr "見出し"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Colour for h2 titles."
+msgstr "h2 見出しの色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background"
+msgstr "ボタンの背景"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Primary button colour."
+msgstr "メインボタンの色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button text"
+msgstr "ボタンのテキスト"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Text colour inside buttons."
+msgstr "ボタン内のテキスト色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button hover"
+msgstr "ボタンのホバー"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background when hovered."
+msgstr "ホバー時のボタンの背景。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe success"
+msgstr "配信停止の完了"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Title"
+msgstr "タイトル"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Message"
+msgstr "メッセージ"
+
+#. translators: {email} is a literal placeholder token; keep it as-is.
+#: assets/dist/admin/js/main.js:15
+msgid "Use {email} to insert the recipient address."
+msgstr "{email} を使用して受信者のアドレスを挿入します。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback submit button"
+msgstr "フィードバック送信ボタン"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback thank-you"
+msgstr "フィードバックのお礼"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Home link text"
+msgstr "ホームリンクのテキスト"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Invalid-link error"
+msgstr "無効なリンクのエラー"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Re-subscribe success"
+msgstr "再登録の完了"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Basic HTML (<br>, <strong>, <em>, links) is allowed."
+msgstr "基本的な HTML（<br>、<strong>、<em>、リンク）が使用できます。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Sans-serif (default)"
+msgstr "サンセリフ（デフォルト）"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font family"
+msgstr "フォントファミリー"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Applied to the whole unsubscribe page."
+msgstr "配信停止ページ全体に適用されます。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font size"
+msgstr "フォントサイズ"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
+msgstr "任意の CSS の長さ。例：14px、1em、0.875rem、100%。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Customize the look and copy of the public unsubscribe page."
+msgstr "公開配信停止ページの外観と文言をカスタマイズします。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Appearance saved."
+msgstr "外観を保存しました。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Unsubscribe page"
+msgstr "配信停止ページ"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Colors"
+msgstr "色"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Typography"
+msgstr "タイポグラフィ"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Text content"
+msgstr "テキストコンテンツ"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Live preview"
+msgstr "ライブプレビュー"
+
+#. translators: %s: underlying error message
+#: assets/dist/admin/js/main.js:17
+msgid "An error occurred: %s"
+msgstr "エラーが発生しました：%s"

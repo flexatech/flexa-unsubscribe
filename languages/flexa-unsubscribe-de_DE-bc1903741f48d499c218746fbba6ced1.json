@@ -1,0 +1,423 @@
+{
+    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "generator": "WP-CLI\/2.10.0",
+    "source": "assets\/dist\/admin\/js\/main.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "de_DE",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Email": [
+                "E-Mail"
+            ],
+            "Reason": [
+                "Grund"
+            ],
+            "Subject": [
+                "Betreff"
+            ],
+            "Unsubscribe": [
+                "Abmelden"
+            ],
+            "Re-subscribe": [
+                "Erneut anmelden"
+            ],
+            "-- Please select a reason --": [
+                "-- Bitte einen Grund ausw\u00e4hlen --"
+            ],
+            "Re-subscribe to emails": [
+                "E-Mails wieder abonnieren"
+            ],
+            "Dashboard": [
+                "Dashboard"
+            ],
+            "Unsubscribes": [
+                "Abmeldungen"
+            ],
+            "Blocked": [
+                "Blockiert"
+            ],
+            "Re-subscribed": [
+                "Erneut angemeldet"
+            ],
+            "Reasons": [
+                "Gr\u00fcnde"
+            ],
+            "Settings": [
+                "Einstellungen"
+            ],
+            "Appearance": [
+                "Darstellung"
+            ],
+            "Close": [
+                "Schlie\u00dfen"
+            ],
+            "Cancel": [
+                "Abbrechen"
+            ],
+            "Confirm": [
+                "Best\u00e4tigen"
+            ],
+            "Pagination": [
+                "Seitennummerierung"
+            ],
+            "Previous page": [
+                "Vorherige Seite"
+            ],
+            "Next page": [
+                "N\u00e4chste Seite"
+            ],
+            "Something went wrong": [
+                "Etwas ist schiefgelaufen"
+            ],
+            "Failed to load data. Please try again.": [
+                "Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut."
+            ],
+            "Retry": [
+                "Erneut versuchen"
+            ],
+            "Filter this page\u2026": [
+                "Diese Seite filtern\u2026"
+            ],
+            "Clear search": [
+                "Suche zur\u00fccksetzen"
+            ],
+            "No results": [
+                "Keine Ergebnisse"
+            ],
+            "Showing %1$s\u2013%2$s of %3$s": [
+                "%1$s\u2013%2$s von %3$s werden angezeigt"
+            ],
+            "Actions": [
+                "Aktionen"
+            ],
+            "Row actions": [
+                "Zeilenaktionen"
+            ],
+            "Unsubscribe record deleted.": [
+                "Abmeldeeintrag gel\u00f6scht."
+            ],
+            "Delete unsubscribe record?": [
+                "Abmeldeeintrag l\u00f6schen?"
+            ],
+            "This will remove the record for %s. This cannot be undone.": [
+                "Dadurch wird der Eintrag f\u00fcr %s entfernt. Dies kann nicht r\u00fcckg\u00e4ngig gemacht werden."
+            ],
+            "Delete": [
+                "L\u00f6schen"
+            ],
+            "Unsubscribed at": [
+                "Abgemeldet am"
+            ],
+            "Addresses that have opted out. Blocked from future sends.": [
+                "Adressen, die sich abgemeldet haben. Von zuk\u00fcnftigen Sendungen ausgeschlossen."
+            ],
+            "Export CSV": [
+                "CSV exportieren"
+            ],
+            "No unsubscribes yet": [
+                "Noch keine Abmeldungen"
+            ],
+            "When someone clicks the unsubscribe link in an email, they will appear here.": [
+                "Wenn jemand auf den Abmeldelink in einer E-Mail klickt, erscheint er hier."
+            ],
+            "Blocked email deleted.": [
+                "Blockierte E-Mail gel\u00f6scht."
+            ],
+            "All blocked emails cleared.": [
+                "Alle blockierten E-Mails gel\u00f6scht."
+            ],
+            "Delete blocked email record?": [
+                "Blockierten E-Mail-Eintrag l\u00f6schen?"
+            ],
+            "This will remove the audit record for %s. This cannot be undone.": [
+                "Dadurch wird der Pr\u00fcfeintrag f\u00fcr %s entfernt. Dies kann nicht r\u00fcckg\u00e4ngig gemacht werden."
+            ],
+            "From": [
+                "Von"
+            ],
+            "Blocked at": [
+                "Blockiert am"
+            ],
+            "Blocked emails": [
+                "Blockierte E-Mails"
+            ],
+            "Audit log of outgoing emails that were blocked because the recipient had unsubscribed.": [
+                "Pr\u00fcfprotokoll der ausgehenden E-Mails, die blockiert wurden, weil sich der Empf\u00e4nger abgemeldet hatte."
+            ],
+            "Clear all blocked records?": [
+                "Alle blockierten Eintr\u00e4ge l\u00f6schen?"
+            ],
+            "This will delete %s blocked-email records. This cannot be undone.": [
+                "Dadurch werden %s blockierte E-Mail-Eintr\u00e4ge gel\u00f6scht. Dies kann nicht r\u00fcckg\u00e4ngig gemacht werden."
+            ],
+            "Clear all": [
+                "Alle l\u00f6schen"
+            ],
+            "No blocked emails": [
+                "Keine blockierten E-Mails"
+            ],
+            "When an outgoing email targets an unsubscribed address, it will be logged here.": [
+                "Wenn eine ausgehende E-Mail an eine abgemeldete Adresse gerichtet ist, wird sie hier protokolliert."
+            ],
+            "Re-subscribed at": [
+                "Erneut angemeldet am"
+            ],
+            "Originally unsubscribed": [
+                "Urspr\u00fcnglich abgemeldet"
+            ],
+            "Addresses that opted back in after previously unsubscribing.": [
+                "Adressen, die sich nach einer vorherigen Abmeldung wieder angemeldet haben."
+            ],
+            "No re-subscribes yet": [
+                "Noch keine erneuten Anmeldungen"
+            ],
+            "When someone uses the re-subscribe link, they will appear here.": [
+                "Wenn jemand den Link zur erneuten Anmeldung verwendet, erscheint er hier."
+            ],
+            "Something went wrong.": [
+                "Etwas ist schiefgelaufen."
+            ],
+            "Reason added.": [
+                "Grund hinzugef\u00fcgt."
+            ],
+            "New reason": [
+                "Neuer Grund"
+            ],
+            "e.g. Too many emails": [
+                "z. B. Zu viele E-Mails"
+            ],
+            "Appears in the unsubscribe dropdown on the public page.": [
+                "Erscheint im Abmelde-Dropdown auf der \u00f6ffentlichen Seite."
+            ],
+            "Adding\u2026": [
+                "Wird hinzugef\u00fcgt\u2026"
+            ],
+            "Add reason": [
+                "Grund hinzuf\u00fcgen"
+            ],
+            "Move up": [
+                "Nach oben"
+            ],
+            "Move down": [
+                "Nach unten"
+            ],
+            "Click to edit": [
+                "Zum Bearbeiten klicken"
+            ],
+            "Actions for %s": [
+                "Aktionen f\u00fcr %s"
+            ],
+            "Edit": [
+                "Bearbeiten"
+            ],
+            "Reason updated.": [
+                "Grund aktualisiert."
+            ],
+            "Reason deleted.": [
+                "Grund gel\u00f6scht."
+            ],
+            "Delete this reason?": [
+                "Diesen Grund l\u00f6schen?"
+            ],
+            "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
+                "\u201e%s\u201c l\u00f6schen? Vorhandene Abmeldeeintr\u00e4ge, die diesen Grund verwendet haben, behalten ihren Text \u2013 der Grund wird pro Eintrag gespeichert, nicht referenziert."
+            ],
+            "Unsubscribe reasons": [
+                "Abmeldegr\u00fcnde"
+            ],
+            "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
+                "Im Abmelde-Feedback-Dropdown angezeigte Optionen. Mit den Pfeilen neu anordnen \u2013 der oberste Eintrag erscheint zuerst."
+            ],
+            "Current reasons": [
+                "Aktuelle Gr\u00fcnde"
+            ],
+            "No reasons yet": [
+                "Noch keine Gr\u00fcnde"
+            ],
+            "Use the form on the right to add the first option shown when someone unsubscribes.": [
+                "Verwenden Sie das Formular rechts, um die erste Option hinzuzuf\u00fcgen, die bei einer Abmeldung angezeigt wird."
+            ],
+            "Add a reason": [
+                "Einen Grund hinzuf\u00fcgen"
+            ],
+            "Discard unsaved changes?": [
+                "Nicht gespeicherte \u00c4nderungen verwerfen?"
+            ],
+            "You have unsaved changes that will be lost if you navigate away.": [
+                "Sie haben nicht gespeicherte \u00c4nderungen, die verloren gehen, wenn Sie die Seite verlassen."
+            ],
+            "Keep editing": [
+                "Weiter bearbeiten"
+            ],
+            "Discard changes": [
+                "\u00c4nderungen verwerfen"
+            ],
+            "Control how outgoing emails are processed and which recipients are blocked.": [
+                "Steuern Sie, wie ausgehende E-Mails verarbeitet werden und welche Empf\u00e4nger blockiert werden."
+            ],
+            "Settings saved.": [
+                "Einstellungen gespeichert."
+            ],
+            "General": [
+                "Allgemein"
+            ],
+            "Applies to all outgoing WordPress emails.": [
+                "Gilt f\u00fcr alle ausgehenden WordPress-E-Mails."
+            ],
+            "Auto-append unsubscribe link": [
+                "Abmeldelink automatisch anh\u00e4ngen"
+            ],
+            "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically.": [
+                "Wenn aktiviert, wird ausgehenden E-Mails mit einem einzelnen Empf\u00e4nger automatisch ein sicherer Abmelde-Button angeh\u00e4ngt."
+            ],
+            "Exclude keywords": [
+                "Schl\u00fcsselw\u00f6rter ausschlie\u00dfen"
+            ],
+            "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
+                "Durch Kommas getrennt. E-Mails, deren Betreff eines dieser W\u00f6rter enth\u00e4lt (Gro\u00df-\/Kleinschreibung wird ignoriert), \u00fcberspringen sowohl die Blockierung als auch das automatische Anh\u00e4ngen \u2013 f\u00fcr Transaktions-E-Mails verwenden."
+            ],
+            "Block unsubscribed recipients": [
+                "Abgemeldete Empf\u00e4nger blockieren"
+            ],
+            "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails.": [
+                "Verhindert den Versand von E-Mails an Adressen in der Abmeldeliste. Blockierte Versuche werden unter \u201eBlockierte E-Mails\u201c protokolliert."
+            ],
+            "Unsaved changes": [
+                "Nicht gespeicherte \u00c4nderungen"
+            ],
+            "Saving\u2026": [
+                "Wird gespeichert\u2026"
+            ],
+            "Save changes": [
+                "\u00c4nderungen speichern"
+            ],
+            "Thank you": [
+                "Vielen Dank"
+            ],
+            "Invalid link": [
+                "Ung\u00fcltiger Link"
+            ],
+            "Preview state": [
+                "Vorschauzustand"
+            ],
+            "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
+                "Ungef\u00e4hre Vorschau \u2013 die tats\u00e4chliche Seite ist im Viewport zentriert und kann je nach Website-Theme leicht abweichen."
+            ],
+            "Page background": [
+                "Seitenhintergrund"
+            ],
+            "Outer background colour of the unsubscribe page.": [
+                "\u00c4u\u00dfere Hintergrundfarbe der Abmeldeseite."
+            ],
+            "Card background": [
+                "Karten-Hintergrund"
+            ],
+            "Background of the content box.": [
+                "Hintergrund des Inhaltsfelds."
+            ],
+            "Body text": [
+                "Flie\u00dftext"
+            ],
+            "Default text colour.": [
+                "Standard-Textfarbe."
+            ],
+            "Headings": [
+                "\u00dcberschriften"
+            ],
+            "Colour for h2 titles.": [
+                "Farbe f\u00fcr h2-Titel."
+            ],
+            "Button background": [
+                "Schaltfl\u00e4chen-Hintergrund"
+            ],
+            "Primary button colour.": [
+                "Prim\u00e4re Schaltfl\u00e4chenfarbe."
+            ],
+            "Button text": [
+                "Schaltfl\u00e4chentext"
+            ],
+            "Text colour inside buttons.": [
+                "Textfarbe in Schaltfl\u00e4chen."
+            ],
+            "Button hover": [
+                "Schaltfl\u00e4che bei Hover"
+            ],
+            "Button background when hovered.": [
+                "Schaltfl\u00e4chen-Hintergrund beim \u00dcberfahren."
+            ],
+            "Unsubscribe success": [
+                "Abmeldung erfolgreich"
+            ],
+            "Title": [
+                "Titel"
+            ],
+            "Message": [
+                "Nachricht"
+            ],
+            "Use {email} to insert the recipient address.": [
+                "Verwenden Sie {email}, um die Empf\u00e4ngeradresse einzuf\u00fcgen."
+            ],
+            "Feedback submit button": [
+                "Feedback-Senden-Schaltfl\u00e4che"
+            ],
+            "Feedback thank-you": [
+                "Feedback-Dank"
+            ],
+            "Home link text": [
+                "Text des Startseiten-Links"
+            ],
+            "Invalid-link error": [
+                "Fehler: ung\u00fcltiger Link"
+            ],
+            "Re-subscribe success": [
+                "Erneute Anmeldung erfolgreich"
+            ],
+            "Basic HTML (<br>, <strong>, <em>, links) is allowed.": [
+                "Einfaches HTML (<br>, <strong>, <em>, Links) ist erlaubt."
+            ],
+            "Sans-serif (default)": [
+                "Serifenlos (Standard)"
+            ],
+            "Font family": [
+                "Schriftart"
+            ],
+            "Applied to the whole unsubscribe page.": [
+                "Wird auf die gesamte Abmeldeseite angewendet."
+            ],
+            "Font size": [
+                "Schriftgr\u00f6\u00dfe"
+            ],
+            "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
+                "Beliebige CSS-L\u00e4nge \u2013 z. B. 14px, 1em, 0.875rem, 100%."
+            ],
+            "Customize the look and copy of the public unsubscribe page.": [
+                "Passen Sie das Aussehen und die Texte der \u00f6ffentlichen Abmeldeseite an."
+            ],
+            "Appearance saved.": [
+                "Darstellung gespeichert."
+            ],
+            "Unsubscribe page": [
+                "Abmeldeseite"
+            ],
+            "Colors": [
+                "Farben"
+            ],
+            "Typography": [
+                "Typografie"
+            ],
+            "Text content": [
+                "Textinhalt"
+            ],
+            "Live preview": [
+                "Live-Vorschau"
+            ],
+            "An error occurred: %s": [
+                "Ein Fehler ist aufgetreten: %s"
+            ]
+        }
+    }
+}
