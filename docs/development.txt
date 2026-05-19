@@ -1,0 +1,398 @@
+# Flexa Unsubscribe — Development & Release Guide
+
+How to set up this plugin locally, develop the React admin with hot
+reload, and produce a shippable release zip.
+
+For a tour of *what* the plugin does, see
+[`docs/features.md`](features.md). This document covers *how* to work
+on the codebase.
+
+---
+
+## 1. Prerequisites
+
+| Tool | Version | Why |
+|---|---|---|
+| **WordPress** | 5.8+ (tested up to 6.9) | The plugin's runtime host. |
+| **PHP** | 7.4+ | Hard floor declared in the plugin header. Do not use 8.0-only syntax (named args, readonly, enums, `str_ends_with`, etc.). |
+| **Node.js** | ≥ 18 (LTS) | For Vite + TypeScript. Anything older may silently break Vite 6. |
+| **pnpm** | ≥ 8 (the lockfile is `pnpm@10.15.0`) | Enforced — `package.json` has `"preinstall": "npx only-allow pnpm"`. `npm install` and `yarn install` will refuse to run. |
+| **Local WP environment** | LocalWP, wp-env, ddev, Lando, Docker, or a real Apache/Nginx box | Anything that gives you a working `wp-admin` and a captured outbound mailer. |
+| **Mail catcher** | LocalWP's MailHog, MailPit, WP Mail Logging plugin, or `wp_mail` debug log | You'll be reading captured outgoing emails constantly. |
+
+Confirm versions:
+```sh
+php -v          # >= 7.4
+node -v         # >= 18
+pnpm -v         # >= 8
+```
+
+---
+
+## 2. Cloning & first-time install
+
+```sh
+# Inside your local WordPress install:
+cd wp-content/plugins
+git clone <repo> flexa-unsubscribe
+cd flexa-unsubscribe
+
+# Install React admin dependencies
+cd apps/admin
+pnpm install
+```
+
+Then in **WP Admin → Plugins**, activate **Flexa Unsubscribe**. On
+activation, three custom tables are created:
+
+- `{prefix}flexa_unsubscribes`
+- `{prefix}flexa_blocked_emails`
+- `{prefix}flexa_unsubscribe_reasons` (seeded with three default reasons)
+
+The new menu item **Unsubscribe** (position 60, dashicons-email-alt)
+should appear in the sidebar.
+
+---
+
+## 3. Development workflow (HMR / dev mode)
+
+The React admin can be loaded in two modes. Default is **production**
+(read the built bundle from `assets/dist/admin/`). For local dev,
+flip to **development** so the browser pulls source files directly
+from the Vite dev server with hot module reload.
+
+### 3.1 Enable dev mode
+
+In `includes/constants.php` set:
+
+```php
+define('FLEXA_TECH_SU_IS_DEVELOPMENT', true);
+```
+
+> Prefer not to edit this committed file? Override in `wp-config.php`
+> instead — same constant name, same effect, but isolated to your
+> machine:
+> ```php
+> define('FLEXA_TECH_SU_IS_DEVELOPMENT', true);
+> // Optional: only set this if Vite isn't on the default port
+> define('FLEXA_TECH_SU_VITE_DEV_ORIGIN', 'http://localhost:3001');
+> ```
+
+**Important:** flip back to `false` before building a release. Shipping
+with dev-mode on causes `ERR_CONNECTION_REFUSED` on every admin page
+when Vite isn't running.
+
+### 3.2 Start Vite
+
+```sh
+cd apps/admin
+pnpm dev
+```
+
+Vite serves on **http://localhost:3001** with `strictPort: true` (it
+won't fall back to 3002 if 3001 is taken — kill the conflicting
+process or override the origin). The admin script is loaded from
+`http://localhost:3001/main.tsx` (note: the entry path is `/main.tsx`
+because Vite's `root` is `./src`).
+
+### 3.3 Open the admin
+
+Navigate to **WP Admin → Unsubscribe**. The React Refresh runtime is
+injected via `RegisterDev::render_dev_refresh()` only on the page that
+actually loads the bundle, so you won't see Vite requests on other
+admin screens.
+
+Edits in `apps/admin/src/**` should hot-reload in the browser within a
+keystroke.
+
+### 3.4 Common dev-mode issues
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| `Failed to load module script ... main.tsx` | Vite isn't running, or runs on a different port | `pnpm dev` from `apps/admin/`; or set `FLEXA_TECH_SU_VITE_DEV_ORIGIN` |
+| `<script src="/main.tsx">` (relative URL → site host) | `FLEXA_TECH_SU_VITE_DEV_ORIGIN` set to a non-URL string in `wp-config.php` | Restore to `http://localhost:3001` or undefine it; `RegisterDev::vite_origin()` falls back when the override isn't a valid http(s) URL |
+| Tailwind utility classes leak into other admin screens | `.flexa-unsubscribe-ui` body class missing | The class is added by `Engine\Admin\Settings::admin_body_class` only on the React page. If you've added a new admin screen, scope CSS yourself. |
+| HMR works for `.tsx` but not for `.css` | Tailwind v4 + Vite caches; usually a hard refresh (Cmd-Shift-R) clears it | Restart `pnpm dev` |
+
+### 3.5 Editing PHP
+
+PHP changes (REST controllers, settings, filters) take effect on the
+next request — no rebuild needed. The PSR-4 autoloader picks up new
+files under `includes/` matching the `FlexaUnsubscribe\…` namespace
+automatically.
+
+If you add a new option, update **all four** sanitisation surfaces:
+1. `includes/settings.php` (`register_setting` + sanitiser)
+2. `Controllers\SettingsRestController::APPEARANCE_DEFAULTS` (or the
+   general endpoint as appropriate)
+3. The Zod schema in `apps/admin/src/lib/api/...ts`
+4. The default in `templates/unsubscribe-page.php` (only if rendered)
+
+---
+
+## 4. Project structure (cheat-sheet)
+
+```
+flexa-unsubscribe/
+├── flexa-unsubscribe.php          # Entry point: autoloader + bootstrap
+├── includes/
+│   ├── constants.php              # Paths, version, table names, dev toggle
+│   ├── core.php                   # The two wp_mail filters
+│   ├── database.php               # All flexa_tech_su_* DB helpers
+│   ├── settings.php               # register_setting() + sanitisers
+│   ├── frontend.php               # Public ?flexa_action=… handler
+│   ├── admin.php                  # CSV export admin-post handlers (only)
+│   ├── Initialize.php             # plugins_loaded boot
+│   ├── Register/                  # Dev/Prod script registration
+│   ├── Engine/                    # RestAPI, Admin\Settings (admin menu)
+│   ├── Controllers/               # REST controllers (one per resource)
+│   ├── Helpers/                   # Helper::get_js_config() etc.
+│   └── Utils/                     # SingletonTrait
+├── templates/                     # Public unsubscribe + resubscribe pages
+├── assets/dist/admin/             # Built React bundle (gitignored)
+├── apps/admin/                    # React 18 + Vite + TS source
+│   ├── src/
+│   │   ├── main.tsx               # Mount point
+│   │   ├── AppLayout.tsx
+│   │   ├── router.tsx             # createHashRouter
+│   │   ├── pages/                 # One folder per admin screen
+│   │   ├── components/            # data-table, ui (shadcn primitives)
+│   │   ├── lib/                   # api/, queries/, utils
+│   │   ├── hooks/                 # useTableState, useDirtyNavigationGuard
+│   │   └── styles/                # theme.css, preflight.css
+│   ├── package.json               # pnpm enforced
+│   └── vite.config.ts
+├── languages/                     # i18n .pot/.mo (currently empty)
+├── docs/                          # This file lives here
+├── readme.txt                     # WordPress.org listing
+├── .distignore                    # What release.sh strips from the zip
+├── .gitignore                     # Source-control exclusions
+└── release.sh                     # Builds the .zip
+```
+
+---
+
+## 5. Building for production
+
+The shipped plugin must contain the **built** bundle, not the source.
+The `.distignore` file makes sure `apps/`, `node_modules/`, lockfiles,
+and internal docs do not end up in the zip — but only `assets/dist/`
+is built, so you must build it manually first.
+
+### 5.1 The build command
+
+```sh
+cd apps/admin
+pnpm build
+```
+
+This runs `tsc --noEmit && vite build` (defined in
+`apps/admin/package.json`). The flow:
+
+1. **TypeScript type check** — `tsc --noEmit` runs first, fails the
+   build on type errors.
+2. **Vite build** — produces minified ES modules with terser
+   (`compress: { passes: 2 }`, comments preserved when matching
+   `/translators:/i` so `__()` strings aren't stripped).
+3. **Output** lands in `assets/dist/admin/`:
+   - `js/main.js` (the entry)
+   - `style.css`
+   - any chunk files (`cssCodeSplit: false` is set, but lazy-imported
+     code may still chunk).
+
+`react`, `react-dom`, `@wordpress/hooks`, `@wordpress/i18n`, and
+`@wordpress/api-fetch` are **externals** (`vite-plugin-external`) —
+they resolve to `window.React`, `wp.hooks`, etc. provided by WP's
+enqueued scripts. Don't bundle them.
+
+### 5.2 Check the built bundle locally
+
+1. Set `FLEXA_TECH_SU_IS_DEVELOPMENT` back to `false`.
+2. Stop `pnpm dev`.
+3. Reload **WP Admin → Unsubscribe**. The page should load using the
+   built `assets/dist/admin/js/main.js` (Network tab) — same admin
+   should function as in dev mode.
+
+If anything 404s, you forgot step 5.1.
+
+### 5.3 Build the release zip
+
+```sh
+# From the plugin root (NOT apps/admin)
+./release.sh
+```
+
+The script:
+1. Wipes `build/`.
+2. Recreates `build/flexa-unsubscribe/`.
+3. `rsync`s the project into it, honouring `.distignore`
+   (`apps/`, `node_modules/`, lockfiles, `.git/`, internal docs are
+   stripped).
+4. Zips → `build/flexa-unsubscribe.zip`.
+5. Removes the unzipped staging directory.
+
+**Order matters.** Run `pnpm build` *before* `./release.sh`. The
+`.distignore` excludes `apps/` but does **not** touch `assets/dist/`,
+so whatever is on disk at zip time is what ships. If you forget to
+build, the zip will contain stale (or no) bundle and the plugin will
+white-screen on activation.
+
+### 5.4 Sanity-check the zip
+
+```sh
+unzip -l build/flexa-unsubscribe.zip | head -40
+```
+
+Confirm you see:
+- `flexa-unsubscribe/flexa-unsubscribe.php`
+- `flexa-unsubscribe/includes/...`
+- `flexa-unsubscribe/templates/...`
+- `flexa-unsubscribe/assets/dist/admin/js/main.js`
+- `flexa-unsubscribe/assets/dist/admin/style.css`
+- `flexa-unsubscribe/readme.txt`
+
+And **NOT**:
+- `apps/`
+- `node_modules/`
+- `.git/`, `.gitignore`, `.distignore`
+- `pnpm-lock.yaml`, `package.json` (root)
+- `CLAUDE.md` or any `PHASE-*-*.md`
+
+Install the zip on a fresh WP site to verify it activates cleanly.
+
+---
+
+## 6. Cutting a versioned release
+
+The version lives in **three files** that must stay in sync. WordPress.org
+and the plugin list cross-reference them; if any one drifts, you'll
+get either a "Plugin update available" loop or a missing-version
+warning.
+
+| File | Field |
+|---|---|
+| `flexa-unsubscribe.php` | `Version: X.Y.Z` (header) |
+| `includes/constants.php` | `define('FLEXA_TECH_SU_VERSION', 'X.Y.Z')` |
+| `readme.txt` | `Stable tag: X.Y.Z` |
+
+### 6.1 Schema version (only when DB changes)
+
+Schema migrations are tracked separately by
+`FLEXA_TECH_SU_DB_VERSION` (`includes/constants.php`). Bump this when
+`flexa_tech_su_create_db()` gains a new table, column, or index. The
+plugins-loaded runner re-executes `create_db()` (idempotent — uses
+`dbDelta` + existence-checked ALTERs) on the next request.
+
+### 6.2 Release checklist
+
+```sh
+# 1. Make sure dev-mode is OFF
+grep "FLEXA_TECH_SU_IS_DEVELOPMENT" includes/constants.php
+# expect: define('FLEXA_TECH_SU_IS_DEVELOPMENT', false);
+
+# 2. Bump the three version sources together; verify
+git grep "3\.0\.0"   # or whatever new version
+
+# 3. Update readme.txt changelog
+$EDITOR readme.txt
+
+# 4. Build the bundle
+cd apps/admin && pnpm install && pnpm build && cd ../..
+
+# 5. Build the zip
+./release.sh
+
+# 6. Smoke-test on a fresh WP install (see docs/features.md §12)
+
+# 7. Commit + tag
+git add -A
+git commit -m "Release X.Y.Z"
+git tag vX.Y.Z
+git push origin main --tags
+```
+
+### 6.3 Production deployment
+
+For self-hosted sites:
+1. Upload `build/flexa-unsubscribe.zip` via **WP Admin → Plugins →
+   Add New → Upload Plugin**.
+2. Activate. The schema-upgrade runner handles any DB migrations.
+
+For WordPress.org publishing: tag in SVN, copy the built tree into
+`trunk/` and the matching `tags/X.Y.Z/`, and commit. (Out of scope
+for this repo — handled by the repo maintainer.)
+
+---
+
+## 7. Useful commands
+
+```sh
+# Type check without building
+cd apps/admin && pnpm exec tsc --noEmit
+
+# Reset DB tables for a clean test
+wp db query "DROP TABLE IF EXISTS wp_flexa_unsubscribes, wp_flexa_blocked_emails, wp_flexa_unsubscribe_reasons;"
+wp option delete flexa_tech_su_db_version
+# Then deactivate + reactivate the plugin
+
+# Trigger an outbound email from CLI
+wp eval 'wp_mail("test@example.com", "Newsletter", "Hi");'
+
+# Find all version references before a bump
+git grep -n "X\.Y\.Z"
+
+# See which files would ship in a release without actually building
+rsync -rcn --exclude-from=.distignore ./ /tmp/preview/ --delete --delete-excluded
+```
+
+---
+
+## 8. Anti-patterns to avoid
+
+| Don't | Why |
+|---|---|
+| `npm install` / `yarn install` | `preinstall: only-allow pnpm` — and it would create a competing lockfile that drifts |
+| Edit `.gitignore` to track `assets/dist/` | The built bundle should not be in git; it ships in the zip via `release.sh` |
+| Add `react` / `react-dom` / `@wordpress/*` as runtime deps in the bundle | They're WP-provided externals; bundling them doubles the payload and can cause two React instances |
+| Use `str_ends_with`, named args, enums, readonly | PHP 7.4 floor — those are 8.0+ |
+| Hardcode `wp_*flexa_*` table names | Use `FLEXA_TECH_SU_*` table-name constants from `constants.php` |
+| Call `get_option('flexa_tech_su_*')` directly | Use `flexa_tech_su_get_setting($key, $default)` so defaults stay consistent |
+| Re-implement DB queries in REST controllers | Wrap the procedural `flexa_tech_su_*` helpers — single source of truth |
+| Ship with `FLEXA_TECH_SU_IS_DEVELOPMENT = true` | Production sites without Vite running will get connection-refused errors |
+| Run `./release.sh` without `pnpm build` first | Zips up stale or missing JS — plugin breaks on install |
+| Use `wp_ajax_*` for new endpoints | The plugin is REST-only; `SaveReasonRestController` shows the pattern for public endpoints with HMAC auth |
+
+---
+
+## 9. Where to look when something breaks
+
+| Symptom | Look here |
+|---|---|
+| Outgoing mail not blocked / button not appended | `includes/core.php` — the two `wp_mail` filters; check the toggles in Settings |
+| Public unsubscribe page 404s | `includes/frontend.php` — the `template_redirect` handler must fire before WP sends headers |
+| HMAC token validation fails | `flexa_handle_unsubscribe_logic()` — `hash_equals` and `AUTH_KEY` (rotated `AUTH_KEY` invalidates every link) |
+| Admin menu missing | `Engine\Admin\Settings` and `Initialize::__construct` |
+| React page blank, no JS errors | Bundle missing — `assets/dist/admin/js/main.js`. Run `pnpm build`. |
+| React page blank, console errors about React Refresh | Dev-mode is on but Vite isn't running |
+| List endpoint returns wrong shape | `Controllers\Support\TableRequestArgs::envelope` is the canonical envelope |
+| Dirty-state guard not firing | `useDirtyNavigationGuard(form.formState.isDirty)` not wired |
+| Boolean settings save incorrectly | `SettingsRestController::bool_to_checkbox` — booleans persist as `'1'` / `''` strings |
+| WC admin notice complaining about compatibility | `before_woocommerce_init` declarations in `flexa-unsubscribe.php` |
+
+---
+
+## 10. TL;DR
+
+```sh
+# Develop
+$EDITOR includes/constants.php   # FLEXA_TECH_SU_IS_DEVELOPMENT = true
+cd apps/admin && pnpm install && pnpm dev
+# → open WP Admin → Unsubscribe
+
+# Build a release
+$EDITOR includes/constants.php   # FLEXA_TECH_SU_IS_DEVELOPMENT = false
+# Bump version in flexa-unsubscribe.php, includes/constants.php, readme.txt
+cd apps/admin && pnpm build && cd ../..
+./release.sh
+# → build/flexa-unsubscribe.zip is ready to upload
+```
