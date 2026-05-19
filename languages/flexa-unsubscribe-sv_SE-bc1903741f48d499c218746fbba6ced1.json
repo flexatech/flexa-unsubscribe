@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-05-19T13:55:17+00:00",
+    "translation-revision-date": "2026-05-19 21:13+0000",
     "generator": "WP-CLI\/2.10.0",
     "source": "assets\/dist\/admin\/js\/main.js",
     "domain": "messages",
@@ -438,6 +438,15 @@
             ],
             "Background color of the appended button.": [
                 "Bakgrundsf\u00e4rg f\u00f6r den tillagda knappen."
+            ],
+            "Preview": [
+                "F\u00f6rhandsvisning"
+            ],
+            "Approximate preview - rendering may differ slightly across email clients.": [
+                "Ungef\u00e4rlig f\u00f6rhandsvisning - \u00e5tergivningen kan skilja sig n\u00e5got mellan e-postklienter."
+            ],
+            "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
+                "Automatisk infogning \u00e4r avst\u00e4ngd - denna sidfot l\u00e4ggs inte till i utg\u00e5ende e-post f\u00f6rr\u00e4n du aktiverar den ovan."
             ]
         }
     }

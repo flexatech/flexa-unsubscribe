@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-19T13:55:17+00:00\n"
-"PO-Revision-Date: 2026-05-19T13:55:17+00:00\n"
+"PO-Revision-Date: 2026-05-19 21:13+0000\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
 "Language: de_DE\n"
@@ -759,3 +759,15 @@ msgstr "Farbe des Abmelde-Buttons"
 #: assets/dist/admin/js/main.js:13
 msgid "Background color of the appended button."
 msgstr "Hintergrundfarbe des angehängten Buttons."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview"
+msgstr "Vorschau"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - rendering may differ slightly across email clients."
+msgstr "Ungefähre Vorschau - die Darstellung kann je nach E-Mail-Programm leicht abweichen."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
+msgstr "Automatisches Anhängen ist deaktiviert - diese Fußzeile wird ausgehenden E-Mails erst hinzugefügt, wenn Sie es oben aktivieren."

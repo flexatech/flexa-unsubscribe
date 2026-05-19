@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-19T13:55:17+00:00\n"
-"PO-Revision-Date: 2026-05-19T13:55:17+00:00\n"
+"PO-Revision-Date: 2026-05-19 21:13+0000\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
 "Language: ar\n"
@@ -758,3 +758,15 @@ msgstr "لون زر إلغاء الاشتراك"
 #: assets/dist/admin/js/main.js:13
 msgid "Background color of the appended button."
 msgstr "لون خلفية الزر المُضاف."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview"
+msgstr "معاينة"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - rendering may differ slightly across email clients."
+msgstr "معاينة تقريبية - قد يختلف العرض قليلاً حسب برنامج البريد الإلكتروني."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
+msgstr "الإضافة التلقائية متوقفة - لن تتم إضافة هذا التذييل إلى الرسائل الصادرة حتى تقوم بتفعيله بالأعلى."
