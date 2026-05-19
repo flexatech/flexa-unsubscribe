@@ -1,15 +1,29 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { NAV } from '@/lib/nav';
+import type { NavItem } from '@/lib/nav';
 
 /**
- * Sticky anchor navigation with scroll-spy. An IntersectionObserver
- * tracks which <Section> is in view and highlights the matching link;
- * on small screens the same list collapses behind a toggle.
+ * Sticky anchor navigation with scroll-spy, shared by the technical
+ * docs page and the user guide. An IntersectionObserver tracks which
+ * <Section> is in view and highlights the matching link; on small
+ * screens the same list collapses behind a toggle. `crossLink` renders
+ * a button to jump to the sibling document (docs ↔ guide).
  */
-export function Sidebar() {
-  const [active, setActive] = useState<string>(NAV[0].id);
+export function Sidebar({
+  items,
+  title,
+  subtitle,
+  crossLinkHref,
+  crossLinkLabel,
+}: {
+  items: NavItem[];
+  title: string;
+  subtitle: string;
+  crossLinkHref: string;
+  crossLinkLabel: string;
+}) {
+  const [active, setActive] = useState<string>(items[0]?.id ?? '');
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -23,18 +37,18 @@ export function Sidebar() {
       { rootMargin: '-20% 0px -70% 0px', threshold: 0 },
     );
 
-    NAV.forEach(({ id }) => {
+    items.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
-  }, []);
+  }, [items]);
 
   return (
     <>
       {/* Mobile header */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b border-line bg-surface/90 px-4 py-3 backdrop-blur lg:hidden">
-        <span className="text-sm font-semibold text-ink">Flexa Unsubscribe Docs</span>
+        <span className="text-sm font-semibold text-ink">{title}</span>
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -50,13 +64,22 @@ export function Sidebar() {
           open ? 'block' : 'hidden'
         } border-b border-line bg-surface px-4 py-4 lg:sticky lg:top-0 lg:block lg:h-screen lg:w-72 lg:flex-none lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-6 lg:py-8`}
       >
-        <div className="mb-6 hidden lg:block">
-          <p className="text-sm font-bold text-ink">Flexa Unsubscribe</p>
-          <p className="text-xs text-muted">Technical documentation · v3.0.3</p>
+        <div className="mb-5 hidden lg:block">
+          <p className="text-sm font-bold text-ink">{title}</p>
+          <p className="text-xs text-muted">{subtitle}</p>
         </div>
+
+        <a
+          href={crossLinkHref}
+          className="mb-5 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-50"
+        >
+          <span>{crossLinkLabel}</span>
+          <span aria-hidden>→</span>
+        </a>
+
         <nav>
           <ul className="space-y-0.5">
-            {NAV.map(({ id, label }) => {
+            {items.map(({ id, label }) => {
               const isActive = active === id;
               return (
                 <li key={id}>

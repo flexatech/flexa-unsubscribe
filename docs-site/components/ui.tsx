@@ -141,3 +141,60 @@ export function Method({ verb }: { verb: string }) {
     </span>
   );
 }
+
+/**
+ * Screenshot slot for the user guide. Until a real image exists it
+ * renders a labelled placeholder frame. To swap in the real capture,
+ * drop the file in `docs-site/public/screenshots/` and pass `src` —
+ * e.g. <Screenshot src="/screenshots/dashboard.png" … /> — and the
+ * component renders the <img> instead of the placeholder.
+ */
+export function Screenshot({
+  src,
+  alt,
+  caption,
+}: {
+  src?: string;
+  alt: string;
+  caption?: string;
+}) {
+  return (
+    <figure className="overflow-hidden rounded-xl border border-line bg-surface shadow-sm">
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt={alt} className="block w-full" />
+      ) : (
+        <div className="flex aspect-[16/9] flex-col items-center justify-center gap-2 bg-slate-50 px-6 text-center">
+          <span className="flex size-10 items-center justify-center rounded-full border border-line bg-surface text-base">
+            🖼
+          </span>
+          <p className="text-sm font-semibold text-ink-soft">{alt}</p>
+          <p className="font-mono text-xs text-muted">
+            placeholder — replace with screenshot
+          </p>
+        </div>
+      )}
+      {caption && (
+        <figcaption className="border-t border-line bg-slate-50 px-4 py-2 text-xs text-muted">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
+/** Ordered, numbered walkthrough steps. */
+export function Steps({ children }: { children: ReactNode }) {
+  return (
+    <ol className="space-y-3 [counter-reset:step]">{children}</ol>
+  );
+}
+
+export function Step({ children }: { children: ReactNode }) {
+  return (
+    <li className="flex gap-3 [counter-increment:step]">
+      <span className="mt-0.5 flex size-6 flex-none items-center justify-center rounded-full bg-brand-500 text-xs font-bold text-white before:content-[counter(step)]" />
+      <div className="flex-1 leading-7">{children}</div>
+    </li>
+  );
+}

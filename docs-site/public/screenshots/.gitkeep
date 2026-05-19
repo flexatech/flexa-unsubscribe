@@ -1,0 +1,2 @@
+Drop user-guide screenshots here, then add the matching src to <Screenshot> in app/guide/page.tsx.
+Expected files: menu.png dashboard.png settings-general.png settings-footer.png appearance.png unsubscribes.png blocked.png resubscribed.png reasons.png export.png

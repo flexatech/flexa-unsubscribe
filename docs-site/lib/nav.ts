@@ -8,6 +8,7 @@ export interface NavItem {
   label: string;
 }
 
+/** Anchor nav for the technical documentation page (app/page.tsx). */
 export const NAV: NavItem[] = [
   { id: 'overview', label: 'Overview' },
   { id: 'how-it-works', label: 'How it works' },
@@ -22,4 +23,19 @@ export const NAV: NavItem[] = [
   { id: 'csv-export', label: 'CSV export' },
   { id: 'database', label: 'Database schema' },
   { id: 'changelog', label: 'Changelog' },
+];
+
+/** Anchor nav for the user guide page (app/guide/page.tsx). */
+export const GUIDE_NAV: NavItem[] = [
+  { id: 'start', label: 'Getting started' },
+  { id: 'dashboard', label: 'The Dashboard' },
+  { id: 'enable', label: 'Turn on protection' },
+  { id: 'footer', label: 'Customize the email footer' },
+  { id: 'appearance', label: 'Style the public page' },
+  { id: 'unsubscribes', label: 'Unsubscribes list' },
+  { id: 'blocked', label: 'Blocked Emails' },
+  { id: 'resubscribed', label: 'Re-subscribed list' },
+  { id: 'reasons', label: 'Manage reasons' },
+  { id: 'export', label: 'Export to CSV' },
+  { id: 'faq', label: 'Troubleshooting & FAQ' },
 ];

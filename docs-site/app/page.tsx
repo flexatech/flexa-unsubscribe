@@ -1,4 +1,5 @@
 import { Sidebar } from '@/components/Sidebar';
+import { NAV } from '@/lib/nav';
 import {
   Callout,
   Code,
@@ -12,7 +13,13 @@ import {
 export default function Home() {
   return (
     <div className="lg:flex">
-      <Sidebar />
+      <Sidebar
+        items={NAV}
+        title="Flexa Unsubscribe"
+        subtitle="Technical documentation · v3.0.3"
+        crossLinkHref="/guide/"
+        crossLinkLabel="📘 Read the User Guide"
+      />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 pb-24 sm:px-8 lg:px-12">
         {/* ── Hero ─────────────────────────────────────────────── */}
