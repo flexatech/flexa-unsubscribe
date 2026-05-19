@@ -17,7 +17,7 @@ export default function Home() {
         items={NAV}
         title="Flexa Unsubscribe"
         subtitle="Technical documentation · v3.0.3"
-        crossLinkHref="guide.html"
+        crossLinkHref="/guide"
         crossLinkLabel="📘 Read the User Guide"
       />
 

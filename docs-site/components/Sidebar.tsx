@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import type { NavItem } from '@/lib/nav';
 
 /**
@@ -69,13 +70,13 @@ export function Sidebar({
           <p className="text-xs text-muted">{subtitle}</p>
         </div>
 
-        <a
+        <Link
           href={crossLinkHref}
           className="mb-5 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-50"
         >
           <span>{crossLinkLabel}</span>
           <span aria-hidden>→</span>
-        </a>
+        </Link>
 
         <nav>
           <ul className="space-y-0.5">

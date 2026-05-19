@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Sidebar } from '@/components/Sidebar';
 import { GUIDE_NAV } from '@/lib/nav';
 import {
@@ -18,7 +20,7 @@ export default function Guide() {
         items={GUIDE_NAV}
         title="Flexa Unsubscribe"
         subtitle="User guide · v3.0.3"
-        crossLinkHref="index.html"
+        crossLinkHref="/"
         crossLinkLabel="← Technical documentation"
       />
 
@@ -420,9 +422,9 @@ export default function Guide() {
           <p className="pt-4 text-sm text-muted">
             Need the technical details (REST API, hooks, database schema)? See
             the{' '}
-            <a href="index.html" className="text-brand-600 underline">
+            <Link href="/" className="text-brand-600 underline">
               technical documentation
-            </a>
+            </Link>
             .
           </p>
         </Section>
