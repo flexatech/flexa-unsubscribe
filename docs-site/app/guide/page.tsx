@@ -18,7 +18,7 @@ export default function Guide() {
         items={GUIDE_NAV}
         title="Flexa Unsubscribe"
         subtitle="User guide · v3.0.3"
-        crossLinkHref="/"
+        crossLinkHref="index.html"
         crossLinkLabel="← Technical documentation"
       />
 
@@ -420,7 +420,7 @@ export default function Guide() {
           <p className="pt-4 text-sm text-muted">
             Need the technical details (REST API, hooks, database schema)? See
             the{' '}
-            <a href="/" className="text-brand-600 underline">
+            <a href="index.html" className="text-brand-600 underline">
               technical documentation
             </a>
             .
