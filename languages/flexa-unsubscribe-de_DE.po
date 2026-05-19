@@ -1,0 +1,728 @@
+# Copyright (C) 2026 flexatech
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexa Unsubscribe 3.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-unsubscribe\n"
+"Last-Translator: flexatech\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-19T09:42:02+00:00\n"
+"PO-Revision-Date: 2026-05-19T09:42:02+00:00\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: flexa-unsubscribe\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+#: flexa-unsubscribe.php
+msgid "Flexa Unsubscribe"
+msgstr ""
+
+#. Description of the plugin
+#: flexa-unsubscribe.php
+msgid "Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV export."
+msgstr "Professionelle Verwaltung von E-Mail-Abmeldungen mit HMAC-Tokens, automatischem Anhängen und CSV-Export."
+
+#. Author of the plugin
+#: flexa-unsubscribe.php
+msgid "flexatech"
+msgstr ""
+
+#: includes/admin.php:29 includes/admin.php:61 includes/admin.php:95
+msgid "Unauthorized"
+msgstr "Nicht autorisiert"
+
+#: includes/admin.php:42 includes/admin.php:74 includes/admin.php:108
+#: assets/dist/admin/js/main.js:3
+msgid "Email"
+msgstr "E-Mail"
+
+#: includes/admin.php:43 includes/admin.php:111 assets/dist/admin/js/main.js:5
+msgid "Reason"
+msgstr "Grund"
+
+#: includes/admin.php:44
+msgid "Date"
+msgstr "Datum"
+
+#: includes/admin.php:75 assets/dist/admin/js/main.js:7
+msgid "Subject"
+msgstr "Betreff"
+
+#: includes/admin.php:76
+msgid "From Email"
+msgstr "Absender-E-Mail"
+
+#: includes/admin.php:77
+msgid "From Name"
+msgstr "Absendername"
+
+#: includes/admin.php:78
+msgid "Blocked At"
+msgstr "Blockiert am"
+
+#: includes/admin.php:109
+msgid "Unsubscribed At"
+msgstr "Abgemeldet am"
+
+#: includes/admin.php:110
+msgid "Re-subscribed At"
+msgstr "Erneut angemeldet am"
+
+#: includes/admin.php:118
+msgid "N/A"
+msgstr "N/V"
+
+#: includes/Controllers/BlockedRestController.php:96
+msgid "Failed to delete blocked email record."
+msgstr "Blockierter E-Mail-Eintrag konnte nicht gelöscht werden."
+
+#: includes/Controllers/BlockedRestController.php:103
+msgid "Blocked email record not found."
+msgstr "Blockierter E-Mail-Eintrag nicht gefunden."
+
+#: includes/Controllers/ReasonsRestController.php:135
+msgid "Failed to create reason."
+msgstr "Grund konnte nicht erstellt werden."
+
+#: includes/Controllers/ReasonsRestController.php:151
+#: includes/Controllers/ReasonsRestController.php:167
+msgid "Reason not found."
+msgstr "Grund nicht gefunden."
+
+#: includes/Controllers/ReasonsRestController.php:164
+msgid "Failed to delete reason."
+msgstr "Grund konnte nicht gelöscht werden."
+
+#: includes/Controllers/SaveReasonRestController.php:64
+#: includes/Controllers/SaveReasonRestController.php:73
+msgid "Missing or invalid token."
+msgstr "Fehlendes oder ungültiges Token."
+
+#: includes/Controllers/SettingsRestController.php:81
+#: templates/unsubscribe-page.php:33
+msgid "Unsubscribed"
+msgstr "Abgemeldet"
+
+#. translators: {email} is a literal placeholder, replaced with the recipient's address. Keep it as-is.
+#: includes/Controllers/SettingsRestController.php:83
+#: templates/unsubscribe-page.php:35
+msgid "Email {email} is removed."
+msgstr "E-Mail {email} wurde entfernt."
+
+#: includes/Controllers/SettingsRestController.php:84
+#: templates/unsubscribe-page.php:36
+msgid "Submit Feedback"
+msgstr "Feedback senden"
+
+#: includes/Controllers/SettingsRestController.php:85
+#: templates/unsubscribe-page.php:37
+msgid "Thank you for your feedback!"
+msgstr "Vielen Dank für Ihr Feedback!"
+
+#: includes/Controllers/SettingsRestController.php:86
+#: templates/unsubscribe-page.php:38
+msgid "We greatly appreciate your input and will use this information to improve our content in the future."
+msgstr "Wir wissen Ihr Feedback sehr zu schätzen und werden diese Informationen nutzen, um unsere Inhalte in Zukunft zu verbessern."
+
+#: includes/Controllers/SettingsRestController.php:87
+#: templates/resubscribe-page.php:31 templates/unsubscribe-page.php:39
+msgid "Back to Home Page"
+msgstr "Zurück zur Startseite"
+
+#: includes/Controllers/SettingsRestController.php:88
+#: templates/resubscribe-page.php:32 templates/unsubscribe-page.php:40
+msgid "We're Sorry, This Link Is No Longer Valid"
+msgstr "Es tut uns leid, dieser Link ist nicht mehr gültig"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: includes/Controllers/SettingsRestController.php:90
+#: templates/unsubscribe-page.php:42
+msgid "The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "Der von Ihnen verwendete Abmeldelink scheint ungültig zu sein oder ist abgelaufen.<br>Wenn Sie glauben, dass dies ein Fehler ist, versuchen Sie es bitte erneut oder wenden Sie sich an unser Support-Team."
+
+#: includes/Controllers/SettingsRestController.php:91
+#: templates/resubscribe-page.php:29
+msgid "Successfully Re-subscribed!"
+msgstr "Erfolgreich erneut angemeldet!"
+
+#: includes/Controllers/SettingsRestController.php:92
+#: templates/resubscribe-page.php:30
+msgid "You have been successfully re-subscribed. You will start receiving emails again."
+msgstr "Sie wurden erfolgreich erneut angemeldet. Sie erhalten ab sofort wieder E-Mails."
+
+#: includes/Controllers/UnsubscribesRestController.php:90
+msgid "Failed to delete unsubscribe record."
+msgstr "Abmeldeeintrag konnte nicht gelöscht werden."
+
+#: includes/Controllers/UnsubscribesRestController.php:97
+msgid "Unsubscribe record not found."
+msgstr "Abmeldeeintrag nicht gefunden."
+
+#: includes/database.php:102
+msgid "Too many emails"
+msgstr "Zu viele E-Mails"
+
+#: includes/database.php:103
+msgid "Content not relevant"
+msgstr "Inhalt nicht relevant"
+
+#: includes/database.php:104 templates/unsubscribe-page.php:120
+msgid "Other"
+msgstr "Sonstiges"
+
+#: includes/database.php:664
+msgid "No reason provided"
+msgstr "Kein Grund angegeben"
+
+#: includes/Engine/Admin/Settings.php:45 includes/Engine/Admin/Settings.php:46
+#: templates/unsubscribe-page.php:93 assets/dist/admin/js/main.js:1
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe"
+msgstr "Abmelden"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: templates/resubscribe-page.php:34
+msgid "The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "Der von Ihnen verwendete Link zur erneuten Anmeldung scheint ungültig zu sein oder ist abgelaufen.<br>Wenn Sie glauben, dass dies ein Fehler ist, versuchen Sie es bitte erneut oder wenden Sie sich an unser Support-Team."
+
+#: templates/resubscribe-page.php:63 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe"
+msgstr "Erneut anmelden"
+
+#: templates/unsubscribe-page.php:107 assets/dist/admin/js/main.js:13
+msgid "-- Please select a reason --"
+msgstr "-- Bitte einen Grund auswählen --"
+
+#: templates/unsubscribe-page.php:132 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe to emails"
+msgstr "E-Mails wieder abonnieren"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:5
+msgid "Unsubscribes"
+msgstr "Abmeldungen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Blocked"
+msgstr "Blockiert"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:9
+msgid "Re-subscribed"
+msgstr "Erneut angemeldet"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Reasons"
+msgstr "Gründe"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:13
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:15
+msgid "Appearance"
+msgstr "Darstellung"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Close"
+msgstr "Schließen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Pagination"
+msgstr "Seitennummerierung"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Something went wrong"
+msgstr "Etwas ist schiefgelaufen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed to load data. Please try again."
+msgstr "Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Retry"
+msgstr "Erneut versuchen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Filter this page…"
+msgstr "Diese Seite filtern…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Clear search"
+msgstr "Suche zurücksetzen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "No results"
+msgstr "Keine Ergebnisse"
+
+#. translators: 1: first row index, 2: last row index, 3: total count
+#: assets/dist/admin/js/main.js:3
+msgid "Showing %1$s–%2$s of %3$s"
+msgstr "%1$s–%2$s von %3$s werden angezeigt"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Actions"
+msgstr "Aktionen"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Row actions"
+msgstr "Zeilenaktionen"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Unsubscribe record deleted."
+msgstr "Abmeldeeintrag gelöscht."
+
+#: assets/dist/admin/js/main.js:3
+msgid "Delete unsubscribe record?"
+msgstr "Abmeldeeintrag löschen?"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:5
+msgid "This will remove the record for %s. This cannot be undone."
+msgstr "Dadurch wird der Eintrag für %s entfernt. Dies kann nicht rückgängig gemacht werden."
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:11 assets/dist/admin/js/main.js:13
+msgid "Delete"
+msgstr "Löschen"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Unsubscribed at"
+msgstr "Abgemeldet am"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Addresses that have opted out. Blocked from future sends."
+msgstr "Adressen, die sich abgemeldet haben. Von zukünftigen Sendungen ausgeschlossen."
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:9
+msgid "Export CSV"
+msgstr "CSV exportieren"
+
+#: assets/dist/admin/js/main.js:5
+msgid "No unsubscribes yet"
+msgstr "Noch keine Abmeldungen"
+
+#: assets/dist/admin/js/main.js:5
+msgid "When someone clicks the unsubscribe link in an email, they will appear here."
+msgstr "Wenn jemand auf den Abmeldelink in einer E-Mail klickt, erscheint er hier."
+
+#: assets/dist/admin/js/main.js:5
+msgid "Blocked email deleted."
+msgstr "Blockierte E-Mail gelöscht."
+
+#: assets/dist/admin/js/main.js:5
+msgid "All blocked emails cleared."
+msgstr "Alle blockierten E-Mails gelöscht."
+
+#: assets/dist/admin/js/main.js:5
+msgid "Delete blocked email record?"
+msgstr "Blockierten E-Mail-Eintrag löschen?"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:7
+msgid "This will remove the audit record for %s. This cannot be undone."
+msgstr "Dadurch wird der Prüfeintrag für %s entfernt. Dies kann nicht rückgängig gemacht werden."
+
+#: assets/dist/admin/js/main.js:7
+msgid "From"
+msgstr "Von"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked at"
+msgstr "Blockiert am"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked emails"
+msgstr "Blockierte E-Mails"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Audit log of outgoing emails that were blocked because the recipient had unsubscribed."
+msgstr "Prüfprotokoll der ausgehenden E-Mails, die blockiert wurden, weil sich der Empfänger abgemeldet hatte."
+
+#: assets/dist/admin/js/main.js:7
+msgid "Clear all blocked records?"
+msgstr "Alle blockierten Einträge löschen?"
+
+#. translators: %s: number of records
+#: assets/dist/admin/js/main.js:9
+msgid "This will delete %s blocked-email records. This cannot be undone."
+msgstr "Dadurch werden %s blockierte E-Mail-Einträge gelöscht. Dies kann nicht rückgängig gemacht werden."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Clear all"
+msgstr "Alle löschen"
+
+#: assets/dist/admin/js/main.js:9
+msgid "No blocked emails"
+msgstr "Keine blockierten E-Mails"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When an outgoing email targets an unsubscribed address, it will be logged here."
+msgstr "Wenn eine ausgehende E-Mail an eine abgemeldete Adresse gerichtet ist, wird sie hier protokolliert."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Re-subscribed at"
+msgstr "Erneut angemeldet am"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Originally unsubscribed"
+msgstr "Ursprünglich abgemeldet"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Addresses that opted back in after previously unsubscribing."
+msgstr "Adressen, die sich nach einer vorherigen Abmeldung wieder angemeldet haben."
+
+#: assets/dist/admin/js/main.js:9
+msgid "No re-subscribes yet"
+msgstr "Noch keine erneuten Anmeldungen"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When someone uses the re-subscribe link, they will appear here."
+msgstr "Wenn jemand den Link zur erneuten Anmeldung verwendet, erscheint er hier."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Something went wrong."
+msgstr "Etwas ist schiefgelaufen."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Reason added."
+msgstr "Grund hinzugefügt."
+
+#: assets/dist/admin/js/main.js:9
+msgid "New reason"
+msgstr "Neuer Grund"
+
+#: assets/dist/admin/js/main.js:9
+msgid "e.g. Too many emails"
+msgstr "z. B. Zu viele E-Mails"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Appears in the unsubscribe dropdown on the public page."
+msgstr "Erscheint im Abmelde-Dropdown auf der öffentlichen Seite."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Adding…"
+msgstr "Wird hinzugefügt…"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Add reason"
+msgstr "Grund hinzufügen"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move up"
+msgstr "Nach oben"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move down"
+msgstr "Nach unten"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Click to edit"
+msgstr "Zum Bearbeiten klicken"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:11
+msgid "Actions for %s"
+msgstr "Aktionen für %s"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason updated."
+msgstr "Grund aktualisiert."
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason deleted."
+msgstr "Grund gelöscht."
+
+#: assets/dist/admin/js/main.js:11
+msgid "Delete this reason?"
+msgstr "Diesen Grund löschen?"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:13
+msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
+msgstr "„%s“ löschen? Vorhandene Abmeldeeinträge, die diesen Grund verwendet haben, behalten ihren Text – der Grund wird pro Eintrag gespeichert, nicht referenziert."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe reasons"
+msgstr "Abmeldegründe"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
+msgstr "Im Abmelde-Feedback-Dropdown angezeigte Optionen. Mit den Pfeilen neu anordnen – der oberste Eintrag erscheint zuerst."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Current reasons"
+msgstr "Aktuelle Gründe"
+
+#: assets/dist/admin/js/main.js:13
+msgid "No reasons yet"
+msgstr "Noch keine Gründe"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Use the form on the right to add the first option shown when someone unsubscribes."
+msgstr "Verwenden Sie das Formular rechts, um die erste Option hinzuzufügen, die bei einer Abmeldung angezeigt wird."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Add a reason"
+msgstr "Einen Grund hinzufügen"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard unsaved changes?"
+msgstr "Nicht gespeicherte Änderungen verwerfen?"
+
+#: assets/dist/admin/js/main.js:13
+msgid "You have unsaved changes that will be lost if you navigate away."
+msgstr "Sie haben nicht gespeicherte Änderungen, die verloren gehen, wenn Sie die Seite verlassen."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Keep editing"
+msgstr "Weiter bearbeiten"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard changes"
+msgstr "Änderungen verwerfen"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Control how outgoing emails are processed and which recipients are blocked."
+msgstr "Steuern Sie, wie ausgehende E-Mails verarbeitet werden und welche Empfänger blockiert werden."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+#: assets/dist/admin/js/main.js:13
+msgid "General"
+msgstr "Allgemein"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Applies to all outgoing WordPress emails."
+msgstr "Gilt für alle ausgehenden WordPress-E-Mails."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append unsubscribe link"
+msgstr "Abmeldelink automatisch anhängen"
+
+#: assets/dist/admin/js/main.js:13
+msgid "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically."
+msgstr "Wenn aktiviert, wird ausgehenden E-Mails mit einem einzelnen Empfänger automatisch ein sicherer Abmelde-Button angehängt."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Exclude keywords"
+msgstr "Schlüsselwörter ausschließen"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
+msgstr "Durch Kommas getrennt. E-Mails, deren Betreff eines dieser Wörter enthält (Groß-/Kleinschreibung wird ignoriert), überspringen sowohl die Blockierung als auch das automatische Anhängen – für Transaktions-E-Mails verwenden."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Block unsubscribed recipients"
+msgstr "Abgemeldete Empfänger blockieren"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails."
+msgstr "Verhindert den Versand von E-Mails an Adressen in der Abmeldeliste. Blockierte Versuche werden unter „Blockierte E-Mails“ protokolliert."
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Unsaved changes"
+msgstr "Nicht gespeicherte Änderungen"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Saving…"
+msgstr "Wird gespeichert…"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Thank you"
+msgstr "Vielen Dank"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Invalid link"
+msgstr "Ungültiger Link"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview state"
+msgstr "Vorschauzustand"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
+msgstr "Ungefähre Vorschau – die tatsächliche Seite ist im Viewport zentriert und kann je nach Website-Theme leicht abweichen."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Page background"
+msgstr "Seitenhintergrund"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Outer background colour of the unsubscribe page."
+msgstr "Äußere Hintergrundfarbe der Abmeldeseite."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Card background"
+msgstr "Karten-Hintergrund"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Background of the content box."
+msgstr "Hintergrund des Inhaltsfelds."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Body text"
+msgstr "Fließtext"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Default text colour."
+msgstr "Standard-Textfarbe."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Headings"
+msgstr "Überschriften"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Colour for h2 titles."
+msgstr "Farbe für h2-Titel."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background"
+msgstr "Schaltflächen-Hintergrund"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Primary button colour."
+msgstr "Primäre Schaltflächenfarbe."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button text"
+msgstr "Schaltflächentext"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Text colour inside buttons."
+msgstr "Textfarbe in Schaltflächen."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button hover"
+msgstr "Schaltfläche bei Hover"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background when hovered."
+msgstr "Schaltflächen-Hintergrund beim Überfahren."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe success"
+msgstr "Abmeldung erfolgreich"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Title"
+msgstr "Titel"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Message"
+msgstr "Nachricht"
+
+#. translators: {email} is a literal placeholder token; keep it as-is.
+#: assets/dist/admin/js/main.js:15
+msgid "Use {email} to insert the recipient address."
+msgstr "Verwenden Sie {email}, um die Empfängeradresse einzufügen."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback submit button"
+msgstr "Feedback-Senden-Schaltfläche"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback thank-you"
+msgstr "Feedback-Dank"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Home link text"
+msgstr "Text des Startseiten-Links"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Invalid-link error"
+msgstr "Fehler: ungültiger Link"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Re-subscribe success"
+msgstr "Erneute Anmeldung erfolgreich"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Basic HTML (<br>, <strong>, <em>, links) is allowed."
+msgstr "Einfaches HTML (<br>, <strong>, <em>, Links) ist erlaubt."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Sans-serif (default)"
+msgstr "Serifenlos (Standard)"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font family"
+msgstr "Schriftart"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Applied to the whole unsubscribe page."
+msgstr "Wird auf die gesamte Abmeldeseite angewendet."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font size"
+msgstr "Schriftgröße"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
+msgstr "Beliebige CSS-Länge – z. B. 14px, 1em, 0.875rem, 100%."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Customize the look and copy of the public unsubscribe page."
+msgstr "Passen Sie das Aussehen und die Texte der öffentlichen Abmeldeseite an."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Appearance saved."
+msgstr "Darstellung gespeichert."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Unsubscribe page"
+msgstr "Abmeldeseite"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Colors"
+msgstr "Farben"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Typography"
+msgstr "Typografie"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Text content"
+msgstr "Textinhalt"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Live preview"
+msgstr "Live-Vorschau"
+
+#. translators: %s: underlying error message
+#: assets/dist/admin/js/main.js:17
+msgid "An error occurred: %s"
+msgstr "Ein Fehler ist aufgetreten: %s"

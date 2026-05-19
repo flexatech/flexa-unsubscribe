@@ -17,18 +17,18 @@ Professional email unsubscribe management with HMAC tokens, auto-appended unsubs
 * **Auto-appends a secure unsubscribe button** to outgoing single-recipient emails. Tokens are HMAC-signed using the `AUTH_KEY` in `wp-config.php`, so no database lookup is needed to verify a link.
 * **Blocks outbound mail to unsubscribed addresses** before it reaches the mail server. Blocked attempts are logged to a dedicated audit table.
 * **Honours an exclude-keywords list** (default: `Order, Password, Invoice`) so transactional mail never gets an unsubscribe link and never gets blocked.
-* **Re-subscribe URL** is supported as a first-class action — the plugin can tell opt-outs from opt-backs.
-* **Customisable public page** — every color, font, and string on the unsubscribe/re-subscribe templates is editable from the admin with a live preview.
+* **Re-subscribe URL** is supported as a first-class action - the plugin can tell opt-outs from opt-backs.
+* **Customisable public page** - every color, font, and string on the unsubscribe/re-subscribe templates is editable from the admin with a live preview.
 
 == Admin UI ==
 
 Starting with v3.0.0 the admin is a React single-page application with seven screens:
 
-* **Dashboard** — stats cards + bar chart of unsubscribes over time + pie chart of top reasons.
-* **Unsubscribes / Blocked emails / Re-subscribed** — paginated tables with sorting, per-row delete, and CSV export.
-* **Reasons** — manage the dropdown options shown on the public unsubscribe form; click-to-edit, ↑/↓ reorder.
-* **Settings** — enable/disable auto-append + blocking, tune the exclude-keywords list.
-* **Appearance** — 19 tokens (colors, typography, copy) across three tabs with a live preview panel.
+* **Dashboard** - stats cards + bar chart of unsubscribes over time + pie chart of top reasons.
+* **Unsubscribes / Blocked emails / Re-subscribed** - paginated tables with sorting, per-row delete, and CSV export.
+* **Reasons** - manage the dropdown options shown on the public unsubscribe form; click-to-edit, ↑/↓ reorder.
+* **Settings** - enable/disable auto-append + blocking, tune the exclude-keywords list.
+* **Appearance** - 19 tokens (colors, typography, copy) across three tabs with a live preview panel.
 
 
 All screens are powered by a REST API under `/wp-json/flexa-unsubscribe/v1/`, so external integrations can plug in too.
@@ -64,7 +64,7 @@ Every in-flight unsubscribe/resubscribe link becomes invalid, because the HMAC k
 
 = Are CSV exports safe to share publicly? =
 
-No — CSV exports contain email addresses. Treat them as PII. The download link is nonce-protected so it's not trivially shareable across sessions.
+No - CSV exports contain email addresses. Treat them as PII. The download link is nonce-protected so it's not trivially shareable across sessions.
 
 == Changelog ==
 
@@ -77,11 +77,11 @@ No — CSV exports contain email addresses. Treat them as PII. The download link
 * **Complete admin rewrite.** The seven admin pages are now a React single-page app (Vite + TypeScript + shadcn/ui + Tailwind v4) instead of individual PHP-rendered screens.
 * **New:** REST API under `/wp-json/flexa-unsubscribe/v1/` covering unsubscribes, blocked emails, re-subscribes, reasons, settings, appearance, and analytics. Every admin screen consumes this API.
 * **New:** Dashboard with time-series and reasons charts (recharts).
-* **New:** Live preview panel on the Appearance screen — see your colors, fonts, and copy applied to a replica of the public unsubscribe page while you edit.
+* **New:** Live preview panel on the Appearance screen - see your colors, fonts, and copy applied to a replica of the public unsubscribe page while you edit.
 * **New:** Client-side search + server-side sort + server-side pagination on every list screen.
 * **New:** URL-synced table state (`?page=2&sort=email&order=desc` bookmarkable) on every list screen.
 * **Security:** CSV export `admin-post.php` handlers now verify nonces via `check_admin_referer()`.
-* **Change:** Admin menu label is "Unsubscribe" (same as pre-2.x) and sits at menu position 60. Slug changed from `flexa-su` to `flexa-unsubscribe` — legacy admin bookmarks will 404.
+* **Change:** Admin menu label is "Unsubscribe" (same as pre-2.x) and sits at menu position 60. Slug changed from `flexa-su` to `flexa-unsubscribe` - legacy admin bookmarks will 404.
 * **Change:** Removed the `flexa_get_analytics_data` AJAX endpoint, superseded by the REST `/analytics/*` routes.
 * **Requires PHP 7.4** (was previously unspecified; the plugin now declares the floor).
 

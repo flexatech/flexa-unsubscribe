@@ -10,12 +10,12 @@ define('FLEXA_TECH_SU_PATH', plugin_dir_path(dirname(__FILE__)));
 define('FLEXA_TECH_SU_URL', plugin_dir_url(dirname(__FILE__)));
 define('FLEXA_TECH_SU_VERSION', '3.0.2');
 
-// Schema version — bump whenever `flexa_tech_su_create_db()` gains a
+// Schema version - bump whenever `flexa_tech_su_create_db()` gains a
 // new table, column, or index. The runner in `flexa-unsubscribe.php`
 // re-runs `dbDelta` (and the defensive ALTERs) when the stored value
 // is below this number.
-//   v1 — initial schema (3.0.0)
-//   v2 — `unsubscribed_at` index added for sargable analytics queries
+//   v1 - initial schema (3.0.0)
+//   v2 - `unsubscribed_at` index added for sargable analytics queries
 define('FLEXA_TECH_SU_DB_VERSION', 2);
 
 // Development toggle.

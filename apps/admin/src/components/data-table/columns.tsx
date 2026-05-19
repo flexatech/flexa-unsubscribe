@@ -117,7 +117,7 @@ export function truncatedColumn<T>({
   maxWidth = 240,
   sortable = false,
   responsive,
-  placeholder = '—',
+  placeholder = '-',
 }: TruncatedColumnOptions<T>): ColumnDef<T> {
   return {
     id,

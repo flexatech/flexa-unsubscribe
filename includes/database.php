@@ -7,10 +7,10 @@
  * `{prefix}flexa_unsubscribe_reasons`). Direct `$wpdb->*` calls and
  * interpolated table-name constants are intentional:
  *
- *  - `WordPress.DB.DirectDatabaseQuery.*` — there is no Core API for
+ *  - `WordPress.DB.DirectDatabaseQuery.*` - there is no Core API for
  *    custom tables; admin-side volume is small and `wp_cache_*` would
  *    add stale-read risk to a write-through CRUD layer.
- *  - `WordPress.DB.PreparedSQL.InterpolatedNotPrepared` — table names
+ *  - `WordPress.DB.PreparedSQL.InterpolatedNotPrepared` - table names
  *    come from `FLEXA_TECH_SU_*` constants defined in `constants.php`,
  *    not user input. Plugin requires WP 5.8 so the `%i` identifier
  *    placeholder (WP 6.2+) isn't available; `$wpdb->prepare` only
@@ -61,7 +61,7 @@ function flexa_tech_su_create_db() {
 
     // Add unsubscribed_at index for older installs that pre-date it.
     // Analytics queries (`get_stats`, `get_trend`, etc.) need this index
-    // — without it every dashboard load full-scans the unsubscribes table.
+    // - without it every dashboard load full-scans the unsubscribes table.
     $index_exists = $wpdb->get_results("SHOW INDEX FROM $table_name WHERE Key_name = 'unsubscribed_at'");
     if (empty($index_exists)) {
         $wpdb->query("ALTER TABLE $table_name ADD INDEX unsubscribed_at (unsubscribed_at)");
@@ -99,9 +99,9 @@ function flexa_tech_su_create_db() {
     $existing_reasons = $wpdb->get_var("SELECT COUNT(*) FROM $reasons_table");
     if ($existing_reasons == 0) {
         $default_reasons = [
-            'Too many emails',
-            'Content not relevant',
-            'Other'
+            __('Too many emails', 'flexa-unsubscribe'),
+            __('Content not relevant', 'flexa-unsubscribe'),
+            __('Other', 'flexa-unsubscribe'),
         ];
         foreach ($default_reasons as $index => $reason) {
             $wpdb->insert($reasons_table, [
@@ -185,13 +185,13 @@ function flexa_tech_su_delete_unsubscribe($id) {
  * Stream unsubscribe rows for CSV export.
  *
  * Keyset pagination on the primary key keeps memory flat regardless of
- * total row count — no `OFFSET` deep-pagination cost, no full result set
+ * total row count - no `OFFSET` deep-pagination cost, no full result set
  * buffered in PHP. Caller iterates once; each yielded row is an
  * associative array shaped for `fputcsv` (no `id` column).
  *
  * Trade-off: rows come out in insertion order (id ASC), not the
  * `unsubscribed_at` order the previous buffered helper used. Not
- * meaningful for CSV consumers — they sort in their own tool.
+ * meaningful for CSV consumers - they sort in their own tool.
  */
 function flexa_tech_su_stream_export_unsubscribes(int $chunk = 1000): Generator {
     global $wpdb;
@@ -486,7 +486,7 @@ function flexa_tech_su_get_reasons($order_by = 'sort_order', $order = 'ASC') {
     $table_name = FLEXA_TECH_SU_REASONS_TABLE;
 
     // `$wpdb->prepare("... ORDER BY %s %s", ...)` would quote both values
-    // and silently break ordering — `sanitize_sql_orderby` is the correct
+    // and silently break ordering - `sanitize_sql_orderby` is the correct
     // tool for identifier-position interpolation.
     $clause = sanitize_sql_orderby($order_by . ' ' . $order);
     if (!$clause) {
@@ -657,7 +657,12 @@ function flexa_tech_su_get_unsubscribes_by_reason($limit = 10) {
     $data = [];
     foreach ($results as $row) {
         $data[] = [
-            'reason' => $row->reason ?: 'No reason provided',
+            // The SQL COALESCE above buckets NULL/empty reasons under the
+            // English sentinel so they group as one row; localize that
+            // sentinel for display without disturbing the GROUP BY key.
+            'reason' => (!$row->reason || $row->reason === 'No reason provided')
+                ? __('No reason provided', 'flexa-unsubscribe')
+                : $row->reason,
             'count' => (int) $row->count
         ];
     }

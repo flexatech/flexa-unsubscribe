@@ -1,0 +1,423 @@
+{
+    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "generator": "WP-CLI\/2.10.0",
+    "source": "assets\/dist\/admin\/js\/main.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "it_IT",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Email": [
+                "E-mail"
+            ],
+            "Reason": [
+                "Motivo"
+            ],
+            "Subject": [
+                "Oggetto"
+            ],
+            "Unsubscribe": [
+                "Disiscriviti"
+            ],
+            "Re-subscribe": [
+                "Reiscriviti"
+            ],
+            "-- Please select a reason --": [
+                "-- Seleziona un motivo --"
+            ],
+            "Re-subscribe to emails": [
+                "Reiscriviti alle e-mail"
+            ],
+            "Dashboard": [
+                "Bacheca"
+            ],
+            "Unsubscribes": [
+                "Disiscrizioni"
+            ],
+            "Blocked": [
+                "Bloccati"
+            ],
+            "Re-subscribed": [
+                "Reiscritti"
+            ],
+            "Reasons": [
+                "Motivi"
+            ],
+            "Settings": [
+                "Impostazioni"
+            ],
+            "Appearance": [
+                "Aspetto"
+            ],
+            "Close": [
+                "Chiudi"
+            ],
+            "Cancel": [
+                "Annulla"
+            ],
+            "Confirm": [
+                "Conferma"
+            ],
+            "Pagination": [
+                "Paginazione"
+            ],
+            "Previous page": [
+                "Pagina precedente"
+            ],
+            "Next page": [
+                "Pagina successiva"
+            ],
+            "Something went wrong": [
+                "Si \u00e8 verificato un problema"
+            ],
+            "Failed to load data. Please try again.": [
+                "Impossibile caricare i dati. Riprova."
+            ],
+            "Retry": [
+                "Riprova"
+            ],
+            "Filter this page\u2026": [
+                "Filtra questa pagina\u2026"
+            ],
+            "Clear search": [
+                "Cancella ricerca"
+            ],
+            "No results": [
+                "Nessun risultato"
+            ],
+            "Showing %1$s\u2013%2$s of %3$s": [
+                "Visualizzazione da %1$s a %2$s di %3$s"
+            ],
+            "Actions": [
+                "Azioni"
+            ],
+            "Row actions": [
+                "Azioni riga"
+            ],
+            "Unsubscribe record deleted.": [
+                "Record di disiscrizione eliminato."
+            ],
+            "Delete unsubscribe record?": [
+                "Eliminare il record di disiscrizione?"
+            ],
+            "This will remove the record for %s. This cannot be undone.": [
+                "Questa operazione rimuover\u00e0 il record di %s. Non pu\u00f2 essere annullata."
+            ],
+            "Delete": [
+                "Elimina"
+            ],
+            "Unsubscribed at": [
+                "Disiscritto il"
+            ],
+            "Addresses that have opted out. Blocked from future sends.": [
+                "Indirizzi che hanno annullato l'iscrizione. Esclusi dagli invii futuri."
+            ],
+            "Export CSV": [
+                "Esporta CSV"
+            ],
+            "No unsubscribes yet": [
+                "Ancora nessuna disiscrizione"
+            ],
+            "When someone clicks the unsubscribe link in an email, they will appear here.": [
+                "Quando qualcuno fa clic sul link di disiscrizione in un'e-mail, comparir\u00e0 qui."
+            ],
+            "Blocked email deleted.": [
+                "E-mail bloccata eliminata."
+            ],
+            "All blocked emails cleared.": [
+                "Tutte le e-mail bloccate sono state cancellate."
+            ],
+            "Delete blocked email record?": [
+                "Eliminare il record dell'e-mail bloccata?"
+            ],
+            "This will remove the audit record for %s. This cannot be undone.": [
+                "Questa operazione rimuover\u00e0 il record di controllo per %s. Non pu\u00f2 essere annullata."
+            ],
+            "From": [
+                "Da"
+            ],
+            "Blocked at": [
+                "Bloccato il"
+            ],
+            "Blocked emails": [
+                "E-mail bloccate"
+            ],
+            "Audit log of outgoing emails that were blocked because the recipient had unsubscribed.": [
+                "Registro di controllo delle e-mail in uscita bloccate perch\u00e9 il destinatario si era disiscritto."
+            ],
+            "Clear all blocked records?": [
+                "Cancellare tutti i record bloccati?"
+            ],
+            "This will delete %s blocked-email records. This cannot be undone.": [
+                "Questa operazione eliminer\u00e0 %s record di e-mail bloccate. Non pu\u00f2 essere annullata."
+            ],
+            "Clear all": [
+                "Cancella tutto"
+            ],
+            "No blocked emails": [
+                "Nessuna e-mail bloccata"
+            ],
+            "When an outgoing email targets an unsubscribed address, it will be logged here.": [
+                "Quando un'e-mail in uscita \u00e8 destinata a un indirizzo disiscritto, viene registrata qui."
+            ],
+            "Re-subscribed at": [
+                "Reiscritto il"
+            ],
+            "Originally unsubscribed": [
+                "Originariamente disiscritto"
+            ],
+            "Addresses that opted back in after previously unsubscribing.": [
+                "Indirizzi che si sono reiscritti dopo essersi precedentemente disiscritti."
+            ],
+            "No re-subscribes yet": [
+                "Ancora nessuna reiscrizione"
+            ],
+            "When someone uses the re-subscribe link, they will appear here.": [
+                "Quando qualcuno utilizza il link di reiscrizione, comparir\u00e0 qui."
+            ],
+            "Something went wrong.": [
+                "Si \u00e8 verificato un problema."
+            ],
+            "Reason added.": [
+                "Motivo aggiunto."
+            ],
+            "New reason": [
+                "Nuovo motivo"
+            ],
+            "e.g. Too many emails": [
+                "es. Troppe e-mail"
+            ],
+            "Appears in the unsubscribe dropdown on the public page.": [
+                "Compare nel menu a discesa di disiscrizione nella pagina pubblica."
+            ],
+            "Adding\u2026": [
+                "Aggiunta in corso\u2026"
+            ],
+            "Add reason": [
+                "Aggiungi motivo"
+            ],
+            "Move up": [
+                "Sposta su"
+            ],
+            "Move down": [
+                "Sposta gi\u00f9"
+            ],
+            "Click to edit": [
+                "Fai clic per modificare"
+            ],
+            "Actions for %s": [
+                "Azioni per %s"
+            ],
+            "Edit": [
+                "Modifica"
+            ],
+            "Reason updated.": [
+                "Motivo aggiornato."
+            ],
+            "Reason deleted.": [
+                "Motivo eliminato."
+            ],
+            "Delete this reason?": [
+                "Eliminare questo motivo?"
+            ],
+            "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
+                "Eliminare \u00ab%s\u00bb? I record di disiscrizione esistenti che utilizzavano questo motivo conservano il loro testo: il motivo viene memorizzato per ogni record, senza riferimento."
+            ],
+            "Unsubscribe reasons": [
+                "Motivi di disiscrizione"
+            ],
+            "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
+                "Opzioni mostrate nel menu a discesa del feedback di disiscrizione. Riordina con le frecce: l'elemento in cima all'elenco compare per primo."
+            ],
+            "Current reasons": [
+                "Motivi attuali"
+            ],
+            "No reasons yet": [
+                "Ancora nessun motivo"
+            ],
+            "Use the form on the right to add the first option shown when someone unsubscribes.": [
+                "Usa il modulo a destra per aggiungere la prima opzione mostrata quando qualcuno si disiscrive."
+            ],
+            "Add a reason": [
+                "Aggiungi un motivo"
+            ],
+            "Discard unsaved changes?": [
+                "Ignorare le modifiche non salvate?"
+            ],
+            "You have unsaved changes that will be lost if you navigate away.": [
+                "Hai modifiche non salvate che andranno perse se lasci la pagina."
+            ],
+            "Keep editing": [
+                "Continua a modificare"
+            ],
+            "Discard changes": [
+                "Ignora modifiche"
+            ],
+            "Control how outgoing emails are processed and which recipients are blocked.": [
+                "Controlla come vengono elaborate le e-mail in uscita e quali destinatari vengono bloccati."
+            ],
+            "Settings saved.": [
+                "Impostazioni salvate."
+            ],
+            "General": [
+                "Generale"
+            ],
+            "Applies to all outgoing WordPress emails.": [
+                "Si applica a tutte le e-mail in uscita di WordPress."
+            ],
+            "Auto-append unsubscribe link": [
+                "Aggiungi automaticamente il link di disiscrizione"
+            ],
+            "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically.": [
+                "Se abilitato, alle e-mail in uscita con un solo destinatario viene aggiunto automaticamente un pulsante di disiscrizione sicuro."
+            ],
+            "Exclude keywords": [
+                "Escludi parole chiave"
+            ],
+            "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
+                "Separate da virgole. Le e-mail il cui oggetto contiene una di queste (senza distinzione tra maiuscole e minuscole) saltano sia il blocco sia l'aggiunta automatica: usare per le e-mail transazionali."
+            ],
+            "Block unsubscribed recipients": [
+                "Blocca i destinatari disiscritti"
+            ],
+            "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails.": [
+                "Impedisce l'invio di e-mail agli indirizzi presenti nell'elenco delle disiscrizioni. I tentativi bloccati vengono registrati in E-mail bloccate."
+            ],
+            "Unsaved changes": [
+                "Modifiche non salvate"
+            ],
+            "Saving\u2026": [
+                "Salvataggio in corso\u2026"
+            ],
+            "Save changes": [
+                "Salva modifiche"
+            ],
+            "Thank you": [
+                "Grazie"
+            ],
+            "Invalid link": [
+                "Link non valido"
+            ],
+            "Preview state": [
+                "Stato anteprima"
+            ],
+            "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
+                "Anteprima approssimativa: la pagina effettiva \u00e8 centrata nella finestra e pu\u00f2 differire leggermente in base al tema del sito."
+            ],
+            "Page background": [
+                "Sfondo pagina"
+            ],
+            "Outer background colour of the unsubscribe page.": [
+                "Colore di sfondo esterno della pagina di disiscrizione."
+            ],
+            "Card background": [
+                "Sfondo scheda"
+            ],
+            "Background of the content box.": [
+                "Sfondo del riquadro dei contenuti."
+            ],
+            "Body text": [
+                "Testo del corpo"
+            ],
+            "Default text colour.": [
+                "Colore del testo predefinito."
+            ],
+            "Headings": [
+                "Intestazioni"
+            ],
+            "Colour for h2 titles.": [
+                "Colore per i titoli h2."
+            ],
+            "Button background": [
+                "Sfondo pulsante"
+            ],
+            "Primary button colour.": [
+                "Colore del pulsante principale."
+            ],
+            "Button text": [
+                "Testo pulsante"
+            ],
+            "Text colour inside buttons.": [
+                "Colore del testo nei pulsanti."
+            ],
+            "Button hover": [
+                "Pulsante al passaggio del mouse"
+            ],
+            "Button background when hovered.": [
+                "Sfondo del pulsante al passaggio del mouse."
+            ],
+            "Unsubscribe success": [
+                "Disiscrizione riuscita"
+            ],
+            "Title": [
+                "Titolo"
+            ],
+            "Message": [
+                "Messaggio"
+            ],
+            "Use {email} to insert the recipient address.": [
+                "Usa {email} per inserire l'indirizzo del destinatario."
+            ],
+            "Feedback submit button": [
+                "Pulsante di invio feedback"
+            ],
+            "Feedback thank-you": [
+                "Ringraziamento feedback"
+            ],
+            "Home link text": [
+                "Testo del link alla pagina iniziale"
+            ],
+            "Invalid-link error": [
+                "Errore link non valido"
+            ],
+            "Re-subscribe success": [
+                "Reiscrizione riuscita"
+            ],
+            "Basic HTML (<br>, <strong>, <em>, links) is allowed.": [
+                "\u00c8 consentito l'HTML di base (<br>, <strong>, <em>, link)."
+            ],
+            "Sans-serif (default)": [
+                "Senza grazie (predefinito)"
+            ],
+            "Font family": [
+                "Famiglia di caratteri"
+            ],
+            "Applied to the whole unsubscribe page.": [
+                "Applicato all'intera pagina di disiscrizione."
+            ],
+            "Font size": [
+                "Dimensione carattere"
+            ],
+            "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
+                "Qualsiasi lunghezza CSS, es. 14px, 1em, 0.875rem, 100%."
+            ],
+            "Customize the look and copy of the public unsubscribe page.": [
+                "Personalizza l'aspetto e i testi della pagina pubblica di disiscrizione."
+            ],
+            "Appearance saved.": [
+                "Aspetto salvato."
+            ],
+            "Unsubscribe page": [
+                "Pagina di disiscrizione"
+            ],
+            "Colors": [
+                "Colori"
+            ],
+            "Typography": [
+                "Tipografia"
+            ],
+            "Text content": [
+                "Contenuto testuale"
+            ],
+            "Live preview": [
+                "Anteprima dal vivo"
+            ],
+            "An error occurred: %s": [
+                "Si \u00e8 verificato un errore: %s"
+            ]
+        }
+    }
+}

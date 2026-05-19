@@ -1,0 +1,423 @@
+{
+    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "generator": "WP-CLI\/2.10.0",
+    "source": "assets\/dist\/admin\/js\/main.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "fr_FR",
+                "plural-forms": "nplurals=2; plural=(n > 1);"
+            },
+            "Email": [
+                "E-mail"
+            ],
+            "Reason": [
+                "Motif"
+            ],
+            "Subject": [
+                "Objet"
+            ],
+            "Unsubscribe": [
+                "Se d\u00e9sabonner"
+            ],
+            "Re-subscribe": [
+                "Se r\u00e9abonner"
+            ],
+            "-- Please select a reason --": [
+                "-- Veuillez s\u00e9lectionner un motif --"
+            ],
+            "Re-subscribe to emails": [
+                "Se r\u00e9abonner aux e-mails"
+            ],
+            "Dashboard": [
+                "Tableau de bord"
+            ],
+            "Unsubscribes": [
+                "D\u00e9sabonnements"
+            ],
+            "Blocked": [
+                "Bloqu\u00e9s"
+            ],
+            "Re-subscribed": [
+                "R\u00e9abonn\u00e9s"
+            ],
+            "Reasons": [
+                "Motifs"
+            ],
+            "Settings": [
+                "R\u00e9glages"
+            ],
+            "Appearance": [
+                "Apparence"
+            ],
+            "Close": [
+                "Fermer"
+            ],
+            "Cancel": [
+                "Annuler"
+            ],
+            "Confirm": [
+                "Confirmer"
+            ],
+            "Pagination": [
+                "Pagination"
+            ],
+            "Previous page": [
+                "Page pr\u00e9c\u00e9dente"
+            ],
+            "Next page": [
+                "Page suivante"
+            ],
+            "Something went wrong": [
+                "Une erreur s\u2019est produite"
+            ],
+            "Failed to load data. Please try again.": [
+                "\u00c9chec du chargement des donn\u00e9es. Veuillez r\u00e9essayer."
+            ],
+            "Retry": [
+                "R\u00e9essayer"
+            ],
+            "Filter this page\u2026": [
+                "Filtrer cette page\u2026"
+            ],
+            "Clear search": [
+                "Effacer la recherche"
+            ],
+            "No results": [
+                "Aucun r\u00e9sultat"
+            ],
+            "Showing %1$s\u2013%2$s of %3$s": [
+                "Affichage de %1$s \u00e0 %2$s sur %3$s"
+            ],
+            "Actions": [
+                "Actions"
+            ],
+            "Row actions": [
+                "Actions de la ligne"
+            ],
+            "Unsubscribe record deleted.": [
+                "Enregistrement de d\u00e9sabonnement supprim\u00e9."
+            ],
+            "Delete unsubscribe record?": [
+                "Supprimer l\u2019enregistrement de d\u00e9sabonnement ?"
+            ],
+            "This will remove the record for %s. This cannot be undone.": [
+                "Cela supprimera l\u2019enregistrement de %s. Cette action est irr\u00e9versible."
+            ],
+            "Delete": [
+                "Supprimer"
+            ],
+            "Unsubscribed at": [
+                "D\u00e9sabonn\u00e9 le"
+            ],
+            "Addresses that have opted out. Blocked from future sends.": [
+                "Adresses qui se sont d\u00e9sabonn\u00e9es. Exclues des envois futurs."
+            ],
+            "Export CSV": [
+                "Exporter en CSV"
+            ],
+            "No unsubscribes yet": [
+                "Aucun d\u00e9sabonnement pour l\u2019instant"
+            ],
+            "When someone clicks the unsubscribe link in an email, they will appear here.": [
+                "Lorsqu\u2019une personne clique sur le lien de d\u00e9sabonnement dans un e-mail, elle appara\u00eet ici."
+            ],
+            "Blocked email deleted.": [
+                "E-mail bloqu\u00e9 supprim\u00e9."
+            ],
+            "All blocked emails cleared.": [
+                "Tous les e-mails bloqu\u00e9s ont \u00e9t\u00e9 effac\u00e9s."
+            ],
+            "Delete blocked email record?": [
+                "Supprimer l\u2019enregistrement d\u2019e-mail bloqu\u00e9 ?"
+            ],
+            "This will remove the audit record for %s. This cannot be undone.": [
+                "Cela supprimera l\u2019enregistrement d\u2019audit pour %s. Cette action est irr\u00e9versible."
+            ],
+            "From": [
+                "De"
+            ],
+            "Blocked at": [
+                "Bloqu\u00e9 le"
+            ],
+            "Blocked emails": [
+                "E-mails bloqu\u00e9s"
+            ],
+            "Audit log of outgoing emails that were blocked because the recipient had unsubscribed.": [
+                "Journal d\u2019audit des e-mails sortants bloqu\u00e9s car le destinataire s\u2019\u00e9tait d\u00e9sabonn\u00e9."
+            ],
+            "Clear all blocked records?": [
+                "Effacer tous les enregistrements bloqu\u00e9s ?"
+            ],
+            "This will delete %s blocked-email records. This cannot be undone.": [
+                "Cela supprimera %s enregistrements d\u2019e-mails bloqu\u00e9s. Cette action est irr\u00e9versible."
+            ],
+            "Clear all": [
+                "Tout effacer"
+            ],
+            "No blocked emails": [
+                "Aucun e-mail bloqu\u00e9"
+            ],
+            "When an outgoing email targets an unsubscribed address, it will be logged here.": [
+                "Lorsqu\u2019un e-mail sortant cible une adresse d\u00e9sabonn\u00e9e, il est consign\u00e9 ici."
+            ],
+            "Re-subscribed at": [
+                "R\u00e9abonn\u00e9 le"
+            ],
+            "Originally unsubscribed": [
+                "D\u00e9sabonn\u00e9 initialement"
+            ],
+            "Addresses that opted back in after previously unsubscribing.": [
+                "Adresses qui se sont r\u00e9abonn\u00e9es apr\u00e8s s\u2019\u00eatre d\u00e9sabonn\u00e9es."
+            ],
+            "No re-subscribes yet": [
+                "Aucun r\u00e9abonnement pour l\u2019instant"
+            ],
+            "When someone uses the re-subscribe link, they will appear here.": [
+                "Lorsqu\u2019une personne utilise le lien de r\u00e9abonnement, elle appara\u00eet ici."
+            ],
+            "Something went wrong.": [
+                "Une erreur s\u2019est produite."
+            ],
+            "Reason added.": [
+                "Motif ajout\u00e9."
+            ],
+            "New reason": [
+                "Nouveau motif"
+            ],
+            "e.g. Too many emails": [
+                "ex. Trop d\u2019e-mails"
+            ],
+            "Appears in the unsubscribe dropdown on the public page.": [
+                "Appara\u00eet dans la liste d\u00e9roulante de d\u00e9sabonnement sur la page publique."
+            ],
+            "Adding\u2026": [
+                "Ajout\u2026"
+            ],
+            "Add reason": [
+                "Ajouter le motif"
+            ],
+            "Move up": [
+                "Monter"
+            ],
+            "Move down": [
+                "Descendre"
+            ],
+            "Click to edit": [
+                "Cliquer pour modifier"
+            ],
+            "Actions for %s": [
+                "Actions pour %s"
+            ],
+            "Edit": [
+                "Modifier"
+            ],
+            "Reason updated.": [
+                "Motif mis \u00e0 jour."
+            ],
+            "Reason deleted.": [
+                "Motif supprim\u00e9."
+            ],
+            "Delete this reason?": [
+                "Supprimer ce motif ?"
+            ],
+            "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
+                "Supprimer \u00ab %s \u00bb ? Les enregistrements de d\u00e9sabonnement existants qui utilisaient ce motif conservent leur texte \u2014 le motif est stock\u00e9 par enregistrement, sans r\u00e9f\u00e9rence."
+            ],
+            "Unsubscribe reasons": [
+                "Motifs de d\u00e9sabonnement"
+            ],
+            "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
+                "Options affich\u00e9es dans la liste d\u00e9roulante de retour de d\u00e9sabonnement. R\u00e9organisez avec les fl\u00e8ches \u2014 le haut de la liste appara\u00eet en premier."
+            ],
+            "Current reasons": [
+                "Motifs actuels"
+            ],
+            "No reasons yet": [
+                "Aucun motif pour l\u2019instant"
+            ],
+            "Use the form on the right to add the first option shown when someone unsubscribes.": [
+                "Utilisez le formulaire \u00e0 droite pour ajouter la premi\u00e8re option affich\u00e9e lors d\u2019un d\u00e9sabonnement."
+            ],
+            "Add a reason": [
+                "Ajouter un motif"
+            ],
+            "Discard unsaved changes?": [
+                "Abandonner les modifications non enregistr\u00e9es ?"
+            ],
+            "You have unsaved changes that will be lost if you navigate away.": [
+                "Vous avez des modifications non enregistr\u00e9es qui seront perdues si vous quittez cette page."
+            ],
+            "Keep editing": [
+                "Continuer la modification"
+            ],
+            "Discard changes": [
+                "Abandonner les modifications"
+            ],
+            "Control how outgoing emails are processed and which recipients are blocked.": [
+                "Contr\u00f4lez le traitement des e-mails sortants et les destinataires bloqu\u00e9s."
+            ],
+            "Settings saved.": [
+                "R\u00e9glages enregistr\u00e9s."
+            ],
+            "General": [
+                "G\u00e9n\u00e9ral"
+            ],
+            "Applies to all outgoing WordPress emails.": [
+                "S\u2019applique \u00e0 tous les e-mails sortants de WordPress."
+            ],
+            "Auto-append unsubscribe link": [
+                "Ajouter automatiquement le lien de d\u00e9sabonnement"
+            ],
+            "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically.": [
+                "Lorsque cette option est activ\u00e9e, un bouton de d\u00e9sabonnement s\u00e9curis\u00e9 est ajout\u00e9 automatiquement aux e-mails sortants \u00e0 destinataire unique."
+            ],
+            "Exclude keywords": [
+                "Mots-cl\u00e9s \u00e0 exclure"
+            ],
+            "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
+                "S\u00e9par\u00e9s par des virgules. Les e-mails dont l\u2019objet contient l\u2019un de ces mots (insensible \u00e0 la casse) ignorent le blocage et l\u2019ajout automatique \u2014 \u00e0 utiliser pour les e-mails transactionnels."
+            ],
+            "Block unsubscribed recipients": [
+                "Bloquer les destinataires d\u00e9sabonn\u00e9s"
+            ],
+            "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails.": [
+                "Emp\u00eache l\u2019envoi d\u2019e-mails aux adresses de la liste de d\u00e9sabonnement. Les tentatives bloqu\u00e9es sont consign\u00e9es dans E-mails bloqu\u00e9s."
+            ],
+            "Unsaved changes": [
+                "Modifications non enregistr\u00e9es"
+            ],
+            "Saving\u2026": [
+                "Enregistrement\u2026"
+            ],
+            "Save changes": [
+                "Enregistrer les modifications"
+            ],
+            "Thank you": [
+                "Merci"
+            ],
+            "Invalid link": [
+                "Lien invalide"
+            ],
+            "Preview state": [
+                "\u00c9tat de l\u2019aper\u00e7u"
+            ],
+            "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
+                "Aper\u00e7u approximatif \u2014 la page r\u00e9elle est centr\u00e9e dans la fen\u00eatre et peut l\u00e9g\u00e8rement diff\u00e9rer selon le th\u00e8me du site."
+            ],
+            "Page background": [
+                "Arri\u00e8re-plan de la page"
+            ],
+            "Outer background colour of the unsubscribe page.": [
+                "Couleur d\u2019arri\u00e8re-plan ext\u00e9rieure de la page de d\u00e9sabonnement."
+            ],
+            "Card background": [
+                "Arri\u00e8re-plan de la carte"
+            ],
+            "Background of the content box.": [
+                "Arri\u00e8re-plan de la bo\u00eete de contenu."
+            ],
+            "Body text": [
+                "Texte du corps"
+            ],
+            "Default text colour.": [
+                "Couleur de texte par d\u00e9faut."
+            ],
+            "Headings": [
+                "Titres"
+            ],
+            "Colour for h2 titles.": [
+                "Couleur des titres h2."
+            ],
+            "Button background": [
+                "Arri\u00e8re-plan du bouton"
+            ],
+            "Primary button colour.": [
+                "Couleur du bouton principal."
+            ],
+            "Button text": [
+                "Texte du bouton"
+            ],
+            "Text colour inside buttons.": [
+                "Couleur du texte des boutons."
+            ],
+            "Button hover": [
+                "Survol du bouton"
+            ],
+            "Button background when hovered.": [
+                "Arri\u00e8re-plan du bouton au survol."
+            ],
+            "Unsubscribe success": [
+                "D\u00e9sabonnement r\u00e9ussi"
+            ],
+            "Title": [
+                "Titre"
+            ],
+            "Message": [
+                "Message"
+            ],
+            "Use {email} to insert the recipient address.": [
+                "Utilisez {email} pour ins\u00e9rer l\u2019adresse du destinataire."
+            ],
+            "Feedback submit button": [
+                "Bouton d\u2019envoi du commentaire"
+            ],
+            "Feedback thank-you": [
+                "Remerciement du commentaire"
+            ],
+            "Home link text": [
+                "Texte du lien d\u2019accueil"
+            ],
+            "Invalid-link error": [
+                "Erreur de lien invalide"
+            ],
+            "Re-subscribe success": [
+                "R\u00e9abonnement r\u00e9ussi"
+            ],
+            "Basic HTML (<br>, <strong>, <em>, links) is allowed.": [
+                "Le HTML de base (<br>, <strong>, <em>, liens) est autoris\u00e9."
+            ],
+            "Sans-serif (default)": [
+                "Sans empattement (par d\u00e9faut)"
+            ],
+            "Font family": [
+                "Police"
+            ],
+            "Applied to the whole unsubscribe page.": [
+                "Appliqu\u00e9 \u00e0 toute la page de d\u00e9sabonnement."
+            ],
+            "Font size": [
+                "Taille de police"
+            ],
+            "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
+                "Toute longueur CSS \u2014 ex. 14px, 1em, 0.875rem, 100 %."
+            ],
+            "Customize the look and copy of the public unsubscribe page.": [
+                "Personnalisez l\u2019apparence et le texte de la page de d\u00e9sabonnement publique."
+            ],
+            "Appearance saved.": [
+                "Apparence enregistr\u00e9e."
+            ],
+            "Unsubscribe page": [
+                "Page de d\u00e9sabonnement"
+            ],
+            "Colors": [
+                "Couleurs"
+            ],
+            "Typography": [
+                "Typographie"
+            ],
+            "Text content": [
+                "Contenu textuel"
+            ],
+            "Live preview": [
+                "Aper\u00e7u en direct"
+            ],
+            "An error occurred: %s": [
+                "Une erreur s\u2019est produite : %s"
+            ]
+        }
+    }
+}

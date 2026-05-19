@@ -36,52 +36,56 @@ interface FieldSpec {
   htmlAllowed?: boolean;
 }
 
+// Strings are localized here at module load (wp.i18n is a script
+// dependency, available before this runs) so the render sites stay
+// plain literal lookups and `wp i18n make-pot` can extract them.
 const SECTIONS: Array<{ title: string; fields: FieldSpec[] }> = [
   {
-    title: 'Unsubscribe success',
+    title: __('Unsubscribe success', 'flexa-unsubscribe'),
     fields: [
-      { name: 'title_text', label: 'Title', type: 'input' },
+      { name: 'title_text', label: __('Title', 'flexa-unsubscribe'), type: 'input' },
       {
         name: 'success_message',
-        label: 'Message',
+        label: __('Message', 'flexa-unsubscribe'),
         type: 'textarea',
-        description: 'Use {email} to insert the recipient address.',
+        /* translators: {email} is a literal placeholder token; keep it as-is. */
+        description: __('Use {email} to insert the recipient address.', 'flexa-unsubscribe'),
         htmlAllowed: true,
       },
-      { name: 'button_text', label: 'Feedback submit button', type: 'input' },
+      { name: 'button_text', label: __('Feedback submit button', 'flexa-unsubscribe'), type: 'input' },
     ],
   },
   {
-    title: 'Feedback thank-you',
+    title: __('Feedback thank-you', 'flexa-unsubscribe'),
     fields: [
-      { name: 'thank_you_title', label: 'Title', type: 'input' },
+      { name: 'thank_you_title', label: __('Title', 'flexa-unsubscribe'), type: 'input' },
       {
         name: 'thank_you_message',
-        label: 'Message',
+        label: __('Message', 'flexa-unsubscribe'),
         type: 'textarea',
       },
-      { name: 'home_link_text', label: 'Home link text', type: 'input' },
+      { name: 'home_link_text', label: __('Home link text', 'flexa-unsubscribe'), type: 'input' },
     ],
   },
   {
-    title: 'Invalid-link error',
+    title: __('Invalid-link error', 'flexa-unsubscribe'),
     fields: [
-      { name: 'error_title', label: 'Title', type: 'input' },
+      { name: 'error_title', label: __('Title', 'flexa-unsubscribe'), type: 'input' },
       {
         name: 'error_message',
-        label: 'Message',
+        label: __('Message', 'flexa-unsubscribe'),
         type: 'textarea',
         htmlAllowed: true,
       },
     ],
   },
   {
-    title: 'Re-subscribe success',
+    title: __('Re-subscribe success', 'flexa-unsubscribe'),
     fields: [
-      { name: 'resubscribe_title', label: 'Title', type: 'input' },
+      { name: 'resubscribe_title', label: __('Title', 'flexa-unsubscribe'), type: 'input' },
       {
         name: 'resubscribe_message',
-        label: 'Message',
+        label: __('Message', 'flexa-unsubscribe'),
         type: 'textarea',
       },
     ],
@@ -98,7 +102,7 @@ export function TextContentTab({ control }: Props) {
       {SECTIONS.map((section) => (
         <section key={section.title} className="space-y-4">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            {__(section.title, 'flexa-unsubscribe')}
+            {section.title}
           </h3>
           <div className="space-y-4">
             {section.fields.map((f) => (
@@ -108,7 +112,7 @@ export function TextContentTab({ control }: Props) {
                 name={f.name}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{__(f.label, 'flexa-unsubscribe')}</FormLabel>
+                    <FormLabel>{f.label}</FormLabel>
                     <FormControl>
                       {f.type === 'textarea' ? (
                         <Textarea {...field} rows={3} />
@@ -118,7 +122,7 @@ export function TextContentTab({ control }: Props) {
                     </FormControl>
                     {(f.description || f.htmlAllowed) && (
                       <FormDescription>
-                        {f.description ? __(f.description, 'flexa-unsubscribe') : null}
+                        {f.description ?? null}
                         {f.description && f.htmlAllowed ? ' ' : ''}
                         {f.htmlAllowed
                           ? __('Basic HTML (<br>, <strong>, <em>, links) is allowed.', 'flexa-unsubscribe')

@@ -8,7 +8,7 @@
  * React admin under `flexa-unsubscribe` reached feature parity (see
  * PHASE-4-PLAN.md). What remains here is the CSV streaming surface:
  * the React "Export CSV" buttons link to these `admin-post.php`
- * endpoints via `buildExportUrl()` — wrapping CSV streaming in REST
+ * endpoints via `buildExportUrl()` - wrapping CSV streaming in REST
  * would require custom `serve_request` bypass for zero gain, so these
  * stay on `admin-post.php` indefinitely.
  *
@@ -26,7 +26,7 @@ if (!defined('ABSPATH')) exit;
 add_action('admin_post_flexa_export_csv', 'flexa_handle_export_csv');
 function flexa_handle_export_csv() {
     if (!current_user_can('manage_options')) {
-        wp_die('Unauthorized');
+        wp_die(esc_html__('Unauthorized', 'flexa-unsubscribe'));
     }
     check_admin_referer('flexa_export_csv');
 
@@ -38,7 +38,11 @@ function flexa_handle_export_csv() {
     $output = fopen('php://output', 'w');
     fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF)); // BOM
 
-    fputcsv($output, ['Email', 'Reason', 'Date']);
+    fputcsv($output, [
+        __('Email', 'flexa-unsubscribe'),
+        __('Reason', 'flexa-unsubscribe'),
+        __('Date', 'flexa-unsubscribe'),
+    ]);
     foreach (flexa_tech_su_stream_export_unsubscribes() as $row) {
         fputcsv($output, $row);
     }
@@ -54,7 +58,7 @@ function flexa_handle_export_csv() {
 add_action('admin_post_flexa_export_blocked_csv', 'flexa_handle_export_blocked_csv');
 function flexa_handle_export_blocked_csv() {
     if (!current_user_can('manage_options')) {
-        wp_die('Unauthorized');
+        wp_die(esc_html__('Unauthorized', 'flexa-unsubscribe'));
     }
     check_admin_referer('flexa_export_blocked_csv');
 
@@ -66,7 +70,13 @@ function flexa_handle_export_blocked_csv() {
     $output = fopen('php://output', 'w');
     fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
 
-    fputcsv($output, ['Email', 'Subject', 'From Email', 'From Name', 'Blocked At']);
+    fputcsv($output, [
+        __('Email', 'flexa-unsubscribe'),
+        __('Subject', 'flexa-unsubscribe'),
+        __('From Email', 'flexa-unsubscribe'),
+        __('From Name', 'flexa-unsubscribe'),
+        __('Blocked At', 'flexa-unsubscribe'),
+    ]);
     foreach (flexa_tech_su_stream_export_blocked() as $row) {
         fputcsv($output, $row);
     }
@@ -82,7 +92,7 @@ function flexa_handle_export_blocked_csv() {
 add_action('admin_post_flexa_export_resubscribed_csv', 'flexa_handle_export_resubscribed_csv');
 function flexa_handle_export_resubscribed_csv() {
     if (!current_user_can('manage_options')) {
-        wp_die('Unauthorized');
+        wp_die(esc_html__('Unauthorized', 'flexa-unsubscribe'));
     }
     check_admin_referer('flexa_export_resubscribed_csv');
 
@@ -94,13 +104,18 @@ function flexa_handle_export_resubscribed_csv() {
     $output = fopen('php://output', 'w');
     fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
 
-    fputcsv($output, ['Email', 'Unsubscribed At', 'Re-subscribed At', 'Reason']);
+    fputcsv($output, [
+        __('Email', 'flexa-unsubscribe'),
+        __('Unsubscribed At', 'flexa-unsubscribe'),
+        __('Re-subscribed At', 'flexa-unsubscribe'),
+        __('Reason', 'flexa-unsubscribe'),
+    ]);
     foreach (flexa_tech_su_stream_export_resubscribed() as $row) {
         fputcsv($output, [
             $row->email,
             $row->unsubscribed_at,
             $row->resubscribed_at,
-            $row->reason ?: 'N/A',
+            $row->reason ?: __('N/A', 'flexa-unsubscribe'),
         ]);
     }
 

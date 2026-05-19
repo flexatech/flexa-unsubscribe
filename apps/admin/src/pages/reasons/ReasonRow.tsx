@@ -28,8 +28,8 @@ interface Props {
  * One row in the reasons list.
  *
  * Display mode: click the text (or the Edit dropdown item) to flip to
- * edit mode — an inline `<Input>` replaces the span. Enter commits,
- * Esc reverts, click-away reverts (explicit commit only — avoids
+ * edit mode - an inline `<Input>` replaces the span. Enter commits,
+ * Esc reverts, click-away reverts (explicit commit only - avoids
  * accidental saves on stray clicks).
  */
 export function ReasonRow({

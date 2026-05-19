@@ -76,7 +76,7 @@ function SettingsForm({ initial }: { initial: GeneralSettings }) {
   useDirtyNavigationGuard(isDirty);
 
   // Clear the transient root error once the user starts editing
-  // again — otherwise the banner lingers across retries.
+  // again - otherwise the banner lingers across retries.
   useEffect(() => {
     if (!isDirty) return;
     form.clearErrors('root.serverError');
@@ -149,7 +149,7 @@ function SettingsForm({ initial }: { initial: GeneralSettings }) {
                   </FormControl>
                   <FormDescription>
                     {__(
-                      'Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append — use for transactional mail.',
+                      'Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.',
                       'flexa-unsubscribe',
                     )}
                   </FormDescription>

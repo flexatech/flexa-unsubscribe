@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) exit;
  * `templates/unsubscribe-page.php`.
  *
  * Authentication is HMAC-over-email (same scheme the unsubscribe
- * link itself uses) — visitors are logged out, so cookie nonces
+ * link itself uses) - visitors are logged out, so cookie nonces
  * aren't applicable. The permission callback verifies the token
  * against `AUTH_KEY` before the route handler runs; an invalid
  * token returns 403 with no DB write.

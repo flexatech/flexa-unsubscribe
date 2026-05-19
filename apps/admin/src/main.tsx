@@ -2,7 +2,7 @@ import './main.css';
 
 import React from 'react';
 import { QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 
@@ -13,7 +13,13 @@ import { ConfirmDialogProvider } from '@/components/ui/confirm-dialog';
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: (error: Error) => {
-      showToast.error(__(`An error occurred: ${error.message}`));
+      showToast.error(
+        sprintf(
+          /* translators: %s: underlying error message */
+          __('An error occurred: %s', 'flexa-unsubscribe'),
+          error.message,
+        ),
+      );
     },
   }),
   defaultOptions: {

@@ -16,13 +16,13 @@ import { cn } from '@/lib/utils';
 import { useScrolled } from '@/hooks/useScrolled';
 
 const NAV_ITEMS = [
-  { path: '/', match: '/', to: '/', icon: LayoutDashboard, label: 'Dashboard' },
-  { path: '/unsubscribes/*', to: '/unsubscribes', icon: MailX, label: 'Unsubscribes' },
-  { path: '/blocked/*', to: '/blocked', icon: Mail, label: 'Blocked' },
-  { path: '/resubscribed/*', to: '/resubscribed', icon: MailCheck, label: 'Re-subscribed' },
-  { path: '/reasons/*', to: '/reasons', icon: MessageSquareText, label: 'Reasons' },
-  { path: '/settings/*', to: '/settings', icon: Bolt, label: 'Settings' },
-  { path: '/appearance/*', to: '/appearance', icon: Palette, label: 'Appearance' },
+  { path: '/', match: '/', to: '/', icon: LayoutDashboard, label: __('Dashboard', 'flexa-unsubscribe') },
+  { path: '/unsubscribes/*', to: '/unsubscribes', icon: MailX, label: __('Unsubscribes', 'flexa-unsubscribe') },
+  { path: '/blocked/*', to: '/blocked', icon: Mail, label: __('Blocked', 'flexa-unsubscribe') },
+  { path: '/resubscribed/*', to: '/resubscribed', icon: MailCheck, label: __('Re-subscribed', 'flexa-unsubscribe') },
+  { path: '/reasons/*', to: '/reasons', icon: MessageSquareText, label: __('Reasons', 'flexa-unsubscribe') },
+  { path: '/settings/*', to: '/settings', icon: Bolt, label: __('Settings', 'flexa-unsubscribe') },
+  { path: '/appearance/*', to: '/appearance', icon: Palette, label: __('Appearance', 'flexa-unsubscribe') },
 ];
 
 function NavItem({
@@ -50,7 +50,7 @@ function NavItem({
       )}
     >
       <Icon className="size-5 shrink-0" />
-      <span className="hidden sm:inline">{__(label)}</span>
+      <span className="hidden sm:inline">{label}</span>
     </button>
   );
 }
@@ -77,7 +77,7 @@ export default function Header() {
         </div>
         <div className="flex flex-col leading-tight">
           <span className="text-foreground text-sm font-semibold">Flexa Secure</span>
-          <span className="text-muted-foreground text-[10px]">Unsubscribe</span>
+          <span className="text-muted-foreground text-[10px]">{__('Unsubscribe', 'flexa-unsubscribe')}</span>
         </div>
       </div>
 

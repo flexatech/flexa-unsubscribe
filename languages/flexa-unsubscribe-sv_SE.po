@@ -1,0 +1,728 @@
+# Copyright (C) 2026 flexatech
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexa Unsubscribe 3.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-unsubscribe\n"
+"Last-Translator: flexatech\n"
+"Language-Team: Swedish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-19T09:42:02+00:00\n"
+"PO-Revision-Date: 2026-05-19T09:42:02+00:00\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: flexa-unsubscribe\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+#: flexa-unsubscribe.php
+msgid "Flexa Unsubscribe"
+msgstr ""
+
+#. Description of the plugin
+#: flexa-unsubscribe.php
+msgid "Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV export."
+msgstr "Professionell hantering av e-postavregistreringar med HMAC-tokens, automatisk infogning och CSV-export."
+
+#. Author of the plugin
+#: flexa-unsubscribe.php
+msgid "flexatech"
+msgstr ""
+
+#: includes/admin.php:29 includes/admin.php:61 includes/admin.php:95
+msgid "Unauthorized"
+msgstr "Behörighet saknas"
+
+#: includes/admin.php:42 includes/admin.php:74 includes/admin.php:108
+#: assets/dist/admin/js/main.js:3
+msgid "Email"
+msgstr "E-post"
+
+#: includes/admin.php:43 includes/admin.php:111 assets/dist/admin/js/main.js:5
+msgid "Reason"
+msgstr "Anledning"
+
+#: includes/admin.php:44
+msgid "Date"
+msgstr "Datum"
+
+#: includes/admin.php:75 assets/dist/admin/js/main.js:7
+msgid "Subject"
+msgstr "Ämne"
+
+#: includes/admin.php:76
+msgid "From Email"
+msgstr "Avsändarens e-post"
+
+#: includes/admin.php:77
+msgid "From Name"
+msgstr "Avsändarens namn"
+
+#: includes/admin.php:78
+msgid "Blocked At"
+msgstr "Blockerad den"
+
+#: includes/admin.php:109
+msgid "Unsubscribed At"
+msgstr "Avregistrerad den"
+
+#: includes/admin.php:110
+msgid "Re-subscribed At"
+msgstr "Återregistrerad den"
+
+#: includes/admin.php:118
+msgid "N/A"
+msgstr "–"
+
+#: includes/Controllers/BlockedRestController.php:96
+msgid "Failed to delete blocked email record."
+msgstr "Det gick inte att ta bort posten för blockerad e-post."
+
+#: includes/Controllers/BlockedRestController.php:103
+msgid "Blocked email record not found."
+msgstr "Posten för blockerad e-post hittades inte."
+
+#: includes/Controllers/ReasonsRestController.php:135
+msgid "Failed to create reason."
+msgstr "Det gick inte att skapa anledningen."
+
+#: includes/Controllers/ReasonsRestController.php:151
+#: includes/Controllers/ReasonsRestController.php:167
+msgid "Reason not found."
+msgstr "Anledningen hittades inte."
+
+#: includes/Controllers/ReasonsRestController.php:164
+msgid "Failed to delete reason."
+msgstr "Det gick inte att ta bort anledningen."
+
+#: includes/Controllers/SaveReasonRestController.php:64
+#: includes/Controllers/SaveReasonRestController.php:73
+msgid "Missing or invalid token."
+msgstr "Token saknas eller är ogiltig."
+
+#: includes/Controllers/SettingsRestController.php:81
+#: templates/unsubscribe-page.php:33
+msgid "Unsubscribed"
+msgstr "Avregistrerad"
+
+#. translators: {email} is a literal placeholder, replaced with the recipient's address. Keep it as-is.
+#: includes/Controllers/SettingsRestController.php:83
+#: templates/unsubscribe-page.php:35
+msgid "Email {email} is removed."
+msgstr "E-postadressen {email} har tagits bort."
+
+#: includes/Controllers/SettingsRestController.php:84
+#: templates/unsubscribe-page.php:36
+msgid "Submit Feedback"
+msgstr "Skicka feedback"
+
+#: includes/Controllers/SettingsRestController.php:85
+#: templates/unsubscribe-page.php:37
+msgid "Thank you for your feedback!"
+msgstr "Tack för din feedback!"
+
+#: includes/Controllers/SettingsRestController.php:86
+#: templates/unsubscribe-page.php:38
+msgid "We greatly appreciate your input and will use this information to improve our content in the future."
+msgstr "Vi uppskattar verkligen dina synpunkter och kommer att använda denna information för att förbättra vårt innehåll i framtiden."
+
+#: includes/Controllers/SettingsRestController.php:87
+#: templates/resubscribe-page.php:31 templates/unsubscribe-page.php:39
+msgid "Back to Home Page"
+msgstr "Tillbaka till startsidan"
+
+#: includes/Controllers/SettingsRestController.php:88
+#: templates/resubscribe-page.php:32 templates/unsubscribe-page.php:40
+msgid "We're Sorry, This Link Is No Longer Valid"
+msgstr "Tyvärr, den här länken är inte längre giltig"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: includes/Controllers/SettingsRestController.php:90
+#: templates/unsubscribe-page.php:42
+msgid "The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "Avregistreringslänken du använde verkar vara ogiltig eller har upphört att gälla.<br>Om du tror att detta är ett misstag, försök igen eller kontakta vårt supportteam för hjälp."
+
+#: includes/Controllers/SettingsRestController.php:91
+#: templates/resubscribe-page.php:29
+msgid "Successfully Re-subscribed!"
+msgstr "Återregistreringen lyckades!"
+
+#: includes/Controllers/SettingsRestController.php:92
+#: templates/resubscribe-page.php:30
+msgid "You have been successfully re-subscribed. You will start receiving emails again."
+msgstr "Du har återregistrerats. Du kommer att börja få e-post igen."
+
+#: includes/Controllers/UnsubscribesRestController.php:90
+msgid "Failed to delete unsubscribe record."
+msgstr "Det gick inte att ta bort avregistreringsposten."
+
+#: includes/Controllers/UnsubscribesRestController.php:97
+msgid "Unsubscribe record not found."
+msgstr "Avregistreringsposten hittades inte."
+
+#: includes/database.php:102
+msgid "Too many emails"
+msgstr "För många e-postmeddelanden"
+
+#: includes/database.php:103
+msgid "Content not relevant"
+msgstr "Innehållet är inte relevant"
+
+#: includes/database.php:104 templates/unsubscribe-page.php:120
+msgid "Other"
+msgstr "Annat"
+
+#: includes/database.php:664
+msgid "No reason provided"
+msgstr "Ingen anledning angiven"
+
+#: includes/Engine/Admin/Settings.php:45 includes/Engine/Admin/Settings.php:46
+#: templates/unsubscribe-page.php:93 assets/dist/admin/js/main.js:1
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe"
+msgstr "Avregistrera"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: templates/resubscribe-page.php:34
+msgid "The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "Återregistreringslänken du använde verkar vara ogiltig eller har upphört att gälla.<br>Om du tror att detta är ett misstag, försök igen eller kontakta vårt supportteam för hjälp."
+
+#: templates/resubscribe-page.php:63 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe"
+msgstr "Återregistrera"
+
+#: templates/unsubscribe-page.php:107 assets/dist/admin/js/main.js:13
+msgid "-- Please select a reason --"
+msgstr "-- Välj en anledning --"
+
+#: templates/unsubscribe-page.php:132 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe to emails"
+msgstr "Återregistrera för e-post"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Dashboard"
+msgstr "Översikt"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:5
+msgid "Unsubscribes"
+msgstr "Avregistreringar"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Blocked"
+msgstr "Blockerade"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:9
+msgid "Re-subscribed"
+msgstr "Återregistrerade"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Reasons"
+msgstr "Anledningar"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:13
+msgid "Settings"
+msgstr "Inställningar"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:15
+msgid "Appearance"
+msgstr "Utseende"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Close"
+msgstr "Stäng"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Confirm"
+msgstr "Bekräfta"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Pagination"
+msgstr "Sidnumrering"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Previous page"
+msgstr "Föregående sida"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Next page"
+msgstr "Nästa sida"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Something went wrong"
+msgstr "Något gick fel"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed to load data. Please try again."
+msgstr "Det gick inte att läsa in data. Försök igen."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Retry"
+msgstr "Försök igen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Filter this page…"
+msgstr "Filtrera den här sidan…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Clear search"
+msgstr "Rensa sökning"
+
+#: assets/dist/admin/js/main.js:1
+msgid "No results"
+msgstr "Inga resultat"
+
+#. translators: 1: first row index, 2: last row index, 3: total count
+#: assets/dist/admin/js/main.js:3
+msgid "Showing %1$s–%2$s of %3$s"
+msgstr "Visar %1$s–%2$s av %3$s"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Actions"
+msgstr "Åtgärder"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Row actions"
+msgstr "Radåtgärder"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Unsubscribe record deleted."
+msgstr "Avregistreringsposten har tagits bort."
+
+#: assets/dist/admin/js/main.js:3
+msgid "Delete unsubscribe record?"
+msgstr "Ta bort avregistreringsposten?"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:5
+msgid "This will remove the record for %s. This cannot be undone."
+msgstr "Detta tar bort posten för %s. Detta kan inte ångras."
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:11 assets/dist/admin/js/main.js:13
+msgid "Delete"
+msgstr "Ta bort"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Unsubscribed at"
+msgstr "Avregistrerad den"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Addresses that have opted out. Blocked from future sends."
+msgstr "Adresser som har avregistrerat sig. Utesluts från framtida utskick."
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:9
+msgid "Export CSV"
+msgstr "Exportera CSV"
+
+#: assets/dist/admin/js/main.js:5
+msgid "No unsubscribes yet"
+msgstr "Inga avregistreringar ännu"
+
+#: assets/dist/admin/js/main.js:5
+msgid "When someone clicks the unsubscribe link in an email, they will appear here."
+msgstr "När någon klickar på avregistreringslänken i ett e-postmeddelande visas de här."
+
+#: assets/dist/admin/js/main.js:5
+msgid "Blocked email deleted."
+msgstr "Blockerad e-post har tagits bort."
+
+#: assets/dist/admin/js/main.js:5
+msgid "All blocked emails cleared."
+msgstr "All blockerad e-post har rensats."
+
+#: assets/dist/admin/js/main.js:5
+msgid "Delete blocked email record?"
+msgstr "Ta bort posten för blockerad e-post?"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:7
+msgid "This will remove the audit record for %s. This cannot be undone."
+msgstr "Detta tar bort granskningsposten för %s. Detta kan inte ångras."
+
+#: assets/dist/admin/js/main.js:7
+msgid "From"
+msgstr "Från"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked at"
+msgstr "Blockerad den"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked emails"
+msgstr "Blockerad e-post"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Audit log of outgoing emails that were blocked because the recipient had unsubscribed."
+msgstr "Granskningslogg över utgående e-post som blockerades eftersom mottagaren hade avregistrerat sig."
+
+#: assets/dist/admin/js/main.js:7
+msgid "Clear all blocked records?"
+msgstr "Rensa alla blockerade poster?"
+
+#. translators: %s: number of records
+#: assets/dist/admin/js/main.js:9
+msgid "This will delete %s blocked-email records. This cannot be undone."
+msgstr "Detta tar bort %s poster för blockerad e-post. Detta kan inte ångras."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Clear all"
+msgstr "Rensa alla"
+
+#: assets/dist/admin/js/main.js:9
+msgid "No blocked emails"
+msgstr "Ingen blockerad e-post"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When an outgoing email targets an unsubscribed address, it will be logged here."
+msgstr "När ett utgående e-postmeddelande riktas till en avregistrerad adress loggas det här."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Re-subscribed at"
+msgstr "Återregistrerad den"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Originally unsubscribed"
+msgstr "Ursprungligen avregistrerad"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Addresses that opted back in after previously unsubscribing."
+msgstr "Adresser som registrerade sig igen efter att tidigare ha avregistrerat sig."
+
+#: assets/dist/admin/js/main.js:9
+msgid "No re-subscribes yet"
+msgstr "Inga återregistreringar ännu"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When someone uses the re-subscribe link, they will appear here."
+msgstr "När någon använder återregistreringslänken visas de här."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Something went wrong."
+msgstr "Något gick fel."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Reason added."
+msgstr "Anledning tillagd."
+
+#: assets/dist/admin/js/main.js:9
+msgid "New reason"
+msgstr "Ny anledning"
+
+#: assets/dist/admin/js/main.js:9
+msgid "e.g. Too many emails"
+msgstr "t.ex. För många e-postmeddelanden"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Appears in the unsubscribe dropdown on the public page."
+msgstr "Visas i avregistreringslistan på den offentliga sidan."
+
+#: assets/dist/admin/js/main.js:9
+msgid "Adding…"
+msgstr "Lägger till…"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Add reason"
+msgstr "Lägg till anledning"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move up"
+msgstr "Flytta upp"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move down"
+msgstr "Flytta ner"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Click to edit"
+msgstr "Klicka för att redigera"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:11
+msgid "Actions for %s"
+msgstr "Åtgärder för %s"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Edit"
+msgstr "Redigera"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason updated."
+msgstr "Anledning uppdaterad."
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason deleted."
+msgstr "Anledning borttagen."
+
+#: assets/dist/admin/js/main.js:11
+msgid "Delete this reason?"
+msgstr "Ta bort den här anledningen?"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:13
+msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
+msgstr "Ta bort ”%s”? Befintliga avregistreringsposter som använde denna anledning behåller sin text – anledningen lagras per post, inte som referens."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe reasons"
+msgstr "Avregistreringsanledningar"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
+msgstr "Alternativ som visas i feedback-listan vid avregistrering. Ändra ordning med pilarna – det översta i listan visas först."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Current reasons"
+msgstr "Aktuella anledningar"
+
+#: assets/dist/admin/js/main.js:13
+msgid "No reasons yet"
+msgstr "Inga anledningar ännu"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Use the form on the right to add the first option shown when someone unsubscribes."
+msgstr "Använd formuläret till höger för att lägga till det första alternativet som visas när någon avregistrerar sig."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Add a reason"
+msgstr "Lägg till en anledning"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard unsaved changes?"
+msgstr "Ignorera osparade ändringar?"
+
+#: assets/dist/admin/js/main.js:13
+msgid "You have unsaved changes that will be lost if you navigate away."
+msgstr "Du har osparade ändringar som går förlorade om du lämnar sidan."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Keep editing"
+msgstr "Fortsätt redigera"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard changes"
+msgstr "Ignorera ändringar"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Control how outgoing emails are processed and which recipients are blocked."
+msgstr "Styr hur utgående e-post hanteras och vilka mottagare som blockeras."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Settings saved."
+msgstr "Inställningarna har sparats."
+
+#: assets/dist/admin/js/main.js:13
+msgid "General"
+msgstr "Allmänt"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Applies to all outgoing WordPress emails."
+msgstr "Gäller all utgående e-post från WordPress."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append unsubscribe link"
+msgstr "Lägg automatiskt till avregistreringslänk"
+
+#: assets/dist/admin/js/main.js:13
+msgid "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically."
+msgstr "När detta är aktiverat läggs en säker avregistreringsknapp automatiskt till i utgående e-post med en enda mottagare."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Exclude keywords"
+msgstr "Uteslut nyckelord"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
+msgstr "Kommaseparerade. E-post vars ämne innehåller något av dessa (skiftlägesokänsligt) hoppar över både blockering och automatisk infogning – använd för transaktionsmeddelanden."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Block unsubscribed recipients"
+msgstr "Blockera avregistrerade mottagare"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails."
+msgstr "Förhindrar att e-post skickas till adresser i avregistreringslistan. Blockerade försök loggas under Blockerad e-post."
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Unsaved changes"
+msgstr "Osparade ändringar"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Saving…"
+msgstr "Sparar…"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Save changes"
+msgstr "Spara ändringar"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Thank you"
+msgstr "Tack"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Invalid link"
+msgstr "Ogiltig länk"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview state"
+msgstr "Förhandsgranskningsläge"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
+msgstr "Ungefärlig förhandsgranskning – den faktiska sidan är centrerad i visningsområdet och kan skilja sig något beroende på webbplatsens tema."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Page background"
+msgstr "Sidbakgrund"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Outer background colour of the unsubscribe page."
+msgstr "Yttre bakgrundsfärg för avregistreringssidan."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Card background"
+msgstr "Kortbakgrund"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Background of the content box."
+msgstr "Bakgrund för innehållsrutan."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Body text"
+msgstr "Brödtext"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Default text colour."
+msgstr "Standardtextfärg."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Headings"
+msgstr "Rubriker"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Colour for h2 titles."
+msgstr "Färg för h2-rubriker."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background"
+msgstr "Knappbakgrund"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Primary button colour."
+msgstr "Primär knappfärg."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button text"
+msgstr "Knapptext"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Text colour inside buttons."
+msgstr "Textfärg i knappar."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button hover"
+msgstr "Knapp vid hovring"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background when hovered."
+msgstr "Knappbakgrund vid hovring."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe success"
+msgstr "Avregistrering lyckades"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Title"
+msgstr "Titel"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Message"
+msgstr "Meddelande"
+
+#. translators: {email} is a literal placeholder token; keep it as-is.
+#: assets/dist/admin/js/main.js:15
+msgid "Use {email} to insert the recipient address."
+msgstr "Använd {email} för att infoga mottagarens adress."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback submit button"
+msgstr "Knapp för att skicka feedback"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback thank-you"
+msgstr "Tack för feedback"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Home link text"
+msgstr "Text för länk till startsidan"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Invalid-link error"
+msgstr "Fel: ogiltig länk"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Re-subscribe success"
+msgstr "Återregistrering lyckades"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Basic HTML (<br>, <strong>, <em>, links) is allowed."
+msgstr "Enkel HTML (<br>, <strong>, <em>, länkar) är tillåten."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Sans-serif (default)"
+msgstr "Sans-serif (standard)"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font family"
+msgstr "Teckensnitt"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Applied to the whole unsubscribe page."
+msgstr "Tillämpas på hela avregistreringssidan."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font size"
+msgstr "Teckenstorlek"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
+msgstr "Valfri CSS-längd – t.ex. 14px, 1em, 0.875rem, 100 %."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Customize the look and copy of the public unsubscribe page."
+msgstr "Anpassa utseendet och texten på den offentliga avregistreringssidan."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Appearance saved."
+msgstr "Utseendet har sparats."
+
+#: assets/dist/admin/js/main.js:15
+msgid "Unsubscribe page"
+msgstr "Avregistreringssida"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Colors"
+msgstr "Färger"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Typography"
+msgstr "Typografi"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Text content"
+msgstr "Textinnehåll"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Live preview"
+msgstr "Direktförhandsgranskning"
+
+#. translators: %s: underlying error message
+#: assets/dist/admin/js/main.js:17
+msgid "An error occurred: %s"
+msgstr "Ett fel uppstod: %s"

@@ -22,7 +22,7 @@ const _ky = ky.create({
               location.reload();
             }
           } catch {
-            /* non-JSON 403 — ignore */
+            /* non-JSON 403 - ignore */
           }
         }
       },

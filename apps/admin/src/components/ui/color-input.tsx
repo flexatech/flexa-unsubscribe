@@ -17,7 +17,7 @@ const HEX_3_OR_6 = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
 
 /**
  * Expand shorthand `#abc` to `#aabbcc` and lowercase. Returns the
- * original input unchanged if it's not a valid hex shape — the Zod
+ * original input unchanged if it's not a valid hex shape - the Zod
  * schema will catch that at submit time.
  */
 function normalize(hex: string): string {
@@ -50,7 +50,7 @@ export const ColorInput = React.forwardRef<HTMLInputElement, ColorInputProps>(
     const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const next = e.target.value;
       setText(next);
-      // Only propagate to the form if the text is a complete hex —
+      // Only propagate to the form if the text is a complete hex -
       // avoids thrashing the colour picker while the user types.
       if (HEX_3_OR_6.test(next.trim())) {
         onChange(normalize(next));

@@ -31,7 +31,7 @@ const schema = z.object({
 type Values = z.infer<typeof schema>;
 
 interface Props {
-  /** Next sort_order to use — parent computes as `max(existing) + 1`. */
+  /** Next sort_order to use - parent computes as `max(existing) + 1`. */
   nextSortOrder: number;
 }
 

@@ -8,11 +8,14 @@ import type { AppearanceSettings } from '@/lib/api/appearance';
 
 type PreviewState = 'success' | 'thank-you' | 'error' | 'resubscribe';
 
+// Labels localized at module load (wp.i18n is a script dependency,
+// available before this runs) so the render site stays a literal
+// lookup and `wp i18n make-pot` can extract them.
 const STATES: Array<{ key: PreviewState; label: string }> = [
-  { key: 'success', label: 'Unsubscribe' },
-  { key: 'thank-you', label: 'Thank you' },
-  { key: 'error', label: 'Invalid link' },
-  { key: 'resubscribe', label: 'Re-subscribe' },
+  { key: 'success', label: __('Unsubscribe', 'flexa-unsubscribe') },
+  { key: 'thank-you', label: __('Thank you', 'flexa-unsubscribe') },
+  { key: 'error', label: __('Invalid link', 'flexa-unsubscribe') },
+  { key: 'resubscribe', label: __('Re-subscribe', 'flexa-unsubscribe') },
 ];
 
 /** Hard-coded in the legacy templates (line 120 unsub, 82 resub). */
@@ -26,7 +29,7 @@ const SAMPLE_EMAIL = 'customer@example.com';
  * `useWatch` (deferred so fast typing doesn't stall React) and
  * maps each token onto inline `style={{…}}`.
  *
- * Not iframe-based — we accept slight visual drift (e.g. no
+ * Not iframe-based - we accept slight visual drift (e.g. no
  * viewport centring, scaled down) in exchange for zero state
  * sync complexity. The admin sees the right copy, colors,
  * font, and overall layout.
@@ -72,7 +75,7 @@ export function AppearancePreview({ control }: { control: Control<AppearanceSett
                 : 'bg-background text-muted-foreground border-border hover:text-foreground',
             )}
           >
-            {__(label, 'flexa-unsubscribe')}
+            {label}
           </button>
         ))}
       </div>
@@ -102,7 +105,7 @@ export function AppearancePreview({ control }: { control: Control<AppearanceSett
 
       <p className="text-[11px] text-muted-foreground">
         {__(
-          'Approximate preview — actual page is viewport-centred and may differ slightly under site themes.',
+          'Approximate preview - actual page is viewport-centred and may differ slightly under site themes.',
           'flexa-unsubscribe',
         )}
       </p>
@@ -162,7 +165,7 @@ function ThankYouState({ values, headingStyle }: StateProps) {
       <h2 style={{ ...headingStyle, fontWeight: 600, margin: '0 0 12px' }}>
         {values.thank_you_title}
       </h2>
-      {/* Legacy escapes this on output — render as plain text. */}
+      {/* Legacy escapes this on output - render as plain text. */}
       <p style={{ margin: '0 0 16px' }}>{values.thank_you_message}</p>
       <a
         href="#"
@@ -212,7 +215,7 @@ function ResubscribeState({ values, headingStyle }: StateProps) {
       <h2 style={{ ...headingStyle, fontWeight: 600, margin: '0 0 12px' }}>
         {values.resubscribe_title}
       </h2>
-      {/* Legacy escapes this on output — render as plain text. */}
+      {/* Legacy escapes this on output - render as plain text. */}
       <p style={{ margin: '0 0 16px' }}>{values.resubscribe_message}</p>
       <Btn values={values}>{values.home_link_text}</Btn>
     </>
@@ -220,7 +223,7 @@ function ResubscribeState({ values, headingStyle }: StateProps) {
 }
 
 /**
- * Button with hover swap driven by local state — the only way to
+ * Button with hover swap driven by local state - the only way to
  * demonstrate `button_hover_color` without a real :hover rule since
  * inline styles can't express pseudo-classes.
  */

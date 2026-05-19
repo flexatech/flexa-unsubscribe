@@ -58,7 +58,7 @@ export function useReorderReasonsMutation() {
   return useMutation({
     mutationFn: (order: number[]) => reorderReasons(order),
     onSuccess: (items) => {
-      // Reorder already returns the authoritative list — seed the
+      // Reorder already returns the authoritative list - seed the
       // cache directly so the UI updates without a second round-trip.
       qc.setQueryData(BASE_KEY, items);
     },

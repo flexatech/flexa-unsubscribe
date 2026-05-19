@@ -1,6 +1,6 @@
 {
   "name": "admin-flexa-unsubscribe",
-  "description": "Flexa Unsubscribe — Admin React application",
+  "description": "Flexa Unsubscribe - Admin React application",
   "private": true,
   "version": "0.1.0",
   "type": "module",

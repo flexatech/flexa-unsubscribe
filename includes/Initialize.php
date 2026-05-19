@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) exit;
  *
  * Invoked once from the root plugin file on `plugins_loaded`.
  * The legacy procedural `includes/*.php` files continue to run
- * in parallel — this class is purely additive until they're
+ * in parallel - this class is purely additive until they're
  * removed.
  */
 class Initialize {

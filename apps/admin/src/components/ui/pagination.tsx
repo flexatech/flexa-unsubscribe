@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { __ } from '@wordpress/i18n';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -71,7 +72,7 @@ export function Pagination({
   return (
     <nav
       role="navigation"
-      aria-label="Pagination"
+      aria-label={__('Pagination', 'flexa-unsubscribe')}
       className={cn('flex items-center gap-1', className)}
     >
       <button
@@ -79,7 +80,7 @@ export function Pagination({
         className={cn(btnBase, 'cursor-pointer disabled:cursor-not-allowed disabled:opacity-50')}
         onClick={() => go(page - 1)}
         disabled={page <= 1}
-        aria-label="Previous page"
+        aria-label={__('Previous page', 'flexa-unsubscribe')}
       >
         <ChevronLeft className="size-4" />
       </button>
@@ -114,7 +115,7 @@ export function Pagination({
         className={cn(btnBase, 'cursor-pointer disabled:cursor-not-allowed disabled:opacity-50')}
         onClick={() => go(page + 1)}
         disabled={page >= totalPages}
-        aria-label="Next page"
+        aria-label={__('Next page', 'flexa-unsubscribe')}
       >
         <ChevronRight className="size-4" />
       </button>

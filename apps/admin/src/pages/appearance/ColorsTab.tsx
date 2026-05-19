@@ -23,41 +23,44 @@ type ColorField = keyof Pick<
   | 'button_hover_color'
 >;
 
+// Labels/descriptions are localized here at module load (wp.i18n is a
+// script dependency, available before this runs) so the render sites
+// stay plain literal lookups and `wp i18n make-pot` can extract them.
 const FIELDS: Array<{ name: ColorField; label: string; description: string }> = [
   {
     name: 'bg_color',
-    label: 'Page background',
-    description: 'Outer background colour of the unsubscribe page.',
+    label: __('Page background', 'flexa-unsubscribe'),
+    description: __('Outer background colour of the unsubscribe page.', 'flexa-unsubscribe'),
   },
   {
     name: 'box_bg_color',
-    label: 'Card background',
-    description: 'Background of the content box.',
+    label: __('Card background', 'flexa-unsubscribe'),
+    description: __('Background of the content box.', 'flexa-unsubscribe'),
   },
   {
     name: 'text_color',
-    label: 'Body text',
-    description: 'Default text colour.',
+    label: __('Body text', 'flexa-unsubscribe'),
+    description: __('Default text colour.', 'flexa-unsubscribe'),
   },
   {
     name: 'heading_color',
-    label: 'Headings',
-    description: 'Colour for h2 titles.',
+    label: __('Headings', 'flexa-unsubscribe'),
+    description: __('Colour for h2 titles.', 'flexa-unsubscribe'),
   },
   {
     name: 'button_bg_color',
-    label: 'Button background',
-    description: 'Primary button colour.',
+    label: __('Button background', 'flexa-unsubscribe'),
+    description: __('Primary button colour.', 'flexa-unsubscribe'),
   },
   {
     name: 'button_text_color',
-    label: 'Button text',
-    description: 'Text colour inside buttons.',
+    label: __('Button text', 'flexa-unsubscribe'),
+    description: __('Text colour inside buttons.', 'flexa-unsubscribe'),
   },
   {
     name: 'button_hover_color',
-    label: 'Button hover',
-    description: 'Button background when hovered.',
+    label: __('Button hover', 'flexa-unsubscribe'),
+    description: __('Button background when hovered.', 'flexa-unsubscribe'),
   },
 ];
 
@@ -75,7 +78,7 @@ export function ColorsTab({ control }: Props) {
           name={name}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{__(label, 'flexa-unsubscribe')}</FormLabel>
+              <FormLabel>{label}</FormLabel>
               <FormControl>
                 <ColorInput
                   value={field.value ?? ''}
@@ -84,7 +87,7 @@ export function ColorsTab({ control }: Props) {
                   name={field.name}
                 />
               </FormControl>
-              <FormDescription>{__(description, 'flexa-unsubscribe')}</FormDescription>
+              <FormDescription>{description}</FormDescription>
               <FormMessage />
             </FormItem>
           )}

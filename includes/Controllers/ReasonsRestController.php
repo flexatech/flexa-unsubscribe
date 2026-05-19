@@ -9,7 +9,7 @@ use WP_REST_Response;
 if (!defined('ABSPATH')) exit;
 
 /**
- * Unsubscribe reasons — list + CRUD + bulk reorder.
+ * Unsubscribe reasons - list + CRUD + bulk reorder.
  *
  * Wraps `flexa_tech_su_get_reasons()`, `flexa_tech_su_get_reason()`,
  * `flexa_tech_su_save_reason()`, `flexa_tech_su_delete_reason()` and
@@ -95,7 +95,7 @@ class ReasonsRestController {
                 // `absint` rather than `intval` because WP's REST framework
                 // passes 3 args (`$value, $request, $param`) to sanitize
                 // callbacks. `intval` is a builtin with a strict 2-arg
-                // signature — PHP 8+ throws ArgumentCountError. WP's
+                // signature - PHP 8+ throws ArgumentCountError. WP's
                 // user-defined helpers (`absint`, `sanitize_*`) silently
                 // accept extras.
                 'sanitize_callback' => 'absint',

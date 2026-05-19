@@ -1,0 +1,727 @@
+# Copyright (C) 2026 flexatech
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexa Unsubscribe 3.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-unsubscribe\n"
+"Last-Translator: flexatech\n"
+"Language-Team: Chinese (Simplified)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-05-19T09:42:02+00:00\n"
+"PO-Revision-Date: 2026-05-19T09:42:02+00:00\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: flexa-unsubscribe\n"
+"Language: zh_CN\n"
+
+#. Plugin Name of the plugin
+#: flexa-unsubscribe.php
+msgid "Flexa Unsubscribe"
+msgstr ""
+
+#. Description of the plugin
+#: flexa-unsubscribe.php
+msgid "Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV export."
+msgstr "专业的电子邮件退订管理，支持 HMAC 令牌、自动追加和 CSV 导出。"
+
+#. Author of the plugin
+#: flexa-unsubscribe.php
+msgid "flexatech"
+msgstr ""
+
+#: includes/admin.php:29 includes/admin.php:61 includes/admin.php:95
+msgid "Unauthorized"
+msgstr "未授权"
+
+#: includes/admin.php:42 includes/admin.php:74 includes/admin.php:108
+#: assets/dist/admin/js/main.js:3
+msgid "Email"
+msgstr "电子邮件"
+
+#: includes/admin.php:43 includes/admin.php:111 assets/dist/admin/js/main.js:5
+msgid "Reason"
+msgstr "原因"
+
+#: includes/admin.php:44
+msgid "Date"
+msgstr "日期"
+
+#: includes/admin.php:75 assets/dist/admin/js/main.js:7
+msgid "Subject"
+msgstr "主题"
+
+#: includes/admin.php:76
+msgid "From Email"
+msgstr "发件人邮箱"
+
+#: includes/admin.php:77
+msgid "From Name"
+msgstr "发件人姓名"
+
+#: includes/admin.php:78
+msgid "Blocked At"
+msgstr "屏蔽时间"
+
+#: includes/admin.php:109
+msgid "Unsubscribed At"
+msgstr "退订时间"
+
+#: includes/admin.php:110
+msgid "Re-subscribed At"
+msgstr "重新订阅时间"
+
+#: includes/admin.php:118
+msgid "N/A"
+msgstr "无"
+
+#: includes/Controllers/BlockedRestController.php:96
+msgid "Failed to delete blocked email record."
+msgstr "删除被屏蔽邮件记录失败。"
+
+#: includes/Controllers/BlockedRestController.php:103
+msgid "Blocked email record not found."
+msgstr "未找到被屏蔽邮件记录。"
+
+#: includes/Controllers/ReasonsRestController.php:135
+msgid "Failed to create reason."
+msgstr "创建原因失败。"
+
+#: includes/Controllers/ReasonsRestController.php:151
+#: includes/Controllers/ReasonsRestController.php:167
+msgid "Reason not found."
+msgstr "未找到该原因。"
+
+#: includes/Controllers/ReasonsRestController.php:164
+msgid "Failed to delete reason."
+msgstr "删除原因失败。"
+
+#: includes/Controllers/SaveReasonRestController.php:64
+#: includes/Controllers/SaveReasonRestController.php:73
+msgid "Missing or invalid token."
+msgstr "缺少令牌或令牌无效。"
+
+#: includes/Controllers/SettingsRestController.php:81
+#: templates/unsubscribe-page.php:33
+msgid "Unsubscribed"
+msgstr "已退订"
+
+#. translators: {email} is a literal placeholder, replaced with the recipient's address. Keep it as-is.
+#: includes/Controllers/SettingsRestController.php:83
+#: templates/unsubscribe-page.php:35
+msgid "Email {email} is removed."
+msgstr "电子邮件 {email} 已被移除。"
+
+#: includes/Controllers/SettingsRestController.php:84
+#: templates/unsubscribe-page.php:36
+msgid "Submit Feedback"
+msgstr "提交反馈"
+
+#: includes/Controllers/SettingsRestController.php:85
+#: templates/unsubscribe-page.php:37
+msgid "Thank you for your feedback!"
+msgstr "感谢您的反馈！"
+
+#: includes/Controllers/SettingsRestController.php:86
+#: templates/unsubscribe-page.php:38
+msgid "We greatly appreciate your input and will use this information to improve our content in the future."
+msgstr "我们非常感谢您的意见，并将利用这些信息在今后改进我们的内容。"
+
+#: includes/Controllers/SettingsRestController.php:87
+#: templates/resubscribe-page.php:31 templates/unsubscribe-page.php:39
+msgid "Back to Home Page"
+msgstr "返回首页"
+
+#: includes/Controllers/SettingsRestController.php:88
+#: templates/resubscribe-page.php:32 templates/unsubscribe-page.php:40
+msgid "We're Sorry, This Link Is No Longer Valid"
+msgstr "抱歉，此链接已失效"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: includes/Controllers/SettingsRestController.php:90
+#: templates/unsubscribe-page.php:42
+msgid "The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "您使用的退订链接似乎无效或已过期。<br>如果您认为这是一个错误，请重试或联系我们的支持团队寻求帮助。"
+
+#: includes/Controllers/SettingsRestController.php:91
+#: templates/resubscribe-page.php:29
+msgid "Successfully Re-subscribed!"
+msgstr "重新订阅成功！"
+
+#: includes/Controllers/SettingsRestController.php:92
+#: templates/resubscribe-page.php:30
+msgid "You have been successfully re-subscribed. You will start receiving emails again."
+msgstr "您已成功重新订阅。您将重新开始收到电子邮件。"
+
+#: includes/Controllers/UnsubscribesRestController.php:90
+msgid "Failed to delete unsubscribe record."
+msgstr "删除退订记录失败。"
+
+#: includes/Controllers/UnsubscribesRestController.php:97
+msgid "Unsubscribe record not found."
+msgstr "未找到退订记录。"
+
+#: includes/database.php:102
+msgid "Too many emails"
+msgstr "邮件太多"
+
+#: includes/database.php:103
+msgid "Content not relevant"
+msgstr "内容不相关"
+
+#: includes/database.php:104 templates/unsubscribe-page.php:120
+msgid "Other"
+msgstr "其他"
+
+#: includes/database.php:664
+msgid "No reason provided"
+msgstr "未提供原因"
+
+#: includes/Engine/Admin/Settings.php:45 includes/Engine/Admin/Settings.php:46
+#: templates/unsubscribe-page.php:93 assets/dist/admin/js/main.js:1
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe"
+msgstr "退订"
+
+#. translators: <br> is an HTML line break; keep it in the translation.
+#: templates/resubscribe-page.php:34
+msgid "The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgstr "您使用的重新订阅链接似乎无效或已过期。<br>如果您认为这是一个错误，请重试或联系我们的支持团队寻求帮助。"
+
+#: templates/resubscribe-page.php:63 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe"
+msgstr "重新订阅"
+
+#: templates/unsubscribe-page.php:107 assets/dist/admin/js/main.js:13
+msgid "-- Please select a reason --"
+msgstr "-- 请选择一个原因 --"
+
+#: templates/unsubscribe-page.php:132 assets/dist/admin/js/main.js:13
+msgid "Re-subscribe to emails"
+msgstr "重新订阅邮件"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Dashboard"
+msgstr "仪表盘"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:5
+msgid "Unsubscribes"
+msgstr "退订"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Blocked"
+msgstr "已屏蔽"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:9
+msgid "Re-subscribed"
+msgstr "已重新订阅"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Reasons"
+msgstr "原因"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:13
+msgid "Settings"
+msgstr "设置"
+
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:15
+msgid "Appearance"
+msgstr "外观"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Close"
+msgstr "关闭"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Cancel"
+msgstr "取消"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Confirm"
+msgstr "确认"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Pagination"
+msgstr "分页"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Previous page"
+msgstr "上一页"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Next page"
+msgstr "下一页"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Something went wrong"
+msgstr "出错了"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed to load data. Please try again."
+msgstr "加载数据失败。请重试。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Retry"
+msgstr "重试"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Filter this page…"
+msgstr "筛选此页…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Clear search"
+msgstr "清除搜索"
+
+#: assets/dist/admin/js/main.js:1
+msgid "No results"
+msgstr "无结果"
+
+#. translators: 1: first row index, 2: last row index, 3: total count
+#: assets/dist/admin/js/main.js:3
+msgid "Showing %1$s–%2$s of %3$s"
+msgstr "显示第 %1$s–%2$s 项，共 %3$s 项"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Actions"
+msgstr "操作"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Row actions"
+msgstr "行操作"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Unsubscribe record deleted."
+msgstr "退订记录已删除。"
+
+#: assets/dist/admin/js/main.js:3
+msgid "Delete unsubscribe record?"
+msgstr "删除退订记录？"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:5
+msgid "This will remove the record for %s. This cannot be undone."
+msgstr "这将移除 %s 的记录。此操作无法撤消。"
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:11 assets/dist/admin/js/main.js:13
+msgid "Delete"
+msgstr "删除"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Unsubscribed at"
+msgstr "退订时间"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Addresses that have opted out. Blocked from future sends."
+msgstr "已选择退订的地址。已从今后的发送中排除。"
+
+#: assets/dist/admin/js/main.js:5 assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:9
+msgid "Export CSV"
+msgstr "导出 CSV"
+
+#: assets/dist/admin/js/main.js:5
+msgid "No unsubscribes yet"
+msgstr "暂无退订"
+
+#: assets/dist/admin/js/main.js:5
+msgid "When someone clicks the unsubscribe link in an email, they will appear here."
+msgstr "当有人点击电子邮件中的退订链接时，将显示在这里。"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Blocked email deleted."
+msgstr "被屏蔽邮件已删除。"
+
+#: assets/dist/admin/js/main.js:5
+msgid "All blocked emails cleared."
+msgstr "已清除所有被屏蔽的邮件。"
+
+#: assets/dist/admin/js/main.js:5
+msgid "Delete blocked email record?"
+msgstr "删除被屏蔽邮件记录？"
+
+#. translators: %s: email address
+#: assets/dist/admin/js/main.js:7
+msgid "This will remove the audit record for %s. This cannot be undone."
+msgstr "这将移除 %s 的审计记录。此操作无法撤消。"
+
+#: assets/dist/admin/js/main.js:7
+msgid "From"
+msgstr "发件人"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked at"
+msgstr "屏蔽时间"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Blocked emails"
+msgstr "被屏蔽的邮件"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Audit log of outgoing emails that were blocked because the recipient had unsubscribed."
+msgstr "因收件人已退订而被拦截的外发邮件的审计日志。"
+
+#: assets/dist/admin/js/main.js:7
+msgid "Clear all blocked records?"
+msgstr "清除所有被屏蔽记录？"
+
+#. translators: %s: number of records
+#: assets/dist/admin/js/main.js:9
+msgid "This will delete %s blocked-email records. This cannot be undone."
+msgstr "这将删除 %s 条被屏蔽邮件记录。此操作无法撤消。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Clear all"
+msgstr "全部清除"
+
+#: assets/dist/admin/js/main.js:9
+msgid "No blocked emails"
+msgstr "没有被屏蔽的邮件"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When an outgoing email targets an unsubscribed address, it will be logged here."
+msgstr "当外发邮件发送至已退订地址时，将记录在这里。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Re-subscribed at"
+msgstr "重新订阅时间"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Originally unsubscribed"
+msgstr "最初退订"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Addresses that opted back in after previously unsubscribing."
+msgstr "先前退订后又重新订阅的地址。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "No re-subscribes yet"
+msgstr "暂无重新订阅"
+
+#: assets/dist/admin/js/main.js:9
+msgid "When someone uses the re-subscribe link, they will appear here."
+msgstr "当有人使用重新订阅链接时，将显示在这里。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Something went wrong."
+msgstr "出错了。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Reason added."
+msgstr "已添加原因。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "New reason"
+msgstr "新原因"
+
+#: assets/dist/admin/js/main.js:9
+msgid "e.g. Too many emails"
+msgstr "例如：邮件太多"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Appears in the unsubscribe dropdown on the public page."
+msgstr "显示在公开页面的退订下拉菜单中。"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Adding…"
+msgstr "正在添加…"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Add reason"
+msgstr "添加原因"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move up"
+msgstr "上移"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Move down"
+msgstr "下移"
+
+#: assets/dist/admin/js/main.js:9
+msgid "Click to edit"
+msgstr "点击以编辑"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:11
+msgid "Actions for %s"
+msgstr "%s 的操作"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Edit"
+msgstr "编辑"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason updated."
+msgstr "原因已更新。"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Reason deleted."
+msgstr "原因已删除。"
+
+#: assets/dist/admin/js/main.js:11
+msgid "Delete this reason?"
+msgstr "删除此原因？"
+
+#. translators: %s: reason text
+#: assets/dist/admin/js/main.js:13
+msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
+msgstr "删除“%s”？使用此原因的现有退订记录将保留其文本——原因按记录单独存储，并非引用。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe reasons"
+msgstr "退订原因"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
+msgstr "显示在退订反馈下拉菜单中的选项。使用箭头重新排序——列表顶部的项目最先显示。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Current reasons"
+msgstr "当前原因"
+
+#: assets/dist/admin/js/main.js:13
+msgid "No reasons yet"
+msgstr "暂无原因"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Use the form on the right to add the first option shown when someone unsubscribes."
+msgstr "使用右侧的表单添加有人退订时显示的第一个选项。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Add a reason"
+msgstr "添加原因"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard unsaved changes?"
+msgstr "放弃未保存的更改？"
+
+#: assets/dist/admin/js/main.js:13
+msgid "You have unsaved changes that will be lost if you navigate away."
+msgstr "您有未保存的更改，如果离开此页面将会丢失。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Keep editing"
+msgstr "继续编辑"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Discard changes"
+msgstr "放弃更改"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Control how outgoing emails are processed and which recipients are blocked."
+msgstr "控制外发邮件的处理方式以及哪些收件人被屏蔽。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Settings saved."
+msgstr "设置已保存。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "General"
+msgstr "常规"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Applies to all outgoing WordPress emails."
+msgstr "适用于所有 WordPress 外发邮件。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append unsubscribe link"
+msgstr "自动追加退订链接"
+
+#: assets/dist/admin/js/main.js:13
+msgid "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically."
+msgstr "启用后，会自动在单收件人的外发邮件中追加一个安全的退订按钮。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Exclude keywords"
+msgstr "排除关键字"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
+msgstr "以逗号分隔。主题包含其中任意关键字（不区分大小写）的邮件将跳过屏蔽和自动追加——用于事务性邮件。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Block unsubscribed recipients"
+msgstr "屏蔽已退订的收件人"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails."
+msgstr "阻止向退订列表中的地址发送邮件。被屏蔽的尝试会记录在“被屏蔽的邮件”中。"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Unsaved changes"
+msgstr "未保存的更改"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Saving…"
+msgstr "正在保存…"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Save changes"
+msgstr "保存更改"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Thank you"
+msgstr "谢谢"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Invalid link"
+msgstr "无效链接"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview state"
+msgstr "预览状态"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
+msgstr "近似预览——实际页面在视口中居中，并可能因网站主题而略有不同。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Page background"
+msgstr "页面背景"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Outer background colour of the unsubscribe page."
+msgstr "退订页面的外部背景颜色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Card background"
+msgstr "卡片背景"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Background of the content box."
+msgstr "内容框的背景。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Body text"
+msgstr "正文文本"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Default text colour."
+msgstr "默认文本颜色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Headings"
+msgstr "标题"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Colour for h2 titles."
+msgstr "h2 标题的颜色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background"
+msgstr "按钮背景"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Primary button colour."
+msgstr "主按钮颜色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button text"
+msgstr "按钮文本"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Text colour inside buttons."
+msgstr "按钮内的文本颜色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button hover"
+msgstr "按钮悬停"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Button background when hovered."
+msgstr "悬停时的按钮背景。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe success"
+msgstr "退订成功"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Title"
+msgstr "标题"
+
+#: assets/dist/admin/js/main.js:13 assets/dist/admin/js/main.js:15
+msgid "Message"
+msgstr "消息"
+
+#. translators: {email} is a literal placeholder token; keep it as-is.
+#: assets/dist/admin/js/main.js:15
+msgid "Use {email} to insert the recipient address."
+msgstr "使用 {email} 插入收件人地址。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback submit button"
+msgstr "反馈提交按钮"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Feedback thank-you"
+msgstr "反馈致谢"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Home link text"
+msgstr "首页链接文本"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Invalid-link error"
+msgstr "无效链接错误"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Re-subscribe success"
+msgstr "重新订阅成功"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Basic HTML (<br>, <strong>, <em>, links) is allowed."
+msgstr "允许使用基本 HTML（<br>、<strong>、<em>、链接）。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Sans-serif (default)"
+msgstr "无衬线（默认）"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font family"
+msgstr "字体"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Applied to the whole unsubscribe page."
+msgstr "应用于整个退订页面。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Font size"
+msgstr "字号"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
+msgstr "任意 CSS 长度——例如 14px、1em、0.875rem、100%。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Customize the look and copy of the public unsubscribe page."
+msgstr "自定义公开退订页面的外观和文案。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Appearance saved."
+msgstr "外观已保存。"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Unsubscribe page"
+msgstr "退订页面"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Colors"
+msgstr "颜色"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Typography"
+msgstr "排版"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Text content"
+msgstr "文本内容"
+
+#: assets/dist/admin/js/main.js:15
+msgid "Live preview"
+msgstr "实时预览"
+
+#. translators: %s: underlying error message
+#: assets/dist/admin/js/main.js:17
+msgid "An error occurred: %s"
+msgstr "发生错误：%s"
