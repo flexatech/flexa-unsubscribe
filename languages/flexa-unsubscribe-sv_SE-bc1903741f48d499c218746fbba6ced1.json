@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "translation-revision-date": "2026-05-19T13:55:17+00:00",
     "generator": "WP-CLI\/2.10.0",
     "source": "assets\/dist\/admin\/js\/main.js",
     "domain": "messages",
@@ -417,6 +417,27 @@
             ],
             "An error occurred: %s": [
                 "Ett fel uppstod: %s"
+            ],
+            "Unsubscribe footer": [
+                "Sidfot f\u00f6r avprenumeration"
+            ],
+            "Customize the footer appended to outgoing emails when auto-append is on.": [
+                "Anpassa sidfoten som l\u00e4ggs till i utg\u00e5ende e-post n\u00e4r automatiskt till\u00e4gg \u00e4r aktiverat."
+            ],
+            "Footer heading text": [
+                "Rubriktext f\u00f6r sidfot"
+            ],
+            "The line shown above the unsubscribe button in appended emails.": [
+                "Raden som visas ovanf\u00f6r avprenumerationsknappen i bifogade e-postmeddelanden."
+            ],
+            "Unsubscribe button label": [
+                "Etikett f\u00f6r avprenumerationsknapp"
+            ],
+            "Unsubscribe button color": [
+                "F\u00e4rg p\u00e5 avprenumerationsknapp"
+            ],
+            "Background color of the appended button.": [
+                "Bakgrundsf\u00e4rg f\u00f6r den tillagda knappen."
             ]
         }
     }

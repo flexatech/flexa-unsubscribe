@@ -2,15 +2,15 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Flexa Unsubscribe 3.0.2\n"
+"Project-Id-Version: Flexa Unsubscribe 3.0.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-unsubscribe\n"
 "Last-Translator: flexatech\n"
 "Language-Team: German\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-19T09:42:02+00:00\n"
-"PO-Revision-Date: 2026-05-19T09:42:02+00:00\n"
+"POT-Creation-Date: 2026-05-19T13:55:17+00:00\n"
+"PO-Revision-Date: 2026-05-19T13:55:17+00:00\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
 "Language: de_DE\n"
@@ -726,3 +726,36 @@ msgstr "Live-Vorschau"
 #: assets/dist/admin/js/main.js:17
 msgid "An error occurred: %s"
 msgstr "Ein Fehler ist aufgetreten: %s"
+
+#: includes/Controllers/SettingsRestController.php:40
+#: includes/core.php:262
+msgid "No longer want to receive these emails?"
+msgstr "Sie möchten diese E-Mails nicht mehr erhalten?"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe footer"
+msgstr "Abmelde-Fußzeile"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Customize the footer appended to outgoing emails when auto-append is on."
+msgstr "Passen Sie die Fußzeile an, die ausgehenden E-Mails angehängt wird, wenn das automatische Anhängen aktiviert ist."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Footer heading text"
+msgstr "Überschrift der Fußzeile"
+
+#: assets/dist/admin/js/main.js:13
+msgid "The line shown above the unsubscribe button in appended emails."
+msgstr "Die Zeile, die über dem Abmelde-Button in angehängten E-Mails angezeigt wird."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe button label"
+msgstr "Beschriftung des Abmelde-Buttons"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Unsubscribe button color"
+msgstr "Farbe des Abmelde-Buttons"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Background color of the appended button."
+msgstr "Hintergrundfarbe des angehängten Buttons."

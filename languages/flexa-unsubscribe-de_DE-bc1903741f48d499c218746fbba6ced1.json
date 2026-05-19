@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "translation-revision-date": "2026-05-19T13:55:17+00:00",
     "generator": "WP-CLI\/2.10.0",
     "source": "assets\/dist\/admin\/js\/main.js",
     "domain": "messages",
@@ -417,6 +417,27 @@
             ],
             "An error occurred: %s": [
                 "Ein Fehler ist aufgetreten: %s"
+            ],
+            "Unsubscribe footer": [
+                "Abmelde-Fu\u00dfzeile"
+            ],
+            "Customize the footer appended to outgoing emails when auto-append is on.": [
+                "Passen Sie die Fu\u00dfzeile an, die ausgehenden E-Mails angeh\u00e4ngt wird, wenn das automatische Anh\u00e4ngen aktiviert ist."
+            ],
+            "Footer heading text": [
+                "\u00dcberschrift der Fu\u00dfzeile"
+            ],
+            "The line shown above the unsubscribe button in appended emails.": [
+                "Die Zeile, die \u00fcber dem Abmelde-Button in angeh\u00e4ngten E-Mails angezeigt wird."
+            ],
+            "Unsubscribe button label": [
+                "Beschriftung des Abmelde-Buttons"
+            ],
+            "Unsubscribe button color": [
+                "Farbe des Abmelde-Buttons"
+            ],
+            "Background color of the appended button.": [
+                "Hintergrundfarbe des angeh\u00e4ngten Buttons."
             ]
         }
     }

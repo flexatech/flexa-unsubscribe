@@ -253,18 +253,35 @@ function flexa_auto_append_unsubscribe_link($args) {
         $args['headers'][] = 'Content-Type: text/html; charset=UTF-8';
     }
     
+    // Footer copy + button color are admin-customizable (Settings →
+    // General). Defaults MUST stay byte-identical to the matching
+    // __() defaults in SettingsRestController::append_defaults() so
+    // both sides resolve the same translation.
+    $heading_text = (string) flexa_tech_su_get_setting(
+        'append_heading_text',
+        __('No longer want to receive these emails?', 'flexa-unsubscribe')
+    );
+    $button_text = (string) flexa_tech_su_get_setting(
+        'append_button_text',
+        __('Unsubscribe', 'flexa-unsubscribe')
+    );
+    $button_color = (string) flexa_tech_su_get_setting('append_button_color', '#dc3545');
+
     // Create HTML button with inline styles for email compatibility
     $button_html = sprintf(
         '%s<div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center;">
             <div style="margin-bottom: 10px; color: #222; font-size: 15px; font-family: Arial, sans-serif;">
-                No longer want to receive these emails?
+                %s
             </div>
-            <a href="%s" style="display: inline-block; padding: 5px 5px; background-color: #dc3545; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: 500; font-family: Arial, sans-serif;">
-                Unsubscribe
+            <a href="%s" style="display: inline-block; padding: 5px 5px; background-color: %s; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: 500; font-family: Arial, sans-serif;">
+                %s
             </a>
         </div>',
         $marker,
-        esc_url($unsubscribe_url)
+        esc_html($heading_text),
+        esc_url($unsubscribe_url),
+        esc_attr($button_color),
+        esc_html($button_text)
     );
     
     // Append button to message

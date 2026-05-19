@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-05-19T09:42:02+00:00",
+    "translation-revision-date": "2026-05-19T13:55:17+00:00",
     "generator": "WP-CLI\/2.10.0",
     "source": "assets\/dist\/admin\/js\/main.js",
     "domain": "messages",
@@ -417,6 +417,27 @@
             ],
             "An error occurred: %s": [
                 "Une erreur s\u2019est produite : %s"
+            ],
+            "Unsubscribe footer": [
+                "Pied de page de d\u00e9sabonnement"
+            ],
+            "Customize the footer appended to outgoing emails when auto-append is on.": [
+                "Personnalisez le pied de page ajout\u00e9 aux e-mails sortants lorsque l\u2019ajout automatique est activ\u00e9."
+            ],
+            "Footer heading text": [
+                "Texte du titre du pied de page"
+            ],
+            "The line shown above the unsubscribe button in appended emails.": [
+                "La ligne affich\u00e9e au-dessus du bouton de d\u00e9sabonnement dans les e-mails."
+            ],
+            "Unsubscribe button label": [
+                "Libell\u00e9 du bouton de d\u00e9sabonnement"
+            ],
+            "Unsubscribe button color": [
+                "Couleur du bouton de d\u00e9sabonnement"
+            ],
+            "Background color of the appended button.": [
+                "Couleur de fond du bouton ajout\u00e9."
             ]
         }
     }
