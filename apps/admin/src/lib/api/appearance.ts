@@ -19,7 +19,7 @@ const HexColor = z
   .regex(/^#[0-9a-f]{6}$/i, 'Must be a 6-char hex colour like #ff00aa')
   .transform((v) => v.toLowerCase());
 
-/** Loose CSS length — `14px`, `1em`, `0.875rem`, `100%` all valid. */
+/** Loose CSS length - `14px`, `1em`, `0.875rem`, `100%` all valid. */
 const FontSize = z
   .string()
   .regex(/^\d+(\.\d+)?(px|em|rem|%)$/, 'Use a CSS length like 14px, 1em, or 100%');
@@ -49,7 +49,7 @@ export const AppearanceSettingsSchema = z.object({
   home_link_text: z.string().min(1).max(255),
   error_title: z.string().min(1).max(255),
   resubscribe_title: z.string().min(1).max(255),
-  // Text content (multi-line — some allow HTML server-side via wp_kses_post)
+  // Text content (multi-line - some allow HTML server-side via wp_kses_post)
   success_message: z.string().min(1).max(1000),
   thank_you_message: z.string().min(1).max(1000),
   error_message: z.string().min(1).max(1000),

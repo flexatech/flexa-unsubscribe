@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) exit;
  * runtime into admin_footer so HMR works in-browser.
  *
  * Only runs when FLEXA_TECH_SU_IS_DEVELOPMENT === true.
- * Safe to ship — RegisterFacade guards the instantiation, and this
+ * Safe to ship - RegisterFacade guards the instantiation, and this
  * class does nothing until its `init` hook fires.
  */
 class RegisterDev {
@@ -31,7 +31,7 @@ class RegisterDev {
         // Only inject the React-Refresh runtime on screens that actually
         // load our admin bundle. Without this gate the runtime fires on
         // every WP admin page, causing a `localhost:3001/@react-refresh`
-        // request even on screens where the React app isn't mounted —
+        // request even on screens where the React app isn't mounted -
         // visible noise in the browser network tab and a hard error if
         // Vite isn't running. Sibling plugins doing the same thing on
         // a different port (e.g. retailers on 3000) compound this.

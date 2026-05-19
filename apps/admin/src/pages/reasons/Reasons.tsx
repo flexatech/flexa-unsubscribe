@@ -48,7 +48,7 @@ export default function Reasons() {
       description: sprintf(
         /* translators: %s: reason text */
         __(
-          'Delete "%s"? Existing unsubscribe records that used this reason keep their text — the reason is stored per-record, not referenced.',
+          'Delete "%s"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.',
           'flexa-unsubscribe',
         ),
         reason.reason_text,
@@ -77,7 +77,7 @@ export default function Reasons() {
         </h1>
         <p className="text-sm text-muted-foreground">
           {__(
-            'Options shown in the unsubscribe feedback dropdown. Reorder with the arrows — top of the list appears first.',
+            'Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.',
             'flexa-unsubscribe',
           )}
         </p>

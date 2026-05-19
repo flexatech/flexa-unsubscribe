@@ -6,7 +6,7 @@
  * We reinterpret them as local times in `window.flexaUnsubscribe.timezone_string`
  * and render via `Intl.DateTimeFormat` so the browser locale picks the
  * right numerals / separators. We don't port WP's PHP format tokens
- * verbatim — Intl produces defensible results and we avoid a tokenizer
+ * verbatim - Intl produces defensible results and we avoid a tokenizer
  * that would need maintenance for every new admin locale.
  */
 
@@ -35,7 +35,7 @@ const dateTimeFmt = new Intl.DateTimeFormat(locale, {
  * Parse a MySQL-style DATETIME string as a Date in the site's timezone.
  *
  * `new Date('2026-04-23 12:34:56')` is non-standard and timezone-ambiguous
- * across browsers — Safari in particular rejects it. We normalise to ISO
+ * across browsers - Safari in particular rejects it. We normalise to ISO
  * so parsing is deterministic, then rely on the Intl formatter's `timeZone`
  * option to render in the right zone.
  */
@@ -53,15 +53,15 @@ function parseDbDate(value: string | null | undefined): Date | null {
 
 export function formatDate(value: string | null | undefined): string {
   const d = parseDbDate(value);
-  return d ? dateFmt.format(d) : '—';
+  return d ? dateFmt.format(d) : '-';
 }
 
 export function formatDateTime(value: string | null | undefined): string {
   const d = parseDbDate(value);
-  return d ? dateTimeFmt.format(d) : '—';
+  return d ? dateTimeFmt.format(d) : '-';
 }
 
-/** ISO string for native `title=…` tooltips — the unambiguous form. */
+/** ISO string for native `title=…` tooltips - the unambiguous form. */
 export function formatDateIso(value: string | null | undefined): string {
   const d = parseDbDate(value);
   return d ? d.toISOString() : '';

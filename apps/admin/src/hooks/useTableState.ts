@@ -26,7 +26,7 @@ export interface UseTableStateOptions {
 
 /**
  * Syncs pagination + sort state to the URL search params (hash router).
- * The URL is the source of truth — reload / back-forward / bookmark all round-trip.
+ * The URL is the source of truth - reload / back-forward / bookmark all round-trip.
  *
  * Param shape:  ?page=2&per_page=50&sort=email&order=desc
  * Defaults (page=1, default per_page, default sort) are omitted from the URL.
@@ -81,7 +81,7 @@ export function useTableState({
     (next: number) =>
       update((p) => {
         p.set('per_page', String(Math.max(1, next)));
-        // Reset to page 1 when page size changes — otherwise the current page
+        // Reset to page 1 when page size changes - otherwise the current page
         // might overshoot and auto-clamp anyway.
         p.delete('page');
       }),

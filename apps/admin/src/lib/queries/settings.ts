@@ -22,7 +22,7 @@ export function useUpdateGeneralSettingsMutation() {
   return useMutation({
     mutationFn: (body: GeneralSettings) => updateGeneralSettings(body),
     onSuccess: (saved) => {
-      // Server returns the canonical persisted values — seed the
+      // Server returns the canonical persisted values - seed the
       // cache directly so `form.reset(data)` lines up exactly.
       qc.setQueryData(BASE_KEY, saved);
       showToast.success(__('Settings saved.', 'flexa-unsubscribe'));

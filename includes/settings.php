@@ -87,7 +87,7 @@ function flexa_tech_su_register_settings() {
         'default'           => '1',
     ]);
 
-    // Appearance — colors.
+    // Appearance - colors.
     foreach ([
         'flexa_tech_su_bg_color',
         'flexa_tech_su_box_bg_color',
@@ -103,7 +103,7 @@ function flexa_tech_su_register_settings() {
         ]);
     }
 
-    // Appearance — typography.
+    // Appearance - typography.
     register_setting('flexa_tech_su_appearance_group', 'flexa_tech_su_font_family', [
         'type'              => 'string',
         'sanitize_callback' => 'flexa_tech_su_sanitize_font_family',
@@ -113,7 +113,7 @@ function flexa_tech_su_register_settings() {
         'sanitize_callback' => 'flexa_tech_su_sanitize_font_size',
     ]);
 
-    // Appearance — plain-text content.
+    // Appearance - plain-text content.
     foreach ([
         'flexa_tech_su_title_text',
         'flexa_tech_su_button_text',
@@ -130,7 +130,7 @@ function flexa_tech_su_register_settings() {
         ]);
     }
 
-    // Appearance — HTML-allowed message fields. These render unescaped on
+    // Appearance - HTML-allowed message fields. These render unescaped on
     // the public unsubscribe template, so we permit the `post` HTML subset
     // (no scripts) and rely on `wp_kses_post` to strip anything dangerous.
     foreach ([

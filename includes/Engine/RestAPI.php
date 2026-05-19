@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit;
  * Collects every REST controller under the `flexa-unsubscribe/v1`
  * namespace and kicks off their registration on `rest_api_init`.
  *
- * New controllers get added to the $controllers list — each one
+ * New controllers get added to the $controllers list - each one
  * implements a single `register_routes()` method.
  */
 class RestAPI {

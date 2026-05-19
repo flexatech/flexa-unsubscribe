@@ -10,7 +10,7 @@ use WP_REST_Response;
 if (!defined('ABSPATH')) exit;
 
 /**
- * Unsubscribe records — list + delete.
+ * Unsubscribe records - list + delete.
  *
  * Wraps the procedural `flexa_tech_su_get_unsubscribes()`,
  * `flexa_tech_su_get_unsubscribes_count()` and `flexa_tech_su_delete_unsubscribe()`

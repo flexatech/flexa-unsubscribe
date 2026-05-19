@@ -166,7 +166,7 @@ function AppearanceForm({ initial }: { initial: AppearanceSettings }) {
         </Form>
       </Card>
 
-      {/* Preview column — live replica driven by form state */}
+      {/* Preview column - live replica driven by form state */}
       <Card className="hidden lg:flex flex-col max-h-[calc(100vh-140px)] sticky top-[88px] overflow-hidden">
         <CardHeader>
           <CardTitle>{__('Live preview', 'flexa-unsubscribe')}</CardTitle>

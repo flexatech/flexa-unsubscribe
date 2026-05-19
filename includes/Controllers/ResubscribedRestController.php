@@ -9,11 +9,11 @@ use WP_REST_Response;
 if (!defined('ABSPATH')) exit;
 
 /**
- * Re-subscribed audit list — read only.
+ * Re-subscribed audit list - read only.
  *
  * Wraps `flexa_tech_su_get_resubscribed_emails()` and
  * `flexa_tech_su_get_resubscribed_count()`. The legacy admin has no
- * delete / clear action here, so neither does this controller —
+ * delete / clear action here, so neither does this controller -
  * resubscription is reached through the HMAC frontend link, not
  * admin mutation.
  */

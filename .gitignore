@@ -47,7 +47,7 @@ assets/dist/
 # Build output
 build/
 
-# Markdown files — internal docs/planning, never source-of-truth for runtime
+# Markdown files - internal docs/planning, never source-of-truth for runtime
 *.md
 
 # Local AI tooling (Claude Code skills, settings, etc.)

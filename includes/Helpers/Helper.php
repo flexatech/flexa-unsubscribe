@@ -13,7 +13,7 @@ class Helper {
             'rest_base'  => 'flexa-unsubscribe/v1',
 
             // For client-side date rendering. The DB stores DATETIME in site
-            // timezone (via current_time('mysql')) — we pass the timezone
+            // timezone (via current_time('mysql')) - we pass the timezone
             // and format strings so the React side can format with the same
             // rules the legacy admin pages use.
             'timezone_string' => wp_timezone_string(),

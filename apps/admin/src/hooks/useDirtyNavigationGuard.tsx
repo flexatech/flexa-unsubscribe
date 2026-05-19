@@ -49,7 +49,7 @@ export function useDirtyNavigationGuard(isDirty: boolean) {
 
   // Narrow via `state === 'blocked'` rather than checking proceed/reset
   // individually. React Router types proceed + reset as a pair that are
-  // both defined only in the blocked state — checking one doesn't
+  // both defined only in the blocked state - checking one doesn't
   // narrow the other, which is what tripped the original build.
   const handleOpenChange = (open: boolean) => {
     if (!open && blocker.state === 'blocked') {

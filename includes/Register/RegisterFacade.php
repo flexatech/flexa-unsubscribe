@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) exit;
  *    output require this.
  *  - The admin stylesheet handle is registered here with a mode-aware
  *    `src`: in dev Vite injects CSS at runtime via the JS module, so the
- *    static file doesn't exist yet — we register with a `false` src so
+ *    static file doesn't exist yet - we register with a `false` src so
  *    `wp_enqueue_style` is happy but emits nothing.
  */
 class RegisterFacade {

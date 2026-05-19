@@ -18,7 +18,7 @@ release.sh
 flexa-unsubscribe.zip
 build/
 
-# Internal docs / planning — kept in the repo, excluded from the .zip
+# Internal docs / planning - kept in the repo, excluded from the .zip
 CLAUDE.md
 PRO-FEATURES.md
 PHASE-2-PLAN.md

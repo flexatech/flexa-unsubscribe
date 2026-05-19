@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Body shape we expect from REST endpoints on 4xx. WP's default
  * error shape is `{ code, message, data: { status, …extras } }`;
- * our controllers optionally include `data.fieldErrors` — a map of
+ * our controllers optionally include `data.fieldErrors` - a map of
  * `fieldName → messageString`. Anything else is surfaced at the
  * form root.
  */
@@ -49,7 +49,7 @@ export async function applyFormErrors<T extends FieldValues>(
     }
   }
 
-  // Always set a root message too — lets the form card show a banner
+  // Always set a root message too - lets the form card show a banner
   // even when all individual fields were attributed.
   setError('root.serverError' as Path<T>, { type: 'server', message: rootMessage });
 }

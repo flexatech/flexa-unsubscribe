@@ -10,7 +10,7 @@ use WP_REST_Response;
 if (!defined('ABSPATH')) exit;
 
 /**
- * Blocked-email audit log — list, delete, clear-all.
+ * Blocked-email audit log - list, delete, clear-all.
  *
  * Wraps the procedural `flexa_tech_su_get_blocked_emails()` /
  * `flexa_tech_su_get_blocked_emails_count()` / `flexa_tech_su_delete_blocked_email()` /
