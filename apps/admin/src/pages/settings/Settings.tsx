@@ -22,6 +22,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Switch } from '@/components/ui/switch';
 import { useDirtyNavigationGuard } from '@/hooks/useDirtyNavigationGuard';
 import { applyFormErrors } from '@/lib/form-errors';
+import { EmailFooterPreview } from './EmailFooterPreview';
 import {
   GeneralSettingsSchema,
   type GeneralSettings,
@@ -248,6 +249,8 @@ function SettingsForm({ initial }: { initial: GeneralSettings }) {
                   </FormItem>
                 )}
               />
+
+              <EmailFooterPreview control={form.control} />
             </div>
           </CardContent>
           <div className="flex items-center justify-end gap-3 border-t border-border px-6 py-4">
