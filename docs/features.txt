@@ -1,4 +1,4 @@
-# Flexa Unsubscribe — Features
+# Flexa Unsubscribe - Features
 
 A complete feature inventory for **Flexa Unsubscribe** v3.0.0. Use this as
 both a tester's checklist and a new developer's mental map: each feature
@@ -36,7 +36,7 @@ address, and headers.
 
 - **Toggle:** Settings → "Block unsubscribed recipients" (option
   `flexa_tech_su_enable_blocking`, default `1`).
-- **Filter priority:** `5` — runs before auto-append.
+- **Filter priority:** `5` - runs before auto-append.
 - **Code:** `flexa_tech_su_block_unsubscribed_emails()` in
   `includes/core.php`.
 
@@ -48,10 +48,10 @@ address, and headers.
 3. Confirm the mail does **not** arrive (check your dev mail catcher /
    `wp_mail` debug log) and that a row appears in **Unsubscribe →
    Blocked emails**.
-4. Toggle the setting off. Repeat — the mail should now go through and
+4. Toggle the setting off. Repeat - the mail should now go through and
    no row should be added.
 5. Multi-recipient test: pass an array `['unsub@x.com', 'good@y.com']`
-   — only `unsub@x.com` should be stripped, `good@y.com` still receives.
+   - only `unsub@x.com` should be stripped, `good@y.com` still receives.
 
 ### 1.2 Auto-append unsubscribe link
 
@@ -62,7 +62,7 @@ converted to HTML (`nl2br(esc_html(...))`) and a
 
 - **Toggle:** Settings → "Auto-append unsubscribe link" (option
   `flexa_tech_su_enable_auto_append`, default OFF).
-- **Filter priority:** `10` (default) — runs after blocking.
+- **Filter priority:** `10` (default) - runs after blocking.
 - **Code:** `flexa_auto_append_unsubscribe_link()` in `includes/core.php`.
 
 **Skip conditions** (each is independently testable):
@@ -78,7 +78,7 @@ converted to HTML (`nl2br(esc_html(...))`) and a
 **How to test.**
 1. Enable auto-append in Settings.
 2. Send `wp_mail('a@b.com', 'Newsletter', 'Plain text body')`. Inspect
-   the captured email — should be HTML, with the unsubscribe button at
+   the captured email - should be HTML, with the unsubscribe button at
    the bottom and the `<!-- FLEXA_UNSUBSCRIBE_ADDED -->` marker.
 3. Send the same call again in the same PHP request. The second send
    must NOT get a second button.
@@ -92,7 +92,7 @@ converted to HTML (`nl2br(esc_html(...))`) and a
 
 **What it does.** A single comma-separated list, applied to BOTH
 filters. If the email's subject contains any of these substrings
-(case-insensitive), the email is neither blocked nor decorated — used
+(case-insensitive), the email is neither blocked nor decorated - used
 to protect transactional mail.
 
 - **Setting:** Settings → "Exclude keywords" (option
@@ -103,9 +103,9 @@ to protect transactional mail.
 **How to test.**
 1. Set the list to `Order, Password, Invoice`.
 2. Mark `customer@x.com` as unsubscribed.
-3. Send `wp_mail('customer@x.com', 'Your Order has shipped', '…')` —
+3. Send `wp_mail('customer@x.com', 'Your Order has shipped', '…')` -
    the mail must go through (NOT blocked, NOT auto-appended).
-4. Send `wp_mail('customer@x.com', 'Newsletter', '…')` — blocked.
+4. Send `wp_mail('customer@x.com', 'Newsletter', '…')` - blocked.
 
 ---
 
@@ -132,10 +132,10 @@ recommending key rotation.
 **How to test.**
 1. Get a valid link (use `flexa_generate_unsubscribe_link('me@x.com')`
    in WP-CLI shell, or the auto-appended link in a test email).
-2. Visit it — should land on the success page.
-3. Tamper with the `token` query param (change a single character) —
+2. Visit it - should land on the success page.
+3. Tamper with the `token` query param (change a single character) -
    should land on the error page, no DB write.
-4. Tamper with `email` while keeping the token — error page.
+4. Tamper with `email` while keeping the token - error page.
 5. Verify `hash_equals` is in use (visual inspection of `frontend.php`).
 
 ### 2.2 Unsubscribe page (`?flexa_action=unsubscribe`)
@@ -154,12 +154,12 @@ recommending key rotation.
 **How to test.**
 1. Visit a valid unsubscribe URL → success state visible.
 2. Confirm `wp_*_flexa_unsubscribes` got a new row.
-3. Pick a reason from the dropdown, submit — Network tab should show a
+3. Pick a reason from the dropdown, submit - Network tab should show a
    `POST /wp-json/flexa-unsubscribe/v1/reason`, then the page swaps to
    the thank-you panel.
-4. Refresh — page now redoes the unsubscribe (idempotent), reason field
+4. Refresh - page now redoes the unsubscribe (idempotent), reason field
    resets unless you submit again.
-5. Visit the same URL again — still works (no "already unsubscribed"
+5. Visit the same URL again - still works (no "already unsubscribed"
    error).
 
 ### 2.3 Re-subscribe page (`?flexa_action=resubscribe`)
@@ -168,7 +168,7 @@ recommending key rotation.
 - On success: sets `resubscribed_at = current_time('mysql')` on the
   matching row via `flexa_tech_su_resubscribe()`.
 - The unsubscribe-list "is unsubscribed" check treats both `NULL` and
-  `'0000-00-00 00:00:00'` as unsubscribed — so a successfully
+  `'0000-00-00 00:00:00'` as unsubscribed - so a successfully
   re-subscribed address is no longer blocked.
 
 **How to test.**
@@ -218,7 +218,7 @@ React Refresh runtime is injected on `admin_footer` only.
 **How to test.**
 1. Insert a few rows across different `unsubscribed_at` dates.
 2. Confirm the cards reflect the correct totals.
-3. Switch between the 3 time periods on the bar chart — bins should
+3. Switch between the 3 time periods on the bar chart - bins should
    update.
 4. Confirm month-change badge: green ↓ when this month is fewer than
    last month, red ↑ when more, "0%" otherwise.
@@ -237,11 +237,11 @@ React Refresh runtime is injected on `admin_footer` only.
 
 **How to test.** With > 20 rows in the table:
 1. Paginate → URL updates → reload → table re-opens to the same page.
-2. Sort by email asc/desc, then by unsubscribed_at — order changes.
-3. Click delete on one row, confirm — row disappears, total in footer
+2. Sort by email asc/desc, then by unsubscribed_at - order changes.
+3. Click delete on one row, confirm - row disappears, total in footer
    decrements; pagination clamps if you were on the last page and it
    went empty.
-4. Click Export CSV — downloads `unsubscribes-YYYY-MM-DD.csv` with a
+4. Click Export CSV - downloads `unsubscribes-YYYY-MM-DD.csv` with a
    UTF-8 BOM, `Email,Reason,Date` header, and one row per record.
 5. Reload the React page. State must round-trip from URL.
 
@@ -256,7 +256,7 @@ Same shape as Unsubscribes plus:
 
 **How to test.**
 1. Trigger several blocked sends (§1.1).
-2. List should show one row per attempt — same address can appear
+2. List should show one row per attempt - same address can appear
    many times.
 3. Per-row delete works.
 4. "Clear all" prompts for confirm; on confirm the table empties.
@@ -299,7 +299,7 @@ relevant", "Other".
    → text persists.
 3. Reorder using arrows → public unsubscribe page (§2.2) reflects the
    new order.
-4. Delete a reason that was used by past unsubscribes — past rows are
+4. Delete a reason that was used by past unsubscribes - past rows are
    unaffected (reason text stored in `flexa_unsubscribes.reason`),
    future submitters just won't see the deleted option.
 
@@ -338,7 +338,7 @@ simplified replica of the public unsubscribe page as you type.
   edits in one tab persist while you switch to another.
 - Active tab is URL-synced (`?tab=typography`).
 - Preview has a 4-state switcher: Success / Thank-You / Error /
-  Re-subscribe — pick the state you're styling.
+  Re-subscribe - pick the state you're styling.
 - Save behaviour mirrors Settings (dirty-state guard + sticky footer).
 
 19 tokens, all covered in §4.7 below.
@@ -346,13 +346,13 @@ simplified replica of the public unsubscribe page as you type.
 **How to test.**
 1. Change `button_bg_color` → preview button colour updates within a
    keystroke.
-2. Switch the preview's "state" selector to "Error" — `error_message`
+2. Switch the preview's "state" selector to "Error" - `error_message`
    styling reflects.
-3. Try entering an invalid hex (`#zzz`) — Zod schema rejects on save,
+3. Try entering an invalid hex (`#zzz`) - Zod schema rejects on save,
    server also normalises invalid input to `#000000`.
-4. Try entering `font_size: 14` (no unit) — rejected (must match
+4. Try entering `font_size: 14` (no unit) - rejected (must match
    `/^\d+(\.\d+)?(px|em|rem|%)$/`).
-5. Save successfully, then visit a real unsubscribe URL — every token
+5. Save successfully, then visit a real unsubscribe URL - every token
    should match the preview.
 
 ---
@@ -392,7 +392,7 @@ Sanitisers are in `includes/settings.php` (legacy `register_setting`
 path) AND `Controllers\SettingsRestController` (REST path); both keep
 the same rules so updating from either surface yields the same value.
 
-### 4.3 Appearance — Colors (option keys)
+### 4.3 Appearance - Colors (option keys)
 
 All 7 are sanitised to lowercase 6-char hex; bad input falls back to
 `#000000`.
@@ -407,14 +407,14 @@ All 7 are sanitised to lowercase 6-char hex; bad input falls back to
 | `flexa_tech_su_button_text_color` | `#ffffff` | Button text |
 | `flexa_tech_su_button_hover_color` | `#0099bb` | Button hover background |
 
-### 4.4 Appearance — Typography
+### 4.4 Appearance - Typography
 
 | Option | Default | Allowed values |
 |---|---|---|
 | `flexa_tech_su_font_family` | `sans-serif` | enum of `sans-serif`, `Arial, sans-serif`, `Helvetica, sans-serif`, `Georgia, serif`, `'Times New Roman', serif`, `'Courier New', monospace` |
 | `flexa_tech_su_font_size` | `14px` | regex `^\d+(\.\d+)?(px\|em\|rem\|%)$` |
 
-### 4.5 Appearance — Text content (plain text)
+### 4.5 Appearance - Text content (plain text)
 
 Sanitised with `sanitize_text_field`.
 
@@ -429,7 +429,7 @@ Sanitised with `sanitize_text_field`.
 | `flexa_tech_su_resubscribe_title` | `Successfully Re-subscribed!` |
 | `flexa_tech_su_resubscribe_message` | `You have been successfully re-subscribed…` |
 
-### 4.6 Appearance — Text content (HTML allowed)
+### 4.6 Appearance - Text content (HTML allowed)
 
 Filtered through `wp_kses_post` on save (allows `<br>`, `<a>`, `<strong>`,
 `<em>`, etc.; strips `<script>`).
@@ -437,7 +437,7 @@ Filtered through `wp_kses_post` on save (allows `<br>`, `<a>`, `<strong>`,
 | Option | Default | Special tokens |
 |---|---|---|
 | `flexa_tech_su_success_message` | `Email {email} is removed.` | `{email}` placeholder is replaced with `<strong>{email}</strong>` (escaped) |
-| `flexa_tech_su_error_message` | `The unsubscribe link you used appears to be invalid…` | — |
+| `flexa_tech_su_error_message` | `The unsubscribe link you used appears to be invalid…` | - |
 
 ### 4.7 Why some "messages" are HTML and others aren't
 
@@ -476,11 +476,11 @@ without an extra round-trip.
 
 **How to test.**
 1. From each list screen, click Export CSV → file downloads.
-2. Open in Excel / Numbers — non-ASCII data (e.g. accented names in
+2. Open in Excel / Numbers - non-ASCII data (e.g. accented names in
    `from_name`) renders correctly thanks to the BOM.
 3. Visit the export URL with a stale nonce (e.g. copy URL, log out,
-   log back in, paste) — should `wp_die` with "This link has expired."
-4. Visit as a non-admin user (subscriber) — `wp_die('Unauthorized')`.
+   log back in, paste) - should `wp_die` with "This link has expired."
+4. Visit as a non-admin user (subscriber) - `wp_die('Unauthorized')`.
 
 ---
 
@@ -499,7 +499,7 @@ Produced by `Controllers\Support\TableRequestArgs::envelope`. Shared
 query args (`page`, `per_page` (max 100), `order_by` (whitelisted),
 `order` (ASC|DESC)) are also defined there.
 
-### 6.2 Analytics — read-only
+### 6.2 Analytics - read-only
 
 | Method | Path | Notes |
 |---|---|---|
@@ -528,7 +528,7 @@ query args (`page`, `per_page` (max 100), `order_by` (whitelisted),
 |---|---|
 | GET | `/resubscribed?page=&per_page=&order_by=&order=` |
 
-(Read-only on purpose — re-subscribed rows live in the same table as
+(Read-only on purpose - re-subscribed rows live in the same table as
 unsubscribes; deletion happens via `/unsubscribes/{id}`.)
 
 ### 6.6 Reasons (admin CRUD)
@@ -539,9 +539,9 @@ unsubscribes; deletion happens via `/unsubscribes/{id}`.)
 | POST | `/reasons` | `{ reason_text }`; appends with next sort order |
 | PUT | `/reasons/{id}` | `{ reason_text }` |
 | DELETE | `/reasons/{id}` | |
-| POST | `/reasons/reorder` | `{ order: number[] }` — rewrites `sort_order` 1..n |
+| POST | `/reasons/reorder` | `{ order: number[] }` - rewrites `sort_order` 1..n |
 
-### 6.7 Save reason — public route
+### 6.7 Save reason - public route
 
 `POST /reason` (singular). Called by the inline JS on the public
 unsubscribe page after the user picks a reason.
@@ -692,7 +692,7 @@ DELETE FROM wp_flexa_blocked_emails WHERE email = 'test@example.com';
 
 ## 11. Known non-features (so testers don't file these as bugs)
 
-- **No drag-and-drop reorder on Reasons** — arrows only. Endpoint
+- **No drag-and-drop reorder on Reasons** - arrows only. Endpoint
   supports bulk `{ order: [] }` so DnD can be added later.
 - **Search on list pages is current-page-only** by design (placeholder
   reads "Filter this page"). Cross-page server-side search is on the
@@ -703,9 +703,9 @@ DELETE FROM wp_flexa_blocked_emails WHERE email = 'test@example.com';
   truly fresh re-install: `DROP TABLE wp_flexa_unsubscribes,
   wp_flexa_blocked_emails, wp_flexa_unsubscribe_reasons;` plus
   `DELETE FROM wp_options WHERE option_name LIKE 'flexa_tech_su_%';`.
-- **No PHP test suite, no PHP linter wired in** — `release.sh` has a
+- **No PHP test suite, no PHP linter wired in** - `release.sh` has a
   commented-out PHPCS block; no `tools/` directory ships.
-- **Auto-append is OFF by default** — flip the switch in Settings, or
+- **Auto-append is OFF by default** - flip the switch in Settings, or
   testing §1.2 will look like nothing is happening.
 
 ---

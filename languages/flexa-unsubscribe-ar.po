@@ -466,7 +466,7 @@ msgstr "حذف هذا السبب؟"
 #. translators: %s: reason text
 #: assets/dist/admin/js/main.js:13
 msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
-msgstr "حذف «%s»؟ تحتفظ سجلات إلغاء الاشتراك الحالية التي استخدمت هذا السبب بنصها — يُخزَّن السبب لكل سجل على حدة، وليس كمرجع."
+msgstr "حذف «%s»؟ تحتفظ سجلات إلغاء الاشتراك الحالية التي استخدمت هذا السبب بنصها - يُخزَّن السبب لكل سجل على حدة، وليس كمرجع."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Unsubscribe reasons"
@@ -474,7 +474,7 @@ msgstr "أسباب إلغاء الاشتراك"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
-msgstr "الخيارات المعروضة في القائمة المنسدلة لملاحظات إلغاء الاشتراك. أعد الترتيب باستخدام الأسهم — يظهر العنصر الأعلى في القائمة أولًا."
+msgstr "الخيارات المعروضة في القائمة المنسدلة لملاحظات إلغاء الاشتراك. أعد الترتيب باستخدام الأسهم - يظهر العنصر الأعلى في القائمة أولًا."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Current reasons"
@@ -538,7 +538,7 @@ msgstr "استبعاد الكلمات المفتاحية"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
-msgstr "مفصولة بفواصل. رسائل البريد الإلكتروني التي يحتوي موضوعها على أي من هذه (غير حساس لحالة الأحرف) تتخطى كلًّا من الحظر والإلحاق التلقائي — استخدمها للرسائل المعامِلاتية."
+msgstr "مفصولة بفواصل. رسائل البريد الإلكتروني التي يحتوي موضوعها على أي من هذه (غير حساس لحالة الأحرف) تتخطى كلًّا من الحظر والإلحاق التلقائي - استخدمها للرسائل المعامِلاتية."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Block unsubscribed recipients"
@@ -574,7 +574,7 @@ msgstr "حالة المعاينة"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
-msgstr "معاينة تقريبية — الصفحة الفعلية موسَّطة في نافذة العرض وقد تختلف قليلًا بحسب قوالب الموقع."
+msgstr "معاينة تقريبية - الصفحة الفعلية موسَّطة في نافذة العرض وقد تختلف قليلًا بحسب قوالب الموقع."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Page background"
@@ -691,7 +691,7 @@ msgstr "حجم الخط"
 
 #: assets/dist/admin/js/main.js:15
 msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
-msgstr "أي طول CSS — مثل 14px أو 1em أو 0.875rem أو 100%."
+msgstr "أي طول CSS - مثل 14px أو 1em أو 0.875rem أو 100%."
 
 #: assets/dist/admin/js/main.js:15
 msgid "Customize the look and copy of the public unsubscribe page."

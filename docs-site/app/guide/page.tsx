@@ -34,7 +34,7 @@ export default function Guide() {
             Getting the most out of Flexa Unsubscribe
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-ink-soft">
-            A step-by-step walkthrough of every admin screen — no code
+            A step-by-step walkthrough of every admin screen - no code
             required. Follow it in order the first time, then dip back in
             whenever you need a refresher.
           </p>
@@ -55,8 +55,8 @@ export default function Guide() {
             </Step>
             <Step>
               The plugin opens on its <strong>Dashboard</strong>. The sub-tabs
-              along the top — Dashboard, Unsubscribes, Blocked Emails,
-              Re-subscribed, Reasons, Settings, Appearance — are the seven
+              along the top - Dashboard, Unsubscribes, Blocked Emails,
+              Re-subscribed, Reasons, Settings, Appearance - are the seven
               screens covered below.
             </Step>
           </Steps>
@@ -83,15 +83,15 @@ export default function Guide() {
           <p>You’ll see:</p>
           <ul className="list-disc space-y-1.5 pl-5">
             <li>
-              <strong>Summary cards</strong> — totals for unsubscribes, blocked
+              <strong>Summary cards</strong> - totals for unsubscribes, blocked
               attempts and re-subscribes.
             </li>
             <li>
-              <strong>Over-time chart</strong> — unsubscribes plotted by date
+              <strong>Over-time chart</strong> - unsubscribes plotted by date
               so you can spot spikes after a campaign.
             </li>
             <li>
-              <strong>By-reason chart</strong> — why people are leaving, drawn
+              <strong>By-reason chart</strong> - why people are leaving, drawn
               from the reasons you configure later in this guide.
             </li>
           </ul>
@@ -125,8 +125,8 @@ export default function Guide() {
             <Step>
               Review <strong>Exclude keywords</strong>. Any email whose subject
               contains one of these words (case-insensitive) skips{' '}
-              <em>both</em> blocking and the appended footer. The default —{' '}
-              <Code>Order, Password, Invoice</Code> — keeps transactional mail
+              <em>both</em> blocking and the appended footer. The default -{' '}
+              <Code>Order, Password, Invoice</Code> - keeps transactional mail
               like receipts and password resets flowing. Add your own,
               comma-separated.
             </Step>
@@ -192,7 +192,7 @@ export default function Guide() {
             <p>
               These three fields only matter when{' '}
               <strong>Auto-append unsubscribe link</strong> (Step 3) is turned
-              on — that’s what actually adds the footer to outgoing mail.
+              on - that’s what actually adds the footer to outgoing mail.
             </p>
           </Callout>
         </Section>
@@ -206,20 +206,20 @@ export default function Guide() {
           <Lead>
             When someone clicks the button, they land on a page hosted by your
             site. The <strong>Appearance</strong> tab lets you match it to your
-            brand — with a live preview so you see every change instantly.
+            brand - with a live preview so you see every change instantly.
           </Lead>
           <p>You can adjust:</p>
           <ul className="list-disc space-y-1.5 pl-5">
             <li>
-              <strong>Colours</strong> — page background, card background, text,
+              <strong>Colours</strong> - page background, card background, text,
               headings and the action button (normal + hover).
             </li>
             <li>
-              <strong>Typography</strong> — font family (choose from a short
+              <strong>Typography</strong> - font family (choose from a short
               list) and base font size.
             </li>
             <li>
-              <strong>All the wording</strong> — the page title, the
+              <strong>All the wording</strong> - the page title, the
               confirmation message, the feedback button, the thank-you text,
               the “back to home” link, and the messages shown for expired links
               and successful re-subscribes.
@@ -292,7 +292,7 @@ export default function Guide() {
         >
           <Lead>
             This is an <strong>audit log of send attempts that were stopped</strong>{' '}
-            because the recipient had opted out — it is not the opt-out list
+            because the recipient had opted out - it is not the opt-out list
             itself.
           </Lead>
           <p>
@@ -319,7 +319,7 @@ export default function Guide() {
         >
           <Lead>
             People who opted out can opt back in via a re-subscribe link. When
-            they do, their row isn’t deleted — it’s marked re-subscribed and
+            they do, their row isn’t deleted - it’s marked re-subscribed and
             shown here.
           </Lead>
           <p>
@@ -342,7 +342,7 @@ export default function Guide() {
           </Lead>
           <Steps>
             <Step>
-              <strong>Add</strong> a reason by typing it and saving — it starts
+              <strong>Add</strong> a reason by typing it and saving - it starts
               with three sensible defaults.
             </Step>
             <Step>
@@ -403,7 +403,7 @@ export default function Guide() {
             on that list. One unsubscribed person can generate many blocked-log
             entries.
           </FaqItem>
-          <FaqItem q="Someone re-subscribed — did their data get deleted?">
+          <FaqItem q="Someone re-subscribed - did their data get deleted?">
             No. A re-subscribe keeps the original row and simply marks it
             re-subscribed, which is why it shows up on the Re-subscribed
             screen. They’ll start receiving mail again.

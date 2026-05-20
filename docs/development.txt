@@ -1,4 +1,4 @@
-# Flexa Unsubscribe — Development & Release Guide
+# Flexa Unsubscribe - Development & Release Guide
 
 How to set up this plugin locally, develop the React admin with hot
 reload, and produce a shippable release zip.
@@ -16,7 +16,7 @@ on the codebase.
 | **WordPress** | 5.8+ (tested up to 6.9) | The plugin's runtime host. |
 | **PHP** | 7.4+ | Hard floor declared in the plugin header. Do not use 8.0-only syntax (named args, readonly, enums, `str_ends_with`, etc.). |
 | **Node.js** | ≥ 18 (LTS) | For Vite + TypeScript. Anything older may silently break Vite 6. |
-| **pnpm** | ≥ 8 (the lockfile is `pnpm@10.15.0`) | Enforced — `package.json` has `"preinstall": "npx only-allow pnpm"`. `npm install` and `yarn install` will refuse to run. |
+| **pnpm** | ≥ 8 (the lockfile is `pnpm@10.15.0`) | Enforced - `package.json` has `"preinstall": "npx only-allow pnpm"`. `npm install` and `yarn install` will refuse to run. |
 | **Local WP environment** | LocalWP, wp-env, ddev, Lando, Docker, or a real Apache/Nginx box | Anything that gives you a working `wp-admin` and a captured outbound mailer. |
 | **Mail catcher** | LocalWP's MailHog, MailPit, WP Mail Logging plugin, or `wp_mail` debug log | You'll be reading captured outgoing emails constantly. |
 
@@ -70,7 +70,7 @@ define('FLEXA_TECH_SU_IS_DEVELOPMENT', true);
 ```
 
 > Prefer not to edit this committed file? Override in `wp-config.php`
-> instead — same constant name, same effect, but isolated to your
+> instead - same constant name, same effect, but isolated to your
 > machine:
 > ```php
 > define('FLEXA_TECH_SU_IS_DEVELOPMENT', true);
@@ -90,7 +90,7 @@ pnpm dev
 ```
 
 Vite serves on **http://localhost:3001** with `strictPort: true` (it
-won't fall back to 3002 if 3001 is taken — kill the conflicting
+won't fall back to 3002 if 3001 is taken - kill the conflicting
 process or override the origin). The admin script is loaded from
 `http://localhost:3001/main.tsx` (note: the entry path is `/main.tsx`
 because Vite's `root` is `./src`).
@@ -117,7 +117,7 @@ keystroke.
 ### 3.5 Editing PHP
 
 PHP changes (REST controllers, settings, filters) take effect on the
-next request — no rebuild needed. The PSR-4 autoloader picks up new
+next request - no rebuild needed. The PSR-4 autoloader picks up new
 files under `includes/` matching the `FlexaUnsubscribe\…` namespace
 automatically.
 
@@ -176,7 +176,7 @@ flexa-unsubscribe/
 
 The shipped plugin must contain the **built** bundle, not the source.
 The `.distignore` file makes sure `apps/`, `node_modules/`, lockfiles,
-and internal docs do not end up in the zip — but only `assets/dist/`
+and internal docs do not end up in the zip - but only `assets/dist/`
 is built, so you must build it manually first.
 
 ### 5.1 The build command
@@ -189,9 +189,9 @@ pnpm build
 This runs `tsc --noEmit && vite build` (defined in
 `apps/admin/package.json`). The flow:
 
-1. **TypeScript type check** — `tsc --noEmit` runs first, fails the
+1. **TypeScript type check** - `tsc --noEmit` runs first, fails the
    build on type errors.
-2. **Vite build** — produces minified ES modules with terser
+2. **Vite build** - produces minified ES modules with terser
    (`compress: { passes: 2 }`, comments preserved when matching
    `/translators:/i` so `__()` strings aren't stripped).
 3. **Output** lands in `assets/dist/admin/`:
@@ -201,7 +201,7 @@ This runs `tsc --noEmit && vite build` (defined in
      code may still chunk).
 
 `react`, `react-dom`, `@wordpress/hooks`, `@wordpress/i18n`, and
-`@wordpress/api-fetch` are **externals** (`vite-plugin-external`) —
+`@wordpress/api-fetch` are **externals** (`vite-plugin-external`) -
 they resolve to `window.React`, `wp.hooks`, etc. provided by WP's
 enqueued scripts. Don't bundle them.
 
@@ -210,7 +210,7 @@ enqueued scripts. Don't bundle them.
 1. Set `FLEXA_TECH_SU_IS_DEVELOPMENT` back to `false`.
 2. Stop `pnpm dev`.
 3. Reload **WP Admin → Unsubscribe**. The page should load using the
-   built `assets/dist/admin/js/main.js` (Network tab) — same admin
+   built `assets/dist/admin/js/main.js` (Network tab) - same admin
    should function as in dev mode.
 
 If anything 404s, you forgot step 5.1.
@@ -280,7 +280,7 @@ warning.
 Schema migrations are tracked separately by
 `FLEXA_TECH_SU_DB_VERSION` (`includes/constants.php`). Bump this when
 `flexa_tech_su_create_db()` gains a new table, column, or index. The
-plugins-loaded runner re-executes `create_db()` (idempotent — uses
+plugins-loaded runner re-executes `create_db()` (idempotent - uses
 `dbDelta` + existence-checked ALTERs) on the next request.
 
 ### 6.2 Release checklist
@@ -320,7 +320,7 @@ For self-hosted sites:
 
 For WordPress.org publishing: tag in SVN, copy the built tree into
 `trunk/` and the matching `tags/X.Y.Z/`, and commit. (Out of scope
-for this repo — handled by the repo maintainer.)
+for this repo - handled by the repo maintainer.)
 
 ---
 
@@ -351,15 +351,15 @@ rsync -rcn --exclude-from=.distignore ./ /tmp/preview/ --delete --delete-exclude
 
 | Don't | Why |
 |---|---|
-| `npm install` / `yarn install` | `preinstall: only-allow pnpm` — and it would create a competing lockfile that drifts |
+| `npm install` / `yarn install` | `preinstall: only-allow pnpm` - and it would create a competing lockfile that drifts |
 | Edit `.gitignore` to track `assets/dist/` | The built bundle should not be in git; it ships in the zip via `release.sh` |
 | Add `react` / `react-dom` / `@wordpress/*` as runtime deps in the bundle | They're WP-provided externals; bundling them doubles the payload and can cause two React instances |
-| Use `str_ends_with`, named args, enums, readonly | PHP 7.4 floor — those are 8.0+ |
+| Use `str_ends_with`, named args, enums, readonly | PHP 7.4 floor - those are 8.0+ |
 | Hardcode `wp_*flexa_*` table names | Use `FLEXA_TECH_SU_*` table-name constants from `constants.php` |
 | Call `get_option('flexa_tech_su_*')` directly | Use `flexa_tech_su_get_setting($key, $default)` so defaults stay consistent |
-| Re-implement DB queries in REST controllers | Wrap the procedural `flexa_tech_su_*` helpers — single source of truth |
+| Re-implement DB queries in REST controllers | Wrap the procedural `flexa_tech_su_*` helpers - single source of truth |
 | Ship with `FLEXA_TECH_SU_IS_DEVELOPMENT = true` | Production sites without Vite running will get connection-refused errors |
-| Run `./release.sh` without `pnpm build` first | Zips up stale or missing JS — plugin breaks on install |
+| Run `./release.sh` without `pnpm build` first | Zips up stale or missing JS - plugin breaks on install |
 | Use `wp_ajax_*` for new endpoints | The plugin is REST-only; `SaveReasonRestController` shows the pattern for public endpoints with HMAC auth |
 
 ---
@@ -368,15 +368,15 @@ rsync -rcn --exclude-from=.distignore ./ /tmp/preview/ --delete --delete-exclude
 
 | Symptom | Look here |
 |---|---|
-| Outgoing mail not blocked / button not appended | `includes/core.php` — the two `wp_mail` filters; check the toggles in Settings |
-| Public unsubscribe page 404s | `includes/frontend.php` — the `template_redirect` handler must fire before WP sends headers |
-| HMAC token validation fails | `flexa_handle_unsubscribe_logic()` — `hash_equals` and `AUTH_KEY` (rotated `AUTH_KEY` invalidates every link) |
+| Outgoing mail not blocked / button not appended | `includes/core.php` - the two `wp_mail` filters; check the toggles in Settings |
+| Public unsubscribe page 404s | `includes/frontend.php` - the `template_redirect` handler must fire before WP sends headers |
+| HMAC token validation fails | `flexa_handle_unsubscribe_logic()` - `hash_equals` and `AUTH_KEY` (rotated `AUTH_KEY` invalidates every link) |
 | Admin menu missing | `Engine\Admin\Settings` and `Initialize::__construct` |
-| React page blank, no JS errors | Bundle missing — `assets/dist/admin/js/main.js`. Run `pnpm build`. |
+| React page blank, no JS errors | Bundle missing - `assets/dist/admin/js/main.js`. Run `pnpm build`. |
 | React page blank, console errors about React Refresh | Dev-mode is on but Vite isn't running |
 | List endpoint returns wrong shape | `Controllers\Support\TableRequestArgs::envelope` is the canonical envelope |
 | Dirty-state guard not firing | `useDirtyNavigationGuard(form.formState.isDirty)` not wired |
-| Boolean settings save incorrectly | `SettingsRestController::bool_to_checkbox` — booleans persist as `'1'` / `''` strings |
+| Boolean settings save incorrectly | `SettingsRestController::bool_to_checkbox` - booleans persist as `'1'` / `''` strings |
 | WC admin notice complaining about compatibility | `before_woocommerce_init` declarations in `flexa-unsubscribe.php` |
 
 ---

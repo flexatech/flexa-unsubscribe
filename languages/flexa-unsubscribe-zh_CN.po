@@ -466,7 +466,7 @@ msgstr "删除此原因？"
 #. translators: %s: reason text
 #: assets/dist/admin/js/main.js:13
 msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
-msgstr "删除“%s”？使用此原因的现有退订记录将保留其文本——原因按记录单独存储，并非引用。"
+msgstr "删除“%s”？使用此原因的现有退订记录将保留其文本--原因按记录单独存储，并非引用。"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Unsubscribe reasons"
@@ -474,7 +474,7 @@ msgstr "退订原因"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
-msgstr "显示在退订反馈下拉菜单中的选项。使用箭头重新排序——列表顶部的项目最先显示。"
+msgstr "显示在退订反馈下拉菜单中的选项。使用箭头重新排序--列表顶部的项目最先显示。"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Current reasons"
@@ -538,7 +538,7 @@ msgstr "排除关键字"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
-msgstr "以逗号分隔。主题包含其中任意关键字（不区分大小写）的邮件将跳过屏蔽和自动追加——用于事务性邮件。"
+msgstr "以逗号分隔。主题包含其中任意关键字（不区分大小写）的邮件将跳过屏蔽和自动追加--用于事务性邮件。"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Block unsubscribed recipients"
@@ -574,7 +574,7 @@ msgstr "预览状态"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
-msgstr "近似预览——实际页面在视口中居中，并可能因网站主题而略有不同。"
+msgstr "近似预览--实际页面在视口中居中，并可能因网站主题而略有不同。"
 
 #: assets/dist/admin/js/main.js:13
 msgid "Page background"
@@ -691,7 +691,7 @@ msgstr "字号"
 
 #: assets/dist/admin/js/main.js:15
 msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
-msgstr "任意 CSS 长度——例如 14px、1em、0.875rem、100%。"
+msgstr "任意 CSS 长度--例如 14px、1em、0.875rem、100%。"
 
 #: assets/dist/admin/js/main.js:15
 msgid "Customize the look and copy of the public unsubscribe page."

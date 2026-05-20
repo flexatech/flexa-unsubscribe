@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 /**
  * Presentational primitives shared by every section. Kept server-side
- * (no "use client") so they ship zero JS — only the Sidebar is
+ * (no "use client") so they ship zero JS - only the Sidebar is
  * interactive.
  */
 
@@ -145,8 +145,8 @@ export function Method({ verb }: { verb: string }) {
 /**
  * Screenshot slot for the user guide. Until a real image exists it
  * renders a labelled placeholder frame. To swap in the real capture,
- * drop the file in `docs-site/public/screenshots/` and pass `src` —
- * e.g. <Screenshot src="/screenshots/dashboard.png" … /> — and the
+ * drop the file in `docs-site/public/screenshots/` and pass `src` -
+ * e.g. <Screenshot src="/screenshots/dashboard.png" … /> - and the
  * component renders the <img> instead of the placeholder.
  */
 export function Screenshot({
@@ -170,7 +170,7 @@ export function Screenshot({
           </span>
           <p className="text-sm font-semibold text-ink-soft">{alt}</p>
           <p className="font-mono text-xs text-muted">
-            placeholder — replace with screenshot
+            placeholder - replace with screenshot
           </p>
         </div>
       )}

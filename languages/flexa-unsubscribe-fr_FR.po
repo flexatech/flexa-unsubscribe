@@ -487,7 +487,7 @@ msgstr "Supprimer ce motif ?"
 msgid ""
 "Delete \"%s\"? Existing unsubscribe records that used this reason keep their "
 "text - the reason is stored per-record, not referenced."
-msgstr "Supprimer « %s » ? Les enregistrements de désabonnement existants qui utilisaient ce motif conservent leur texte — le motif est stocké par enregistrement, sans référence."
+msgstr "Supprimer « %s » ? Les enregistrements de désabonnement existants qui utilisaient ce motif conservent leur texte - le motif est stocké par enregistrement, sans référence."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Unsubscribe reasons"
@@ -497,7 +497,7 @@ msgstr "Motifs de désabonnement"
 msgid ""
 "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows "
 "- top of the list appears first."
-msgstr "Options affichées dans la liste déroulante de retour de désabonnement. Réorganisez avec les flèches — le haut de la liste apparaît en premier."
+msgstr "Options affichées dans la liste déroulante de retour de désabonnement. Réorganisez avec les flèches - le haut de la liste apparaît en premier."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Current reasons"
@@ -568,7 +568,7 @@ msgstr "Mots-clés à exclure"
 msgid ""
 "Comma-separated. Emails whose subject contains any of these (case-"
 "insensitive) skip both blocking and auto-append - use for transactional mail."
-msgstr "Séparés par des virgules. Les e-mails dont l’objet contient l’un de ces mots (insensible à la casse) ignorent le blocage et l’ajout automatique — à utiliser pour les e-mails transactionnels."
+msgstr "Séparés par des virgules. Les e-mails dont l’objet contient l’un de ces mots (insensible à la casse) ignorent le blocage et l’ajout automatique - à utiliser pour les e-mails transactionnels."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Block unsubscribed recipients"
@@ -608,7 +608,7 @@ msgstr "État de l’aperçu"
 msgid ""
 "Approximate preview - actual page is viewport-centred and may differ "
 "slightly under site themes."
-msgstr "Aperçu approximatif — la page réelle est centrée dans la fenêtre et peut légèrement différer selon le thème du site."
+msgstr "Aperçu approximatif - la page réelle est centrée dans la fenêtre et peut légèrement différer selon le thème du site."
 
 #: assets/dist/admin/js/main.js:13
 msgid "Page background"
@@ -725,7 +725,7 @@ msgstr "Taille de police"
 
 #: assets/dist/admin/js/main.js:15
 msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
-msgstr "Toute longueur CSS — ex. 14px, 1em, 0.875rem, 100 %."
+msgstr "Toute longueur CSS - ex. 14px, 1em, 0.875rem, 100 %."
 
 #: assets/dist/admin/js/main.js:15
 msgid "Customize the look and copy of the public unsubscribe page."

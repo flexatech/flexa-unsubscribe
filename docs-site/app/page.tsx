@@ -33,7 +33,7 @@ export default function Home() {
           <p className="mt-4 max-w-2xl text-lg leading-8 text-ink-soft">
             Adds secure, HMAC-signed unsubscribe links to outgoing WordPress
             email, blocks mail to recipients who opted out, and gives them a
-            customizable opt-out / re-subscribe page — managed from a React
+            customizable opt-out / re-subscribe page - managed from a React
             admin.
           </p>
           <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium">
@@ -64,8 +64,8 @@ export default function Home() {
             attempt for audit. Recipients can also re-subscribe themselves.
           </Lead>
           <p>
-            All admin screens — Dashboard, Unsubscribes, Blocked Emails,
-            Re-subscribed, Reasons, Settings and Appearance — are a single-page
+            All admin screens - Dashboard, Unsubscribes, Blocked Emails,
+            Re-subscribed, Reasons, Settings and Appearance - are a single-page
             React app (Vite + TypeScript + shadcn/ui + Tailwind v4) talking to a
             namespaced REST API. The public-facing unsubscribe and re-subscribe
             pages are fully themable from the Appearance screen.
@@ -112,7 +112,7 @@ export default function Home() {
           <p>
             Both callbacks honour the <strong>exclude keywords</strong> list: if
             the subject contains any configured keyword (case-insensitive), that
-            email skips both blocking and auto-append — the escape hatch for
+            email skips both blocking and auto-append - the escape hatch for
             transactional mail (orders, password resets, invoices).
           </p>
           <p>
@@ -149,7 +149,7 @@ export default function Home() {
               Unsubscribe tokens are signed with the <Code>AUTH_KEY</Code> salt
               from <Code>wp-config.php</Code> (WordPress always defines it).
               Rotating <Code>AUTH_KEY</Code> invalidates every unsubscribe and
-              re-subscribe link already sent — recipients would have to use a
+              re-subscribe link already sent - recipients would have to use a
               freshly generated link.
             </p>
           </Callout>
@@ -170,7 +170,7 @@ export default function Home() {
               ],
               [
                 'Exclude keywords',
-                'Comma-separated subject keywords that bypass both blocking and auto-append — for transactional mail.',
+                'Comma-separated subject keywords that bypass both blocking and auto-append - for transactional mail.',
               ],
               [
                 'Re-subscribe flow',
@@ -366,10 +366,10 @@ export default function Home() {
           <p>
             Every link carries a token derived from the recipient’s address and
             the site’s <Code>AUTH_KEY</Code>. There is no per-link database
-            row — the token <em>is</em> the proof, verified with a
+            row - the token <em>is</em> the proof, verified with a
             constant-time <Code>hash_equals()</Code> comparison.
           </p>
-          <CodeBlock caption="includes/core.php — link generation">{`$token = hash_hmac('sha256', $email, AUTH_KEY);
+          <CodeBlock caption="includes/core.php - link generation">{`$token = hash_hmac('sha256', $email, AUTH_KEY);
 
 add_query_arg([
     'flexa_action' => 'unsubscribe', // or 'resubscribe'
@@ -404,7 +404,7 @@ add_query_arg([
             All routes are registered under{' '}
             <Code>/wp-json/flexa-unsubscribe/v1/</Code>. Every route uses a{' '}
             <Code>permission_callback</Code> of{' '}
-            <Code>current_user_can(&apos;manage_options&apos;)</Code> — the sole
+            <Code>current_user_can(&apos;manage_options&apos;)</Code> - the sole
             exception is <Code>POST /reason</Code>, which is the public feedback
             submission and authenticates with the same HMAC scheme as the
             unsubscribe links. Authenticated requests need the WordPress auth
@@ -521,7 +521,7 @@ add_query_arg([
               [
                 <Method key="6" verb="POST" />,
                 <Code key="r6">/reason</Code>,
-                'Public feedback submit — HMAC-verified, not capability-gated.',
+                'Public feedback submit - HMAC-verified, not capability-gated.',
               ],
             ]}
           />
@@ -535,7 +535,7 @@ add_query_arg([
               [
                 <Method key="1" verb="GET" />,
                 <Code key="r1">/analytics/summary</Code>,
-                '—',
+                '-',
               ],
               [
                 <Method key="2" verb="GET" />,
@@ -612,13 +612,13 @@ add_query_arg([
           </p>
           <div className="flex flex-wrap gap-2 text-sm">
             {[
-              'fr_FR — French',
-              'de_DE — German',
-              'sv_SE — Swedish',
-              'it_IT — Italian',
-              'zh_CN — Simplified Chinese',
-              'ja — Japanese',
-              'ar — Arabic',
+              'fr_FR - French',
+              'de_DE - German',
+              'sv_SE - Swedish',
+              'it_IT - Italian',
+              'zh_CN - Simplified Chinese',
+              'ja - Japanese',
+              'ar - Arabic',
             ].map((l) => (
               <span
                 key={l}
@@ -651,8 +651,8 @@ add_query_arg([
         <Section id="csv-export" kicker="Data" title="CSV export">
           <p>
             Each list screen offers a CSV download handled via{' '}
-            <Code>admin-post.php</Code>. There are three exports —
-            unsubscribes, blocked emails and re-subscribed — each guarded by its
+            <Code>admin-post.php</Code>. There are three exports -
+            unsubscribes, blocked emails and re-subscribed - each guarded by its
             own nonce (<Code>flexa_export_csv</Code>,{' '}
             <Code>flexa_export_blocked_csv</Code>,{' '}
             <Code>flexa_export_resubscribed_csv</Code>) verified with{' '}
@@ -662,7 +662,7 @@ add_query_arg([
             <p>
               CSV exports include recipient email addresses (and, for blocked
               attempts, message subjects and from-headers). Treat the files as
-              sensitive personal data — restrict who can run the export and
+              sensitive personal data - restrict who can run the export and
               where the files are stored.
             </p>
           </Callout>
@@ -680,7 +680,7 @@ add_query_arg([
             rows={[
               [
                 <Code key="t1">wp_flexa_unsubscribes</Code>,
-                'id, email (unique), token, reason, unsubscribed_at, resubscribed_at (nullable — set on re-subscribe).',
+                'id, email (unique), token, reason, unsubscribed_at, resubscribed_at (nullable - set on re-subscribe).',
               ],
               [
                 <Code key="t2">wp_flexa_blocked_emails</Code>,
@@ -697,7 +697,7 @@ add_query_arg([
             <Code>resubscribed_at</Code>, which is what separates the
             “Unsubscribes” and “Re-subscribed” admin lists. The “Blocked
             Emails” list is an independent audit log of <em>send attempts</em>{' '}
-            that were stopped — not the opt-out list itself.
+            that were stopped - not the opt-out list itself.
           </p>
         </Section>
 
@@ -705,7 +705,7 @@ add_query_arg([
         <Section id="changelog" kicker="History" title="Changelog">
           <ChangelogEntry version="3.0.3">
             <li>
-              <strong>New:</strong> Customizable unsubscribe email footer — the
+              <strong>New:</strong> Customizable unsubscribe email footer - the
               footer heading, button label and button colour are now editable
               from <strong>Settings → General</strong> (previously
               hard-coded).
@@ -734,7 +734,7 @@ add_query_arg([
           </ChangelogEntry>
           <ChangelogEntry version="3.0.0">
             <li>
-              <strong>Complete admin rewrite</strong> — the seven admin pages
+              <strong>Complete admin rewrite</strong> - the seven admin pages
               are now a React SPA (Vite + TypeScript + shadcn/ui + Tailwind v4).
             </li>
             <li>

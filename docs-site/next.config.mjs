@@ -3,7 +3,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   // Static export so the docs can be hosted from any static file
-  // host — or opened straight from disk — without a Node server.
+  // host - or opened straight from disk - without a Node server.
   output: 'export',
   images: { unoptimized: true },
 

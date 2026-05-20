@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Flexa Unsubscribe — Technical Documentation',
+  title: 'Flexa Unsubscribe - Technical Documentation',
   description:
     'Full technical documentation for the Flexa Unsubscribe WordPress plugin: ' +
     'installation, settings, appearance tokens, REST API reference, HMAC ' +
