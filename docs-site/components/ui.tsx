@@ -40,7 +40,7 @@ export function Lead({ children }: { children: ReactNode }) {
 
 export function Code({ children }: { children: ReactNode }) {
   return (
-    <code className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[0.8em] text-brand-700">
+    <code className="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[0.8em] text-brand-700 dark:bg-slate-800 dark:text-brand-300">
       {children}
     </code>
   );
@@ -56,11 +56,11 @@ export function CodeBlock({
   return (
     <figure className="overflow-hidden rounded-lg border border-line">
       {caption && (
-        <figcaption className="border-b border-line bg-slate-50 px-4 py-2 text-xs font-medium text-muted">
+        <figcaption className="border-b border-line bg-slate-50 px-4 py-2 text-xs font-medium text-muted dark:bg-slate-800/60">
           {caption}
         </figcaption>
       )}
-      <pre className="overflow-x-auto bg-slate-900 p-4 text-[13px] leading-6 text-slate-100">
+      <pre className="overflow-x-auto bg-slate-900 p-4 text-[13px] leading-6 text-slate-100 dark:bg-slate-950">
         <code className="font-mono">{children}</code>
       </pre>
     </figure>
@@ -76,10 +76,21 @@ export function Callout({
   title: string;
   children: ReactNode;
 }) {
+  // Each tone has a light pair (border / bg / text) and a dark pair
+  // tuned for AA contrast on the dark canvas. The dark backgrounds
+  // are deliberately translucent so the underlying surface tint
+  // shows through and the callout still reads as a panel rather
+  // than a flat block.
   const map = {
-    info: 'border-brand-300 bg-brand-50 text-brand-700',
-    warn: 'border-amber-300 bg-amber-50 text-amber-800',
-    security: 'border-rose-300 bg-rose-50 text-rose-800',
+    info:
+      'border-brand-300 bg-brand-50 text-brand-700 ' +
+      'dark:border-brand-700 dark:bg-brand-500/10 dark:text-brand-300',
+    warn:
+      'border-amber-300 bg-amber-50 text-amber-800 ' +
+      'dark:border-amber-700 dark:bg-amber-500/10 dark:text-amber-300',
+    security:
+      'border-rose-300 bg-rose-50 text-rose-800 ' +
+      'dark:border-rose-700 dark:bg-rose-500/10 dark:text-rose-300',
   } as const;
   return (
     <div className={`rounded-lg border-l-4 p-4 text-sm ${map[tone]}`}>
@@ -99,7 +110,7 @@ export function Table({
   return (
     <div className="overflow-x-auto rounded-lg border border-line">
       <table className="w-full border-collapse text-left text-sm">
-        <thead className="bg-slate-50 text-xs uppercase tracking-wide text-muted">
+        <thead className="bg-slate-50 text-xs uppercase tracking-wide text-muted dark:bg-slate-800/60">
           <tr>
             {head.map((h) => (
               <th key={h} className="px-4 py-3 font-semibold">
@@ -110,7 +121,7 @@ export function Table({
         </thead>
         <tbody className="divide-y divide-line">
           {rows.map((cells, i) => (
-            <tr key={i} className="align-top hover:bg-slate-50/60">
+            <tr key={i} className="align-top hover:bg-slate-50/60 dark:hover:bg-slate-800/40">
               {cells.map((c, j) => (
                 <td key={j} className="px-4 py-3 text-ink-soft">
                   {c}
@@ -126,15 +137,15 @@ export function Table({
 
 export function Method({ verb }: { verb: string }) {
   const color: Record<string, string> = {
-    GET: 'bg-emerald-100 text-emerald-700',
-    POST: 'bg-sky-100 text-sky-700',
-    PUT: 'bg-amber-100 text-amber-700',
-    DELETE: 'bg-rose-100 text-rose-700',
+    GET: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300',
+    POST: 'bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-300',
+    PUT: 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300',
+    DELETE: 'bg-rose-100 text-rose-700 dark:bg-rose-500/15 dark:text-rose-300',
   };
   return (
     <span
       className={`inline-block rounded px-2 py-0.5 font-mono text-xs font-bold ${
-        color[verb] ?? 'bg-slate-100 text-slate-700'
+        color[verb] ?? 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'
       }`}
     >
       {verb}
@@ -164,7 +175,7 @@ export function Screenshot({
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt={alt} className="block w-full" />
       ) : (
-        <div className="flex aspect-[16/9] flex-col items-center justify-center gap-2 bg-slate-50 px-6 text-center">
+        <div className="flex aspect-[16/9] flex-col items-center justify-center gap-2 bg-slate-50 px-6 text-center dark:bg-slate-800/60">
           <span className="flex size-10 items-center justify-center rounded-full border border-line bg-surface text-base">
             🖼
           </span>
@@ -175,7 +186,7 @@ export function Screenshot({
         </div>
       )}
       {caption && (
-        <figcaption className="border-t border-line bg-slate-50 px-4 py-2 text-xs text-muted">
+        <figcaption className="border-t border-line bg-slate-50 px-4 py-2 text-xs text-muted dark:bg-slate-800/60">
           {caption}
         </figcaption>
       )}

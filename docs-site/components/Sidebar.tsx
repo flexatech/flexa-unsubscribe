@@ -77,7 +77,7 @@ export function Sidebar({
 
         <Link
           href={crossLinkHref}
-          className="mb-2 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-50"
+          className="mb-2 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-50 dark:text-brand-300 dark:hover:bg-brand-500/10"
         >
           <span>{crossLinkLabel}</span>
           <span aria-hidden>→</span>
@@ -105,8 +105,8 @@ export function Sidebar({
                     aria-current={isActive ? 'true' : undefined}
                     className={`block rounded-md px-3 py-1.5 text-sm transition-colors ${
                       isActive
-                        ? 'bg-brand-50 font-semibold text-brand-700'
-                        : 'text-ink-soft hover:bg-slate-50 hover:text-ink'
+                        ? 'bg-brand-50 font-semibold text-brand-700 dark:bg-brand-500/15 dark:text-brand-300'
+                        : 'text-ink-soft hover:bg-slate-50 hover:text-ink dark:hover:bg-slate-800/60'
                     }`}
                   >
                     {label}
