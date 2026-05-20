@@ -25,6 +25,15 @@ export const NAV: NavItem[] = [
   { id: 'changelog', label: 'Changelog' },
 ];
 
+/** Anchor nav for the services / hire-me page (app/services/page.tsx). */
+export const SERVICES_NAV: NavItem[] = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'what-i-build', label: 'What I build' },
+  { id: 'industries', label: 'Industries' },
+  { id: 'process', label: 'How I work' },
+  { id: 'contact', label: 'Get in touch' },
+];
+
 /** Anchor nav for the user guide page (app/guide/page.tsx). */
 export const GUIDE_NAV: NavItem[] = [
   { id: 'start', label: 'Getting started' },
