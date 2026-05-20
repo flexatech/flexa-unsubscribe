@@ -771,3 +771,118 @@ msgstr "Anteprima approssimativa - la visualizzazione può variare leggermente t
 #: assets/dist/admin/js/main.js:13
 msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
 msgstr "L'aggiunta automatica è disattivata - questo piè di pagina non viene aggiunto alle email in uscita finché non lo attivi sopra."
+
+msgid "No CSV file was uploaded."
+msgstr "Nessun file CSV è stato caricato."
+
+msgid "The upload failed. Please try again."
+msgstr "Caricamento non riuscito. Riprovare."
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr "Il file CSV è troppo grande. La dimensione massima è %s."
+
+msgid "Could not read the uploaded CSV file."
+msgstr "Impossibile leggere il file CSV caricato."
+
+#. translators: %d: maximum rows allowed per import.
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr "Il CSV ha troppe righe. Massimo %d."
+
+msgid "Missing email."
+msgstr "Email mancante."
+
+msgid "Invalid email address."
+msgstr "Indirizzo email non valido."
+
+msgid "The CSV file is empty."
+msgstr "Il file CSV è vuoto."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import CSV"
+msgstr "Importa CSV"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of newly imported unsubscribe records.
+msgid "%d records imported."
+msgstr "%d record importati."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import unsubscribes from CSV"
+msgstr "Importa cancellazioni da CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped."
+msgstr "Carica un file CSV per aggiungere in blocco i record di cancellazione. Le email già presenti vengono ignorate."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Importing…"
+msgstr "Importazione…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import"
+msgstr "Importa"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import another file"
+msgstr "Importa un altro file"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Done"
+msgstr "Fatto"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Click to choose a CSV file"
+msgstr "Fai clic per scegliere un file CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr "Massimo 2 MB · 10.000 righe"
+
+#: assets/dist/admin/js/main.js:1
+msgid "CSV format"
+msgstr "Formato CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected."
+msgstr "Colonne: Email (obbligatoria), Motivo (facoltativo), Data (facoltativa). La riga di intestazione viene rilevata automaticamente."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Download sample CSV"
+msgstr "Scarica CSV di esempio"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Imported"
+msgstr "Importati"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Skipped"
+msgstr "Saltati"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed"
+msgstr "Falliti"
+
+#: assets/dist/admin/js/main.js:1
+msgid "All rows imported successfully."
+msgstr "Tutte le righe sono state importate correttamente."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+msgid "%d rows were skipped because the email was already in the unsubscribes list."
+msgstr "%d righe sono state saltate perché l'email era già nella lista delle cancellazioni."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows that failed to import.
+msgid "%d failed rows"
+msgstr "%d righe non riuscite"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: CSV row number that failed (1-indexed).
+msgid "Row %d"
+msgstr "Riga %d"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of additional errors not shown.
+msgid "… and %d more errors not shown."
+msgstr "… e altri %d errori non mostrati."

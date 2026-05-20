@@ -46,5 +46,6 @@ export const GUIDE_NAV: NavItem[] = [
   { id: 'resubscribed', label: 'Re-subscribed list' },
   { id: 'reasons', label: 'Manage reasons' },
   { id: 'export', label: 'Export to CSV' },
+  { id: 'import', label: 'Import from CSV' },
   { id: 'faq', label: 'Troubleshooting & FAQ' },
 ];

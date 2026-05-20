@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
 import { __, sprintf } from '@wordpress/i18n';
-import { Download, MailX, Trash2 } from 'lucide-react';
+import { Download, MailX, Trash2, Upload } from 'lucide-react';
 import type { ColumnDef } from '@tanstack/react-table';
 
 import { Button } from '@/components/ui/button';
 import { useConfirm } from '@/components/ui/confirm-dialog';
 import { DataTable } from '@/components/data-table/DataTable';
+import { ImportDialog } from './ImportDialog';
 import {
   actionsColumn,
   dateColumn,
@@ -28,6 +29,7 @@ function isValidSortId(id: string): id is UnsubscribeOrderBy {
 
 export default function Unsubscribes() {
   const [search, setSearch] = useState('');
+  const [importOpen, setImportOpen] = useState(false);
   const { page, perPage, sort, onPageChange, onSortToggle } = useTableState({
     defaultSort: { id: 'unsubscribed_at', desc: true },
   });
@@ -124,14 +126,25 @@ export default function Unsubscribes() {
         search={search}
         onSearchChange={setSearch}
         toolbar={
-          exportHref && (
-            <Button asChild variant="outline" size="sm">
-              <a href={exportHref}>
-                <Download />
-                {__('Export CSV', 'flexa-unsubscribe')}
-              </a>
+          <>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => setImportOpen(true)}
+            >
+              <Upload />
+              {__('Import CSV', 'flexa-unsubscribe')}
             </Button>
-          )
+            {exportHref && (
+              <Button asChild variant="outline" size="sm">
+                <a href={exportHref}>
+                  <Download />
+                  {__('Export CSV', 'flexa-unsubscribe')}
+                </a>
+              </Button>
+            )}
+          </>
         }
         empty={{
           icon: MailX,
@@ -142,6 +155,8 @@ export default function Unsubscribes() {
           ),
         }}
       />
+
+      <ImportDialog open={importOpen} onOpenChange={setImportOpen} />
     </div>
   );
 }

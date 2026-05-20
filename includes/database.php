@@ -162,6 +162,56 @@ function flexa_tech_su_save_unsubscribe($email, $token) {
 }
 
 /**
+ * Insert an unsubscribe record from a CSV import row.
+ *
+ * Dedup is delegated to the table's UNIQUE KEY on `email`: we issue
+ * `INSERT IGNORE` so an existing row is left untouched and the call
+ * reports back as `duplicate`. This keeps the import idempotent and
+ * preserves the original `unsubscribed_at` / `reason` / `token` for
+ * rows already opted-out, matching the "Skip duplicates" import
+ * behavior chosen at design time.
+ *
+ * `$unsubscribed_at` is expected in MySQL DATETIME form (`Y-m-d H:i:s`);
+ * caller should pass `current_time('mysql')` when the CSV row has no
+ * Date column.
+ *
+ * Returns one of: 'imported', 'duplicate', 'failed'.
+ */
+function flexa_tech_su_import_unsubscribe(string $email, string $reason, string $unsubscribed_at): string {
+    global $wpdb;
+    $table_name = FLEXA_TECH_SU_TABLE;
+
+    $email = sanitize_email($email);
+    if (empty($email) || !is_email($email)) {
+        return 'failed';
+    }
+
+    // wp_generate_password is the WP-blessed CSPRNG wrapper; 64 chars
+    // matches the schema column width and the live token format used
+    // by HMAC-issued links elsewhere in the plugin.
+    $token = wp_generate_password(64, false);
+
+    // INSERT IGNORE relies on the UNIQUE KEY (email) - the duplicate-key
+    // case becomes a 0-row affected, not an error. We can't use
+    // $wpdb->insert() because its INSERT has no IGNORE flavor; the
+    // prepared statement here uses %s placeholders for every value so
+    // there's nothing identifier-position to escape beyond the table
+    // name (already a server-side constant).
+    $result = $wpdb->query($wpdb->prepare(
+        "INSERT IGNORE INTO $table_name (email, token, reason, unsubscribed_at) VALUES (%s, %s, %s, %s)",
+        $email,
+        $token,
+        $reason,
+        $unsubscribed_at
+    ));
+
+    if ($result === false) {
+        return 'failed';
+    }
+    return $result === 1 ? 'imported' : 'duplicate';
+}
+
+/**
  * Update unsubscribe reason
  */
 function flexa_tech_su_update_reason($email, $reason) {

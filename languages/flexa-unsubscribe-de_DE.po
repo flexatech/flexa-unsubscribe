@@ -771,3 +771,118 @@ msgstr "Ungefähre Vorschau - die Darstellung kann je nach E-Mail-Programm leich
 #: assets/dist/admin/js/main.js:13
 msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
 msgstr "Automatisches Anhängen ist deaktiviert - diese Fußzeile wird ausgehenden E-Mails erst hinzugefügt, wenn Sie es oben aktivieren."
+
+msgid "No CSV file was uploaded."
+msgstr "Es wurde keine CSV-Datei hochgeladen."
+
+msgid "The upload failed. Please try again."
+msgstr "Der Upload ist fehlgeschlagen. Bitte erneut versuchen."
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr "Die CSV-Datei ist zu groß. Maximale Größe: %s."
+
+msgid "Could not read the uploaded CSV file."
+msgstr "Die hochgeladene CSV-Datei konnte nicht gelesen werden."
+
+#. translators: %d: maximum rows allowed per import.
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr "Die CSV-Datei hat zu viele Zeilen. Maximum: %d."
+
+msgid "Missing email."
+msgstr "E-Mail-Adresse fehlt."
+
+msgid "Invalid email address."
+msgstr "Ungültige E-Mail-Adresse."
+
+msgid "The CSV file is empty."
+msgstr "Die CSV-Datei ist leer."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import CSV"
+msgstr "CSV importieren"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of newly imported unsubscribe records.
+msgid "%d records imported."
+msgstr "%d Einträge importiert."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import unsubscribes from CSV"
+msgstr "Abmeldungen aus CSV importieren"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped."
+msgstr "Lade eine CSV-Datei hoch, um Abmeldungen in einem Schritt hinzuzufügen. Bereits vorhandene E-Mails werden übersprungen."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Importing…"
+msgstr "Importiere…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import"
+msgstr "Importieren"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import another file"
+msgstr "Weitere Datei importieren"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Done"
+msgstr "Fertig"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Click to choose a CSV file"
+msgstr "Klicken, um eine CSV-Datei auszuwählen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr "Maximal 2 MB · 10.000 Zeilen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "CSV format"
+msgstr "CSV-Format"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected."
+msgstr "Spalten: E-Mail (erforderlich), Grund (optional), Datum (optional). Eine Kopfzeile wird automatisch erkannt."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Download sample CSV"
+msgstr "Beispiel-CSV herunterladen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Imported"
+msgstr "Importiert"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Skipped"
+msgstr "Übersprungen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#: assets/dist/admin/js/main.js:1
+msgid "All rows imported successfully."
+msgstr "Alle Zeilen wurden erfolgreich importiert."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+msgid "%d rows were skipped because the email was already in the unsubscribes list."
+msgstr "%d Zeilen wurden übersprungen, da die E-Mail bereits in der Abmeldeliste war."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows that failed to import.
+msgid "%d failed rows"
+msgstr "%d fehlgeschlagene Zeilen"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: CSV row number that failed (1-indexed).
+msgid "Row %d"
+msgstr "Zeile %d"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of additional errors not shown.
+msgid "… and %d more errors not shown."
+msgstr "… und %d weitere nicht angezeigte Fehler."

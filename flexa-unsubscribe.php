@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Flexa Unsubscribe
- * Description: Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV export.
- * Version: 3.0.3
+ * Description: Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV import/export.
+ * Version: 3.1.0
  * Author: flexatech
  * Text Domain: flexa-unsubscribe
  * Requires at least: 5.8

@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit;
 // Plugin paths
 define('FLEXA_TECH_SU_PATH', plugin_dir_path(dirname(__FILE__)));
 define('FLEXA_TECH_SU_URL', plugin_dir_url(dirname(__FILE__)));
-define('FLEXA_TECH_SU_VERSION', '3.0.2');
+define('FLEXA_TECH_SU_VERSION', '3.1.0');
 
 // Schema version - bump whenever `flexa_tech_su_create_db()` gains a
 // new table, column, or index. The runner in `flexa-unsubscribe.php`

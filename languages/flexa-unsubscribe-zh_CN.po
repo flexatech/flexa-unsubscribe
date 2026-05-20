@@ -770,3 +770,118 @@ msgstr "预览仅供参考 - 实际显示效果可能因邮件客户端而略有
 #: assets/dist/admin/js/main.js:13
 msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
 msgstr "自动追加已关闭 - 在上方启用之前，此页脚不会添加到发出的邮件中。"
+
+msgid "No CSV file was uploaded."
+msgstr "未上传 CSV 文件。"
+
+msgid "The upload failed. Please try again."
+msgstr "上传失败,请重试。"
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr "CSV 文件过大,最大允许 %s。"
+
+msgid "Could not read the uploaded CSV file."
+msgstr "无法读取上传的 CSV 文件。"
+
+#. translators: %d: maximum rows allowed per import.
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr "CSV 行数过多,最多 %d 行。"
+
+msgid "Missing email."
+msgstr "缺少邮箱地址。"
+
+msgid "Invalid email address."
+msgstr "邮箱地址无效。"
+
+msgid "The CSV file is empty."
+msgstr "CSV 文件为空。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import CSV"
+msgstr "导入 CSV"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of newly imported unsubscribe records.
+msgid "%d records imported."
+msgstr "已导入 %d 条记录。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import unsubscribes from CSV"
+msgstr "从 CSV 导入退订"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped."
+msgstr "上传 CSV 文件以批量添加退订记录。已存在的邮箱将被跳过。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Importing…"
+msgstr "正在导入…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import"
+msgstr "导入"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import another file"
+msgstr "导入其他文件"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Done"
+msgstr "完成"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Click to choose a CSV file"
+msgstr "点击选择 CSV 文件"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr "最大 2 MB · 10,000 行"
+
+#: assets/dist/admin/js/main.js:1
+msgid "CSV format"
+msgstr "CSV 格式"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected."
+msgstr "列:Email(必填)、Reason(可选)、Date(可选)。会自动识别标题行。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Download sample CSV"
+msgstr "下载示例 CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Imported"
+msgstr "已导入"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Skipped"
+msgstr "已跳过"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed"
+msgstr "失败"
+
+#: assets/dist/admin/js/main.js:1
+msgid "All rows imported successfully."
+msgstr "所有行均已成功导入。"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+msgid "%d rows were skipped because the email was already in the unsubscribes list."
+msgstr "已跳过 %d 行,因为邮箱已存在于退订列表中。"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows that failed to import.
+msgid "%d failed rows"
+msgstr "%d 行失败"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: CSV row number that failed (1-indexed).
+msgid "Row %d"
+msgstr "第 %d 行"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of additional errors not shown.
+msgid "… and %d more errors not shown."
+msgstr "… 还有 %d 个未显示的错误。"

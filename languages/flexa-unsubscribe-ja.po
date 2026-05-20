@@ -771,3 +771,118 @@ msgstr "おおよそのプレビューです - メールクライアントによ
 #: assets/dist/admin/js/main.js:13
 msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
 msgstr "自動追加はオフです - 上で有効にするまで、このフッターは送信メールに追加されません。"
+
+msgid "No CSV file was uploaded."
+msgstr "CSVファイルがアップロードされていません。"
+
+msgid "The upload failed. Please try again."
+msgstr "アップロードに失敗しました。再度お試しください。"
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr "CSVファイルが大きすぎます。最大サイズは %s です。"
+
+msgid "Could not read the uploaded CSV file."
+msgstr "アップロードされたCSVファイルを読み取れません。"
+
+#. translators: %d: maximum rows allowed per import.
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr "CSVの行数が多すぎます。最大は %d 行です。"
+
+msgid "Missing email."
+msgstr "メールアドレスがありません。"
+
+msgid "Invalid email address."
+msgstr "無効なメールアドレスです。"
+
+msgid "The CSV file is empty."
+msgstr "CSVファイルが空です。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import CSV"
+msgstr "CSVをインポート"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of newly imported unsubscribe records.
+msgid "%d records imported."
+msgstr "%d 件のレコードをインポートしました。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import unsubscribes from CSV"
+msgstr "CSVから配信停止をインポート"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped."
+msgstr "CSVファイルをアップロードして配信停止レコードを一括追加します。既存のメールアドレスはスキップされます。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Importing…"
+msgstr "インポート中…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import"
+msgstr "インポート"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import another file"
+msgstr "別のファイルをインポート"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Done"
+msgstr "完了"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Click to choose a CSV file"
+msgstr "クリックしてCSVファイルを選択"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr "最大 2 MB · 10,000行"
+
+#: assets/dist/admin/js/main.js:1
+msgid "CSV format"
+msgstr "CSV形式"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected."
+msgstr "列: Email(必須)、Reason(任意)、Date(任意)。ヘッダー行は自動で判定されます。"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Download sample CSV"
+msgstr "サンプルCSVをダウンロード"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Imported"
+msgstr "インポート済み"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Skipped"
+msgstr "スキップ"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed"
+msgstr "失敗"
+
+#: assets/dist/admin/js/main.js:1
+msgid "All rows imported successfully."
+msgstr "すべての行が正常にインポートされました。"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+msgid "%d rows were skipped because the email was already in the unsubscribes list."
+msgstr "メールアドレスがすでに配信停止リストに登録されていたため、%d 行をスキップしました。"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows that failed to import.
+msgid "%d failed rows"
+msgstr "%d 件の失敗行"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: CSV row number that failed (1-indexed).
+msgid "Row %d"
+msgstr "%d 行目"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of additional errors not shown.
+msgid "… and %d more errors not shown."
+msgstr "… 他に %d 件のエラーは表示されていません。"
