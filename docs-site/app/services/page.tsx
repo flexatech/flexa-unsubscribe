@@ -1,5 +1,6 @@
 import { Sidebar } from '@/components/Sidebar';
 import { SERVICES_NAV } from '@/lib/nav';
+import { WHATSAPP_DISPLAY, WHATSAPP_URL } from '@/lib/contact';
 import { Callout, Lead, Section } from '@/components/ui';
 
 export const metadata = {
@@ -9,16 +10,6 @@ export const metadata = {
     'WooCommerce and headless web systems for e-commerce, healthcare, and ' +
     'booking businesses. Reach me on WhatsApp.',
 };
-
-/**
- * Plain digits, no '+', for the wa.me click-to-chat URL. The visible
- * label keeps the human-readable format `+84 905 648 626`.
- */
-const WHATSAPP_NUMBER = '84905648626';
-const WHATSAPP_DISPLAY = '+84 905 648 626';
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Hi! I'd like to discuss a custom build.",
-)}`;
 
 export default function Services() {
   return (

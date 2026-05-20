@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { WhatsAppFab } from '@/components/WhatsAppFab';
 
 export const metadata: Metadata = {
   title: 'Flexa Unsubscribe - User Guide',
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        {children}
+        <WhatsAppFab />
+      </body>
     </html>
   );
 }
