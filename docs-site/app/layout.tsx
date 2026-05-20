@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { WhatsAppFab } from '@/components/WhatsAppFab';
+import { FontSizeControl, PRELOAD_SCRIPT } from '@/components/FontSizeControl';
 
 export const metadata: Metadata = {
   title: 'Flexa Unsubscribe - User Guide',
@@ -17,8 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Apply the saved font scale synchronously before paint so
+            large-text users don't see a flash of 100% text on every
+            page load. See components/FontSizeControl.tsx. */}
+        <script dangerouslySetInnerHTML={{ __html: PRELOAD_SCRIPT }} />
+      </head>
       <body className="min-h-screen antialiased">
         {children}
+        <FontSizeControl />
         <WhatsAppFab />
       </body>
     </html>
