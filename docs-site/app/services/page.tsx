@@ -4,7 +4,7 @@ import { WHATSAPP_DISPLAY, WHATSAPP_URL } from '@/lib/contact';
 import { Callout, Lead, Section } from '@/components/ui';
 
 export const metadata = {
-  title: 'Custom development services — Flexa Unsubscribe',
+  title: 'Custom development services - Flexa Unsubscribe',
   description:
     'Beyond the Flexa Unsubscribe plugin: I also build custom WordPress, ' +
     'WooCommerce and headless web systems for e-commerce, healthcare, and ' +
@@ -34,8 +34,8 @@ export default function Services() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-ink-soft">
             I&apos;m the developer behind Flexa Unsubscribe. Outside of this
-            plugin, I help product owners design and ship custom web systems —
-            online stores, patient portals, booking platforms — built on
+            plugin, I help product owners design and ship custom web systems -
+            online stores, patient portals, booking platforms - built on
             WordPress / WooCommerce or modern headless stacks.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -68,7 +68,7 @@ export default function Services() {
         {/* ── What I build ─────────────────────────────────────── */}
         <Section id="what-i-build" kicker="Services" title="What I build">
           <Lead>
-            Pick the closest match — or describe your problem and I&apos;ll
+            Pick the closest match - or describe your problem and I&apos;ll
             tell you which bucket it lands in.
           </Lead>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -82,7 +82,7 @@ export default function Services() {
             />
             <ServiceCard
               title="React admin dashboards"
-              body="Modern in-WP admin UIs (React + TypeScript + shadcn/ui) backed by the WP REST API — like the Flexa Unsubscribe admin app."
+              body="Modern in-WP admin UIs (React + TypeScript + shadcn/ui) backed by the WP REST API - like the Flexa Unsubscribe admin app."
             />
             <ServiceCard
               title="Headless &amp; integrations"
@@ -124,7 +124,7 @@ export default function Services() {
             />
           </div>
           <p>
-            Not on the list? Reach out anyway — most builds carry across
+            Not on the list? Reach out anyway - most builds carry across
             verticals. If I&apos;ve never touched your industry I&apos;ll say
             so.
           </p>
@@ -167,7 +167,7 @@ export default function Services() {
         {/* ── Contact ──────────────────────────────────────────── */}
         <Section id="contact" kicker="Let&rsquo;s talk" title="Get in touch">
           <Lead>
-            WhatsApp is the fastest channel — usually a same-day reply during
+            WhatsApp is the fastest channel - usually a same-day reply during
             UTC+7 business hours. Feel free to lead with a one-paragraph
             problem statement; you don&apos;t need to have it scoped before
             reaching out.
@@ -182,7 +182,7 @@ export default function Services() {
             </p>
             <p className="mt-2 text-sm text-ink-soft">
               Tap the button to open WhatsApp with a starter message
-              pre-filled — edit it freely, of course.
+              pre-filled - edit it freely, of course.
             </p>
             <div className="mt-5">
               <WhatsAppButton href={WHATSAPP_URL} />
@@ -191,7 +191,7 @@ export default function Services() {
 
           <Callout tone="info" title="Prefer something other than WhatsApp?">
             <p>
-              Tell me in the first message and we&apos;ll switch — email,
+              Tell me in the first message and we&apos;ll switch - email,
               Telegram, Signal, scheduled Google Meet all work. WhatsApp is
               just where I keep an eye out fastest.
             </p>
