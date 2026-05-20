@@ -63,7 +63,6 @@ export default function Home() {
           </Steps>
           <Screenshot
             alt="WordPress admin sidebar with the “Unsubscribe” menu item"
-            caption="public/screenshots/menu.png"
           />
           <Callout tone="info" title="Who can see this?">
             <p>
@@ -97,8 +96,8 @@ export default function Home() {
             </li>
           </ul>
           <Screenshot
+            src="/screenshots/dashboard.png"
             alt="Dashboard with summary cards and the trend / reason charts"
-            caption="public/screenshots/dashboard.png"
           />
         </Section>
 
@@ -138,8 +137,8 @@ export default function Home() {
             </Step>
           </Steps>
           <Screenshot
+            src="/screenshots/settings-general.png"
             alt="Settings → General with the auto-append / blocking toggles and exclude keywords"
-            caption="public/screenshots/settings-general.png"
           />
           <Callout tone="warn" title="Use exclude keywords for important mail">
             <p>
@@ -186,8 +185,8 @@ export default function Home() {
             send yourself a test email to confirm it looks the way you want.
           </p>
           <Screenshot
+            src="/screenshots/settings-footer.png"
             alt="The “Unsubscribe footer” block: heading text, button label and colour picker"
-            caption="public/screenshots/settings-footer.png"
           />
           <Callout tone="info" title="Auto-append must be on">
             <p>
@@ -237,8 +236,8 @@ export default function Home() {
             </Step>
           </Steps>
           <Screenshot
+            src="/screenshots/appearance.png"
             alt="Appearance editor on the left with the live preview of the public page on the right"
-            caption="public/screenshots/appearance.png"
           />
           <Callout tone="info" title="The {email} placeholder">
             <p>
@@ -280,8 +279,8 @@ export default function Home() {
             </li>
           </ul>
           <Screenshot
+            src="/screenshots/unsubscribes.png"
             alt="Unsubscribes list with search box, sortable columns and pagination"
-            caption="public/screenshots/unsubscribes.png"
           />
         </Section>
 
@@ -307,8 +306,8 @@ export default function Home() {
             <li>Delete a single log entry, or use the clear action to empty the whole log.</li>
           </ul>
           <Screenshot
+            src="/screenshots/blocked.png"
             alt="Blocked Emails log showing recipient, subject, sender and blocked date"
-            caption="public/screenshots/blocked.png"
           />
         </Section>
 
@@ -329,8 +328,8 @@ export default function Home() {
             search / sort / pagination controls as the other lists.
           </p>
           <Screenshot
+            src="/screenshots/resubscribed.png"
             alt="Re-subscribed list with original opt-out date and re-subscribe date"
-            caption="public/screenshots/resubscribed.png"
           />
         </Section>
 
@@ -358,8 +357,8 @@ export default function Home() {
             </Step>
           </Steps>
           <Screenshot
+            src="/screenshots/reasons.png"
             alt="Reasons manager with add, edit, reorder and delete controls"
-            caption="public/screenshots/reasons.png"
           />
         </Section>
 
@@ -371,8 +370,8 @@ export default function Home() {
             as a spreadsheet you can open in Excel, Google Sheets or your CRM.
           </Lead>
           <Screenshot
+            src="/screenshots/export.png"
             alt="A list screen with the Export CSV button highlighted"
-            caption="public/screenshots/export.png"
           />
           <Callout tone="security" title="Exports contain personal data">
             <p>
