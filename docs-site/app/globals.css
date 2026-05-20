@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
 /*
+ * Class-based dark mode. With this variant registered, any
+ * `dark:` utility (e.g. `dark:bg-slate-800`) activates when an
+ * ancestor — in practice <html> — carries the `dark` class.
+ * The class is toggled by components/ThemeControl.tsx and applied
+ * synchronously by the preload script in app/layout.tsx so the
+ * first paint matches the user's saved preference.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
  * Tailwind v4 CSS-first config. The brand accent (#00aad0) is the
  * plugin's default appearance `button_bg_color`, so the docs visually
  * match the product.
@@ -26,10 +36,32 @@
     monospace;
 }
 
+/*
+ * Dark-mode palette. Every component uses the semantic tokens
+ * (text-ink, text-ink-soft, bg-canvas, bg-surface, border-line),
+ * so swapping these six variables flips the whole page. The
+ * `brand-*` ramp stays put — the cyan accent (#00aad0) has enough
+ * luminance to read well on the dark canvas, and keeping it stable
+ * keeps brand recognition consistent across modes.
+ */
+html.dark {
+  --color-ink: #f1f5f9;        /* slate-100  */
+  --color-ink-soft: #cbd5e1;   /* slate-300  */
+  --color-muted: #94a3b8;      /* slate-400  */
+  --color-line: #334155;       /* slate-700  */
+  --color-surface: #1e293b;    /* slate-800  */
+  --color-canvas: #0b1220;     /* deep slate */
+}
+
 html {
   scroll-behavior: smooth;
   /* Offset anchored sections clear of the sticky mobile header. */
   scroll-padding-top: 5rem;
+  /* Tell the UA which form controls / scrollbars to draw. */
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -37,6 +69,10 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  /* Smooth the canvas/text swap when toggling the theme so the
+     flip doesn't feel like a strobe — keep it short so it isn't
+     perceived as sluggish. */
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
 /* Inline + block code styling shared across the page. */
@@ -48,4 +84,9 @@ code {
 ::selection {
   background-color: var(--color-brand-100);
   color: var(--color-brand-700);
+}
+html.dark ::selection {
+  /* Light cyan on dark needs the inverse pair to stay readable. */
+  background-color: var(--color-brand-700);
+  color: var(--color-brand-50);
 }

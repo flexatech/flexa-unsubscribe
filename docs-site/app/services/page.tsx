@@ -42,7 +42,7 @@ export default function Services() {
             <WhatsAppButton href={WHATSAPP_URL} />
             <a
               href="#what-i-build"
-              className="inline-flex items-center rounded-md border border-line bg-canvas px-4 py-2.5 text-sm font-semibold text-ink-soft transition-colors hover:bg-slate-50"
+              className="inline-flex items-center rounded-md border border-line bg-canvas px-4 py-2.5 text-sm font-semibold text-ink-soft transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/60"
             >
               See what I can build
             </a>
