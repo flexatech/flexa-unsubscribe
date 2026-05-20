@@ -19,7 +19,7 @@ export default function Home() {
       <Sidebar
         items={GUIDE_NAV}
         title="Flexa Unsubscribe"
-        subtitle="User guide · v3.0.3"
+        subtitle="User guide · v3.1.0"
         crossLinkHref="/technical"
         crossLinkLabel="Technical documentation →"
         secondaryLink={{ href: '/services', label: 'Need a custom build?' }}
@@ -29,7 +29,7 @@ export default function Home() {
         {/* ── Hero ─────────────────────────────────────────────── */}
         <header className="py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">
-            User guide · v3.0.3
+            User guide · v3.1.0
           </p>
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
             Getting the most out of Flexa Unsubscribe
@@ -384,6 +384,64 @@ export default function Home() {
           </Callout>
         </Section>
 
+        {/* ── Import ───────────────────────────────────────────── */}
+        <Section id="import" kicker="Step 11" title="Import from CSV">
+          <Lead>
+            On the <strong>Unsubscribes</strong> screen, the{' '}
+            <strong>Import CSV</strong> button (next to Export CSV) lets you
+            bulk-add opt-out records from a spreadsheet - handy when you’re
+            migrating from another tool or seeding a new site from an existing
+            export.
+          </Lead>
+          <Steps>
+            <Step>
+              Click <strong>Import CSV</strong>. A dialog opens with a
+              file-picker and a link to download a sample CSV.
+            </Step>
+            <Step>
+              Choose a CSV file. The expected columns are{' '}
+              <strong>Email</strong> (required), <strong>Reason</strong>{' '}
+              (optional) and <strong>Date</strong> (optional). A header row is
+              auto-detected - so the file you got from the Export button
+              re-imports cleanly. Headerless files work too: if the first cell
+              is an email, columns are read by position.
+            </Step>
+            <Step>
+              Click <strong>Import</strong>. After a few seconds you’ll see a
+              summary: how many rows were{' '}
+              <strong>imported</strong>, how many were{' '}
+              <strong>skipped</strong> (because the email was already opted
+              out), and how many <strong>failed</strong> (e.g. an invalid
+              email) - with the row number for each failure so you can fix the
+              file.
+            </Step>
+          </Steps>
+          <Callout tone="info" title="Existing emails are skipped, never overwritten">
+            <p>
+              If an address from the CSV is already in the unsubscribes list,
+              it stays put with its original date and reason. The import is
+              idempotent - safe to retry, safe to run against a file that
+              overlaps your current list.
+            </p>
+          </Callout>
+          <ul className="list-disc space-y-1.5 pl-5 text-sm text-ink-soft">
+            <li>
+              <strong>Limits.</strong> Up to <strong>2 MB</strong> per file and{' '}
+              <strong>10,000 rows</strong> per import. For larger lists, split
+              the file and import each piece.
+            </li>
+            <li>
+              <strong>Missing Date.</strong> If a row has no Date, the import
+              uses the current time.
+            </li>
+            <li>
+              <strong>Permissions.</strong> Same as Export - only users with
+              the <em>manage_options</em> capability (administrators) can
+              import.
+            </li>
+          </ul>
+        </Section>
+
         {/* ── FAQ ──────────────────────────────────────────────── */}
         <Section
           id="faq"
@@ -431,7 +489,7 @@ export default function Home() {
         </Section>
 
         <footer className="pt-12 text-sm text-muted">
-          <p>Flexa Unsubscribe v3.0.3 · user guide. GPL v2 or later.</p>
+          <p>Flexa Unsubscribe v3.1.0 · user guide. GPL v2 or later.</p>
         </footer>
       </main>
     </div>

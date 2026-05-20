@@ -20,7 +20,7 @@ export default function Technical() {
       <Sidebar
         items={NAV}
         title="Flexa Unsubscribe"
-        subtitle="Technical documentation · v3.0.3"
+        subtitle="Technical documentation · v3.1.0"
         crossLinkHref="/"
         crossLinkLabel="← Back to the User Guide"
         secondaryLink={{ href: '/services', label: 'Need a custom build?' }}
@@ -30,7 +30,7 @@ export default function Technical() {
         {/* ── Hero ─────────────────────────────────────────────── */}
         <header className="py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">
-            WordPress plugin · v3.0.3
+            WordPress plugin · v3.1.0
           </p>
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
             Flexa Unsubscribe
@@ -78,7 +78,7 @@ export default function Technical() {
           <Table
             head={['Property', 'Value']}
             rows={[
-              ['Current version', <Code key="v">3.0.3</Code>],
+              ['Current version', <Code key="v">3.1.0</Code>],
               ['Requires WordPress', '5.8 or newer'],
               ['Tested up to', 'WordPress 6.9'],
               ['Requires PHP', '7.4 or newer'],
@@ -466,6 +466,14 @@ add_query_arg([
                 'Delete one unsubscribe row.',
               ],
               [
+                <Method key="2b" verb="POST" />,
+                <Code key="r2b">/unsubscribes/import</Code>,
+                <span key="b">
+                  CSV import. <Code>multipart/form-data</Code> with field{' '}
+                  <Code>file</Code>. Skips emails already on the list.
+                </span>,
+              ],
+              [
                 <Method key="3" verb="GET" />,
                 <Code key="r3">/blocked</Code>,
                 'Paginated blocked-attempt log. order_by: blocked_at | email | subject | from_email.',
@@ -652,8 +660,9 @@ add_query_arg([
           </Callout>
         </Section>
 
-        {/* ── CSV export ───────────────────────────────────────── */}
-        <Section id="csv-export" kicker="Data" title="CSV export">
+        {/* ── CSV export & import ──────────────────────────────── */}
+        <Section id="csv-export" kicker="Data" title="CSV export &amp; import">
+          <h3 className="text-sm font-semibold text-ink">Export</h3>
           <p>
             Each list screen offers a CSV download handled via{' '}
             <Code>admin-post.php</Code>. There are three exports -
@@ -661,7 +670,9 @@ add_query_arg([
             own nonce (<Code>flexa_export_csv</Code>,{' '}
             <Code>flexa_export_blocked_csv</Code>,{' '}
             <Code>flexa_export_resubscribed_csv</Code>) verified with{' '}
-            <Code>check_admin_referer()</Code>.
+            <Code>check_admin_referer()</Code>. Streaming is keyset-paginated
+            on the primary key so memory stays flat regardless of total row
+            count.
           </p>
           <Callout tone="security" title="Exports contain PII">
             <p>
@@ -671,6 +682,78 @@ add_query_arg([
               where the files are stored.
             </p>
           </Callout>
+
+          <h3 className="pt-4 text-sm font-semibold text-ink">Import</h3>
+          <p>
+            The <strong>Unsubscribes</strong> screen accepts a CSV upload via{' '}
+            <Code>POST /unsubscribes/import</Code>. The endpoint takes a{' '}
+            <Code>multipart/form-data</Code> body with field <Code>file</Code>,
+            requires <Code>manage_options</Code> plus the standard{' '}
+            <Code>X-WP-Nonce</Code> header, and returns a per-row outcome
+            summary.
+          </p>
+          <Table
+            head={['Column', 'Required', 'Notes']}
+            rows={[
+              [
+                <Code key="e">Email</Code>,
+                'Yes',
+                'Validated with sanitize_email + is_email. Invalid rows are reported back in failed[].',
+              ],
+              [
+                <Code key="r">Reason</Code>,
+                'No',
+                'Free text. Passed through sanitize_text_field.',
+              ],
+              [
+                <Code key="d">Date</Code>,
+                'No',
+                <span key="dn">
+                  Parsed with <Code>strtotime</Code> and stored as MySQL{' '}
+                  <Code>DATETIME</Code>. Missing or unparseable values fall
+                  back to <Code>current_time(&apos;mysql&apos;)</Code>.
+                </span>,
+              ],
+            ]}
+          />
+          <p>
+            A header row is auto-detected (case-insensitive matching on{' '}
+            <Code>Email</Code> / <Code>Reason</Code> / <Code>Date</Code> with a
+            few aliases). Headerless files are accepted too: if the first
+            cell parses as an email, columns are read by position.
+          </p>
+          <h4 className="pt-2 text-sm font-semibold text-ink">
+            Dedup &amp; safety
+          </h4>
+          <ul className="list-disc space-y-1.5 pl-5 text-sm leading-7 text-ink-soft">
+            <li>
+              Skip-on-duplicate: implemented as{' '}
+              <Code>INSERT IGNORE</Code> on the <Code>email</Code> UNIQUE key.
+              Existing rows are never modified - their original{' '}
+              <Code>unsubscribed_at</Code> and <Code>reason</Code> stand. Counted
+              under <Code>skipped_duplicate</Code> in the response.
+            </li>
+            <li>
+              Limits: <strong>2 MiB</strong> file size, <strong>10,000</strong>{' '}
+              rows per import, first <strong>100</strong> row-level errors
+              returned in <Code>failed[]</Code> (the{' '}
+              <Code>failed_count</Code> field keeps climbing past 100).
+            </li>
+            <li>
+              Streaming: rows are read with <Code>fgetcsv</Code> one at a time;
+              the full file is never materialized in PHP memory.
+            </li>
+          </ul>
+          <CodeBlock caption="Example response">{`{
+  "imported":          138,
+  "skipped_duplicate": 12,
+  "failed_count":      2,
+  "failed": [
+    { "row": 7,   "email": "not-an-email", "error": "Invalid email address." },
+    { "row": 142, "email": "",             "error": "Missing email." }
+  ],
+  "total":             152
+}`}</CodeBlock>
         </Section>
 
         {/* ── Database schema ──────────────────────────────────── */}
@@ -708,6 +791,34 @@ add_query_arg([
 
         {/* ── Changelog ────────────────────────────────────────── */}
         <Section id="changelog" kicker="History" title="Changelog">
+          <ChangelogEntry version="3.1.0">
+            <li>
+              <strong>New:</strong> CSV import on the{' '}
+              <strong>Unsubscribes</strong> screen. New REST endpoint{' '}
+              <Code>POST /unsubscribes/import</Code> accepts a multipart upload
+              and returns a per-row imported / skipped / failed summary.
+            </li>
+            <li>
+              <strong>Schema:</strong> The import shape matches the existing
+              CSV export (<Code>Email</Code>, <Code>Reason</Code>,{' '}
+              <Code>Date</Code>) so an export from one site re-imports cleanly
+              on another. Header row is auto-detected; headerless files work
+              too.
+            </li>
+            <li>
+              <strong>Dedup:</strong> Skip-on-duplicate via{' '}
+              <Code>INSERT IGNORE</Code> on the <Code>email</Code> UNIQUE key.
+              Existing rows are never overwritten - the import is idempotent.
+            </li>
+            <li>
+              <strong>Safety:</strong> 2 MiB file size cap, 10,000 row cap,{' '}
+              <Code>manage_options</Code> + nonce required.
+            </li>
+            <li>
+              <strong>i18n:</strong> 29 new strings (8 PHP, 21 admin UI)
+              translated across all seven bundled locales.
+            </li>
+          </ChangelogEntry>
           <ChangelogEntry version="3.0.3">
             <li>
               <strong>New:</strong> Customizable unsubscribe email footer - the
@@ -776,7 +887,7 @@ add_query_arg([
 
         <footer className="pt-12 text-sm text-muted">
           <p>
-            Flexa Unsubscribe v3.0.3 · documentation generated from the plugin
+            Flexa Unsubscribe v3.1.0 · documentation generated from the plugin
             source. GPL v2 or later.
           </p>
         </footer>

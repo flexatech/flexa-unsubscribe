@@ -4,11 +4,11 @@ Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 3.0.3
+Stable tag: 3.1.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Professional email unsubscribe management with HMAC tokens, auto-appended unsubscribe links, recipient blocking, and CSV export.
+Professional email unsubscribe management with HMAC tokens, auto-appended unsubscribe links, recipient blocking, and CSV import/export.
 
 == Description ==
 
@@ -25,7 +25,7 @@ Professional email unsubscribe management with HMAC tokens, auto-appended unsubs
 Starting with v3.0.0 the admin is a React single-page application with seven screens:
 
 * **Dashboard** - stats cards + bar chart of unsubscribes over time + pie chart of top reasons.
-* **Unsubscribes / Blocked emails / Re-subscribed** - paginated tables with sorting, per-row delete, and CSV export.
+* **Unsubscribes / Blocked emails / Re-subscribed** - paginated tables with sorting, per-row delete, and CSV export. The Unsubscribes screen also accepts CSV import for bulk-adding opt-out records (skip-on-duplicate).
 * **Reasons** - manage the dropdown options shown on the public unsubscribe form; click-to-edit, ↑/↓ reorder.
 * **Settings** - enable/disable auto-append + blocking, tune the exclude-keywords list.
 * **Appearance** - 19 tokens (colors, typography, copy) across three tabs with a live preview panel.
@@ -67,6 +67,13 @@ Every in-flight unsubscribe/resubscribe link becomes invalid, because the HMAC k
 No - CSV exports contain email addresses. Treat them as PII. The download link is nonce-protected so it's not trivially shareable across sessions.
 
 == Changelog ==
+
+= 3.1.0 =
+* **New:** CSV import on the Unsubscribes screen. Bulk-add opt-out records by uploading a CSV file - the same `Email, Reason, Date` shape produced by the existing CSV export, so an export from one site can be re-imported on another. Email is the only required column; Reason and Date are optional. A header row is auto-detected; headerless files are also accepted.
+* **Behavior:** Existing emails are skipped (the import is idempotent - it never overwrites the original `unsubscribed_at` or reason for a row already on the list). The dialog reports imported / skipped / failed counts and lists the first 100 row-level errors so you can correct the source file.
+* **Safety limits:** 2 MiB max file size, 10,000 rows per import, requires `manage_options` plus the standard REST nonce.
+* **REST:** new `POST /flexa-unsubscribe/v1/unsubscribes/import` endpoint accepts a `multipart/form-data` upload (field `file`).
+* **i18n:** 29 new translatable strings (8 PHP, 21 admin UI), translated across all seven bundled locales.
 
 = 3.0.2 =
 * **Security:** Sanitize `$_GET['email']` and `$_GET['token']` at the read site in the public unsubscribe/resubscribe handler (`sanitize_email` / `sanitize_text_field` + `wp_unslash`), with a documented `phpcs:disable WordPress.Security.NonceVerification.Recommended` since the HMAC token is the CSRF protection layer for these public links.

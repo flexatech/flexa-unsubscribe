@@ -2,7 +2,7 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Flexa Unsubscribe 3.0.3\n"
+"Project-Id-Version: Flexa Unsubscribe 3.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-"
 "unsubscribe\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-20T02:56:52+00:00\n"
+"POT-Creation-Date: 2026-05-20T03:07:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: flexa-unsubscribe.php
 msgid ""
 "Professional email unsubscribe management with HMAC tokens, auto-append "
-"logic, and CSV export."
+"logic, and CSV import/export."
 msgstr ""
 
 #. Author of the plugin
