@@ -447,6 +447,69 @@
             ],
             "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
                 "Automatisk infogning \u00e4r avst\u00e4ngd - denna sidfot l\u00e4ggs inte till i utg\u00e5ende e-post f\u00f6rr\u00e4n du aktiverar den ovan."
+            ],
+            "Import CSV": [
+                "Importera CSV"
+            ],
+            "%d records imported.": [
+                "%d poster importerade."
+            ],
+            "Import unsubscribes from CSV": [
+                "Importera avregistreringar fr\u00e5n CSV"
+            ],
+            "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped.": [
+                "Ladda upp en CSV-fil f\u00f6r att l\u00e4gga till avregistreringar i bulk. Befintliga e-postadresser hoppas \u00f6ver."
+            ],
+            "Importing\u2026": [
+                "Importerar\u2026"
+            ],
+            "Import": [
+                "Importera"
+            ],
+            "Import another file": [
+                "Importera en till fil"
+            ],
+            "Done": [
+                "Klar"
+            ],
+            "Click to choose a CSV file": [
+                "Klicka f\u00f6r att v\u00e4lja en CSV-fil"
+            ],
+            "Maximum 2 MB \u00b7 10,000 rows": [
+                "Max 2 MB \u00b7 10 000 rader"
+            ],
+            "CSV format": [
+                "CSV-format"
+            ],
+            "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected.": [
+                "Kolumner: E-post (kr\u00e4vs), Anledning (valfri), Datum (valfritt). En rubrikrad identifieras automatiskt."
+            ],
+            "Download sample CSV": [
+                "Ladda ner exempel-CSV"
+            ],
+            "Imported": [
+                "Importerade"
+            ],
+            "Skipped": [
+                "Hoppade \u00f6ver"
+            ],
+            "Failed": [
+                "Misslyckades"
+            ],
+            "All rows imported successfully.": [
+                "Alla rader importerades."
+            ],
+            "%d rows were skipped because the email was already in the unsubscribes list.": [
+                "%d rader hoppades \u00f6ver eftersom e-postadressen redan fanns i avregistreringslistan."
+            ],
+            "%d failed rows": [
+                "%d misslyckade rader"
+            ],
+            "Row %d": [
+                "Rad %d"
+            ],
+            "\u2026 and %d more errors not shown.": [
+                "\u2026 och %d ytterligare fel som inte visas."
             ]
         }
     }

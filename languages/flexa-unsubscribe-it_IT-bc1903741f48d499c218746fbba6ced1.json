@@ -447,6 +447,69 @@
             ],
             "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
                 "L'aggiunta automatica \u00e8 disattivata - questo pi\u00e8 di pagina non viene aggiunto alle email in uscita finch\u00e9 non lo attivi sopra."
+            ],
+            "Import CSV": [
+                "Importa CSV"
+            ],
+            "%d records imported.": [
+                "%d record importati."
+            ],
+            "Import unsubscribes from CSV": [
+                "Importa cancellazioni da CSV"
+            ],
+            "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped.": [
+                "Carica un file CSV per aggiungere in blocco i record di cancellazione. Le email gi\u00e0 presenti vengono ignorate."
+            ],
+            "Importing\u2026": [
+                "Importazione\u2026"
+            ],
+            "Import": [
+                "Importa"
+            ],
+            "Import another file": [
+                "Importa un altro file"
+            ],
+            "Done": [
+                "Fatto"
+            ],
+            "Click to choose a CSV file": [
+                "Fai clic per scegliere un file CSV"
+            ],
+            "Maximum 2 MB \u00b7 10,000 rows": [
+                "Massimo 2 MB \u00b7 10.000 righe"
+            ],
+            "CSV format": [
+                "Formato CSV"
+            ],
+            "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected.": [
+                "Colonne: Email (obbligatoria), Motivo (facoltativo), Data (facoltativa). La riga di intestazione viene rilevata automaticamente."
+            ],
+            "Download sample CSV": [
+                "Scarica CSV di esempio"
+            ],
+            "Imported": [
+                "Importati"
+            ],
+            "Skipped": [
+                "Saltati"
+            ],
+            "Failed": [
+                "Falliti"
+            ],
+            "All rows imported successfully.": [
+                "Tutte le righe sono state importate correttamente."
+            ],
+            "%d rows were skipped because the email was already in the unsubscribes list.": [
+                "%d righe sono state saltate perch\u00e9 l'email era gi\u00e0 nella lista delle cancellazioni."
+            ],
+            "%d failed rows": [
+                "%d righe non riuscite"
+            ],
+            "Row %d": [
+                "Riga %d"
+            ],
+            "\u2026 and %d more errors not shown.": [
+                "\u2026 e altri %d errori non mostrati."
             ]
         }
     }

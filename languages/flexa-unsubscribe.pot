@@ -3,13 +3,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexa Unsubscribe 3.0.3\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-unsubscribe\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/flexa-"
+"unsubscribe\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-19T21:09:23+00:00\n"
+"POT-Creation-Date: 2026-05-20T02:56:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
@@ -21,7 +22,9 @@ msgstr ""
 
 #. Description of the plugin
 #: flexa-unsubscribe.php
-msgid "Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV export."
+msgid ""
+"Professional email unsubscribe management with HMAC tokens, auto-append "
+"logic, and CSV export."
 msgstr ""
 
 #. Author of the plugin
@@ -29,22 +32,16 @@ msgstr ""
 msgid "flexatech"
 msgstr ""
 
-#: includes/admin.php:29
-#: includes/admin.php:61
-#: includes/admin.php:95
+#: includes/admin.php:29 includes/admin.php:61 includes/admin.php:95
 msgid "Unauthorized"
 msgstr ""
 
-#: includes/admin.php:42
-#: includes/admin.php:74
-#: includes/admin.php:108
-#: assets/dist/admin/js/main.js:3
+#: includes/admin.php:42 includes/admin.php:74 includes/admin.php:108
+#: assets/dist/admin/js/main.js:13
 msgid "Email"
 msgstr ""
 
-#: includes/admin.php:43
-#: includes/admin.php:111
-#: assets/dist/admin/js/main.js:5
+#: includes/admin.php:43 includes/admin.php:111 assets/dist/admin/js/main.js:15
 msgid "Reason"
 msgstr ""
 
@@ -52,8 +49,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: includes/admin.php:75
-#: assets/dist/admin/js/main.js:7
+#: includes/admin.php:75 assets/dist/admin/js/main.js:17
 msgid "Subject"
 msgstr ""
 
@@ -89,6 +85,40 @@ msgstr ""
 msgid "Blocked email record not found."
 msgstr ""
 
+#: includes/Controllers/ImportUnsubscribesRestController.php:72
+msgid "No CSV file was uploaded."
+msgstr ""
+
+#: includes/Controllers/ImportUnsubscribesRestController.php:80
+msgid "The upload failed. Please try again."
+msgstr ""
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+#: includes/Controllers/ImportUnsubscribesRestController.php:90
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr ""
+
+#: includes/Controllers/ImportUnsubscribesRestController.php:102
+msgid "Could not read the uploaded CSV file."
+msgstr ""
+
+#. translators: %d: maximum rows allowed per import.
+#: includes/Controllers/ImportUnsubscribesRestController.php:147
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr ""
+
+#: includes/Controllers/ImportUnsubscribesRestController.php:168
+msgid "Missing email."
+msgstr ""
+
+#: includes/Controllers/ImportUnsubscribesRestController.php:188
+msgid "Invalid email address."
+msgstr ""
+
+#: includes/Controllers/ImportUnsubscribesRestController.php:201
+msgid "The CSV file is empty."
+msgstr ""
+
 #: includes/Controllers/ReasonsRestController.php:135
 msgid "Failed to create reason."
 msgstr ""
@@ -107,18 +137,14 @@ msgstr ""
 msgid "Missing or invalid token."
 msgstr ""
 
-#: includes/Controllers/SettingsRestController.php:40
-#: includes/core.php:262
+#: includes/Controllers/SettingsRestController.php:40 includes/core.php:262
 msgid "No longer want to receive these emails?"
 msgstr ""
 
-#: includes/Controllers/SettingsRestController.php:41
-#: includes/core.php:266
-#: includes/Engine/Admin/Settings.php:45
-#: includes/Engine/Admin/Settings.php:46
-#: templates/unsubscribe-page.php:93
-#: assets/dist/admin/js/main.js:1
-#: assets/dist/admin/js/main.js:13
+#: includes/Controllers/SettingsRestController.php:41 includes/core.php:266
+#: includes/Engine/Admin/Settings.php:45 includes/Engine/Admin/Settings.php:46
+#: templates/unsubscribe-page.php:93 assets/dist/admin/js/main.js:1
+#: assets/dist/admin/js/main.js:23
 msgid "Unsubscribe"
 msgstr ""
 
@@ -145,25 +171,28 @@ msgstr ""
 
 #: includes/Controllers/SettingsRestController.php:105
 #: templates/unsubscribe-page.php:38
-msgid "We greatly appreciate your input and will use this information to improve our content in the future."
+msgid ""
+"We greatly appreciate your input and will use this information to improve "
+"our content in the future."
 msgstr ""
 
 #: includes/Controllers/SettingsRestController.php:106
-#: templates/resubscribe-page.php:31
-#: templates/unsubscribe-page.php:39
+#: templates/resubscribe-page.php:31 templates/unsubscribe-page.php:39
 msgid "Back to Home Page"
 msgstr ""
 
 #: includes/Controllers/SettingsRestController.php:107
-#: templates/resubscribe-page.php:32
-#: templates/unsubscribe-page.php:40
+#: templates/resubscribe-page.php:32 templates/unsubscribe-page.php:40
 msgid "We're Sorry, This Link Is No Longer Valid"
 msgstr ""
 
 #. translators: <br> is an HTML line break; keep it in the translation.
 #: includes/Controllers/SettingsRestController.php:109
 #: templates/unsubscribe-page.php:42
-msgid "The unsubscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgid ""
+"The unsubscribe link you used appears to be invalid or has expired.<br>If "
+"you believe this is a mistake, please try again or contact our support team "
+"for assistance."
 msgstr ""
 
 #: includes/Controllers/SettingsRestController.php:110
@@ -173,7 +202,9 @@ msgstr ""
 
 #: includes/Controllers/SettingsRestController.php:111
 #: templates/resubscribe-page.php:30
-msgid "You have been successfully re-subscribed. You will start receiving emails again."
+msgid ""
+"You have been successfully re-subscribed. You will start receiving emails "
+"again."
 msgstr ""
 
 #: includes/Controllers/UnsubscribesRestController.php:90
@@ -192,32 +223,31 @@ msgstr ""
 msgid "Content not relevant"
 msgstr ""
 
-#: includes/database.php:104
-#: templates/unsubscribe-page.php:120
+#: includes/database.php:104 templates/unsubscribe-page.php:120
 msgid "Other"
 msgstr ""
 
-#: includes/database.php:664
+#: includes/database.php:714
 msgid "No reason provided"
 msgstr ""
 
 #. translators: <br> is an HTML line break; keep it in the translation.
 #: templates/resubscribe-page.php:34
-msgid "The re-subscribe link you used appears to be invalid or has expired.<br>If you believe this is a mistake, please try again or contact our support team for assistance."
+msgid ""
+"The re-subscribe link you used appears to be invalid or has expired.<br>If "
+"you believe this is a mistake, please try again or contact our support team "
+"for assistance."
 msgstr ""
 
-#: templates/resubscribe-page.php:63
-#: assets/dist/admin/js/main.js:13
+#: templates/resubscribe-page.php:63 assets/dist/admin/js/main.js:23
 msgid "Re-subscribe"
 msgstr ""
 
-#: templates/unsubscribe-page.php:107
-#: assets/dist/admin/js/main.js:13
+#: templates/unsubscribe-page.php:107 assets/dist/admin/js/main.js:23
 msgid "-- Please select a reason --"
 msgstr ""
 
-#: templates/unsubscribe-page.php:132
-#: assets/dist/admin/js/main.js:13
+#: templates/unsubscribe-page.php:132 assets/dist/admin/js/main.js:23
 msgid "Re-subscribe to emails"
 msgstr ""
 
@@ -225,8 +255,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:1
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:15
 msgid "Unsubscribes"
 msgstr ""
 
@@ -234,8 +263,7 @@ msgstr ""
 msgid "Blocked"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:1
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:19
 msgid "Re-subscribed"
 msgstr ""
 
@@ -243,13 +271,11 @@ msgstr ""
 msgid "Reasons"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:1
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:23
 msgid "Settings"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:1
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:25
 msgid "Appearance"
 msgstr ""
 
@@ -257,7 +283,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:1
+#: assets/dist/admin/js/main.js:1 assets/dist/admin/js/main.js:3
 msgid "Cancel"
 msgstr ""
 
@@ -307,494 +333,604 @@ msgid "Showing %1$s–%2$s of %3$s"
 msgstr ""
 
 #: assets/dist/admin/js/main.js:3
+msgid "Import unsubscribes from CSV"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:3
+msgid ""
+"Upload a CSV file to bulk-add unsubscribe records. Existing emails are "
+"skipped."
+msgstr ""
+
+#. translators: %d: number of newly imported unsubscribe records.
+#: assets/dist/admin/js/main.js:5
+msgid "%d records imported."
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Importing…"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Import"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Import another file"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Done"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Click to choose a CSV file"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "CSV format"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid ""
+"Columns: Email (required), Reason (optional), Date (optional). A header row "
+"is auto-detected."
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Download sample CSV"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Imported"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Skipped"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "Failed"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:5
+msgid "All rows imported successfully."
+msgstr ""
+
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+#: assets/dist/admin/js/main.js:7
+msgid ""
+"%d rows were skipped because the email was already in the unsubscribes list."
+msgstr ""
+
+#. translators: %d: number of CSV rows that failed to import.
+#: assets/dist/admin/js/main.js:9
+msgid "%d failed rows"
+msgstr ""
+
+#. translators: %d: CSV row number that failed (1-indexed).
+#: assets/dist/admin/js/main.js:11
+msgid "Row %d"
+msgstr ""
+
+#. translators: %d: number of additional errors not shown.
+#: assets/dist/admin/js/main.js:13
+msgid "… and %d more errors not shown."
+msgstr ""
+
+#: assets/dist/admin/js/main.js:13
 msgid "Actions"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:3
+#: assets/dist/admin/js/main.js:13
 msgid "Row actions"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:3
+#: assets/dist/admin/js/main.js:13
 msgid "Unsubscribe record deleted."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:3
+#: assets/dist/admin/js/main.js:13
 msgid "Delete unsubscribe record?"
 msgstr ""
 
 #. translators: %s: email address
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "This will remove the record for %s. This cannot be undone."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
-#: assets/dist/admin/js/main.js:7
-#: assets/dist/admin/js/main.js:11
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:15 assets/dist/admin/js/main.js:17
+#: assets/dist/admin/js/main.js:21 assets/dist/admin/js/main.js:23
 msgid "Delete"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "Unsubscribed at"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "Addresses that have opted out. Blocked from future sends."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
-#: assets/dist/admin/js/main.js:7
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:15
+msgid "Import CSV"
+msgstr ""
+
+#: assets/dist/admin/js/main.js:15 assets/dist/admin/js/main.js:17
+#: assets/dist/admin/js/main.js:19
 msgid "Export CSV"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "No unsubscribes yet"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
-msgid "When someone clicks the unsubscribe link in an email, they will appear here."
+#: assets/dist/admin/js/main.js:15
+msgid ""
+"When someone clicks the unsubscribe link in an email, they will appear here."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "Blocked email deleted."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "All blocked emails cleared."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:5
+#: assets/dist/admin/js/main.js:15
 msgid "Delete blocked email record?"
 msgstr ""
 
 #. translators: %s: email address
-#: assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:17
 msgid "This will remove the audit record for %s. This cannot be undone."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:17
 msgid "From"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:17
 msgid "Blocked at"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:17
 msgid "Blocked emails"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:7
-msgid "Audit log of outgoing emails that were blocked because the recipient had unsubscribed."
+#: assets/dist/admin/js/main.js:17
+msgid ""
+"Audit log of outgoing emails that were blocked because the recipient had "
+"unsubscribed."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:7
+#: assets/dist/admin/js/main.js:17
 msgid "Clear all blocked records?"
 msgstr ""
 
 #. translators: %s: number of records
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "This will delete %s blocked-email records. This cannot be undone."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Clear all"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "No blocked emails"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
-msgid "When an outgoing email targets an unsubscribed address, it will be logged here."
+#: assets/dist/admin/js/main.js:19
+msgid ""
+"When an outgoing email targets an unsubscribed address, it will be logged "
+"here."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Re-subscribed at"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Originally unsubscribed"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Addresses that opted back in after previously unsubscribing."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "No re-subscribes yet"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "When someone uses the re-subscribe link, they will appear here."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Something went wrong."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Reason added."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "New reason"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "e.g. Too many emails"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Appears in the unsubscribe dropdown on the public page."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Adding…"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Add reason"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Move up"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Move down"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:9
+#: assets/dist/admin/js/main.js:19
 msgid "Click to edit"
 msgstr ""
 
 #. translators: %s: reason text
-#: assets/dist/admin/js/main.js:11
+#: assets/dist/admin/js/main.js:21
 msgid "Actions for %s"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:11
+#: assets/dist/admin/js/main.js:21
 msgid "Edit"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:11
+#: assets/dist/admin/js/main.js:21
 msgid "Reason updated."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:11
+#: assets/dist/admin/js/main.js:21
 msgid "Reason deleted."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:11
+#: assets/dist/admin/js/main.js:21
 msgid "Delete this reason?"
 msgstr ""
 
 #. translators: %s: reason text
-#: assets/dist/admin/js/main.js:13
-msgid "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Delete \"%s\"? Existing unsubscribe records that used this reason keep their "
+"text - the reason is stored per-record, not referenced."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Unsubscribe reasons"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Options shown in the unsubscribe feedback dropdown. Reorder with the arrows "
+"- top of the list appears first."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Current reasons"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "No reasons yet"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Use the form on the right to add the first option shown when someone unsubscribes."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Use the form on the right to add the first option shown when someone "
+"unsubscribes."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Add a reason"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Discard unsaved changes?"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "You have unsaved changes that will be lost if you navigate away."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Keep editing"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Discard changes"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Preview"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Approximate preview - rendering may differ slightly across email clients."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Approximate preview - rendering may differ slightly across email clients."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Auto-append is off - this footer is not added to outgoing emails until you "
+"enable it above."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Control how outgoing emails are processed and which recipients are blocked."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Control how outgoing emails are processed and which recipients are blocked."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Settings saved."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "General"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Applies to all outgoing WordPress emails."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Auto-append unsubscribe link"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "When enabled, outgoing single-recipient emails get a secure unsubscribe button appended automatically."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"When enabled, outgoing single-recipient emails get a secure unsubscribe "
+"button appended automatically."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Exclude keywords"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Comma-separated. Emails whose subject contains any of these (case-"
+"insensitive) skip both blocking and auto-append - use for transactional mail."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Block unsubscribed recipients"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Prevent sending mail to addresses in the unsubscribe list. Blocked attempts are logged under Blocked Emails."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Prevent sending mail to addresses in the unsubscribe list. Blocked attempts "
+"are logged under Blocked Emails."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Unsubscribe footer"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Customize the footer appended to outgoing emails when auto-append is on."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Customize the footer appended to outgoing emails when auto-append is on."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Footer heading text"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "The line shown above the unsubscribe button in appended emails."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Unsubscribe button label"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Unsubscribe button color"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Background color of the appended button."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:23 assets/dist/admin/js/main.js:25
 msgid "Unsaved changes"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:23 assets/dist/admin/js/main.js:25
 msgid "Saving…"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:23 assets/dist/admin/js/main.js:25
 msgid "Save changes"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Thank you"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Invalid link"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Preview state"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-msgid "Approximate preview - actual page is viewport-centred and may differ slightly under site themes."
+#: assets/dist/admin/js/main.js:23
+msgid ""
+"Approximate preview - actual page is viewport-centred and may differ "
+"slightly under site themes."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Page background"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Outer background colour of the unsubscribe page."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Card background"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Background of the content box."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Body text"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Default text colour."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Headings"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Colour for h2 titles."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Button background"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Primary button colour."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Button text"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Text colour inside buttons."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Button hover"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Button background when hovered."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
+#: assets/dist/admin/js/main.js:23
 msgid "Unsubscribe success"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:23 assets/dist/admin/js/main.js:25
 msgid "Title"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:13
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:23 assets/dist/admin/js/main.js:25
 msgid "Message"
 msgstr ""
 
 #. translators: {email} is a literal placeholder token; keep it as-is.
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Use {email} to insert the recipient address."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Feedback submit button"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Feedback thank-you"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Home link text"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Invalid-link error"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Re-subscribe success"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Basic HTML (<br>, <strong>, <em>, links) is allowed."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Sans-serif (default)"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Font family"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Applied to the whole unsubscribe page."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Font size"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Customize the look and copy of the public unsubscribe page."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Appearance saved."
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Unsubscribe page"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Colors"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Typography"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Text content"
 msgstr ""
 
-#: assets/dist/admin/js/main.js:15
+#: assets/dist/admin/js/main.js:25
 msgid "Live preview"
 msgstr ""
 
 #. translators: %s: underlying error message
-#: assets/dist/admin/js/main.js:17
+#: assets/dist/admin/js/main.js:27
 msgid "An error occurred: %s"
 msgstr ""

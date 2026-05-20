@@ -771,3 +771,118 @@ msgstr "Ungefärlig förhandsvisning - återgivningen kan skilja sig något mell
 #: assets/dist/admin/js/main.js:13
 msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
 msgstr "Automatisk infogning är avstängd - denna sidfot läggs inte till i utgående e-post förrän du aktiverar den ovan."
+
+msgid "No CSV file was uploaded."
+msgstr "Ingen CSV-fil laddades upp."
+
+msgid "The upload failed. Please try again."
+msgstr "Uppladdningen misslyckades. Försök igen."
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr "CSV-filen är för stor. Maxstorlek är %s."
+
+msgid "Could not read the uploaded CSV file."
+msgstr "Kunde inte läsa den uppladdade CSV-filen."
+
+#. translators: %d: maximum rows allowed per import.
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr "CSV-filen har för många rader. Max %d."
+
+msgid "Missing email."
+msgstr "Saknad e-postadress."
+
+msgid "Invalid email address."
+msgstr "Ogiltig e-postadress."
+
+msgid "The CSV file is empty."
+msgstr "CSV-filen är tom."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import CSV"
+msgstr "Importera CSV"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of newly imported unsubscribe records.
+msgid "%d records imported."
+msgstr "%d poster importerade."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import unsubscribes from CSV"
+msgstr "Importera avregistreringar från CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped."
+msgstr "Ladda upp en CSV-fil för att lägga till avregistreringar i bulk. Befintliga e-postadresser hoppas över."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Importing…"
+msgstr "Importerar…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import"
+msgstr "Importera"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import another file"
+msgstr "Importera en till fil"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Done"
+msgstr "Klar"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Click to choose a CSV file"
+msgstr "Klicka för att välja en CSV-fil"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr "Max 2 MB · 10 000 rader"
+
+#: assets/dist/admin/js/main.js:1
+msgid "CSV format"
+msgstr "CSV-format"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected."
+msgstr "Kolumner: E-post (krävs), Anledning (valfri), Datum (valfritt). En rubrikrad identifieras automatiskt."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Download sample CSV"
+msgstr "Ladda ner exempel-CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Imported"
+msgstr "Importerade"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Skipped"
+msgstr "Hoppade över"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed"
+msgstr "Misslyckades"
+
+#: assets/dist/admin/js/main.js:1
+msgid "All rows imported successfully."
+msgstr "Alla rader importerades."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+msgid "%d rows were skipped because the email was already in the unsubscribes list."
+msgstr "%d rader hoppades över eftersom e-postadressen redan fanns i avregistreringslistan."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows that failed to import.
+msgid "%d failed rows"
+msgstr "%d misslyckade rader"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: CSV row number that failed (1-indexed).
+msgid "Row %d"
+msgstr "Rad %d"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of additional errors not shown.
+msgid "… and %d more errors not shown."
+msgstr "… och %d ytterligare fel som inte visas."

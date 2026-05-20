@@ -224,13 +224,13 @@
                 "Supprimer ce motif ?"
             ],
             "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
-                "Supprimer \u00ab %s \u00bb ? Les enregistrements de d\u00e9sabonnement existants qui utilisaient ce motif conservent leur texte \u2014 le motif est stock\u00e9 par enregistrement, sans r\u00e9f\u00e9rence."
+                "Supprimer \u00ab %s \u00bb ? Les enregistrements de d\u00e9sabonnement existants qui utilisaient ce motif conservent leur texte - le motif est stock\u00e9 par enregistrement, sans r\u00e9f\u00e9rence."
             ],
             "Unsubscribe reasons": [
                 "Motifs de d\u00e9sabonnement"
             ],
             "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
-                "Options affich\u00e9es dans la liste d\u00e9roulante de retour de d\u00e9sabonnement. R\u00e9organisez avec les fl\u00e8ches \u2014 le haut de la liste appara\u00eet en premier."
+                "Options affich\u00e9es dans la liste d\u00e9roulante de retour de d\u00e9sabonnement. R\u00e9organisez avec les fl\u00e8ches - le haut de la liste appara\u00eet en premier."
             ],
             "Current reasons": [
                 "Motifs actuels"
@@ -278,7 +278,7 @@
                 "Mots-cl\u00e9s \u00e0 exclure"
             ],
             "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
-                "S\u00e9par\u00e9s par des virgules. Les e-mails dont l\u2019objet contient l\u2019un de ces mots (insensible \u00e0 la casse) ignorent le blocage et l\u2019ajout automatique \u2014 \u00e0 utiliser pour les e-mails transactionnels."
+                "S\u00e9par\u00e9s par des virgules. Les e-mails dont l\u2019objet contient l\u2019un de ces mots (insensible \u00e0 la casse) ignorent le blocage et l\u2019ajout automatique - \u00e0 utiliser pour les e-mails transactionnels."
             ],
             "Block unsubscribed recipients": [
                 "Bloquer les destinataires d\u00e9sabonn\u00e9s"
@@ -305,7 +305,7 @@
                 "\u00c9tat de l\u2019aper\u00e7u"
             ],
             "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
-                "Aper\u00e7u approximatif \u2014 la page r\u00e9elle est centr\u00e9e dans la fen\u00eatre et peut l\u00e9g\u00e8rement diff\u00e9rer selon le th\u00e8me du site."
+                "Aper\u00e7u approximatif - la page r\u00e9elle est centr\u00e9e dans la fen\u00eatre et peut l\u00e9g\u00e8rement diff\u00e9rer selon le th\u00e8me du site."
             ],
             "Page background": [
                 "Arri\u00e8re-plan de la page"
@@ -392,7 +392,7 @@
                 "Taille de police"
             ],
             "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
-                "Toute longueur CSS \u2014 ex. 14px, 1em, 0.875rem, 100 %."
+                "Toute longueur CSS - ex. 14px, 1em, 0.875rem, 100 %."
             ],
             "Customize the look and copy of the public unsubscribe page.": [
                 "Personnalisez l\u2019apparence et le texte de la page de d\u00e9sabonnement publique."
@@ -447,6 +447,69 @@
             ],
             "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
                 "L'ajout automatique est d\u00e9sactiv\u00e9 - ce pied de page n'est pas ajout\u00e9 aux e-mails sortants tant que vous ne l'activez pas ci-dessus."
+            ],
+            "Import CSV": [
+                "Importer CSV"
+            ],
+            "%d records imported.": [
+                "%d enregistrements import\u00e9s."
+            ],
+            "Import unsubscribes from CSV": [
+                "Importer des d\u00e9sabonnements depuis un CSV"
+            ],
+            "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped.": [
+                "Importez un fichier CSV pour ajouter en bloc des d\u00e9sabonnements. Les adresses d\u00e9j\u00e0 pr\u00e9sentes sont ignor\u00e9es."
+            ],
+            "Importing\u2026": [
+                "Importation\u2026"
+            ],
+            "Import": [
+                "Importer"
+            ],
+            "Import another file": [
+                "Importer un autre fichier"
+            ],
+            "Done": [
+                "Termin\u00e9"
+            ],
+            "Click to choose a CSV file": [
+                "Cliquez pour choisir un fichier CSV"
+            ],
+            "Maximum 2 MB \u00b7 10,000 rows": [
+                "Maximum 2 Mo \u00b7 10 000 lignes"
+            ],
+            "CSV format": [
+                "Format CSV"
+            ],
+            "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected.": [
+                "Colonnes : E-mail (obligatoire), Raison (facultative), Date (facultative). Une ligne d'en-t\u00eate est d\u00e9tect\u00e9e automatiquement."
+            ],
+            "Download sample CSV": [
+                "T\u00e9l\u00e9charger un exemple CSV"
+            ],
+            "Imported": [
+                "Import\u00e9s"
+            ],
+            "Skipped": [
+                "Ignor\u00e9s"
+            ],
+            "Failed": [
+                "\u00c9chec"
+            ],
+            "All rows imported successfully.": [
+                "Toutes les lignes ont \u00e9t\u00e9 import\u00e9es avec succ\u00e8s."
+            ],
+            "%d rows were skipped because the email was already in the unsubscribes list.": [
+                "%d lignes ont \u00e9t\u00e9 ignor\u00e9es car l'adresse e-mail figurait d\u00e9j\u00e0 dans la liste des d\u00e9sabonn\u00e9s."
+            ],
+            "%d failed rows": [
+                "%d lignes en \u00e9chec"
+            ],
+            "Row %d": [
+                "Ligne %d"
+            ],
+            "\u2026 and %d more errors not shown.": [
+                "\u2026 et %d erreurs suppl\u00e9mentaires non affich\u00e9es."
             ]
         }
     }

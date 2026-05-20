@@ -224,13 +224,13 @@
                 "\u5220\u9664\u6b64\u539f\u56e0\uff1f"
             ],
             "Delete \"%s\"? Existing unsubscribe records that used this reason keep their text - the reason is stored per-record, not referenced.": [
-                "\u5220\u9664\u201c%s\u201d\uff1f\u4f7f\u7528\u6b64\u539f\u56e0\u7684\u73b0\u6709\u9000\u8ba2\u8bb0\u5f55\u5c06\u4fdd\u7559\u5176\u6587\u672c\u2014\u2014\u539f\u56e0\u6309\u8bb0\u5f55\u5355\u72ec\u5b58\u50a8\uff0c\u5e76\u975e\u5f15\u7528\u3002"
+                "\u5220\u9664\u201c%s\u201d\uff1f\u4f7f\u7528\u6b64\u539f\u56e0\u7684\u73b0\u6709\u9000\u8ba2\u8bb0\u5f55\u5c06\u4fdd\u7559\u5176\u6587\u672c--\u539f\u56e0\u6309\u8bb0\u5f55\u5355\u72ec\u5b58\u50a8\uff0c\u5e76\u975e\u5f15\u7528\u3002"
             ],
             "Unsubscribe reasons": [
                 "\u9000\u8ba2\u539f\u56e0"
             ],
             "Options shown in the unsubscribe feedback dropdown. Reorder with the arrows - top of the list appears first.": [
-                "\u663e\u793a\u5728\u9000\u8ba2\u53cd\u9988\u4e0b\u62c9\u83dc\u5355\u4e2d\u7684\u9009\u9879\u3002\u4f7f\u7528\u7bad\u5934\u91cd\u65b0\u6392\u5e8f\u2014\u2014\u5217\u8868\u9876\u90e8\u7684\u9879\u76ee\u6700\u5148\u663e\u793a\u3002"
+                "\u663e\u793a\u5728\u9000\u8ba2\u53cd\u9988\u4e0b\u62c9\u83dc\u5355\u4e2d\u7684\u9009\u9879\u3002\u4f7f\u7528\u7bad\u5934\u91cd\u65b0\u6392\u5e8f--\u5217\u8868\u9876\u90e8\u7684\u9879\u76ee\u6700\u5148\u663e\u793a\u3002"
             ],
             "Current reasons": [
                 "\u5f53\u524d\u539f\u56e0"
@@ -278,7 +278,7 @@
                 "\u6392\u9664\u5173\u952e\u5b57"
             ],
             "Comma-separated. Emails whose subject contains any of these (case-insensitive) skip both blocking and auto-append - use for transactional mail.": [
-                "\u4ee5\u9017\u53f7\u5206\u9694\u3002\u4e3b\u9898\u5305\u542b\u5176\u4e2d\u4efb\u610f\u5173\u952e\u5b57\uff08\u4e0d\u533a\u5206\u5927\u5c0f\u5199\uff09\u7684\u90ae\u4ef6\u5c06\u8df3\u8fc7\u5c4f\u853d\u548c\u81ea\u52a8\u8ffd\u52a0\u2014\u2014\u7528\u4e8e\u4e8b\u52a1\u6027\u90ae\u4ef6\u3002"
+                "\u4ee5\u9017\u53f7\u5206\u9694\u3002\u4e3b\u9898\u5305\u542b\u5176\u4e2d\u4efb\u610f\u5173\u952e\u5b57\uff08\u4e0d\u533a\u5206\u5927\u5c0f\u5199\uff09\u7684\u90ae\u4ef6\u5c06\u8df3\u8fc7\u5c4f\u853d\u548c\u81ea\u52a8\u8ffd\u52a0--\u7528\u4e8e\u4e8b\u52a1\u6027\u90ae\u4ef6\u3002"
             ],
             "Block unsubscribed recipients": [
                 "\u5c4f\u853d\u5df2\u9000\u8ba2\u7684\u6536\u4ef6\u4eba"
@@ -305,7 +305,7 @@
                 "\u9884\u89c8\u72b6\u6001"
             ],
             "Approximate preview - actual page is viewport-centred and may differ slightly under site themes.": [
-                "\u8fd1\u4f3c\u9884\u89c8\u2014\u2014\u5b9e\u9645\u9875\u9762\u5728\u89c6\u53e3\u4e2d\u5c45\u4e2d\uff0c\u5e76\u53ef\u80fd\u56e0\u7f51\u7ad9\u4e3b\u9898\u800c\u7565\u6709\u4e0d\u540c\u3002"
+                "\u8fd1\u4f3c\u9884\u89c8--\u5b9e\u9645\u9875\u9762\u5728\u89c6\u53e3\u4e2d\u5c45\u4e2d\uff0c\u5e76\u53ef\u80fd\u56e0\u7f51\u7ad9\u4e3b\u9898\u800c\u7565\u6709\u4e0d\u540c\u3002"
             ],
             "Page background": [
                 "\u9875\u9762\u80cc\u666f"
@@ -392,7 +392,7 @@
                 "\u5b57\u53f7"
             ],
             "Any CSS length - e.g. 14px, 1em, 0.875rem, 100%.": [
-                "\u4efb\u610f CSS \u957f\u5ea6\u2014\u2014\u4f8b\u5982 14px\u30011em\u30010.875rem\u3001100%\u3002"
+                "\u4efb\u610f CSS \u957f\u5ea6--\u4f8b\u5982 14px\u30011em\u30010.875rem\u3001100%\u3002"
             ],
             "Customize the look and copy of the public unsubscribe page.": [
                 "\u81ea\u5b9a\u4e49\u516c\u5f00\u9000\u8ba2\u9875\u9762\u7684\u5916\u89c2\u548c\u6587\u6848\u3002"
@@ -447,6 +447,69 @@
             ],
             "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
                 "\u81ea\u52a8\u8ffd\u52a0\u5df2\u5173\u95ed - \u5728\u4e0a\u65b9\u542f\u7528\u4e4b\u524d\uff0c\u6b64\u9875\u811a\u4e0d\u4f1a\u6dfb\u52a0\u5230\u53d1\u51fa\u7684\u90ae\u4ef6\u4e2d\u3002"
+            ],
+            "Import CSV": [
+                "\u5bfc\u5165 CSV"
+            ],
+            "%d records imported.": [
+                "\u5df2\u5bfc\u5165 %d \u6761\u8bb0\u5f55\u3002"
+            ],
+            "Import unsubscribes from CSV": [
+                "\u4ece CSV \u5bfc\u5165\u9000\u8ba2"
+            ],
+            "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped.": [
+                "\u4e0a\u4f20 CSV \u6587\u4ef6\u4ee5\u6279\u91cf\u6dfb\u52a0\u9000\u8ba2\u8bb0\u5f55\u3002\u5df2\u5b58\u5728\u7684\u90ae\u7bb1\u5c06\u88ab\u8df3\u8fc7\u3002"
+            ],
+            "Importing\u2026": [
+                "\u6b63\u5728\u5bfc\u5165\u2026"
+            ],
+            "Import": [
+                "\u5bfc\u5165"
+            ],
+            "Import another file": [
+                "\u5bfc\u5165\u5176\u4ed6\u6587\u4ef6"
+            ],
+            "Done": [
+                "\u5b8c\u6210"
+            ],
+            "Click to choose a CSV file": [
+                "\u70b9\u51fb\u9009\u62e9 CSV \u6587\u4ef6"
+            ],
+            "Maximum 2 MB \u00b7 10,000 rows": [
+                "\u6700\u5927 2 MB \u00b7 10,000 \u884c"
+            ],
+            "CSV format": [
+                "CSV \u683c\u5f0f"
+            ],
+            "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected.": [
+                "\u5217:Email(\u5fc5\u586b)\u3001Reason(\u53ef\u9009)\u3001Date(\u53ef\u9009)\u3002\u4f1a\u81ea\u52a8\u8bc6\u522b\u6807\u9898\u884c\u3002"
+            ],
+            "Download sample CSV": [
+                "\u4e0b\u8f7d\u793a\u4f8b CSV"
+            ],
+            "Imported": [
+                "\u5df2\u5bfc\u5165"
+            ],
+            "Skipped": [
+                "\u5df2\u8df3\u8fc7"
+            ],
+            "Failed": [
+                "\u5931\u8d25"
+            ],
+            "All rows imported successfully.": [
+                "\u6240\u6709\u884c\u5747\u5df2\u6210\u529f\u5bfc\u5165\u3002"
+            ],
+            "%d rows were skipped because the email was already in the unsubscribes list.": [
+                "\u5df2\u8df3\u8fc7 %d \u884c,\u56e0\u4e3a\u90ae\u7bb1\u5df2\u5b58\u5728\u4e8e\u9000\u8ba2\u5217\u8868\u4e2d\u3002"
+            ],
+            "%d failed rows": [
+                "%d \u884c\u5931\u8d25"
+            ],
+            "Row %d": [
+                "\u7b2c %d \u884c"
+            ],
+            "\u2026 and %d more errors not shown.": [
+                "\u2026 \u8fd8\u6709 %d \u4e2a\u672a\u663e\u793a\u7684\u9519\u8bef\u3002"
             ]
         }
     }

@@ -4,6 +4,7 @@ namespace FlexaUnsubscribe\Engine;
 use FlexaUnsubscribe\Utils\SingletonTrait;
 use FlexaUnsubscribe\Controllers\AnalyticsRestController;
 use FlexaUnsubscribe\Controllers\UnsubscribesRestController;
+use FlexaUnsubscribe\Controllers\ImportUnsubscribesRestController;
 use FlexaUnsubscribe\Controllers\BlockedRestController;
 use FlexaUnsubscribe\Controllers\ResubscribedRestController;
 use FlexaUnsubscribe\Controllers\ReasonsRestController;
@@ -35,6 +36,7 @@ class RestAPI {
         $this->controllers = [
             new AnalyticsRestController(),
             new UnsubscribesRestController(),
+            new ImportUnsubscribesRestController(),
             new BlockedRestController(),
             new ResubscribedRestController(),
             new ReasonsRestController(),

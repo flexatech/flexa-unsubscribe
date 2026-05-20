@@ -447,6 +447,69 @@
             ],
             "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
                 "Automatisches Anh\u00e4ngen ist deaktiviert - diese Fu\u00dfzeile wird ausgehenden E-Mails erst hinzugef\u00fcgt, wenn Sie es oben aktivieren."
+            ],
+            "Import CSV": [
+                "CSV importieren"
+            ],
+            "%d records imported.": [
+                "%d Eintr\u00e4ge importiert."
+            ],
+            "Import unsubscribes from CSV": [
+                "Abmeldungen aus CSV importieren"
+            ],
+            "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped.": [
+                "Lade eine CSV-Datei hoch, um Abmeldungen in einem Schritt hinzuzuf\u00fcgen. Bereits vorhandene E-Mails werden \u00fcbersprungen."
+            ],
+            "Importing\u2026": [
+                "Importiere\u2026"
+            ],
+            "Import": [
+                "Importieren"
+            ],
+            "Import another file": [
+                "Weitere Datei importieren"
+            ],
+            "Done": [
+                "Fertig"
+            ],
+            "Click to choose a CSV file": [
+                "Klicken, um eine CSV-Datei auszuw\u00e4hlen"
+            ],
+            "Maximum 2 MB \u00b7 10,000 rows": [
+                "Maximal 2 MB \u00b7 10.000 Zeilen"
+            ],
+            "CSV format": [
+                "CSV-Format"
+            ],
+            "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected.": [
+                "Spalten: E-Mail (erforderlich), Grund (optional), Datum (optional). Eine Kopfzeile wird automatisch erkannt."
+            ],
+            "Download sample CSV": [
+                "Beispiel-CSV herunterladen"
+            ],
+            "Imported": [
+                "Importiert"
+            ],
+            "Skipped": [
+                "\u00dcbersprungen"
+            ],
+            "Failed": [
+                "Fehlgeschlagen"
+            ],
+            "All rows imported successfully.": [
+                "Alle Zeilen wurden erfolgreich importiert."
+            ],
+            "%d rows were skipped because the email was already in the unsubscribes list.": [
+                "%d Zeilen wurden \u00fcbersprungen, da die E-Mail bereits in der Abmeldeliste war."
+            ],
+            "%d failed rows": [
+                "%d fehlgeschlagene Zeilen"
+            ],
+            "Row %d": [
+                "Zeile %d"
+            ],
+            "\u2026 and %d more errors not shown.": [
+                "\u2026 und %d weitere nicht angezeigte Fehler."
             ]
         }
     }

@@ -770,3 +770,118 @@ msgstr "معاينة تقريبية - قد يختلف العرض قليلاً ح
 #: assets/dist/admin/js/main.js:13
 msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
 msgstr "الإضافة التلقائية متوقفة - لن تتم إضافة هذا التذييل إلى الرسائل الصادرة حتى تقوم بتفعيله بالأعلى."
+
+msgid "No CSV file was uploaded."
+msgstr "لم يتم رفع أي ملف CSV."
+
+msgid "The upload failed. Please try again."
+msgstr "فشل الرفع. يرجى المحاولة مرة أخرى."
+
+#. translators: %s: human-readable max file size, e.g. "2 MB"
+msgid "The CSV file is too large. Maximum size is %s."
+msgstr "ملف CSV كبير جداً. الحد الأقصى هو %s."
+
+msgid "Could not read the uploaded CSV file."
+msgstr "تعذّر قراءة ملف CSV المرفوع."
+
+#. translators: %d: maximum rows allowed per import.
+msgid "The CSV has too many rows. Maximum is %d."
+msgstr "عدد الصفوف في ملف CSV كبير جداً. الحد الأقصى %d."
+
+msgid "Missing email."
+msgstr "البريد الإلكتروني مفقود."
+
+msgid "Invalid email address."
+msgstr "عنوان بريد إلكتروني غير صالح."
+
+msgid "The CSV file is empty."
+msgstr "ملف CSV فارغ."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import CSV"
+msgstr "استيراد CSV"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of newly imported unsubscribe records.
+msgid "%d records imported."
+msgstr "تم استيراد %d سجلًا."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import unsubscribes from CSV"
+msgstr "استيراد إلغاءات الاشتراك من CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Upload a CSV file to bulk-add unsubscribe records. Existing emails are skipped."
+msgstr "ارفع ملف CSV لإضافة سجلات إلغاء الاشتراك دفعةً واحدة. سيتم تجاوز عناوين البريد الإلكتروني الموجودة بالفعل."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Importing…"
+msgstr "جارٍ الاستيراد…"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import"
+msgstr "استيراد"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Import another file"
+msgstr "استيراد ملف آخر"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Done"
+msgstr "تم"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Click to choose a CSV file"
+msgstr "انقر لاختيار ملف CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Maximum 2 MB · 10,000 rows"
+msgstr "بحد أقصى 2 ميغابايت · 10,000 صف"
+
+#: assets/dist/admin/js/main.js:1
+msgid "CSV format"
+msgstr "تنسيق CSV"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Columns: Email (required), Reason (optional), Date (optional). A header row is auto-detected."
+msgstr "الأعمدة: البريد الإلكتروني (إلزامي)، السبب (اختياري)، التاريخ (اختياري). يتم اكتشاف صف العناوين تلقائياً."
+
+#: assets/dist/admin/js/main.js:1
+msgid "Download sample CSV"
+msgstr "تنزيل ملف CSV نموذجي"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Imported"
+msgstr "تم استيرادها"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Skipped"
+msgstr "تم تخطيها"
+
+#: assets/dist/admin/js/main.js:1
+msgid "Failed"
+msgstr "فشلت"
+
+#: assets/dist/admin/js/main.js:1
+msgid "All rows imported successfully."
+msgstr "تم استيراد جميع الصفوف بنجاح."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows skipped because the email was already unsubscribed.
+msgid "%d rows were skipped because the email was already in the unsubscribes list."
+msgstr "تم تخطّي %d صفوف لأن البريد الإلكتروني موجود مسبقًا في قائمة إلغاء الاشتراك."
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of CSV rows that failed to import.
+msgid "%d failed rows"
+msgstr "%d صفوف فاشلة"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: CSV row number that failed (1-indexed).
+msgid "Row %d"
+msgstr "الصف %d"
+
+#: assets/dist/admin/js/main.js:1
+#. translators: %d: number of additional errors not shown.
+msgid "… and %d more errors not shown."
+msgstr "… و%d أخطاء أخرى غير معروضة."
