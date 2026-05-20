@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-19T13:55:17+00:00\n"
-"PO-Revision-Date: 2026-05-19T13:55:17+00:00\n"
+"PO-Revision-Date: 2026-05-19 21:13+0000\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
 "Language: ja\n"
@@ -759,3 +759,15 @@ msgstr "配信停止ボタンの色"
 #: assets/dist/admin/js/main.js:13
 msgid "Background color of the appended button."
 msgstr "追加されるボタンの背景色。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview"
+msgstr "プレビュー"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - rendering may differ slightly across email clients."
+msgstr "おおよそのプレビューです - メールクライアントによって表示が多少異なる場合があります。"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
+msgstr "自動追加はオフです - 上で有効にするまで、このフッターは送信メールに追加されません。"

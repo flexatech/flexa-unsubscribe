@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-05-19T13:55:17+00:00",
+    "translation-revision-date": "2026-05-19 21:13+0000",
     "generator": "WP-CLI\/2.10.0",
     "source": "assets\/dist\/admin\/js\/main.js",
     "domain": "messages",
@@ -438,6 +438,15 @@
             ],
             "Background color of the appended button.": [
                 "Colore di sfondo del pulsante aggiunto."
+            ],
+            "Preview": [
+                "Anteprima"
+            ],
+            "Approximate preview - rendering may differ slightly across email clients.": [
+                "Anteprima approssimativa - la visualizzazione pu\u00f2 variare leggermente tra i client di posta."
+            ],
+            "Auto-append is off - this footer is not added to outgoing emails until you enable it above.": [
+                "L'aggiunta automatica \u00e8 disattivata - questo pi\u00e8 di pagina non viene aggiunto alle email in uscita finch\u00e9 non lo attivi sopra."
             ]
         }
     }

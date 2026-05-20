@@ -25,6 +25,33 @@ class RegisterDev {
         // React is used on the public side of this plugin.
         add_action('admin_footer', [$this, 'render_dev_refresh'], 5);
         add_action('init', [$this, 'register_all_scripts']);
+
+        // In dev the bundle is served from localhost:3001 (cross-host),
+        // so WP's `load_script_textdomain()` can't compute a relative
+        // plugin path → can't md5 it → can't find the JSON → admin UI
+        // stays English even when the locale switched. Bridge it: when
+        // WP asks for our handle's translation file, hand back the
+        // path that would resolve in prod (md5 of the built bundle's
+        // plugin-relative path).
+        add_filter('load_script_translation_file', [$this, 'translate_script_in_dev'], 10, 3);
+    }
+
+    public function translate_script_in_dev($file, $handle, $domain) {
+        if ($handle !== ScriptName::PAGE_ADMIN || $domain !== 'flexa-unsubscribe') {
+            return $file;
+        }
+        // Matches the path RegisterProd registers; md5 of that string is
+        // what wp_set_script_translations() would normally compute. Kept
+        // in sync with RegisterProd::register_all_scripts().
+        $built_path = 'assets/dist/admin/js/main.js';
+        $candidate = sprintf(
+            '%slanguages/%s-%s-%s.json',
+            FLEXA_TECH_SU_PATH,
+            $domain,
+            determine_locale(),
+            md5($built_path)
+        );
+        return is_readable($candidate) ? $candidate : $file;
     }
 
     public function render_dev_refresh() {

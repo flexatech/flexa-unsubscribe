@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-05-19T13:55:17+00:00\n"
-"PO-Revision-Date: 2026-05-19T13:55:17+00:00\n"
+"PO-Revision-Date: 2026-05-19 21:13+0000\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: flexa-unsubscribe\n"
 "Language: fr_FR\n"
@@ -792,3 +792,15 @@ msgstr "Couleur du bouton de désabonnement"
 #: assets/dist/admin/js/main.js:13
 msgid "Background color of the appended button."
 msgstr "Couleur de fond du bouton ajouté."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Preview"
+msgstr "Aperçu"
+
+#: assets/dist/admin/js/main.js:13
+msgid "Approximate preview - rendering may differ slightly across email clients."
+msgstr "Aperçu approximatif - le rendu peut varier légèrement selon les clients de messagerie."
+
+#: assets/dist/admin/js/main.js:13
+msgid "Auto-append is off - this footer is not added to outgoing emails until you enable it above."
+msgstr "L'ajout automatique est désactivé - ce pied de page n'est pas ajouté aux e-mails sortants tant que vous ne l'activez pas ci-dessus."

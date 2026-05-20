@@ -63,7 +63,7 @@ export default function ResubscribedPage() {
     <div className="flex flex-col gap-6">
       <header className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-xl font-semibold text-foreground">
+          <h1 className="text-xl font-semibold text-primary">
             {__('Re-subscribed', 'flexa-unsubscribe')}
           </h1>
           <p className="text-sm text-muted-foreground">
