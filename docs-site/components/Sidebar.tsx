@@ -6,10 +6,13 @@ import type { NavItem } from '@/lib/nav';
 
 /**
  * Sticky anchor navigation with scroll-spy, shared by the technical
- * docs page and the user guide. An IntersectionObserver tracks which
- * <Section> is in view and highlights the matching link; on small
- * screens the same list collapses behind a toggle. `crossLink` renders
- * a button to jump to the sibling document (docs ↔ guide).
+ * docs page, the user guide, and the services page. An
+ * IntersectionObserver tracks which <Section> is in view and highlights
+ * the matching link; on small screens the same list collapses behind a
+ * toggle. `crossLink` renders a button to jump to a sibling document
+ * (docs ↔ guide). `secondaryLink` is an optional second, visually
+ * distinct CTA - used to surface the Services page from the docs
+ * without pretending it's just another doc.
  */
 export function Sidebar({
   items,
@@ -17,12 +20,14 @@ export function Sidebar({
   subtitle,
   crossLinkHref,
   crossLinkLabel,
+  secondaryLink,
 }: {
   items: NavItem[];
   title: string;
   subtitle: string;
   crossLinkHref: string;
   crossLinkLabel: string;
+  secondaryLink?: { href: string; label: string };
 }) {
   const [active, setActive] = useState<string>(items[0]?.id ?? '');
   const [open, setOpen] = useState(false);
@@ -72,11 +77,21 @@ export function Sidebar({
 
         <Link
           href={crossLinkHref}
-          className="mb-5 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-50"
+          className="mb-2 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2 text-xs font-medium text-brand-700 transition-colors hover:bg-brand-50"
         >
           <span>{crossLinkLabel}</span>
           <span aria-hidden>→</span>
         </Link>
+
+        {secondaryLink && (
+          <Link
+            href={secondaryLink.href}
+            className="mb-5 flex items-center justify-between rounded-md bg-brand-500 px-3 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-brand-600"
+          >
+            <span>{secondaryLink.label}</span>
+            <span aria-hidden>→</span>
+          </Link>
+        )}
 
         <nav>
           <ul className="space-y-0.5">

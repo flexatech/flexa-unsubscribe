@@ -23,6 +23,7 @@ export default function Technical() {
         subtitle="Technical documentation · v3.0.3"
         crossLinkHref="/"
         crossLinkLabel="← Back to the User Guide"
+        secondaryLink={{ href: '/services', label: 'Need a custom build?' }}
       />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 pb-24 sm:px-8 lg:px-12">
