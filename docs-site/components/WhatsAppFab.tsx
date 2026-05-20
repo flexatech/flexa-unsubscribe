@@ -1,10 +1,20 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { WHATSAPP_URL } from '@/lib/contact';
 
 /**
  * Floating WhatsApp click-to-chat button anchored to the bottom-right.
  * Rendered globally from app/layout.tsx so it follows the reader on
- * every page (User Guide / Technical / Services). Server-rendered -
- * no client JS - it's just an <a> + inline SVG.
+ * every page (User Guide / Technical) - except the Services page
+ * itself, where in-content CTAs are already abundant and the FAB would
+ * be a redundant duplicate (and visually compete with the hero button).
+ *
+ * Client component because route-based suppression needs `usePathname`.
+ * Still emits zero runtime work on every page beyond the path read;
+ * during static export (`output: 'export'`) each route is prerendered,
+ * so out/services.html ships without the FAB markup at all, and the
+ * other pages ship it as plain HTML.
  *
  * Visual notes:
  *  - Brand green (#25D366) is the official WhatsApp wordmark color;
@@ -15,6 +25,9 @@ import { WHATSAPP_URL } from '@/lib/contact';
  *    obvious without taking up space until the user reaches for it.
  */
 export function WhatsAppFab() {
+  const pathname = usePathname();
+  if (pathname === '/services') return null;
+
   return (
     <a
       href={WHATSAPP_URL}
