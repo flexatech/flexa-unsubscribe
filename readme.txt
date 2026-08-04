@@ -2,9 +2,9 @@
 Contributors: flexatech
 Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.1.0
+Stable tag: 3.1.7
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,17 +20,6 @@ Professional email unsubscribe management with HMAC tokens, auto-appended unsubs
 * **Re-subscribe URL** is supported as a first-class action - the plugin can tell opt-outs from opt-backs.
 * **Customisable public page** - every color, font, and string on the unsubscribe/re-subscribe templates is editable from the admin with a live preview.
 
-== Admin UI ==
-
-Starting with v3.0.0 the admin is a React single-page application with seven screens:
-
-* **Dashboard** - stats cards + bar chart of unsubscribes over time + pie chart of top reasons.
-* **Unsubscribes / Blocked emails / Re-subscribed** - paginated tables with sorting, per-row delete, and CSV export. The Unsubscribes screen also accepts CSV import for bulk-adding opt-out records (skip-on-duplicate).
-* **Reasons** - manage the dropdown options shown on the public unsubscribe form; click-to-edit, ↑/↓ reorder.
-* **Settings** - enable/disable auto-append + blocking, tune the exclude-keywords list.
-* **Appearance** - 19 tokens (colors, typography, copy) across three tabs with a live preview panel.
-
-
 All screens are powered by a REST API under `/wp-json/flexa-unsubscribe/v1/`, so external integrations can plug in too.
 
 **Source code for compiled JavaScript and CSS**
@@ -40,6 +29,15 @@ The plugin ships with minified/compiled JavaScript and CSS in `assets/dist/`. Th
 https://github.com/flexatech/flexa-unsubscribe
 
 Source lives in the `apps/admin` (admin UI) and `apps/frontend` (product page UI) directories. Build tools used: **pnpm**, **Vite**, **React**, **TypeScript**. To build from source: clone the repository, run `pnpm install` from the plugin root, then build the admin and frontend apps (see the repository README for exact commands). This allows the code to be reviewed, studied, and forked.
+
+
+**Documentation**
+
+Full user guide, technical reference, and REST API documentation are hosted at:
+
+https://unsubscribe-doc.flexacommerce.com/
+
+A "Documentation" link is also added to the plugin row on the **Plugins** screen for one-click access from inside WordPress.
 
 == Installation ==
 
@@ -66,7 +64,45 @@ Every in-flight unsubscribe/resubscribe link becomes invalid, because the HMAC k
 
 No - CSV exports contain email addresses. Treat them as PII. The download link is nonce-protected so it's not trivially shareable across sessions.
 
+= Are there developer hooks I can extend? =
+
+Yes. Three action hooks fire on opt-out events so you can sync opt-outs to a CRM, ESP, or your own logging:
+
+* `do_action( 'flexa_unsubscribe_unsubscribed', $email, $reason )` - fires when an address is recorded as unsubscribed. `$reason` is '' for link-based opt-outs because the public page collects the reason in a follow-up step.
+* `do_action( 'flexa_unsubscribe_resubscribed', $email )` - fires when an address is re-subscribed (opted back in).
+* `do_action( 'flexa_unsubscribe_email_blocked', $email, $subject )` - fires for each recipient whose outbound email is blocked because they had opted out.
+
+Example: add_action( 'flexa_unsubscribe_unsubscribed', 'my_sync_optout', 10, 2 );
+
+== Screenshots ==
+
+1. **Dashboard** - stats cards + bar chart of unsubscribes over time + pie chart of top reasons.
+2. **Unsubscribes / Blocked emails / Re-subscribed** - paginated tables with sorting, per-row delete, and CSV export. The Unsubscribes screen also accepts CSV import for bulk-adding opt-out records (skip-on-duplicate).
+3. **Reasons** - manage the dropdown options shown on the public unsubscribe form; click-to-edit, reorder with the arrow buttons.
+4. **Settings** - enable/disable auto-append + blocking, tune the exclude-keywords list.
+5. **Appearance** - 19 tokens (colors, typography, copy) across three tabs with a live preview panel.
+6. **Blocked Emails** - audit log of send attempts that were stopped because the recipient had opted out - it is not the opt-out list itself.
+
 == Changelog ==
+
+= 3.1.7 =
+* **New:** Added three developer action hooks so external plugins can react to opt-out events: `flexa_unsubscribe_unsubscribed` (fires with the email and reason when an address opts out), `flexa_unsubscribe_resubscribed` (fires with the email when an address opts back in), and `flexa_unsubscribe_email_blocked` (fires with the recipient and subject when an outbound email is blocked). See the FAQ for signatures and usage.
+
+= 3.1.5 =
+* **New:** Added a `flexa_unsubscribe_hmac_key` filter so developers can supply a custom, stable secret for signing unsubscribe/resubscribe links instead of `AUTH_KEY`. With no filter hooked, behavior is unchanged and existing links keep verifying.
+
+= 3.1.4 =
+* **Fix:** The Screenshots section on the WordPress.org plugin page now renders correctly. A non-ASCII arrow character in screenshot caption 3 broke the page rendering; the caption now describes the reorder buttons in plain text.
+
+= 3.1.3 =
+* **Fix:** Destructive confirmation dialogs (e.g. "Clear all" on the Blocked emails screen) now focus the **Cancel** button when they open, so holding Enter on the triggering button can no longer accidentally confirm the deletion. Non-destructive dialogs still focus Confirm.
+
+= 3.1.2 =
+* **Fix:** Inline-editing a reason on the **Reasons** screen now commits the new value when you click anywhere outside the input. Previously, clicking away discarded the typed value - only pressing Enter would save. Enter still saves; Esc still discards.
+
+= 3.1.1 =
+* **New:** Plugins-list row now shows **Settings** and **Documentation** links next to **Deactivate**, plus a **View documentation** link in the row's meta line. The doc site is https://unsubscribe-doc.flexacommerce.com/.
+* **i18n:** 3 new translatable strings ("Settings", "Documentation", "View documentation").
 
 = 3.1.0 =
 * **New:** CSV import on the Unsubscribes screen. Bulk-add opt-out records by uploading a CSV file - the same `Email, Reason, Date` shape produced by the existing CSV export, so an export from one site can be re-imported on another. Email is the only required column; Reason and Date are optional. A header row is auto-detected; headerless files are also accepted.

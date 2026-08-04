@@ -28,9 +28,12 @@ interface Props {
  * One row in the reasons list.
  *
  * Display mode: click the text (or the Edit dropdown item) to flip to
- * edit mode - an inline `<Input>` replaces the span. Enter commits,
- * Esc reverts, click-away reverts (explicit commit only - avoids
- * accidental saves on stray clicks).
+ * edit mode - an inline `<Input>` replaces the span. Enter and blur
+ * (click-away) both commit; Esc reverts. Matches the convention used
+ * by Notion / Linear / Sheets - users expect clicking out to save the
+ * value they just typed, not to throw it away. `commit()` is a no-op
+ * when the trimmed draft is empty or unchanged, so accidental blurs
+ * on stray clicks are still safe.
  */
 export function ReasonRow({
   reason,
@@ -104,7 +107,7 @@ export function ReasonRow({
             ref={inputRef}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
-            onBlur={cancel}
+            onBlur={commit}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 e.preventDefault();

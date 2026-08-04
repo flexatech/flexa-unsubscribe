@@ -74,13 +74,19 @@ export function ConfirmDialogProvider({ children }: { children: React.ReactNode 
               {opts.description && <DialogDescription>{opts.description}</DialogDescription>}
             </DialogHeader>
             <DialogFooter>
-              <Button variant="outline" onClick={() => handleCancel(false)}>
+              {/* Destructive confirms focus Cancel so a held Enter key from the
+                  triggering button cannot activate the destructive action. */}
+              <Button
+                variant="outline"
+                onClick={() => handleCancel(false)}
+                autoFocus={destructive}
+              >
                 {opts.cancelLabel ?? __('Cancel', 'flexa-unsubscribe')}
               </Button>
               <Button
                 variant={destructive ? 'destructive' : 'default'}
                 onClick={handleConfirm}
-                autoFocus
+                autoFocus={!destructive}
               >
                 {opts.confirmLabel ?? __('Confirm', 'flexa-unsubscribe')}
               </Button>

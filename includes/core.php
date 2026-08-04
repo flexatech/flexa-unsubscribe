@@ -121,6 +121,18 @@ function flexa_tech_su_block_unsubscribed_emails($args) {
                 $from_name,
                 $args['headers'] ?? ''
             );
+
+            /**
+             * Fires when an outbound email is blocked because its recipient
+             * has opted out.
+             *
+             * @since 3.1.6
+             *
+             * @param string $blocked_email The recipient address (sanitized)
+             *                               that caused the send to be blocked.
+             * @param string $subject       The subject of the blocked email.
+             */
+            do_action('flexa_unsubscribe_email_blocked', $blocked_email, $subject);
         }
     }
     
@@ -147,10 +159,24 @@ function flexa_tech_su_block_unsubscribed_emails($args) {
 }
 
 /**
+ * Resolve the secret key used to sign unsubscribe/resubscribe tokens.
+ *
+ * Defaults to WordPress's AUTH_KEY so behavior is unchanged out of the box.
+ * Sites can return their own stable key via the
+ * `flexa_unsubscribe_hmac_key` filter so existing links keep working even
+ * when AUTH_KEY is rotated.
+ *
+ * @return string
+ */
+function flexa_unsubscribe_hmac_key() {
+    return (string) apply_filters('flexa_unsubscribe_hmac_key', AUTH_KEY);
+}
+
+/**
  * Generate secure unsubscribe link
  */
 function flexa_generate_unsubscribe_link($email) {
-    $token = hash_hmac('sha256', $email, AUTH_KEY);
+    $token = hash_hmac('sha256', $email, flexa_unsubscribe_hmac_key());
     return add_query_arg([
         'flexa_action' => 'unsubscribe',
         'email' => urlencode($email),
@@ -162,7 +188,7 @@ function flexa_generate_unsubscribe_link($email) {
  * Generate secure re-subscribe link
  */
 function flexa_generate_resubscribe_link($email) {
-    $token = hash_hmac('sha256', $email, AUTH_KEY);
+    $token = hash_hmac('sha256', $email, flexa_unsubscribe_hmac_key());
     return add_query_arg([
         'flexa_action' => 'resubscribe',
         'email' => urlencode($email),

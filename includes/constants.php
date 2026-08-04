@@ -8,7 +8,12 @@ if (!defined('ABSPATH')) exit;
 // Plugin paths
 define('FLEXA_TECH_SU_PATH', plugin_dir_path(dirname(__FILE__)));
 define('FLEXA_TECH_SU_URL', plugin_dir_url(dirname(__FILE__)));
-define('FLEXA_TECH_SU_VERSION', '3.1.0');
+define('FLEXA_TECH_SU_VERSION', '3.1.7');
+
+// Public documentation site. Linked from the plugins-list row
+// (see flexa-unsubscribe.php) and the readme. Single source of
+// truth so the URL only changes in one place.
+define('FLEXA_TECH_SU_DOC_URL', 'https://unsubscribe-doc.flexacommerce.com/');
 
 // Schema version - bump whenever `flexa_tech_su_create_db()` gains a
 // new table, column, or index. The runner in `flexa-unsubscribe.php`

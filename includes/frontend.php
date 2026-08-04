@@ -30,7 +30,7 @@ function flexa_handle_unsubscribe_logic() {
             ? sanitize_text_field(wp_unslash((string) $_GET['token']))
             : '';
 
-        if ($email !== '' && $token !== '' && hash_equals(hash_hmac('sha256', $email, AUTH_KEY), $token)) {
+        if ($email !== '' && $token !== '' && hash_equals(hash_hmac('sha256', $email, flexa_unsubscribe_hmac_key()), $token)) {
             flexa_tech_su_save_unsubscribe($email, $token);
             $status = 'success';
         } else {
@@ -47,7 +47,7 @@ function flexa_handle_unsubscribe_logic() {
             ? sanitize_text_field(wp_unslash((string) $_GET['token']))
             : '';
 
-        if ($email !== '' && $token !== '' && hash_equals(hash_hmac('sha256', $email, AUTH_KEY), $token)) {
+        if ($email !== '' && $token !== '' && hash_equals(hash_hmac('sha256', $email, flexa_unsubscribe_hmac_key()), $token)) {
             $resubscribed = flexa_tech_su_resubscribe($email);
             $status = $resubscribed !== false ? 'success' : 'error';
         } else {

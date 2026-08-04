@@ -2,11 +2,11 @@
 /**
  * Plugin Name: Flexa Unsubscribe
  * Description: Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV import/export.
- * Version: 3.1.0
+ * Version: 3.1.7
  * Author: flexatech
  * Text Domain: flexa-unsubscribe
  * Requires at least: 5.8
- * Tested up to:      6.9
+ * Tested up to:      7.0
  * Requires PHP:      7.4
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -84,3 +84,39 @@ add_action('before_woocommerce_init', function () {
         \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('cart_checkout_blocks', __FILE__, true);
     }
 });
+
+// Plugins list row: prepend "Settings" + "Documentation" links so the
+// row reads `Settings | Documentation | Deactivate`. The Settings link
+// jumps straight to the React admin (slug `flexa-unsubscribe`, the
+// same admin URL the menu item opens). Documentation opens the public
+// doc site in a new tab.
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), function ($links) {
+    $settings_url = admin_url('admin.php?page=flexa-unsubscribe');
+    $extra = array(
+        'settings' => sprintf(
+            '<a href="%s">%s</a>',
+            esc_url($settings_url),
+            esc_html__('Settings', 'flexa-unsubscribe')
+        ),
+        'documentation' => sprintf(
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            esc_url(FLEXA_TECH_SU_DOC_URL),
+            esc_html__('Documentation', 'flexa-unsubscribe')
+        ),
+    );
+    return array_merge($extra, $links);
+});
+
+// Plugin row meta (the smaller text on the right of the row). Add
+// the doc link there too so it's reachable from either column,
+// matching what WP.org plugin reviewers expect for an external
+// docs reference.
+add_filter('plugin_row_meta', function ($links, $file) {
+    if ($file !== plugin_basename(__FILE__)) return $links;
+    $links[] = sprintf(
+        '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+        esc_url(FLEXA_TECH_SU_DOC_URL),
+        esc_html__('View documentation', 'flexa-unsubscribe')
+    );
+    return $links;
+}, 10, 2);

@@ -107,6 +107,7 @@ class ImportUnsubscribesRestController {
         // Strip a UTF-8 BOM if present - exports we ship include one, and
         // Excel always writes one. fgetcsv would otherwise leak it into
         // the first cell of the first row.
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fread -- streaming user upload row-by-row; WP_Filesystem has no fgetcsv equivalent.
         $first_three = fread($handle, 3);
         if ($first_three !== "\xEF\xBB\xBF") {
             rewind($handle);

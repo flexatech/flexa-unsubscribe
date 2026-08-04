@@ -885,3 +885,86 @@ msgstr "第 %d 行"
 #. translators: %d: number of additional errors not shown.
 msgid "… and %d more errors not shown."
 msgstr "… 还有 %d 个未显示的错误。"
+
+
+# --- 3.1.1: appended strings (untranslated) ---
+#. Description of the plugin
+#: flexa-unsubscribe.php
+msgid "Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV import/export."
+msgstr ""
+
+#: flexa-unsubscribe.php:104
+#: includes/Engine/Admin/Support.php:68
+msgid "Documentation"
+msgstr ""
+
+#: flexa-unsubscribe.php:119
+msgid "View documentation"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:43
+#: includes/Engine/Admin/Support.php:44
+#: includes/Engine/Admin/Support.php:60
+msgid "Support"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:63
+msgid "Thanks for using Flexa Unsubscribe. Below are the channels for documentation, custom development, and direct contact."
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:70
+msgid "Full user guide, REST API reference, and the changelog are hosted on the documentation site:"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:74
+msgid "Open documentation"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:85
+msgid "Need a custom build?"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:87
+msgid "Beyond what this plugin ships with, the team behind Flexa Unsubscribe takes on custom WordPress and WooCommerce work - bespoke booking systems, headless storefronts, plugin development, performance and rescue projects."
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:90
+msgid "Custom WooCommerce extensions and integrations"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:91
+msgid "Headless / API-driven storefronts"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:92
+msgid "Multi-resource booking, scheduling, allocation systems"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:93
+msgid "Site rescues, refactors, and deploy-pipeline setup"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:97
+msgid "See services &amp; pricing"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:104
+msgid "Direct contact"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:106
+msgid "WhatsApp is the fastest channel - usually a same-day reply during UTC+7 business hours. Lead with a one-paragraph problem statement; you do not need to have it scoped before reaching out."
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:109
+msgid "WhatsApp:"
+msgstr ""
+
+#: includes/Engine/Admin/Support.php:115
+msgid "Prefer email, Telegram, Signal, or a scheduled call? Mention it in the first message and we will switch."
+msgstr ""
+
+#. translators: %s: plugin version number
+#: includes/Engine/Admin/Support.php:123
+msgid "Flexa Unsubscribe v%s - by flexatech."
+msgstr ""

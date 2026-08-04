@@ -16,8 +16,9 @@ if (!defined('ABSPATH')) exit;
  * Authentication is HMAC-over-email (same scheme the unsubscribe
  * link itself uses) - visitors are logged out, so cookie nonces
  * aren't applicable. The permission callback verifies the token
- * against `AUTH_KEY` before the route handler runs; an invalid
- * token returns 403 with no DB write.
+ * against the HMAC key (`flexa_unsubscribe_hmac_key()`, which
+ * defaults to `AUTH_KEY`) before the route handler runs; an
+ * invalid token returns 403 with no DB write.
  *
  * Distinct path from the admin-side `/reasons` (plural) CRUD:
  * `/reason` (singular) is the public submit endpoint and never
@@ -66,7 +67,7 @@ class SaveReasonRestController {
             );
         }
 
-        $expected = hash_hmac('sha256', $email, AUTH_KEY);
+        $expected = hash_hmac('sha256', $email, \flexa_unsubscribe_hmac_key());
         if (!hash_equals($expected, $token)) {
             return new WP_Error(
                 'flexa_invalid_token',

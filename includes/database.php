@@ -146,8 +146,15 @@ function flexa_tech_su_get_unsubscribes_count() {
 
 /**
  * Save unsubscribe record
+ *
+ * @param string $email  Recipient address to opt out.
+ * @param string $token  HMAC token stored alongside the record.
+ * @param string $reason Optional reason. The public unsubscribe link opts
+ *                       out first and records the reason in a follow-up REST
+ *                       request, so link-based opt-outs pass ''; programmatic
+ *                       callers may supply one up front.
  */
-function flexa_tech_su_save_unsubscribe($email, $token) {
+function flexa_tech_su_save_unsubscribe($email, $token, $reason = '') {
     global $wpdb;
 
     $email = sanitize_email($email);
@@ -155,10 +162,34 @@ function flexa_tech_su_save_unsubscribe($email, $token) {
         return false;
     }
 
-    return $wpdb->replace(FLEXA_TECH_SU_TABLE, [
+    $reason = sanitize_text_field($reason);
+
+    $data = [
         'email' => $email,
-        'token' => $token
-    ]);
+        'token' => $token,
+    ];
+    if ($reason !== '') {
+        $data['reason'] = $reason;
+    }
+
+    $result = $wpdb->replace(FLEXA_TECH_SU_TABLE, $data);
+
+    if ($result !== false) {
+        /**
+         * Fires immediately after an email address is recorded as
+         * unsubscribed (opted out).
+         *
+         * @since 3.1.6
+         *
+         * @param string $email  The unsubscribed email address (sanitized).
+         * @param string $reason Reason for opting out, or '' when the visitor
+         *                       has not yet completed the reason survey shown
+         *                       on the public unsubscribe page.
+         */
+        do_action('flexa_unsubscribe_unsubscribed', $email, $reason);
+    }
+
+    return $result;
 }
 
 /**
@@ -319,15 +350,29 @@ function flexa_tech_su_resubscribe($email) {
     
     if ($exists > 0) {
         // Update existing record
-        return $wpdb->update(
+        $result = $wpdb->update(
             $table_name,
             ['resubscribed_at' => current_time('mysql')],
             ['email' => $email],
             ['%s'],
             ['%s']
         );
+
+        if ($result !== false) {
+            /**
+             * Fires immediately after an email address is re-subscribed
+             * (opted back in).
+             *
+             * @since 3.1.6
+             *
+             * @param string $email The re-subscribed email address (sanitized).
+             */
+            do_action('flexa_unsubscribe_resubscribed', $email);
+        }
+
+        return $result;
     }
-    
+
     return false;
 }
 
