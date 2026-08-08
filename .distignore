@@ -13,6 +13,7 @@ apps/
 # FLEXA_TECH_SU_IS_DEVELOPMENT is true (always false in a release).
 includes/Register/RegisterDev.php
 docs-site/
+docs/
 phpcs.xml
 log.xml
 composer.json
