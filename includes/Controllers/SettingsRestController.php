@@ -54,14 +54,12 @@ class SettingsRestController {
 
     /**
      * Appearance fields whose value renders as HTML on the public
-     * page (so wp_kses_post is applied on save). The legacy templates
-     * echo these unescaped; everything else is escaped at output.
-     *
-     *   templates/unsubscribe-page.php lines 76, 121 - success_message
-     *   + error_message are echoed with `<?php echo $var; ?>` (no
-     *   esc_html). thank_you_message and resubscribe_message are
-     *   esc_html'd on output, so they render as plain text even if
-     *   the admin types HTML - no point letting HTML through save.
+     * page (so wp_kses_post is applied on save). The templates output
+     * these through `wp_kses_post()` (templates/unsubscribe-page.php:102,139;
+     * templates/resubscribe-page.php:75), so the same `post` HTML subset
+     * is enforced on both save and render. Everything else is escaped
+     * with esc_html at output, so those render as plain text even if the
+     * admin types HTML - no point letting HTML through save.
      */
     private const APPEARANCE_HTML_FIELDS = [
         'success_message',

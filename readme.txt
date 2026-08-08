@@ -4,7 +4,7 @@ Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.1.7
+Stable tag: 3.1.8
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,7 @@ The plugin ships with minified/compiled JavaScript and CSS in `assets/dist/`. Th
 
 https://github.com/flexatech/flexa-unsubscribe
 
-Source lives in the `apps/admin` (admin UI) and `apps/frontend` (product page UI) directories. Build tools used: **pnpm**, **Vite**, **React**, **TypeScript**. To build from source: clone the repository, run `pnpm install` from the plugin root, then build the admin and frontend apps (see the repository README for exact commands). This allows the code to be reviewed, studied, and forked.
+Source lives in the `apps/admin` (admin UI) directory. Build tools used: **pnpm**, **Vite**, **React**, **TypeScript**. To build from source: clone the repository, run `pnpm install` in `apps/admin`, then `pnpm build` (see the repository README for exact commands). This allows the code to be reviewed, studied, and forked.
 
 
 **Documentation**
@@ -84,6 +84,11 @@ Example: add_action( 'flexa_unsubscribe_unsubscribed', 'my_sync_optout', 10, 2 )
 6. **Blocked Emails** - audit log of send attempts that were stopped because the recipient had opted out - it is not the opt-out list itself.
 
 == Changelog ==
+
+= 3.1.8 =
+* **i18n:** Removed the manual `load_plugin_textdomain()` call. WordPress loads translations just-in-time for the plugin slug (language packs + bundled `languages/` files), so the call was redundant and flagged by Plugin Check.
+* **Packaging:** Exclude the dev-only Vite HMR registration (`RegisterDev.php`) from the distributed build so the WordPress.org Plugin Check no longer flags its dev-only inline script.
+* **Docs:** Correct the source-code build instructions in the readme (single `apps/admin` app) and clarify a code comment about how the public unsubscribe/re-subscribe templates sanitize HTML message fields.
 
 = 3.1.7 =
 * **New:** Added three developer action hooks so external plugins can react to opt-out events: `flexa_unsubscribe_unsubscribed` (fires with the email and reason when an address opts out), `flexa_unsubscribe_resubscribed` (fires with the email when an address opts back in), and `flexa_unsubscribe_email_blocked` (fires with the recipient and subject when an outbound email is blocked). See the FAQ for signatures and usage.

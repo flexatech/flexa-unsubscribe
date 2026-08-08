@@ -7,6 +7,11 @@
 .claude/
 node_modules/
 apps/
+
+# Dev-only Vite HMR registration - emits a raw inline <script> that WP
+# Plugin Check flags statically even though it only runs when
+# FLEXA_TECH_SU_IS_DEVELOPMENT is true (always false in a release).
+includes/Register/RegisterDev.php
 docs-site/
 phpcs.xml
 log.xml

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Flexa Unsubscribe
  * Description: Professional email unsubscribe management with HMAC tokens, auto-append logic, and CSV import/export.
- * Version: 3.1.7
+ * Version: 3.1.8
  * Author: flexatech
  * Text Domain: flexa-unsubscribe
  * Requires at least: 5.8
@@ -40,18 +40,13 @@ require_once FLEXA_TECH_SU_PATH . 'includes/settings.php';
 require_once FLEXA_TECH_SU_PATH . 'includes/frontend.php';
 require_once FLEXA_TECH_SU_PATH . 'includes/admin.php';
 
-// Load translations. Hooked on `init` (not `plugins_loaded`) so that on
-// WP 6.7+ the call doesn't trip the `_load_textdomain_just_in_time`
-// doing_it_wrong notice, while still covering WP 5.8-6.6 where the
-// just-in-time loader isn't available. Bundled .mo/.json live in
-// `languages/`; a wp-content/languages/plugins/ override still wins.
-add_action('init', function () {
-    load_plugin_textdomain(
-        'flexa-unsubscribe',
-        false,
-        dirname(plugin_basename(__FILE__)) . '/languages'
-    );
-});
+// No manual load_plugin_textdomain() call: it has been discouraged since
+// WordPress 4.6. WordPress loads translations for the plugin's own slug
+// just-in-time - from WordPress.org language packs and from the bundled
+// `languages/` .mo/.json files - the first time a translation function
+// runs, so an explicit call is redundant and flagged by Plugin Check.
+// JS string translations are still wired up per-handle via
+// wp_set_script_translations() in the Register\* classes.
 
 // Activation hook
 register_activation_hook(__FILE__, 'flexa_tech_su_create_db');

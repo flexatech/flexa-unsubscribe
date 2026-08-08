@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) exit;
 // Plugin paths
 define('FLEXA_TECH_SU_PATH', plugin_dir_path(dirname(__FILE__)));
 define('FLEXA_TECH_SU_URL', plugin_dir_url(dirname(__FILE__)));
-define('FLEXA_TECH_SU_VERSION', '3.1.7');
+define('FLEXA_TECH_SU_VERSION', '3.1.8');
 
 // Public documentation site. Linked from the plugins-list row
 // (see flexa-unsubscribe.php) and the readme. Single source of
