@@ -2,9 +2,9 @@
 Contributors: flexatech
 Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.1.8
+Stable tag: 3.1.9
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,9 @@ Example: add_action( 'flexa_unsubscribe_unsubscribed', 'my_sync_optout', 10, 2 )
 6. **Blocked Emails** - audit log of send attempts that were stopped because the recipient had opted out - it is not the opt-out list itself.
 
 == Changelog ==
+
+= 3.1.9 =
+* **Compatibility:** Tested against WordPress 7.1 and bumped "Tested up to" to 7.1. No code changes were required - the plugin's admin app (Radix + Tailwind, `@wordpress/i18n` only) is unaffected by the 7.1 `@wordpress/components` and jQuery UI updates, and the plugin does not touch the post editor, media processing, or the editor toolbar.
 
 = 3.1.8 =
 * **i18n:** Removed the manual `load_plugin_textdomain()` call. WordPress loads translations just-in-time for the plugin slug (language packs + bundled `languages/` files), so the call was redundant and flagged by Plugin Check.
