@@ -2,7 +2,7 @@
 Contributors: flexatech
 Tags: unsubscribe, email, mailing list, gdpr, opt-out
 Requires at least: 5.8
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
 Stable tag: 3.1.9
 License: GPL v2 or later
